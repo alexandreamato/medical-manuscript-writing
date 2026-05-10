@@ -7,8 +7,8 @@
 # Requirements:
 #   - gh CLI installed and authenticated (run `gh auth login` once if not).
 #     Install on Mac: brew install gh
-#   - Run this script from the skill folder root:
-#     cd ~/Downloads/Research-Paper-Writing-Skills-main/research-paper-writing
+#   - Run this script from the skill folder root, e.g.:
+#     cd "$HOME/Amato Dropbox/Alexandre Amato/Projects/Informatica/skills/medical-manuscript-writing"
 set -euo pipefail
 
 REPO_NAME="${1:-medical-manuscript-writing}"
