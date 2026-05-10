@@ -1,0 +1,5 @@
+interface:
+  display_name: "Medical Manuscript Writing"
+  short_description: "Biomedical manuscript writing and section-level refinement (IMRaD, CARE, PRISMA, STROBE, CONSORT, STARD)"
+  default_prompt: "Use $medical-manuscript-writing to improve my manuscript's structure, flow, and section writing quality."
+  author: "Alexandre Campos Moraes Amato"
