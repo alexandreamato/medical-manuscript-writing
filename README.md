@@ -5,6 +5,67 @@ A Claude skill for writing and revising medical and biomedical manuscripts of an
 **Author:** Alexandre Campos Moraes Amato
 **License:** see LICENSE file in this repository
 
+## Installation
+
+Three install formats are available. Pick the one that matches your environment.
+
+| Format | Where it runs |
+| --- | --- |
+| **Claude.ai upload** | Claude.ai web or desktop app (Pro, Max, Team, Enterprise) |
+| **Local skill** | Claude Code or Cowork — personal Mac/Linux/Windows |
+| **Plugin** | Claude Code plugin for team or marketplace distribution |
+
+All three contain the same skill content; only the packaging differs. Pre-built zips are in [`dist/`](dist/).
+
+### 1. Claude.ai (web or desktop)
+
+1. Open Claude.ai → click your initials → **Settings** → **Capabilities** → **Skills**.
+2. Click **Upload skill**.
+3. Upload `dist/medical-manuscript-writing-claudeai.zip`.
+
+To invoke it, ask Claude: *"Use the medical manuscript writing skill to draft the Methods section of my RCT."*
+
+To update, upload the same zip again — Claude.ai replaces the existing entry.
+
+### 2. Claude Code — local skills folder
+
+```bash
+curl -L https://github.com/alexandreamato/medical-manuscript-writing/archive/refs/heads/main.zip -o mmw.zip
+unzip mmw.zip
+mkdir -p ~/.claude/skills
+mv medical-manuscript-writing-main ~/.claude/skills/medical-manuscript-writing
+```
+
+Restart Claude Code (or open a new session), then run `/skills` — the skill should appear in the list.
+
+To update later:
+
+```bash
+rsync -a --delete medical-manuscript-writing/ ~/.claude/skills/medical-manuscript-writing/
+```
+
+### 3. Claude Code plugin (team / marketplace)
+
+```bash
+unzip dist/medical-manuscript-writing-plugin.zip
+/plugin install ./medical-manuscript-writing-plugin
+```
+
+Or install directly from this repository:
+
+```bash
+/plugin marketplace add alexandreamato/medical-manuscript-writing
+/plugin install medical-manuscript-writing
+```
+
+### Verifying the install
+
+Ask Claude: *"List the section guides in the medical-manuscript-writing skill."*
+
+A correctly loaded skill returns the five Section Guide groups from `SKILL.md` (Section guides; Article types; Cross-cutting standards; Form, format, and presentation; Writing quality and process).
+
+---
+
 ## What this skill does
 
 The skill guides authors through every stage of manuscript writing — from drafting through critical self-reading, formal pre-submission review, and responding to reviewers — aligned with the relevant reporting standard for the study type (CONSORT, STROBE, PRISMA, STARD, CARE, TRIPOD, ARRIVE, SPIRIT).
