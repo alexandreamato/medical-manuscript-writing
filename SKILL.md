@@ -41,6 +41,18 @@ Find your situation and follow the suggested reading order:
 | **Changing target journal after a rejection** | `docx-build.md` (new profile, `validate.py --compare`) → `paper-review.md` |
 | **Pre-submission final pass** | `paper-review.md` → `manuscript-conventions.md` → `reporting-standards.md` (adherence statement) → `ethics-and-integrity.md` |
 
+## Match the Work to the Request
+
+Decide the mode first. The size of the answer follows the size of the request, not the size of this skill.
+
+| Mode | Typical request | Do | Deliver |
+| --- | --- | --- | --- |
+| **Point edit** | "Improve this paragraph", "fix the flow here", "shorten this sentence" | Apply the Integrity Rules and the relevant section guide to that text only. Do not re-audit the paper. | The revised text, plus only the notes the author needs: a claim you weakened, a citation you could not verify, a number that conflicts with another section. |
+| **Section revision** | "Revise my Methods", "draft the Discussion" | Core Workflow steps 1 to 6 for that section. | The Output Contract below. |
+| **Submission preparation** | "Is this ready to submit?", "review the whole manuscript", "prepare for journal X" | Full Core Workflow, including the adversarial review (`references/paper-review.md`). | The revised manuscript and, **as a separate document**, the audit (see Stopping Rule). Never append the audit to the text meant for the journal. |
+
+When the mode is unclear, use the smaller one and offer the larger.
+
 ## Core Workflow
 
 1. Identify the study type and the matching reporting standard before any sentence-level edit (`references/reporting-standards.md`, `references/study-types.md`).
@@ -48,18 +60,32 @@ Find your situation and follow the suggested reading order:
 3. Use section-specific guidance in `references/`.
 4. Rewrite paragraph-by-paragraph with one message per paragraph.
 5. Run reverse outlining after writing each section.
-6. Check every claim in Title/Abstract/Introduction/Discussion against the Results and the prespecified analysis plan.
-7. Run an adversarial pre-submission review with `references/paper-review.md`.
+6. Check every claim against the evidence its type requires (Integrity Rule 2): prior knowledge against the literature, the study's own findings against the Results and the prespecified analysis plan, interpretations against both.
+7. For submission preparation, run the adversarial review with `references/paper-review.md`.
 
-## Hard Rules (Never Violate)
+## Integrity Rules (Never Violate)
 
-These are non-negotiable. They reflect the most common reasons medical manuscripts get desk-rejected or returned for major revision.
+These protect the science. No journal, deadline, or user preference overrides them.
 
-1. **Never fabricate or hallucinate references.** Every citation must point to a real, verifiable publication. If a fact is uncertain, mark it `[CITATION NEEDED]` and let the author resolve it; never invent an author, year, journal, or DOI to fill the gap.
-2. **Cite every table and figure in the text, in the exact order they appear.** Tables and figures are numbered by their first mention in the body text (Table 1 must be cited before Table 2; Figure 2 must be cited before Figure 3). After drafting, scan the manuscript and verify the order.
-3. **References must be numbered or ordered consistently with the citation style.** Always check the target journal's Instructions to Authors first. **If the journal has not yet been chosen, default to Vancouver** (the ICMJE-recommended numeric style used by most major medical journals — NEJM, Lancet, BMJ, Annals, Nature Medicine). For Vancouver, references are numbered in order of first appearance in the text; renumber when sentences move. For AMA, APA, Harvard, Chicago, and other styles, see `references/citation-styles.md`.
-4. **Do not use the em-dash (`—`) or en-dash inside body sentences.** Replace with a comma, semicolon, parenthesis, or a full stop. (Hyphens in compound terms such as `placebo-controlled` are fine. Numeric ranges should use `to`: write `12 to 18 months`, not `12—18 months`.) **Exception:** the target journal's style wins. If its instructions or recent articles print ranges with an en-dash (`95% CI 0.55–0.94`), follow them consistently throughout; never use the dash with a negative bound (`-0.4 to 0.2`), and never mix the two forms. Details in `references/manuscript-conventions.md` §3.1.
-5. **Default output format is Word (.docx), and the .docx is generated, never hand-edited.** Keep the text as Markdown sections, references as CSL-JSON cited by key (`[@key]`, never a typed number), and the journal's rules in a profile; build the .docx with pandoc (`templates/build-kit/`, workflow in `references/docx-build.md`). This keeps citation and figure/table numbering correct after every edit, validates word limits and required sections per journal, and makes changing journal a rebuild. Add references only through `scripts/refs.py add <DOI|PMID>`, never by typing bibliographic data. If the user cannot run pandoc, produce the .docx another way but apply the same conventions (double spacing, line numbers, the journal's reference style, tables/figures placed as the journal requires).
+1. **Never fabricate or hallucinate references, data, or results.** Every citation points to a real, verifiable source. If a statement has no source you can verify, mark it `[CITATION NEEDED]` and let the author resolve it; never invent an author, year, journal, DOI, number, or finding to fill the gap. A source without a DOI or PMID (a guideline on an institutional site, software documentation, a book, a report) is acceptable once checked against the source itself and recorded with its official URL or ISBN.
+2. **Every claim is supported by the evidence its type requires.**
+   - *Prior knowledge* (context, burden, what earlier studies found; mostly Introduction and Discussion) needs a citation to a source that says it.
+   - *This study's findings* (anything "we found"; Abstract, Results, Discussion, Conclusion) must match the Results, tables, and figures exactly, and come from the prespecified analysis or be labelled exploratory.
+   - *Interpretation* (what the findings mean, how they compare, implications) must follow from this study's results and the cited literature together, with language proportional to the design (associative for observational studies).
+
+   A claim that lacks its kind of evidence is weakened, sourced, or removed. Do not delete a well-sourced background statement because the Results do not address it.
+3. **Stay faithful to the data and the prespecified protocol.** Do not change numbers, outcomes, analysis populations, or the primary question to make the text read better. Editorial changes and scientific changes are different: propose scientific ones to the authors, never make them silently.
+
+## Submission Conventions (Defaults; the Journal's Instructions Override)
+
+These are house defaults. Apply them unless the target journal, or the author, specifies otherwise.
+
+1. **Tables and figures are cited in the text in numerical order.** Table 1 is the first table mentioned, Figure 2 is cited before Figure 3. After drafting, scan the manuscript and verify the order.
+2. **Reference style follows the journal; Vancouver when none is chosen** (the ICMJE-recommended numeric style used by NEJM, Lancet, BMJ, Annals, Nature Medicine). For Vancouver, references are numbered in order of first appearance; renumber when sentences move. Other styles: `references/citation-styles.md`.
+3. **No em-dash (`—`) or en-dash inside body sentences.** Use a comma, semicolon, parenthesis, or full stop; write ranges as `12 to 18 months`. Hyphens in compound terms (`placebo-controlled`) are fine. **Exception:** the target journal's style wins. If its instructions or recent articles print ranges with an en-dash (`95% CI 0.55–0.94`), follow them consistently; never use the dash with a negative bound (`-0.4 to 0.2`) and never mix the two forms. Details: `references/manuscript-conventions.md` §3.1.
+4. **Deliver Word (.docx)** formatted as the journal requires (double spacing, line numbers, reference style, tables and figures placed per its instructions). Two ways to get there, chosen by the situation, not imposed:
+   - **Editing an existing Word file** (the common case for revision requests): work in that file's flow. Return revised text or a revised .docx; do not convert the author's document into a new system unless asked.
+   - **New manuscript, or when the author asks for it:** use the build kit (`templates/build-kit/`, workflow in `references/docx-build.md`). Text as Markdown, references as CSL-JSON cited by key and added through `scripts/refs.py`, journal rules in a profile, .docx generated by pandoc. It keeps citation and figure numbering correct after every edit and makes changing journal a rebuild. Offer it when a manuscript will go through many revisions or several journals.
 
 See `references/manuscript-conventions.md` for the full list, including dash usage, citation ordering, figure/table referencing, and .docx export guidance.
 
@@ -145,17 +171,35 @@ Load only the file you need. The references are organized in five groups:
 
 ## Pre-Submission Review Core Points
 
-Use `references/paper-review.md` for the full checklist and workflow.
+For submission preparation only. Use `references/paper-review.md` for the full checklist and workflow.
 
-1. Append an end-of-draft self-review across five rejection dimensions:
+1. Review across five rejection dimensions:
    - clinical relevance and contribution,
    - writing clarity and reproducibility,
    - methodological rigor (design, bias, confounding, statistics),
    - completeness of reporting against the relevant checklist,
    - safety, ethics, and integrity.
-2. Treat claim–evidence alignment as a hard constraint, especially in Title, Abstract, Introduction, and Discussion.
+2. Treat claim–evidence alignment (Integrity Rule 2) as a hard constraint.
 3. Read the manuscript twice as a skeptical methodologist and once as a skeptical clinician.
-4. Revise until every high-risk reviewer concern is explicitly addressed in the text or rebutted with prespecified evidence.
+4. Apply the Stopping Rule below.
+
+## Stopping Rule
+
+Writing can fix writing; it cannot fix a design limitation or a missing analysis. Stop revising when:
+
+1. every editorial problem found (clarity, structure, claim wording, reporting items that the existing data can satisfy, formatting) has been corrected in the text; and
+2. every remaining problem is listed for the authors, not argued away in prose.
+
+Deliver the remaining problems separately from the manuscript, grouped by what resolving them requires:
+
+| Needs | Examples |
+| --- | --- |
+| New data | Missing follow-up, unmeasured confounder, outcome not collected |
+| New or changed analysis | Sensitivity analysis a reviewer will ask for, competing-risk model, multiplicity correction |
+| An author decision | Which journal, whether to reframe the primary question, whether to report a post hoc finding |
+| Information only the authors have | Registration number, ethics approval, funding, author contributions |
+
+A design limitation that cannot be fixed is stated honestly in the Limitations paragraph and then left alone; revising further does not reduce the risk.
 
 ## Execution Rules
 
@@ -164,14 +208,20 @@ Use `references/paper-review.md` for the full checklist and workflow.
 3. Avoid framing the work as an incremental tweak of a single prior study; place it in the broader evidence base.
 4. Keep terminology stable across the full paper (intervention name, exposure definition, outcome definition, analysis population).
 5. If a claim cannot be supported by the prespecified analysis, weaken it, move it to "exploratory", or remove it.
-6. Before finalizing, append and answer the five-dimension self-review list (`references/paper-review.md`); revise unresolved items.
+6. For submission preparation, answer the five-dimension self-review (`references/paper-review.md`) and deliver it separately from the manuscript, following the Stopping Rule.
 7. Do not load all section references at once; load only the guide needed for the current edit target.
 
 ## Output Contract
 
-When asked to rewrite or draft sections, return:
+Scaled to the mode (see Match the Work to the Request).
 
-1. A compact section outline (3–7 bullets) mapped to the relevant reporting checklist items.
-2. Revised paragraphs labeled with explicit roles (knowledge gap / aim / hypothesis / design / population / intervention or exposure / outcomes / statistics / primary result / secondary result / sensitivity / strength / limitation / implication).
-3. A short self-review checklist covering clarity, terminology, unsupported claims, missing evidence, and reporting-standard items.
-4. A claim–evidence map for each major claim using `Claim: ... | Evidence: ... (table/figure/section, statistic) | Status: supported / needs evidence / overstated`.
+**Point edit:** the revised text, then at most a few lines of notes, only for what the author must know or decide. No outline, no role labels, no checklist.
+
+**Section revision:**
+
+1. A compact section outline (3 to 7 bullets) mapped to the relevant reporting checklist items.
+2. The revised section. Label paragraph roles (knowledge gap / aim / hypothesis / design / population / intervention or exposure / outcomes / statistics / primary result / secondary result / sensitivity / strength / limitation / implication) only when the author asks for them or the structure was the problem.
+3. A short list of open issues: unsupported claims, missing evidence, reporting items the text cannot yet satisfy.
+4. A claim–evidence map for the claims that changed or remain doubtful: `Claim: ... | Type: prior knowledge / own finding / interpretation | Evidence: ... (citation, or table/figure/section and statistic) | Status: supported / needs evidence / overstated`.
+
+**Submission preparation:** the revised manuscript, and a separate audit containing the claim–evidence map for all major claims, the reporting-checklist mapping, and the remaining problems grouped as in the Stopping Rule.

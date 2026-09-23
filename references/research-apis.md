@@ -19,7 +19,7 @@ For PubMed-specific basics (Boolean operators, MeSH, field tags, Clinical Querie
 
 In medical-manuscript writing, APIs help with concrete tasks:
 
-1. **Verifying that a citation exists** before adding it to the reference list (Hard Rule #1: never invent a reference).
+1. **Verifying that a citation exists** before adding it to the reference list (Integrity Rule 1: never invent a reference).
 2. **Resolving a DOI to a complete citation** with NLM-correct journal abbreviation, author list, and year.
 3. **Building a bibliography from PubMed IDs or DOIs** in bulk.
 4. **Discovering related work** when starting a literature review.
@@ -231,7 +231,7 @@ curl "https://opencitations.net/index/coci/api/v1/citations/10.1056/NEJMoa190865
 
 ## Anti-Fabrication and Rate-Limit Discipline
 
-These APIs let you **verify** every citation against an authoritative source, which directly supports the skill's Hard Rule #1: never fabricate a reference.
+These APIs let you **verify** every citation against an authoritative source, which directly supports the skill's Integrity Rule 1: never fabricate a reference.
 
 Operational checklist for any tool that touches these APIs:
 
@@ -262,5 +262,5 @@ Operational checklist for any tool that touches these APIs:
 
 1. **PubMed search basics** (interactive use): `references/pubmed-essentials.md`.
 2. **Citation styles** that these APIs feed into: `references/citation-styles.md`.
-3. **Hard Rule on never inventing references**: `SKILL.md`, `references/manuscript-conventions.md`, `references/common-mistakes.md`.
+3. **Integrity Rule on never inventing references**: `SKILL.md`, `references/manuscript-conventions.md`, `references/common-mistakes.md`.
 4. **External skill for Claude Code with Chrome DevTools MCP-based PubMed automation**: https://github.com/cookjohn/pm-skills.

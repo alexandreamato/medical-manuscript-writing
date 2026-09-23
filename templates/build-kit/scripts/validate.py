@@ -210,28 +210,45 @@ def validate(prof: dict, doc: dict) -> tuple[Report, dict]:
         rep.error("references", f"{len(uniq)} cited; limit {rmax}")
     seen_doi: dict[str, str] = {}
     verified = C.load_verified()
+    max_age = prof.get("references", {}).get("reverify_after_days", 90)
     for rid in uniq:
         r = refs.get(rid)
         if not r:
             continue
         doi, pmid = (r.get("DOI") or "").lower(), r.get("PMID")
-        if not doi and not pmid:
-            lvl = rep.error if prof.get("references", {}).get("require_identifier") else rep.warn
-            lvl("references", f"{rid} has neither DOI nor PMID, so it cannot be verified")
+        v = verified.get(rid) or {}
+        current = v.get("fingerprint") == C.ref_fingerprint(r)
+        st = v.get("status") if current else None
         if doi:
             if doi in seen_doi:
                 rep.error("references", f"{rid} and {seen_doi[doi]} are the same DOI (duplicate entry)")
             seen_doi[doi] = rid
-        v = verified.get(rid)
-        if not v or v.get("fingerprint") != C.ref_fingerprint(r):
-            rep.warn("references", f"{rid} not verified against Crossref/PubMed "
+        if not doi and not pmid and st != "manual":
+            # A source without DOI/PMID is fine once someone has checked it and said how.
+            lvl = rep.error if prof.get("references", {}).get("require_identifier") else rep.warn
+            lvl("references", f"{rid} has no DOI or PMID and no manual verification "
+                              "(`refs.py confirm` after checking the source)")
+            continue
+        if st is None:
+            rep.warn("references", f"{rid} not verified since it was added or edited "
                                    "(run `python3 scripts/refs.py verify`)")
-        elif v.get("status") == "retracted":
-            rep.error("references", f"{rid} is RETRACTED ({v.get('notes')})")
-        elif v.get("status") not in ("ok", "corrected"):
-            rep.error("references", f"{rid}: verification status '{v.get('status')}' ({v.get('notes')})")
-        elif v.get("status") == "corrected":
-            rep.warn("references", f"{rid} has a published correction ({v.get('notes')}); cite it if relevant")
+            continue
+        try:
+            age = (dt.date.today() - dt.date.fromisoformat(v.get("checked_at", ""))).days
+        except ValueError:
+            age = max_age + 1
+        note = f" ({v.get('notes')})" if v.get("notes") else ""
+        if st in ("retracted", "mismatch", "not_found"):
+            rep.error("references", f"{rid}: {st.upper().replace('_', ' ')}{note}")
+        elif st in ("incomplete", "unverifiable", "stale"):
+            rep.warn("references", f"{rid}: verification {st}{note}; re-run `refs.py verify`")
+        elif st == "check":
+            rep.warn("references", f"{rid}: look at it by eye{note}")
+        elif st == "corrected":
+            rep.warn("references", f"{rid} has a published correction{note}; cite it if relevant")
+        if st in ("ok", "corrected", "check", "manual") and age > max_age:
+            rep.warn("references", f"{rid}: last verified {age} days ago; re-run `refs.py verify` "
+                                   "(retractions happen after publication)")
 
     # ---- figures and tables
     xcited = [c for c in C.citations(doc) if c.split(":")[0] in C.XREF_PREFIXES]
@@ -273,7 +290,7 @@ def validate(prof: dict, doc: dict) -> tuple[Report, dict]:
             rep.error(f"section {sid}", f"placeholder left in text: {m.group(0)!r}")
         if not style.get("allow_em_dash", False):
             for m in re.finditer(r"\S+ ?— ?\S+", txt):
-                rep.warn(f"section {sid}", f"em-dash inside a sentence: '{m.group(0)}' (hard rule 4)")
+                rep.warn(f"section {sid}", f"em-dash inside a sentence: '{m.group(0)}' (SKILL.md, Submission Convention 3)")
         if not style.get("allow_en_dash_ranges", False):
             for m in re.finditer(r"\d\s?–\s?\d", txt):
                 rep.warn(f"section {sid}", f"en-dash range '{m.group(0)}': write 'to', or set "
@@ -315,8 +332,8 @@ def validate(prof: dict, doc: dict) -> tuple[Report, dict]:
         rep.human("reporting", f"{guideline} checklist: map every item to a page/section and upload it.")
     else:
         rep.warn("reporting", "set `study-design` in metadata.yaml to pick the reporting guideline")
-    rep.human("claims", "every claim in Title/Abstract/Discussion is supported by Results "
-                        "(claim-evidence map, references/paper-review.md)")
+    rep.human("claims", "each claim has the evidence its type needs: prior knowledge a citation, "
+                        "own findings the Results, interpretation both (references/paper-review.md)")
     rep.human("citations", "each citation supports the exact sentence it is attached to "
                            "(existence is verified by refs.py, support is not)")
     for extra in prof.get("human_checks", []):

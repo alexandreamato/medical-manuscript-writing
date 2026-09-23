@@ -10,7 +10,12 @@ Pursue calibrated honesty: assume reviewers will probe every claim, every number
 
 ## Critical Rules (Do Not Violate)
 
-1. **Every claim — especially in the Title, Abstract, Introduction, and Discussion — must be technically correct and explicitly supported by the Results.** If not, weaken the claim or remove it.
+1. **Every claim is technically correct and supported by the evidence its type requires** (`SKILL.md`, Integrity Rule 2). Classify before judging:
+   - *Prior knowledge* (background, burden, earlier findings) is supported by a citation to a source that says it. The Results are irrelevant to it; do not remove a well-sourced background statement because this study did not test it.
+   - *This study's findings* are supported by the Results, tables, and figures, with the same numbers, from the prespecified analysis or labelled exploratory.
+   - *Interpretation* (meaning, comparison with other studies, implications) is supported by both, in language proportional to the design.
+
+   If a claim lacks its kind of evidence, source it, weaken it, or remove it.
 2. **Every reference is a real publication.** Verify each citation against PubMed / DOI / journal record before submission. Fabricated references are grounds for rejection and retraction.
 3. **Every table and figure is cited in the text in order of appearance.** Renumber after every revision pass.
 4. **Causal language matches the design.** RCTs may use causal verbs; observational studies use associative verbs.
@@ -113,9 +118,9 @@ Append this checklist to the working draft and answer each item before submissio
 1. Read the paper as a skeptical methodologist; mark every methodological gap.
 2. Read it again as a skeptical clinician; mark every overstated implication.
 3. Answer every question above with explicit evidence (paragraph, table, figure, page).
-4. Mark each item as `pass`, `needs revision`, or `needs new analysis`.
-5. Revise claims, writing, analyses, or scope accordingly.
-6. Repeat until no major rejection risk remains.
+4. Mark each item as `pass`, `needs revision` (fixable in the text), `needs new data or analysis`, or `needs author decision`.
+5. Fix every `needs revision` item in the text.
+6. Stop there (`SKILL.md`, Stopping Rule). List the other items for the authors in a separate document, grouped by what they need; do not keep rewriting to argue around a design limitation or a missing analysis, and do not append the audit to the manuscript meant for the journal.
 7. Finalize the reporting checklist and verify references.
 
 ## Common Specific Reasons Manuscripts Are Rejected

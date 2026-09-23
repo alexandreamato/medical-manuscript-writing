@@ -96,7 +96,7 @@ In the build kit, this is a per-journal switch: `"style": {"allow_en_dash_ranges
 
 ### 4.1 Default format: Microsoft Word (.docx)
 
-Most medical journals require Word `.docx` submission. **Generate the .docx; do not write it by hand.** Keep the text in Markdown, the references as CSL-JSON, the journal's rules in a profile, and let the build produce the file: `references/docx-build.md` explains the workflow, and `templates/build-kit/` is a ready-to-copy scaffold that applies every setting below automatically. The settings, for when a journal gives no template:
+Most medical journals require Word `.docx` submission. When revising an author's existing Word file, keep working in it. For a new manuscript, or when the author asks, generate the .docx from source files instead of formatting it by hand: `references/docx-build.md` explains the workflow, and `templates/build-kit/` is a ready-to-copy scaffold that applies every setting below automatically. The settings, for when a journal gives no template:
 
 1. **Page setup:** A4 or US Letter, 2.5 cm margins.
 2. **Font:** Times New Roman 12 pt for body text, 10 pt for tables and captions. (Some journals accept Arial 11 pt — check.)

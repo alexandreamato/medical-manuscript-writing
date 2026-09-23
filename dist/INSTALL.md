@@ -110,7 +110,7 @@ A correctly loaded skill returns the five Section Guide groups from `SKILL.md` (
 
 ## Updating
 
-The version is recorded in two places: `CHANGELOG.md` (current: `1.6.0` — 2026) and (plugin format only) `.claude-plugin/plugin.json`. `dist/build-zips.sh` reads the version from `CHANGELOG.md` and writes it into `plugin.json`, so bump only the changelog, then run `bash dist/build-zips.sh`.
+The version is recorded in two places: `CHANGELOG.md` (current: `1.6.1` — 2026) and (plugin format only) `.claude-plugin/plugin.json`. `dist/build-zips.sh` reads the version from `CHANGELOG.md` and writes it into `plugin.json`, so bump only the changelog, then run `bash dist/build-zips.sh`.
 
 ## License
 

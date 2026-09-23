@@ -2,6 +2,28 @@
 
 All notable changes to the **Medical Manuscript Writing** skill are documented here. Format follows Keep a Changelog (https://keepachangelog.com/) using semantic-style versioning by content scope rather than strict semver.
 
+## [1.6.1] — 2026
+
+Responds to an external review of 1.6.0.
+
+### Changed
+
+- `SKILL.md`: new "Match the Work to the Request" section with three modes (point edit, section revision, submission preparation); the Output Contract scales to the mode, so a paragraph edit returns the paragraph and only the necessary notes.
+- `SKILL.md`: "Hard Rules" split into **Integrity Rules** (never violate: no fabricated references, data or results; claims supported by the evidence their type requires; fidelity to data and protocol) and **Submission Conventions** (defaults the journal overrides: figure/table order, reference style, dashes, .docx delivery).
+- Claim–evidence rule rewritten by claim type (`SKILL.md` Integrity Rule 2, `references/paper-review.md` rule 1): prior knowledge needs a citation, the study's own findings need the Results, interpretation needs both. The old wording ("supported by the Results", including the Introduction) could lead to deleting well-sourced background. The claim–evidence map gains a `Type` field.
+- The build kit is a working mode, not a requirement: revising an existing Word file stays in that file (`SKILL.md` Submission Convention 4, `references/docx-build.md` "When to use it", `references/manuscript-conventions.md` §4.1).
+- New **Stopping Rule** (`SKILL.md`, `references/paper-review.md`): stop when editorial problems are fixed; deliver the rest separately, grouped by what it needs (new data, new analysis, author decision, author information). The audit is never appended to the text meant for the journal.
+
+### Fixed
+
+- `refs.py verify`: a PMID-only reference is now checked for year and first author against PubMed, not only the title (a wrong year and author used to pass as `ok`). An unreachable source gives `incomplete` and exit code 3 instead of being skipped with exit 0. Verifications expire after 90 days (`--max-age`) and are re-run, because retractions come after publication. New `check` status for a one-year gap or a missing field.
+- `validate.py` reports the new statuses (ERROR for mismatch/not found/retracted; WARN for incomplete, check, expired).
+
+### Added
+
+- `refs.py add-manual` and `refs.py confirm` for real sources without DOI or PMID (guidelines, software documentation, books, reports): official URL or ISBN, metadata from the source, who checked and what was compared; stored as `manual`, expiring like automatic checks. `[CITATION NEEDED]` is kept for statements with no source at all.
+- `templates/build-kit/scripts/tests/test_refs.py`: 11 tests with simulated Crossref/PubMed answers (wrong year/author with PMID only, network failure, one source unreachable, retraction, one-year gap, expiry, manual references, validator levels).
+
 ## [1.6.0] — 2026
 
 ### Added

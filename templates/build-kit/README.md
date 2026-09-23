@@ -32,6 +32,9 @@ The kit ships with a **fictional** cohort example that builds cleanly. Replace t
 python3 scripts/refs.py add 10.1016/S0140-6736(07)61602-X   # by DOI (Crossref)
 python3 scripts/refs.py add PMID:18064739                   # by PMID (PubMed)
 python3 scripts/refs.py verify                              # existence, metadata, retractions
+python3 scripts/refs.py add-manual --key who2023x --type report --org "World Health Organization" \
+    --title "..." --year 2023 --url https://... --by "Name" --evidence "official PDF imprint"
+python3 -m unittest discover -s scripts/tests                # kit self-test, no network
 python3 scripts/validate.py --journal generic-icmje         # checks, no output files
 python3 scripts/validate.py --compare                       # fit against every journal profile
 python3 scripts/build.py --journal generic-icmje            # validate, then build the .docx
@@ -41,7 +44,7 @@ python3 scripts/build.py --journal x --force                # draft build despit
 ## Writing rules (what keeps it from breaking)
 
 1. **Cite by key, never by number:** `[@vonelm2007strengthening]`, `[@a; @b]`. citeproc numbers references by first citation on every build, so moving a paragraph can never leave the list out of sequence, and the same file prints as Vancouver, AMA or any journal's style.
-2. **References come from `refs.py add`**, never typed by hand. It pulls the full record from Crossref or PubMed, with PMID and NLM journal abbreviation. `verify` rechecks title, year and first author and flags retractions and corrections (Crossref `updated-by`, Retraction Watch data, and PubMed). Editing a record invalidates its verification.
+2. **References come from `refs.py add`**, never typed from memory. It pulls the full record from Crossref or PubMed, with PMID and NLM journal abbreviation. `verify` checks title, year and first author against every source the reference has, flags retractions and corrections (Crossref `updated-by` with Retraction Watch data; PubMed publication type), and re-checks anything edited or older than 90 days (`--max-age`). A source that does not answer gives `incomplete` and exit code 3, never a pass. Sources without DOI or PMID (guidelines, software documentation, books, reports) go in with `refs.py add-manual`, which records the official URL or ISBN, who checked the source and what was compared; `refs.py confirm` does the same for an existing entry.
 3. **Figures and tables have ids and are cited by id:** `@fig:flow`, `@tbl:baseline`. They are numbered by first mention in the text, as ICMJE requires. Wrap them in a fenced div:
 
    ```markdown
@@ -64,8 +67,8 @@ python3 scripts/build.py --journal x --force                # draft build despit
 
 ## What the validator checks
 
-- **ERROR (build stops):** word/character limits per scope, required sections and abstract parts, missing declarations, citation keys absent from `references.json`, duplicate DOIs, retracted or mismatched references, figures/tables cited but not defined or defined but never cited, figure/table/reference caps, keyword count, ORCID presence and format, corresponding author, placeholders left in text (`[CITATION NEEDED]`, `TODO`, `[N]`, `[exposure]`).
-- **WARN:** unverified references, references never cited, abbreviations used before definition, numbers in the abstract that appear nowhere else, em-dashes and en-dash ranges (unless the profile allows them), P-value style, source order of figures/tables, profile not verified or out of date.
+- **ERROR (build stops):** word/character limits per scope, required sections and abstract parts, missing declarations, citation keys absent from `references.json`, duplicate DOIs, retracted, mismatched or not-found references, a source with neither identifier nor manual verification when the journal requires identifiers, figures/tables cited but not defined or defined but never cited, figure/table/reference caps, keyword count, ORCID presence and format, corresponding author, placeholders left in text (`[CITATION NEEDED]`, `TODO`, `[N]`, `[exposure]`).
+- **WARN:** unverified, incomplete, expired (> 90 days) or to-check references, references without identifier or manual verification, references never cited, abbreviations used before definition, numbers in the abstract that appear nowhere else, em-dashes and en-dash ranges (unless the profile allows them), P-value style, source order of figures/tables, profile not verified or out of date.
 - **HUMAN:** the reporting checklist for the study design (CONSORT 2025, STROBE, PRISMA 2020, …), the claim–evidence map, and whether each citation supports its sentence. Code cannot judge these; the report lists them so nobody forgets.
 
 ## Co-authors and revisions

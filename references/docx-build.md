@@ -1,6 +1,17 @@
 # Building the .docx Procedurally
 
-A hand-edited .docx is a poor medium for an agent: there is no diff, every edit risks breaking citation fields, and reference numbers drift when paragraphs move. The skill's default is the opposite: the manuscript lives as plain-text source files under git, and the .docx is **generated** for each journal. The ready-to-copy scaffold is `templates/build-kit/` (its `README.md` has the commands).
+A hand-edited .docx is a poor medium for an agent: there is no diff, every edit risks breaking citation fields, and reference numbers drift when paragraphs move. The alternative is to keep the manuscript as plain-text source files under git and **generate** the .docx for each journal. The ready-to-copy scaffold is `templates/build-kit/` (its `README.md` has the commands).
+
+## When to use it
+
+This is a working mode, not a requirement (`SKILL.md`, Submission Convention 4).
+
+| Situation | Mode |
+| --- | --- |
+| New manuscript, especially one that will go through many revisions or several journals | Build kit. Offer it at the start. |
+| The author asks for it, or is resubmitting to another journal after a rejection | Build kit. Converting once pays off. |
+| Revising or polishing an existing Word file | Stay in the Word file. Do not convert unless the author agrees; conversion means rebuilding citations and tables. |
+| A single section or paragraph | Neither: return the revised text. |
 
 ## Architecture: four layers that never mix
 
@@ -24,7 +35,8 @@ Consequences:
 1. Copy the kit into the project folder (`cp -R templates/build-kit <project>`), `git init`, and replace the fictional example: `metadata.yaml`, the section files, `figures/`.
 2. Set `study-design` in `metadata.yaml`; it selects the reporting guideline the report lists for human review.
 3. Draft section by section with the other guides of this skill. Cite only keys that exist.
-4. For every new reference: find it (PubMed, Crossref, `references/pubmed-essentials.md`), then `python3 scripts/refs.py add <DOI or PMID:n>`. **Never write a CSL record by hand.** If no DOI or PMID can be found, leave `[CITATION NEEDED]` in the text; the validator will not let it through.
+4. For every new reference: find it (PubMed, Crossref, `references/pubmed-essentials.md`), then `python3 scripts/refs.py add <DOI or PMID:n>`. Never write a record from memory.
+5. For a real source without DOI or PMID (a guideline on an institutional site, software documentation, a book, a report, legislation), open the source itself and register it with `refs.py add-manual`: official URL or ISBN, metadata copied from the source, who checked it and what was compared (`--by`, `--evidence`). It is stored as `manual`, distinct from automatic verification, and expires like any other check. `[CITATION NEEDED]` is only for a statement with no source found at all; the validator will not let it through.
 
 ### Converting an existing .docx draft (once)
 
@@ -49,11 +61,11 @@ Consequences:
 
 | Level | Examples | Who decides |
 | --- | --- | --- |
-| ERROR | Over a word limit (with what was counted); missing abstract part, section or declaration; citation key not in the library; duplicate or retracted reference; figure cited but not defined; placeholder left in text; missing ORCID | Objective. The build stops unless `--force` (draft). |
-| WARN | Unverified reference; abbreviation used before definition; number in the abstract absent from the text; dash style; profile not verified or out of date | Probably wrong; confirm. |
+| ERROR | Over a word limit (with what was counted); missing abstract part, section or declaration; citation key not in the library; duplicate, retracted, mismatched or not-found reference; figure cited but not defined; placeholder left in text; missing ORCID | Objective. The build stops unless `--force` (draft). |
+| WARN | Reference unverified, incomplete (a source did not answer), expired (> 90 days) or flagged `check`; abbreviation used before definition; number in the abstract absent from the text; dash style; profile not verified or out of date | Probably wrong; confirm. |
 | HUMAN | Reporting-checklist mapping; claim–evidence fit; whether each citation supports its sentence | Authors. Listed in every report so nobody forgets. |
 
-`refs.py verify` proves that a reference **exists and matches its metadata** (Crossref and PubMed title, year, first author) and flags retractions and corrections. It does not prove that the paper supports the sentence it is attached to. That check is reading the cited abstract or full text against the claim, and it stays a HUMAN item (or an agent task whose output is a list for the authors, never a silent approval).
+`refs.py verify` proves that a reference **exists and matches its metadata** (title, year and first author against Crossref for a DOI and PubMed for a PMID) and flags retractions and corrections. A source that does not answer makes the result `incomplete` (exit code 3), never `ok`; a one-year gap or a missing field is `check` (look by eye); a verification older than 90 days is re-run, because retractions come after publication. Manual verifications (`add-manual`, `confirm`) record who checked what, and expire too. None of this proves that the paper supports the sentence it is attached to. That check is reading the cited abstract or full text against the claim, and it stays a HUMAN item (or an agent task whose output is a list for the authors, never a silent approval).
 
 ## Co-authors in Word
 

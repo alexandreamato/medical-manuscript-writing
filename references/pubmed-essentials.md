@@ -184,7 +184,7 @@ Three reliable workflows:
 
 ### Anti-fabrication discipline
 
-The skill's Hard Rule #1 forbids inventing references. Use PubMed (or the publisher record) to verify every citation in your manuscript. If a paper does not appear in PubMed and is not retrievable from CrossRef by DOI, mark it `[CITATION NEEDED]` and resolve before submission. See `references/citation-styles.md`.
+The skill's Integrity Rule 1 forbids inventing references. Use PubMed (or the publisher record) to verify every citation in your manuscript. If a paper does not appear in PubMed and is not retrievable from CrossRef by DOI, mark it `[CITATION NEEDED]` and resolve before submission. See `references/citation-styles.md`.
 
 ## My NCBI — Saving Searches and Creating Alerts
 
