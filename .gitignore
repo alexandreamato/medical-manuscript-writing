@@ -14,3 +14,6 @@ dist/*.zip
 # Local notes
 NOTES.local.md
 scratch/
+
+# Python
+__pycache__/
