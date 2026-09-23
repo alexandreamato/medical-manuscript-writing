@@ -225,6 +225,40 @@ class OrcidTests(unittest.TestCase):
         self.assertFalse(V.orcid_checksum_ok("0000-0002-1825-0098"))
 
 
+class CliRegressionTests(KitCopy):
+    def test_duplicate_orcid_is_an_error(self):
+        md = self.kit / "manuscript" / "metadata.yaml"
+        md.write_text(md.read_text().replace("0000-0001-2345-6789", "0000-0002-1825-0097"))
+        code, out = self.run_py("scripts/validate.py", "--journal", "jvb")
+        self.assertIn("have the same ORCID 0000-0002-1825-0097", out)
+        self.assertEqual(code, 1)
+
+    def test_compare_exit_code(self):
+        code, out = self.run_py("scripts/validate.py", "--compare")
+        self.assertEqual(code, 1)          # the example has gaps in several profiles by design
+        for p in (self.kit / "journals").glob("*.json"):
+            if p.stem not in ("jvb", "generic-icmje", "example-journal-b"):
+                p.unlink()
+        code, out = self.run_py("scripts/validate.py", "--compare")
+        self.assertEqual(code, 0, out)     # no profile with errors: exit 0
+
+    def test_refs_add_not_found_and_bad_json(self):
+        import refs as RF
+        tmp = Path(tempfile.mkdtemp())
+        with mock.patch.object(RF.C, "REFERENCES", tmp / "r.json"), mock.patch.object(RF, "fetch_doi", return_value=None), \
+                mock.patch.object(sys, "argv", ["refs.py", "add", "10.1000/none"]):
+            with self.assertRaises(SystemExit) as cm:
+                RF.main()
+        self.assertEqual(cm.exception.code, 1)
+        with mock.patch.object(RF.C, "REFERENCES", tmp / "r.json"), \
+                mock.patch.object(RF, "fetch_doi", side_effect=json.JSONDecodeError("html", "<html>", 0)), \
+                mock.patch.object(sys, "argv", ["refs.py", "add", "10.1000/x"]):
+            with self.assertRaises(SystemExit) as cm:
+                RF.main()
+        self.assertEqual(cm.exception.code, 3)
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
 class RenderStatusTests(unittest.TestCase):
     def setUp(self):
         self.tmp = Path(tempfile.mkdtemp())

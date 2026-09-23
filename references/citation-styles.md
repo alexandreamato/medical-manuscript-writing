@@ -111,7 +111,7 @@ Do not italicize `et al.` in Vancouver/AMA (some style guides italicize it; not 
 1. **Format:** surname followed by initials with no periods between letters and no space: `Smith JA`, `Khan FM`. Multiple authors are separated by commas.
 2. **One to six authors:** list **all** authors. Vancouver (ICMJE/NLM) and AMA (10th and 11th editions) agree here.
 3. **Seven or more authors, Vancouver (ICMJE/NLM):** list the first **six** authors then `et al.` Example: `Solomon SD, McMurray JJV, Anand IS, Ge J, Lam CSP, Maggioni AP, et al.`
-4. **Seven or more authors, AMA (10th and 11th editions):** list the first **three** authors then `et al.` Example: `Smith BM, Kirby M, Hoffman EA, et al.` Some Vancouver journals adopt this AMA rule in their own instructions; the journal's instructions decide.
+4. **Seven or more authors, AMA (10th and 11th editions):** list the first **three** authors then `et al.` Example: `Smith BM, Kirby M, Hoffman EA, et al.` In AMA this is the rule, not an option. Some Vancouver journals adopt it in their own instructions (J Vasc Bras, Obesity); the journal's instructions decide.
 5. **Organization as author:** spell out in full: `Australian Institute of Health and Welfare.` `World Health Organization.`. Do not abbreviate the organization name in the reference list.
 6. **No author available:** check whether an organization acted as author. If not, list the title first.
 

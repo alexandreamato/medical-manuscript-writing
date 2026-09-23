@@ -2,6 +2,26 @@
 
 All notable changes to the **Medical Manuscript Writing** skill are documented here. Format follows Keep a Changelog (https://keepachangelog.com/) using semantic-style versioning by content scope rather than strict semver.
 
+## [1.11.1] — 2026-09-23
+
+Responds to an external review of 1.11.0.
+
+### Fixed
+
+- **Conventions 2 and 4 no longer conflict** (introduced in 1.11.0). Within the text the user asked to change, the conventions apply; outside it, nothing changes and violations are only listed in the notes.
+- The dash rule in `SKILL.md` now has the same scope as `manuscript-conventions.md` §3.1: sentences, table cells, figure captions and the abstract.
+- Manuscript language defaults to English when no journal is known (or the draft's own language when revising).
+- Letters to the editor and conference abstracts: what changes (a few hundred words, no IMRaD, few references; the congress template and character limit).
+- STARD back in the activation description.
+- JBI case-series checklist: ten questions, with consecutive and complete inclusion as separate items.
+- AMA: first three + et al. is the rule, not an option.
+- PROCESS 2025: note that it appeared in a newer journal than the 2020 and 2023 versions.
+- Build kit:
+  - the README no longer says every profile builds the example (they refuse it without `--force`);
+  - `refs.py add` handles a non-JSON answer (proxy, captive portal) and exits 1 when an identifier does not exist;
+  - the README explains that `--compare` is a report and that a CI gate should validate the target journal only.
+- 3 new tests: duplicate ORCID, `--compare` exit code, `refs.py add` exit codes; the revision round trip now uses `start --submitted-docx` (57 in total).
+
 ## [1.11.0] — 2026-09-23
 
 Responds to an external review of 1.10.0.

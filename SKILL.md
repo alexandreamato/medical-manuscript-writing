@@ -1,10 +1,10 @@
 ---
 name: medical-manuscript-writing
-description: Write, revise and translate medical manuscripts (RCTs, observational, diagnostic and prediction studies, systematic, scoping and narrative reviews, case reports). Use for reporting guidelines (CONSORT, STROBE, PRISMA, CARE, TRIPOD+AI), formatting references (Vancouver default), claim-evidence audits, translating abstracts, cover letters, journal choice, submission and responding to reviewers, including for Portuguese-speaking and other non-native English authors.
+description: Write, revise and translate medical manuscripts (RCTs, observational, diagnostic and prediction studies, systematic, scoping and narrative reviews, case reports). Use for reporting guidelines (CONSORT, STROBE, PRISMA, STARD, CARE, TRIPOD+AI), formatting references (Vancouver default), claim-evidence audits, translating abstracts, cover letters, journal choice, submission and responding to reviewers, including for Portuguese-speaking and other non-native English authors.
 license: CC-BY-4.0
 metadata:
   author: Alexandre Campos Moraes Amato
-  version: 1.11.0
+  version: 1.11.1
 ---
 # Medical Manuscript Writing
 
@@ -24,7 +24,7 @@ When unclear, use the smaller mode and offer the larger. What each mode delivers
 
 - **Design:** infer it from the text and state the inference ("read as a retrospective cohort").
 - **Target journal:** ask only in submission preparation, where it changes the deliverable. In the other modes apply the defaults (Vancouver; J Vasc Bras in the build kit) and flag them. Never assume either silently.
-- **Language:** answer in the user's language; write the manuscript in the journal's language; for a bilingual journal, title, abstract and keywords in both. Translation requests: `non-native-authors.md` §6.
+- **Language:** answer in the user's language; write the manuscript in the journal's language (English when no journal is known; keep the language of a draft the user is revising); for a bilingual journal, title, abstract and keywords in both. Translation requests: `non-native-authors.md` §6.
 
 ## Integrity Rules (obligatory)
 
@@ -44,9 +44,9 @@ No journal, deadline or preference overrides these.
 ## Submission Conventions (defaults; the journal's instructions override)
 
 1. Tables and figures cited in numerical order; references in the journal's style, Vancouver when none is chosen (`manuscript-conventions.md` §1.2, §2.1; `citation-styles.md`).
-2. No em-dash or en-dash in body text; ranges as `12 to 18`. Journal exceptions: `manuscript-conventions.md` §3.1.
+2. No em-dash or en-dash in sentences, table cells, figure captions or the abstract; ranges as `12 to 18`. Journal exceptions: `manuscript-conventions.md` §3.1.
 3. Deliver what the author works in: revised text for pasted text; stay in an existing Word file. For a new manuscript, many revisions or several journals, offer the build kit (`docx-build.md`; journal profiles in `templates/build-kit/journals/`).
-4. Apply conventions only to the text you were asked to change: a point edit does not rewrite punctuation or style outside the request.
+4. Within the text you were asked to change, apply these conventions; outside it, change nothing and list any violations you notice in the notes. A point edit on one paragraph never rewrites the rest of the manuscript.
 
 ## Core Workflow
 
@@ -83,7 +83,7 @@ Files are in `references/` unless another path is given.
 | Formatting references in a given style | `citation-styles.md` → `citation-styles-detail.md` (non-Vancouver) |
 | Figures, tables, forest plots | `figures-and-tables.md` → `statistical-figures.md` |
 | Translating an abstract or manuscript | `non-native-authors.md` §6 |
-| Letter to the editor, conference abstract | Closest guides (`abstract.md`, `discussion.md`, `cover-letter.md`); say coverage is partial |
+| Letter to the editor, conference abstract | Closest guides (`abstract.md`, `discussion.md`, `cover-letter.md`), flagged as partial coverage. Not a small manuscript: follow the journal's or congress's own limits and structure (a letter: a few hundred words, 350 to 500 in the journals profiled in the build kit, no IMRaD headings, few references, one published article or one point; a congress abstract follows the congress template and character limit) |
 | Non-native English author | `non-native-authors.md` → `scientific-writing-principles.md` |
 | Polishing a draft | `read-as-reader.md` → `paragraph-flow.md` → `scientific-writing-principles.md` → `common-mistakes.md` |
 | Pre-submission final pass | `paper-review.md` → `reporting-standards.md` → `ethics-and-integrity.md` |

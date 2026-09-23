@@ -167,8 +167,16 @@ class RoundTripTest(unittest.TestCase):
         returned = tmp / "returned.docx"
         shutil.copy(journal / "outputs" / "jvb" / "statins-ulcer_jvb_manuscript.docx", returned)
 
+        # The exact uploaded file can be given at start (it was only accepted by `import`).
+        sent = tmp / "sent.docx"
+        subprocess.run([sys.executable, "scripts/build.py", "--journal", "jvb"], cwd=self.repo, capture_output=True,
+                       env=GIT_ENV)
+        shutil.copy(next((self.repo / "outputs" / "jvb").glob("*_manuscript.docx")), sent)
+        shutil.rmtree(self.repo / "outputs")
         r = self.run_kit("scripts/revision.py", "start", "--round", "1", "--submitted-tag", "submission-1",
-                         "--journal", "jvb", "--returned", str(returned))
+                         "--journal", "jvb", "--returned", str(returned), "--submitted-docx", str(sent))
+        self.assertIn("the submitted file (sent.docx)",
+                      (self.repo / "revision" / "round-1" / "journal-changes.md").read_text())
         self.assertIn("1 tracked change(s), 1 comment(s), 1 untracked difference(s)", r.stdout)
         report = (self.repo / "revision" / "round-1" / "journal-changes.md").read_text()
         self.assertIn("including CEAP class", report)

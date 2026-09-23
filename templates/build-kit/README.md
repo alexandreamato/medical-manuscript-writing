@@ -25,7 +25,7 @@ cp -R ~/.claude/skills/medical-manuscript-writing/templates/build-kit ~/path/my-
 cd ~/path/my-article && git init
 ```
 
-The kit ships with a **fictional** cohort example, written for the default profile (`jvb`), where it validates without errors. Every other profile builds it too, but `validate.py --compare` lists what each journal would still need (JVS asks for a 250-word abstract and Article Highlights, Cureus for five keywords, JCM for an informed-consent statement, and so on): that list is the point of the comparison. Replace the example text, metadata and figure; keep the structure.
+The kit ships with a **fictional** cohort example, written for the default profile (`jvb`), where it validates without errors. Against the other profiles, `build.py` refuses it until those gaps are fixed (or builds a draft with `--force`), and `validate.py --compare` lists what each journal would still need (JVS asks for a 250-word abstract and Article Highlights, Cureus for five keywords, JCM for an informed-consent statement, and so on): that list is the point of the comparison. Replace the example text, metadata and figure; keep the structure.
 
 Profiles included:
 
@@ -81,7 +81,8 @@ python3 scripts/refs.py add-manual --key who2023x --type report --org "World Hea
     --title "..." --year 2023 --url https://... --by "Name" --evidence "official PDF imprint"
 python3 -m unittest discover -s scripts/tests                # kit self-test, no network
 python3 scripts/validate.py --journal generic-icmje         # checks, no output files
-python3 scripts/validate.py --compare                       # fit against every journal profile
+python3 scripts/validate.py --compare                       # fit against every profile (a report; exit 1 if any has errors)
+# for a CI gate, validate the target only: python3 scripts/validate.py --journal jvb --submission
 python3 scripts/build.py --journal generic-icmje            # validate, then build the .docx
 python3 scripts/build.py --journal x --force                # draft build despite errors
 python3 scripts/preview.py --journal jvb                    # render and inspect the files

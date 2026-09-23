@@ -3,7 +3,7 @@
 A Claude skill for writing and revising medical and biomedical manuscripts of any type (original research, systematic review, meta-analysis, narrative or evidence-based clinical review, case report, brief report), from title to response to reviewers.
 
 **Author:** Alexandre Campos Moraes Amato (ORCID [0000-0003-4008-4029](https://orcid.org/0000-0003-4008-4029))
-**Version:** 1.11.0 (see [`CHANGELOG.md`](CHANGELOG.md))
+**Version:** 1.11.1 (see [`CHANGELOG.md`](CHANGELOG.md))
 **License:** CC BY 4.0 ([`LICENSE`](LICENSE))
 
 ## Installation
@@ -115,7 +115,7 @@ Each template contains the standard section structure, placeholder text, and inl
 - **Revision rounds.** The .docx the journal sends back is compared with what was submitted (tracked changes, comments and untracked edits); accepted edits go into the source first. Then the clean file, the file with your changes marked as the journal asks (red text for J Vasc Bras, or Word tracked changes) and the response letter are generated, with identical numbering.
 - **File names.** One rule for every upload: `<short-name>_<journal>[_rev<N>]_<part>.<ext>`.
 
-Python standard library only, plus pandoc ≥ 3.1 (LibreOffice and poppler for the preview). 54 tests, offline: `cd templates/build-kit && python3 -m unittest discover -s scripts/tests`. Workflow and agent rules: [`references/docx-build.md`](references/docx-build.md); commands: [`templates/build-kit/README.md`](templates/build-kit/README.md).
+Python standard library only, plus pandoc ≥ 3.1 (LibreOffice and poppler for the preview). 57 tests, offline: `cd templates/build-kit && python3 -m unittest discover -s scripts/tests`. Workflow and agent rules: [`references/docx-build.md`](references/docx-build.md); commands: [`templates/build-kit/README.md`](templates/build-kit/README.md).
 
 ## Quick reference files
 
@@ -312,7 +312,7 @@ The skill synthesizes guidance from peer-reviewed methodological papers, officia
 
 If you use this skill in producing a manuscript, please consider citing it:
 
-> Amato ACM. Medical Manuscript Writing: Claude Skill [Internet]. Version 1.11.0. 2026. Available from: https://github.com/alexandreamato/medical-manuscript-writing
+> Amato ACM. Medical Manuscript Writing: Claude Skill [Internet]. Version 1.11.1. 2026. Available from: https://github.com/alexandreamato/medical-manuscript-writing
 
 ## Updates and contributions
 

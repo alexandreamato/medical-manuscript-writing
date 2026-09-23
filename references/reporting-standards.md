@@ -328,11 +328,11 @@ A scoping review maps the extent and nature of the evidence on a question (conce
 
 CARE is written for a single case. A series of patients needs more: how patients were selected (consecutive or not, and whether all eligible patients were included), how the condition and outcomes were measured, and follow-up.
 
-1. **Surgical and interventional case series: PROCESS.** The current version is PROCESS 2025, which keeps the earlier checklist and adds items on the use of artificial intelligence. Check https://www.processguideline.com/ for the version current at submission.
+1. **Surgical and interventional case series: PROCESS.** The current version is PROCESS 2025, which keeps the earlier checklist and adds items on the use of artificial intelligence. Check https://www.processguideline.com/ for the version current at submission. Unlike the 2020 and 2023 versions (International Journal of Surgery), the 2025 update was published in the Premier Journal of Science, a newer journal; cite the version the target journal names if it names one.
 
 > Agha RA, Mathew G, Rashid R, Kerwan A, Al-Jabir A, Sohrabi C, et al. Revised Preferred Reporting of Case Series in Surgery (PROCESS) guideline: an update for the age of artificial intelligence. Premier J Sci. 2025;10:100080. doi:10.70389/PJS.100080
 
-2. **Other case series: the JBI critical appraisal checklist for case series.** It is an appraisal tool, not a reporting guideline, but its ten questions (clear inclusion criteria; standard and reliable measurement of the condition; valid identification methods; consecutive and complete inclusion; demographics; clinical information; outcomes or follow-up; site or clinic demographics; appropriate statistics) are what a reviewer or a later systematic review will check, so report each of them.
+2. **Other case series: the JBI critical appraisal checklist for case series.** It is an appraisal tool, not a reporting guideline, but its ten questions (clear inclusion criteria; standard and reliable measurement of the condition; valid identification methods; consecutive inclusion; complete inclusion; demographics; clinical information; outcomes or follow-up; site or clinic demographics; appropriate statistics) are what a reviewer or a later systematic review will check, so report each of them.
 
 > Munn Z, Barker TH, Moola S, Tufanaru C, Stern C, McArthur A, et al. Methodological quality of case series studies: an introduction to the JBI critical appraisal tool. JBI Evid Synth. 2020;18(10):2127-33. doi:10.11124/JBISRIR-D-19-00099
 

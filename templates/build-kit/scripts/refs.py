@@ -167,16 +167,20 @@ def cmd_add(args):
     taken = {r["id"] for r in refs}
     have_doi = {(r.get("DOI") or "").lower(): r["id"] for r in refs}
     have_pmid = {str(r.get("PMID")): r["id"] for r in refs if r.get("PMID")}
-    failed = 0
+    failed = missing = 0
     for ident in args.ids:
         try:
             ref = add_one(ident, have_doi, have_pmid)
-        except (urllib.error.URLError, TimeoutError, OSError) as e:
+        except (urllib.error.URLError, TimeoutError, OSError, ValueError) as e:
+            # ValueError covers a proxy or captive portal answering with HTML instead of JSON.
             print(f"! {ident}: could not reach Crossref/PubMed ({getattr(e, 'reason', e)}); nothing added",
                   file=sys.stderr)
             failed += 1
             continue
         if ref is None:
+            continue
+        if ref is NOT_FOUND:
+            missing += 1
             continue
         ref = clean(ref)
         key = args.key if args.key and len(args.ids) == 1 else make_key(ref, taken)
@@ -187,12 +191,18 @@ def cmd_add(args):
         refs.append(ref)
         print(f"+ @{key}  {ref.get('title', '')[:80]}")
     C.save_references(refs)
+    # 3: the network failed for some; 1: some identifier does not exist; 0: all added or present.
     if failed:
         sys.exit(3)
+    if missing:
+        sys.exit(1)
 
 
-def add_one(ident: str, have_doi: dict, have_pmid: dict) -> dict | None:
-    """Fetch one record; None when it is already present or not found."""
+NOT_FOUND = object()
+
+
+def add_one(ident: str, have_doi: dict, have_pmid: dict):
+    """Fetch one record; None when already present, NOT_FOUND when it does not exist."""
     if ident.upper().startswith("PMID:") or ident.isdigit():
         pmid = ident.split(":")[-1]
         if pmid in have_pmid:
@@ -201,7 +211,7 @@ def add_one(ident: str, have_doi: dict, have_pmid: dict) -> dict | None:
         ref = fetch_pmid(pmid)
         if not ref:
             print(f"! PMID {pmid} not found in PubMed", file=sys.stderr)
-            return None
+            return NOT_FOUND
         ref["PMID"] = pmid
     else:
         doi = norm_doi(ident)
@@ -211,7 +221,7 @@ def add_one(ident: str, have_doi: dict, have_pmid: dict) -> dict | None:
         ref = fetch_doi(doi)
         if not ref:
             print(f"! DOI {doi} not found in Crossref", file=sys.stderr)
-            return None
+            return NOT_FOUND
         pmid = pmid_for_doi(doi)
         if pmid:
             ref["PMID"] = pmid
