@@ -25,7 +25,7 @@ Keys starting with `_` are comments, at any depth (also inside `headings` or `se
 | `extends` | Parent profile; this file only overrides what differs. |
 | `name`, `source_url`, `verified_at`, `reverify_after_days` | Provenance. |
 | `generic`, `illustrative` | Flags for non-journal profiles (the validator warns). |
-| `csl` | CSL style name from https://www.zotero.org/styles (downloaded on first use; dependent styles resolved), or a path to a local `.csl`. |
+| `csl` | CSL style name from https://www.zotero.org/styles, or a path to a local `.csl`. Styles of the bundled profiles are stored in `csl/`; a new name is downloaded once and kept there (dependent styles resolved to their parent). |
 | `reference_docx` | `{font, size_pt, line_spacing, line_numbers, line_numbers_restart: "continuous" \| "page", margins_cm, page_numbers, paper: "a4" \| "letter", subheadings: "bold" \| "italic"}` to generate the Word styles, or `{file: "templates/x.docx"}` to use the journal's own template. |
 | `title` | `{max_chars, running_title_max_chars, running_title_allowed}` (characters with spaces). `running_title_allowed: false` leaves the running title out of the files (MDPI). |
 | `keywords` | `{min, max, after_abstract, labels}`. `after_abstract: true` prints the keywords after each abstract (in each language) instead of on the title page. |

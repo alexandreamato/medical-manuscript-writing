@@ -62,6 +62,17 @@ Most medical authors worldwide write in a second language. Editors and reviewers
 7. Tense consistent: past for this study, present for established facts.
 8. Language editing or AI assistance disclosed if the journal requires it.
 
+## 6. Translation (e.g., "translate my abstract into English")
+
+A translation renders the authors' text in another language; it is not a revision. Language polishing may follow, as a separate and flagged step.
+
+1. **Numbers stay identical.** Every estimate, CI, p value, percentage, denominator, unit and date is copied exactly; only the decimal separator changes (`0,72` becomes `0.72`, and the reverse into Portuguese). Check each number against the source after translating.
+2. **Use controlled vocabulary.** English terms from MeSH (https://meshb.nlm.nih.gov/); Portuguese, Spanish and French terms from DeCS (Descritores em Ciências da Saúde, BIREME; https://decs.bvsalud.org/), which maps each descriptor to its MeSH equivalent. Keywords in each language are the matching descriptors, not free translations.
+3. **Keep the structure.** Same headings (in the journal's wording for that language), same order, one sentence for one sentence where the grammar allows, same abbreviations defined at the same place.
+4. **Never add content.** No new claim, qualifier, interpretation or citation; no hedge removed or strengthened. Where the source is ambiguous, translate literally and flag the ambiguity for the authors instead of resolving it.
+5. **Bilingual journals.** Title, abstract and keywords appear in both languages and must say the same thing; check that each version fits the word limit, since length changes in translation.
+6. **False friends and structure.** Sections 2 and 3 above list the traps that survive translation (actually, eventually, casuistry, decimal commas).
+
 ## Cross-references
 
 1. Sentence- and word-level principles: `references/scientific-writing-principles.md`.

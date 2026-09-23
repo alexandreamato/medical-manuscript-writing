@@ -4,9 +4,9 @@ Three install formats are provided in this folder. Pick the one that matches whe
 
 | File | Where it installs | Size |
 | --- | --- | --- |
-| `medical-manuscript-writing-claudeai.zip` | Claude.ai web/desktop (uploaded skill) | ~410 KB |
-| `medical-manuscript-writing-local.zip` | Claude Code or Cowork (local skills folder) | ~410 KB |
-| `medical-manuscript-writing-plugin.zip` | Claude Code plugin (with `.claude-plugin/plugin.json`) for marketplace or shared distribution | ~410 KB |
+| `medical-manuscript-writing-claudeai.zip` | Claude.ai web/desktop (uploaded skill) | ~510 KB |
+| `medical-manuscript-writing-local.zip` | Claude Code or Cowork (local skills folder) | ~510 KB |
+| `medical-manuscript-writing-plugin.zip` | Claude Code plugin (with `.claude-plugin/plugin.json`) for marketplace or shared distribution | ~510 KB |
 
 All three contain the same skill content. Only the wrapping differs.
 
@@ -104,7 +104,7 @@ A correctly loaded skill answers from `SKILL.md`: the three working modes (point
 
 ## Updating
 
-The version is recorded in `CHANGELOG.md` (current: `1.10.0`, 2026-09-23), in `SKILL.md` (`metadata.version`) and (plugin format only) `.claude-plugin/plugin.json`. `dist/build-zips.sh` reads the version from `CHANGELOG.md` and writes it into `plugin.json`, so bump only the changelog, then run `bash dist/build-zips.sh`.
+The version is recorded in `CHANGELOG.md` (current: `1.11.0`, 2026-09-23), in `SKILL.md` (`metadata.version`) and (plugin format only) `.claude-plugin/plugin.json`. `dist/build-zips.sh` reads the version from `CHANGELOG.md` and writes it into `plugin.json`, so bump only the changelog, then run `bash dist/build-zips.sh`.
 
 ## License
 

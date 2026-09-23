@@ -29,7 +29,7 @@ author:
     email: ana.example@example.org
     address: "Example Street 1, São Paulo, Brazil"
   - name: Bruno Placeholder
-    orcid: 0000-0002-1825-0097
+    orcid: 0000-0001-2345-6789   # format example with a valid check digit; replace
     affiliations: [2]
 affiliations:
   - id: 1

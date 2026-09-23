@@ -4,7 +4,7 @@ A hand-edited .docx is a poor medium for an agent: there is no diff, every edit 
 
 ## When to use it
 
-This is a working mode, not a requirement (`SKILL.md`, Submission Convention 4).
+This is a working mode, not a requirement (`SKILL.md`, Submission Convention 3).
 
 | Situation | Mode |
 | --- | --- |

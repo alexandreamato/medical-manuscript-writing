@@ -279,7 +279,7 @@ Rules:
 1. Include a **scale bar** on the image (do not put magnification in the caption).
 2. Show representative images alongside quantification.
 3. Label important features with arrows or letters.
-4. Resolution ≥ 300 dpi for raster.
+4. Resolution ≥ 300 dpi for raster photographs; 600 dpi once labels or arrows are added (Resolution, below).
 5. Show full, unmanipulated images; report all cropping.
 6. Include all relevant controls.
 
@@ -437,11 +437,13 @@ Avoid:
 
 ### Resolution
 
-Minimum standards:
+Minimum standards for raster files, measured at final printed size (the journal's own figure guide overrides):
 
-1. **Line art (graphs, diagrams):** 300 to 600 dpi (vector preferred).
-2. **Halftones (photos, grayscale images):** 300 dpi.
-3. **Combination (image with text/labels):** 600 dpi.
+1. **Halftones (photographs, grayscale or colour images without text):** 300 dpi.
+2. **Combination art (a photograph or image with lettering, arrows or line drawing):** 600 dpi. Elsevier asks for 500 dpi.
+3. **Line art (graphs, diagrams, black and white drawings) saved as raster:** 1000 to 1200 dpi; 1200 when the lines are very fine. Better still, submit line art as vector (EPS, PDF, SVG), which has no resolution limit.
+
+Sources: Springer Nature artwork guidelines (300 halftone, 600 combination, 1200 line art; https://support.springernature.com/en/support/solutions/articles/6000083109-artwork-submission-instructions) and Elsevier artwork types (300 halftone, 500 combination, 1000 to 1200 line art; https://www.elsevier.com/about/policies-and-standards/author/artwork-and-media-instructions/artwork-types). `references/manuscript-conventions.md` §4.1 uses the same figures.
 
 Create figures at the **final size and resolution**; do not enlarge low-resolution images.
 
@@ -525,7 +527,7 @@ Best practice: script your figure generation (R, Python) for reproducibility; sa
 
 For every figure:
 
-1. High enough resolution (≥ 300 dpi for raster; vector preferred for line art).
+1. High enough resolution for the image type (Resolution: 300 dpi halftone, 600 dpi combination, 1000 to 1200 dpi raster line art; vector preferred for line art).
 2. Correct file format per the journal's Instructions.
 3. Correct dimensions for the journal (single or double column).
 4. Correct color space (RGB or CMYK).

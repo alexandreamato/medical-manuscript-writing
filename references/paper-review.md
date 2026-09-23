@@ -109,7 +109,7 @@ Answer each item before submission in a separate audit document (never appended 
 
 1. Is IRB / ethics committee approval reported with the protocol number?
 2. Was informed consent obtained and described?
-3. Is the trial / review registered (NCT, ISRCTN, EudraCT, PROSPERO)?
+3. Is the trial / review registered (NCT, ISRCTN, ReBEC, EU CT number from CTIS or EudraCT for a legacy EU trial, PROSPERO)?
 4. Are conflicts of interest fully disclosed?
 5. Is the role of the funder stated?
 6. Does the authorship list meet ICMJE criteria? Are contributions stated?
@@ -129,9 +129,9 @@ Answer each item before submission in a separate audit document (never appended 
 1. Read the paper as a skeptical methodologist; mark every methodological gap.
 2. Read it again as a skeptical clinician; mark every overstated implication.
 3. Answer every question above with explicit evidence (paragraph, table, figure, page).
-4. Mark each item as `pass`, `needs revision` (fixable in the text), `needs new data or analysis`, or `needs author decision`.
+4. Mark each item as `pass`, `needs revision` (fixable in the text), or one of the four statuses for what writing cannot fix (the same four as the `SKILL.md` Stopping Rule): `needs new data`, `needs new analysis`, `needs author decision`, `needs author information` (a fact only the authors have, such as a protocol date or a committee number).
 5. Fix every `needs revision` item in the text.
-6. Stop there (`SKILL.md`, Stopping Rule). List the other items for the authors in a separate document, grouped by what they need; do not keep rewriting to argue around a design limitation or a missing analysis, and do not append the audit to the manuscript meant for the journal.
+6. Stop there (`SKILL.md`, Stopping Rule). List the other items for the authors in a separate document, grouped under those four statuses; do not keep rewriting to argue around a design limitation or a missing analysis, and do not append the audit to the manuscript meant for the journal.
 7. Finalize the reporting checklist and verify references.
 
 ## Common Specific Reasons Manuscripts Are Rejected

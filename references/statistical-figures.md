@@ -14,7 +14,7 @@ Statistical figures are generated from the data by code, never drawn by hand. Th
 
 ## Export
 
-1. Line art (plots) as vector files (SVG, EPS or PDF); raster images at 300 dpi or more, as the journal requires.
+1. Line art (plots) as vector files (SVG, EPS or PDF); if a raster file is unavoidable, 1000 to 1200 dpi for plots and 300 dpi for photographs, as the journal requires (`references/figures-and-tables.md`, Resolution).
 2. Keep the script that produced each figure in version control and regenerate the figure from it after every change to the data or analysis; do not edit exported files by hand.
 3. Report in the caption what the figure shows (estimate, interval, model), so it stands alone.
 

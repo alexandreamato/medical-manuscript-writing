@@ -44,7 +44,9 @@
         "given": "Matthias",
         "family": "Egger"
       },
-      {}
+      {
+        "literal": "for the STROBE Initiative"
+      }
     ],
     "container-title": "PLoS Medicine",
     "language": "en",

@@ -18,7 +18,7 @@ Open this file when the target journal requires AMA, APA, Harvard, Chicago / Tur
 AMA is similar to Vancouver but with notable differences:
 
 1. In-text: superscript numerals (`¹`).
-2. Author list: up to 6 authors before "et al." (some AMA journals allow all authors regardless of number; check).
+2. Author list: one to six authors, list all; seven or more, list the first three followed by "et al." (AMA 10th and 11th editions; same rule as `citation-styles.md`, Author Names in the Reference List).
 3. Title case for article titles in older AMA editions; sentence case in 11th edition (modernized).
 4. Journal abbreviation per NLM.
 5. DOI included as `doi:10.xxxx/xxxxx`.
@@ -33,7 +33,7 @@ Example:
 
 AMA-specific details that differ from Vancouver:
 
-- **Et al. threshold.** AMA 10 used the "first three then et al." rule for more than three authors in the reference list; AMA 11 uses "first six then et al." Verify the edition required by the journal.
+- **Et al. threshold.** AMA (10th and 11th editions): up to six authors, list all; seven or more, the first three then "et al." Vancouver (ICMJE/NLM) lists the first six then "et al." This is the difference most often missed when a manuscript moves between the two styles.
 - **Title case (older AMA).** Older AMA editions used title case for article titles. AMA 11 moved to sentence case to align with Vancouver.
 - **Punctuation around the DOI.** AMA places a period after the DOI; some Vancouver variants omit it. Follow the journal.
 
@@ -53,7 +53,10 @@ Reference list (alphabetical by first author surname):
 
 ```
 Solomon, S. D., McMurray, J. J. V., Anand, I. S., Ge, J., Lam, C. S. P.,
-   Maggioni, A. P., ... Pfeffer, M. A. (2019). Angiotensin-neprilysin
+   Maggioni, A. P., Martinez, F., Packer, M., Pfeffer, M. A., Pieske, B.,
+   Redfield, M. M., Rouleau, J. L., van Veldhuisen, D. J., Zannad, F.,
+   Zile, M. R., Desai, A. S., Claggett, B., Jhund, P. S., Boytsov, S. A.,
+   . . . Lefkowitz, M. P. (2019). Angiotensin-neprilysin
    inhibition in heart failure with preserved ejection fraction. New
    England Journal of Medicine, 381(17), 1609-1620.
    https://doi.org/10.1056/NEJMoa1908655
@@ -61,7 +64,7 @@ Solomon, S. D., McMurray, J. J. V., Anand, I. S., Ge, J., Lam, C. S. P.,
 
 Rules:
 
-1. Use up to 20 authors before truncating with "..." plus the final author (APA 7).
+1. List up to 20 authors in full (APA 7). With 21 or more, list the first 19, an ellipsis, then the final author, with no ampersand (the example above has 34 authors).
 2. Year in parentheses immediately after the author list.
 3. Sentence case for article title; title case for journal name.
 4. Volume in italics (in print); issue in parentheses, not italicized.

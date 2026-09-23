@@ -66,6 +66,25 @@ def _styles(xml: str, s: dict) -> str:
     return xml
 
 
+def _check_styles(xml: str, s: dict):
+    """The patches above are text replacements on pandoc's own reference.docx. If a
+    new pandoc changes that file, fail loudly instead of shipping unstyled files."""
+    line = int(240 * s["line_spacing"])
+    missing = []
+    if f'w:ascii="{s["font"]}"' not in xml:
+        missing.append("font")
+    if f'w:line="{line}"' not in xml:
+        missing.append("line spacing")
+    if not re.search(r'w:styleId="BodyText">.*?w:line="%d"' % line, xml, re.S):
+        missing.append("body text spacing")
+    if not re.search(r'w:styleId="Heading1">.*?<w:rPr><w:b />', xml, re.S):
+        missing.append("bold headings")
+    if missing:
+        C.die("could not style the reference .docx (" + ", ".join(missing) + "): pandoc's default "
+              f"reference.docx has changed ({C.pandoc_version()}). Update scripts/refdocx.py, or set "
+              '"reference_docx": {"file": ...} in the journal profile.')
+
+
 def _sectpr(s: dict) -> str:
     m = _twips(s["margins_cm"])
     restart = "newPage" if s.get("line_numbers_restart") == "page" else "continuous"
@@ -117,6 +136,7 @@ def ensure(profile_id: str, settings: dict, revision: dict | None = None) -> Pat
             data = zin.read(item.filename)
             if item.filename == "word/styles.xml":
                 xml = _styles(data.decode("utf-8"), s)
+                _check_styles(xml, s)
                 if rev.get("marking") in ("color", "highlight"):
                     xml = xml.replace("</w:styles>", _revision_styles(rev) + "</w:styles>")
                 data = xml.encode("utf-8")

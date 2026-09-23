@@ -23,7 +23,7 @@
 - **Word counts:** Abstract [N], Body [N], References [N]
 - **Tables:** [N] (Table 1 baseline characteristics; Table 2 primary and secondary outcomes; Table 3 adverse events)
 - **Figures:** [N] (Figure 1 CONSORT participant flow; Figure 2 primary outcome over time)
-- **Trial registration:** ClinicalTrials.gov [NCT00000000] / ISRCTN [ISRCTNxxxxxxxx] / EudraCT [200x-00000x-00], registered on [date] <!-- CONSORT 2 -->
+- **Trial registration:** ClinicalTrials.gov [NCT00000000] / ISRCTN [ISRCTNxxxxxxxx] / EU CT (CTIS) [20xx-50xxxx-xx-00], registered on [date] <!-- CONSORT 2. EU trials register in CTIS under Regulation 536/2014, the only route since 31 January 2025; give an EudraCT number [200x-00000x-00] only for a legacy trial (references/ethics-and-integrity.md §3). -->
 - **Funding:** [Grant body, grant number, role of funder] <!-- CONSORT 5a -->
 - **Conflicts of interest:** [Per ICMJE Disclosure Form; see references/ethics-and-integrity.md] <!-- CONSORT 5b -->
 
@@ -156,7 +156,7 @@ This study is reported in accordance with the Consolidated Standards of Reportin
 
 [Recruitment ran from [date] to [date]; follow-up ended on [date]. If the trial was stopped early, why.] <!-- CONSORT 23a, 23b --> [Between dates], [N] patients were assessed for eligibility, of whom [N] were excluded ([reason 1: n], [reason 2: n], [reason 3: n]). [N] participants were randomized: [N] to intervention and [N] to control. [Receipt of intervention; loss to follow-up with reasons; analysis population]. The participant flow is shown in Figure 1.
 
-<!-- Build Figure 1 CONSORT flow diagram at https://enciclopedia.med.br/consort2010; use the CONSORT 2025 wording "Lost to follow-up for primary outcome" and "Analysed for primary outcome" (see references/diagrams.md) -->
+<!-- Build Figure 1 CONSORT flow diagram at https://enciclopedia.med.br/consort2010 (the URL keeps the 2010 name; the layout matches CONSORT 2025 once the boxes are relabelled); use the CONSORT 2025 wording "Lost to follow-up for primary outcome" and "Analysed for primary outcome" (see references/diagrams.md) -->
 
 ### 3.2 Baseline characteristics
 <!-- CONSORT 25 -->
@@ -267,7 +267,7 @@ Baseline characteristics were balanced between groups (Table 1). <!-- CONSORT di
 
 ## Figure legends
 
-**Figure 1.** CONSORT 2025 participant flow diagram. [Generate at https://enciclopedia.med.br/consort2010.]
+**Figure 1.** CONSORT 2025 participant flow diagram. [Generate at https://enciclopedia.med.br/consort2010; the URL keeps the 2010 name; the layout matches CONSORT 2025 once the boxes are relabelled.]
 
 **Figure 2.** [Primary outcome over time, by group; describe error bars and statistical test.]
 
@@ -311,7 +311,7 @@ While filling this template, consult the following section guides:
 - `references/manuscript-conventions.md`: em-dash rule, citation order, table/figure referencing, .docx export
 - `references/citation-styles.md`: Vancouver default with full reference-list formats
 - `references/figures-and-tables.md`: figure design, accessibility, image-manipulation ethics
-- `references/diagrams.md`: CONSORT participant flow diagram (build at https://enciclopedia.med.br/consort2010)
+- `references/diagrams.md`: CONSORT participant flow diagram (build at https://enciclopedia.med.br/consort2010; the URL keeps the 2010 name; the layout matches CONSORT 2025 once the boxes are relabelled)
 - `references/ethics-and-integrity.md`: IRB approval, registration, conflicts, AI disclosure
 - `references/scientific-writing-principles.md`: sentence-level revision (conciseness, hedging, anthropomorphism, tense)
 - `references/paragraph-flow.md`: paragraph clarity and reverse-outlining

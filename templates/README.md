@@ -6,7 +6,7 @@ Ready-to-fill scaffolds for the four most common medical-manuscript types. Each 
 | --- | --- | --- | --- |
 | [`rct-manuscript.md`](rct-manuscript.md) | Randomized controlled trial (parallel) | CONSORT 2025 | 2,500 to 4,000 |
 | [`observational-study.md`](observational-study.md) | Cohort / case-control / cross-sectional | STROBE | 2,500 to 4,000 |
-| [`case-report.md`](case-report.md) | Case report or small case series | CARE 2013 | 1,000 to 1,500 |
+| [`case-report.md`](case-report.md) | Case report or small case series | CARE 2013 (case series: PROCESS for surgical series, JBI checklist otherwise; `references/reporting-standards.md`) | 1,000 to 1,500 |
 | [`systematic-review.md`](systematic-review.md) | Systematic review with or without meta-analysis | PRISMA 2020 | 4,000 to 6,000 |
 
 For writing the manuscript as source files and generating the `.docx` per journal, use [`build-kit/`](build-kit/) (Markdown + CSL-JSON + journal profiles + pandoc). The four templates above are content scaffolds: their sections can be pasted into the kit's `manuscript/` files.
@@ -16,8 +16,7 @@ For writing the manuscript as source files and generating the `.docx` per journa
 1. Copy the template to your working folder and rename it with your manuscript's working title.
 2. Replace placeholder text (everything in `[BRACKETS]`) with your content.
 3. Inline comments (`<!-- CONSORT 5; see references/reporting-standards.md -->`) point to the matching reporting-standard item; consult that file when filling the section.
-4. Inline `TODO` comments mark steps that often require external action (e.g., trial registration, ethics submission, search strategy).
-5. After filling, generate the `.docx` with the build kit (`build-kit/README.md`; workflow in `references/docx-build.md`) rather than formatting Word by hand. Formatting conventions: `references/manuscript-conventions.md`.
+4. After filling, generate the `.docx` with the build kit (`build-kit/README.md`; workflow in `references/docx-build.md`) rather than formatting Word by hand. Formatting conventions: `references/manuscript-conventions.md`.
 
 ## What's included in each template
 

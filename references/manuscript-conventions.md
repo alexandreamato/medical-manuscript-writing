@@ -84,7 +84,7 @@ In the build kit, this is a per-journal switch: `"style": {"allow_en_dash_ranges
 2. Use SI units. Use a non-breaking space between number and unit (`5 mg`, `60 kg`, `12 weeks`).
 3. Define every abbreviation at first use, then use the abbreviation. Avoid more than 6 to 8 abbreviations in the abstract.
 4. Use one decimal place for percentages with denominators under 1000 (`42.3%`); two decimal places for hazard ratios and odds ratios; report 95% CIs to the same precision as the point estimate.
-5. Report p values to 2 significant figures, except very small (`p < 0.001`) and borderline (`p = 0.054`).
+5. P values: the rules (precision, `p < 0.001`, never `p = 0.000`) live in one place, `references/statistical-reporting.md` §2.
 
 ### 3.3 Tense
 
@@ -105,7 +105,7 @@ Most medical journals require Word `.docx` submission. When revising an author's
 5. **Page numbers:** bottom right.
 6. **Headings:** numbered (1, 1.1, 1.2) only when the journal asks for it; most medical journals use unnumbered headings. Either way, use Word's heading styles (Heading 1, Heading 2) so the table of contents and journal style sheet can map them.
 7. **Tables:** native Word tables (not images). One table per page or all tables at the end of the manuscript, depending on journal style.
-8. **Figures:** placed at the end of the manuscript or submitted as separate files. Resolution: 300 dpi minimum for raster images; vector format (.eps, .pdf) preferred for line art.
+8. **Figures:** placed at the end of the manuscript or submitted as separate files. Resolution for raster images depends on the image type: 300 dpi for halftones (photographs), 600 dpi for combination art, 1000 to 1200 dpi for line art; vector format (.eps, .pdf) preferred for line art. Details and sources: `references/figures-and-tables.md`, Resolution.
 9. **References:** cited by stable key and formatted by the journal's CSL style at build time (`references/docx-build.md`), or managed in Zotero, EndNote, or Mendeley with live fields. Never type reference numbers by hand.
 
 ### 4.2 Suggested file structure for a journal submission

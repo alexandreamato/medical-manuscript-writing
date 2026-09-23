@@ -156,6 +156,16 @@ def measure(text: str, unit: str) -> int:
     C.die(f"unknown limit unit '{unit}' (words, characters_with_spaces, characters_without_spaces)")
 
 
+def orcid_checksum_ok(orcid: str) -> bool:
+    """ISO 7064 MOD 11-2, the ORCID check digit."""
+    d = orcid.replace("-", "")
+    total = 0
+    for c in d[:-1]:
+        total = (total + int(c)) * 2
+    r = (12 - total % 11) % 11
+    return d[-1] == ("X" if r == 10 else str(r))
+
+
 def count_items(blocks: list) -> int:
     """List items (bullets or numbered) in a section: "up to three bullet points"."""
     n = 0
@@ -396,8 +406,19 @@ def _validate(prof: dict, doc: dict) -> tuple[Report, dict]:
         if need_orcid == "all" or (need_orcid == "corresponding" and a.get("corresponding")):
             if not a.get("orcid"):
                 rep.error("authors", f"{a.get('name')} has no ORCID")
-        if a.get("orcid") and not re.fullmatch(r"\d{4}-\d{4}-\d{4}-\d{3}[\dX]", str(a["orcid"])):
-            rep.error("authors", f"{a.get('name')}: malformed ORCID {a['orcid']}")
+        if a.get("orcid"):
+            o = str(a["orcid"])
+            if not re.fullmatch(r"\d{4}-\d{4}-\d{4}-\d{3}[\dX]", o):
+                rep.error("authors", f"{a.get('name')}: malformed ORCID {o}")
+            elif not orcid_checksum_ok(o):
+                rep.error("authors", f"{a.get('name')}: ORCID {o} fails its check digit (typo?)")
+    seen_orcid: dict[str, str] = {}
+    for a in authors:
+        if isinstance(a, dict) and a.get("orcid"):
+            o = str(a["orcid"])
+            if o in seen_orcid:
+                rep.error("authors", f"{a.get('name')} and {seen_orcid[o]} have the same ORCID {o}")
+            seen_orcid.setdefault(o, a.get("name"))
     if authors and not any(isinstance(a, dict) and a.get("corresponding") for a in authors):
         rep.error("authors", "no corresponding author (`corresponding: true`)")
     amax = prof.get("authors", {}).get("max")
@@ -759,7 +780,8 @@ def main():
             print(f"{n:<28}{r.count('ERROR'):>7}{r.count('WARN'):>6}  " + ("; ".join(errs[:3]) or "-"))
     else:
         print(results[0][1].text())
-    sys.exit(1 if any(r.count("ERROR") for _, r, _ in results) and not a.compare else 0)
+    # With --compare the exit code is 1 when any profile has errors, so it can gate CI.
+    sys.exit(1 if any(r.count("ERROR") for _, r, _ in results) else 0)
 
 
 if __name__ == "__main__":

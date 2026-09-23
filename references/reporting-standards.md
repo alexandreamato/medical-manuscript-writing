@@ -20,6 +20,7 @@ The EQUATOR Network maintains the canonical list at https://www.equator-network.
 | Search strategy of any systematic review | PRISMA-S (with PRISMA 2020) | Every database, platform, date, limit and full search string, so the search can be rerun. |
 | Systematic review of diagnostic test accuracy | PRISMA-DTA | Index test, reference standard, 2 × 2 data, accuracy synthesis, QUADAS-2 risk of bias. |
 | Systematic review synthesised without meta-analysis | SWiM (with PRISMA 2020) | How studies were grouped, the standardised metric, the synthesis method, and its limits. |
+| Scoping review | PRISMA-ScR (PRISMA extension, 2018) | Rationale for a scoping rather than a systematic review, protocol, sources and search, selection, charting of data, synthesis; appraisal of included studies is optional. |
 | Systematic review protocol | PRISMA-P | Protocol items prior to the review. |
 | Network meta-analysis | PRISMA-NMA | Comparison structure, ranking, assumptions. |
 | Diagnostic accuracy study | STARD 2015 | Index test, reference standard, flow, accuracy estimates. |
@@ -28,6 +29,9 @@ The EQUATOR Network maintains the canonical list at https://www.equator-network.
 | Reliability or agreement study (inter-rater, test-retest) | GRRAS | Raters, subjects, sampling, the agreement or reliability statistic and its CI. |
 | Animal preclinical study | ARRIVE 2.0 | Sample size, randomization, blinding, animal welfare. |
 | Case report | CARE | Patient perspective, timeline, intervention, outcome. |
+| Surgical case series | PROCESS 2025 (supersedes PROCESS 2020 and 2023) | Consecutive or not, setting, operator experience, intervention details, follow-up, outcomes, AI disclosure. |
+| Case series (any specialty; no dedicated EQUATOR reporting guideline) | JBI checklist for case series (critical appraisal tool, used as a reporting reminder), with CARE for the per-patient detail | Inclusion criteria, standard measurement, consecutive and complete inclusion, demographics, clinical information, outcomes, site, statistics. |
+| Narrative review | SANRA (a quality scale, not a reporting guideline) | Importance for readers, concrete aims, literature search, referencing, scientific reasoning, presentation of data. |
 | Qualitative research | SRQR / COREQ | Sampling, data collection, analysis, reflexivity. |
 | Mixed methods | MMR Reporting Standards | Integration of quantitative and qualitative components. |
 | Quality improvement study | SQUIRE 2.0 | Local context, intervention iterations, mechanism. |
@@ -313,6 +317,30 @@ Statistical reporting guidance for any design: describe each analysis and the qu
 For any research with humans or animals: use "sex" and "gender" correctly, report how each was determined, report data disaggregated by sex (and gender where relevant), analyse sex or gender differences when appropriate, and discuss the implications of not doing so. Many journals now ask for a sex and gender statement.
 
 > Heidari S, Babor TF, De Castro P, Tort S, Curno M. Sex and Gender Equity in Research: rationale for the SAGER guidelines and recommended use. Res Integr Peer Rev. 2016;1:2. doi:10.1186/s41073-016-0007-6
+
+### PRISMA-ScR: scoping reviews
+
+A scoping review maps the extent and nature of the evidence on a question (concepts, types of studies, gaps) rather than estimating an effect. PRISMA-ScR has 20 essential items and 2 optional ones; it differs from PRISMA 2020 chiefly in making critical appraisal optional and in asking how data were charted. Say in the title and Methods that the review is a scoping review, and why that design fits the question.
+
+> Tricco AC, Lillie E, Zarin W, O'Brien KK, Colquhoun H, Levac D, et al. PRISMA Extension for Scoping Reviews (PRISMA-ScR): checklist and explanation. Ann Intern Med. 2018;169(7):467-73. doi:10.7326/M18-0850
+
+### Case series: PROCESS and the JBI checklist
+
+CARE is written for a single case. A series of patients needs more: how patients were selected (consecutive or not, and whether all eligible patients were included), how the condition and outcomes were measured, and follow-up.
+
+1. **Surgical and interventional case series: PROCESS.** The current version is PROCESS 2025, which keeps the earlier checklist and adds items on the use of artificial intelligence. Check https://www.processguideline.com/ for the version current at submission.
+
+> Agha RA, Mathew G, Rashid R, Kerwan A, Al-Jabir A, Sohrabi C, et al. Revised Preferred Reporting of Case Series in Surgery (PROCESS) guideline: an update for the age of artificial intelligence. Premier J Sci. 2025;10:100080. doi:10.70389/PJS.100080
+
+2. **Other case series: the JBI critical appraisal checklist for case series.** It is an appraisal tool, not a reporting guideline, but its ten questions (clear inclusion criteria; standard and reliable measurement of the condition; valid identification methods; consecutive and complete inclusion; demographics; clinical information; outcomes or follow-up; site or clinic demographics; appropriate statistics) are what a reviewer or a later systematic review will check, so report each of them.
+
+> Munn Z, Barker TH, Moola S, Tufanaru C, Stern C, McArthur A, et al. Methodological quality of case series studies: an introduction to the JBI critical appraisal tool. JBI Evid Synth. 2020;18(10):2127-33. doi:10.11124/JBISRIR-D-19-00099
+
+### SANRA: narrative reviews
+
+Narrative reviews have no EQUATOR reporting guideline. SANRA is a six-item scale (each item scored 0 to 2) that editors and reviewers use to judge a narrative review, and authors can use it as a checklist while writing: justification of the article's importance for the readership, concrete aims or questions, description of the literature search, referencing, scientific reasoning, and appropriate presentation of data. See `references/narrative-review.md`.
+
+> Baethge C, Goldbeck-Wood S, Mertens S. SANRA: a scale for the quality assessment of narrative review articles. Res Integr Peer Rev. 2019;4:5. doi:10.1186/s41073-019-0064-8
 
 ### Noninferiority and equivalence trials
 

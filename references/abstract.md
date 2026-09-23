@@ -97,7 +97,7 @@ Reported under CONSORT and CONSORT for Abstracts.
 4. Primary result: counts in each group, absolute and relative effect, 95% CI.
 5. Harms (serious adverse events) or the key secondary outcome.
 6. Conclusion in causal language, limited to the trial population and duration.
-7. Trial registration identifier (NCT, ISRCTN, EudraCT) per ICMJE.
+7. Trial registration identifier (NCT, ISRCTN, ReBEC; for EU trials the CTIS number under Regulation 536/2014, the only route since 31 January 2025, or the EudraCT number for a legacy trial) per ICMJE (`ethics-and-integrity.md` §3).
 
 ### Expert Notes
 

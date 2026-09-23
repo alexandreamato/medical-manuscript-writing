@@ -174,6 +174,57 @@ class AnonymityTests(KitCopy):
         self.assertTrue(P.LOCAL_PATH.search(r"C:\Users\someone\x.docx"))
 
 
+class ReferenceDocxTests(KitCopy):
+    def test_styles_applied_or_loud_failure(self):
+        sys.path.insert(0, str(self.kit / "scripts"))
+        import importlib
+        import common as Cm
+        import refdocx as R
+        importlib.reload(Cm)
+        importlib.reload(R)
+        R.C.BUILD = self.kit / "build"
+        out = R.ensure("t", {"font": "Arial", "line_spacing": 1.5, "paper": "letter"})
+        xml = zipfile.ZipFile(out).read("word/styles.xml").decode()
+        self.assertIn('w:ascii="Arial"', xml)
+        self.assertIn('w:line="360"', xml)
+        # A reference.docx whose styles no longer match the patches must stop the build.
+        with mock.patch.object(R, "_styles", lambda x, s: x), mock.patch.object(R.C, "die", side_effect=SystemExit):
+            (self.kit / "build").mkdir(exist_ok=True)
+            for f in (self.kit / "build").glob("reference-*"):
+                f.unlink()
+            with self.assertRaises(SystemExit):
+                R.ensure("u", {"font": "Arial"})
+
+
+class RefsAddTests(unittest.TestCase):
+    def test_group_author_kept_and_key_suffix(self):
+        import refs as RF
+        a = RF.clean({"title": "T", "author": [{"family": "Smith", "given": "J"}, {"name": "for the X Group"}]})
+        self.assertEqual(a["author"][1], {"literal": "for the X Group"})
+        taken = {"smith2020trial"}
+        ref = {"author": [{"family": "Smith"}], "issued": {"date-parts": [[2020]]}, "title": "Trial outcomes"}
+        self.assertEqual(RF.make_key(ref, taken), "smith2020outcomes")
+        ref2 = {"author": [{"family": "Smith"}], "issued": {"date-parts": [[2020]]}, "title": "Outcomes"}
+        self.assertEqual(RF.make_key(ref2, {"smith2020outcomes"}), "smith2020outcomesa")
+
+    def test_network_failure_on_add_is_reported(self):
+        import refs as RF
+        tmp = Path(tempfile.mkdtemp())
+        with mock.patch.object(RF.C, "REFERENCES", tmp / "r.json"), \
+                mock.patch.object(RF, "fetch_doi", side_effect=RF.urllib.error.URLError("offline")), \
+                mock.patch.object(sys, "argv", ["refs.py", "add", "10.1000/x"]):
+            with self.assertRaises(SystemExit) as cm:
+                RF.main()
+        self.assertEqual(cm.exception.code, 3)
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
+class OrcidTests(unittest.TestCase):
+    def test_check_digit(self):
+        self.assertTrue(V.orcid_checksum_ok("0000-0002-1825-0097"))
+        self.assertFalse(V.orcid_checksum_ok("0000-0002-1825-0098"))
+
+
 class RenderStatusTests(unittest.TestCase):
     def setUp(self):
         self.tmp = Path(tempfile.mkdtemp())

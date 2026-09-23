@@ -8,7 +8,7 @@ The default text-to-diagram tool is **Mermaid**: free, version-controllable, ren
 
 1. [Quick Selector](#quick-selector): diagram type × reporting standard × tool
 2. [Export Rules](#export-rules)
-3. [CONSORT Participant Flow](#consort-participant-flow): enciclopedia.med.br/consort2010 web tool (parallel-2/3, crossover, cluster, factorial) + Mermaid fallback
+3. [CONSORT Participant Flow](#consort-participant-flow): enciclopedia.med.br/consort2010 web tool (parallel-2/3, crossover, cluster, factorial; the URL keeps the 2010 name; the layout matches CONSORT 2025 once the boxes are relabelled) + Mermaid fallback
 4. [STROBE Participant Flow](#strobe-participant-flow): enciclopedia.med.br/strobe web tool (cohort, case-control, cross-sectional) + Mermaid fallback
 5. [PRISMA 2020 Flow](#prisma-2020-flow): enciclopedia.med.br/prisma2020 web tool + `PRISMA2020` R package + Mermaid fallback
 6. [STARD Flow](#stard-flow): diagnostic accuracy (Mermaid template)
@@ -24,7 +24,7 @@ The default text-to-diagram tool is **Mermaid**: free, version-controllable, ren
 
 | Diagram | Required by | Best tool | Section in this file |
 | --- | --- | --- | --- |
-| Participant flow (RCT) | CONSORT (mandatory) | enciclopedia.med.br/consort2010 web tool; Mermaid fallback | [CONSORT](#consort-participant-flow) |
+| Participant flow (RCT) | CONSORT (mandatory) | enciclopedia.med.br/consort2010 web tool (the URL keeps the 2010 name; the layout matches CONSORT 2025 once the boxes are relabelled); Mermaid fallback | [CONSORT](#consort-participant-flow) |
 | Participant flow (cohort / case-control / cross-sectional) | STROBE (recommended) | enciclopedia.med.br/strobe web tool; Mermaid fallback | [STROBE](#strobe-participant-flow) |
 | Study selection (systematic review) | PRISMA 2020 (mandatory) | enciclopedia.med.br/prisma2020 web tool; `PRISMA2020` R package; or Mermaid | [PRISMA](#prisma-2020-flow) |
 | Study flow (diagnostic accuracy) | STARD (mandatory) | Mermaid `flowchart` | [STARD](#stard-flow) |
@@ -39,7 +39,7 @@ The default text-to-diagram tool is **Mermaid**: free, version-controllable, ren
 Most journals require:
 
 1. **Vector format (SVG, EPS, or PDF)** for line art, including all flow diagrams. Vectors scale without loss.
-2. **Raster format (TIFF or PNG)** at ≥ 300 dpi for halftone images (photographs, histology).
+2. **Raster format (TIFF or PNG)** at ≥ 300 dpi for halftone images (photographs, histology), 600 dpi when they carry labels or arrows, 1000 to 1200 dpi for line art saved as raster (`references/figures-and-tables.md`, Resolution).
 3. Submit each figure as a **separate file**, not embedded in the manuscript.
 4. Use a **descriptive filename**: `Figure1.svg`, `Figure2.tif`, etc.
 5. Verify the journal's Instructions to Authors for required color space (RGB vs. CMYK), maximum width, font requirements, and resolution.
@@ -71,7 +71,7 @@ Two options. Option 1 (the browser-based generator) is **preferred** because it 
 
 ### Option 1 (preferred): enciclopedia.med.br/consort2010
 
-A free single-file generator at **https://enciclopedia.med.br/consort2010**. Runs entirely in the browser, no server or installation required. The tool's name and on-diagram source line still refer to CONSORT 2010, and its default follow-up and analysis labels read "Lost to follow-up" and "Analysed". The box structure it draws is the same as the CONSORT 2025 diagram, so it remains usable for a CONSORT 2025 report. Before exporting, make the labels match the 2025 wording in the table above ("…for primary outcome"). Where the tool does not allow that, note in the figure legend that counts refer to the primary outcome, and cite the CONSORT 2025 statement rather than the 2010 one as the diagram's source. It supports five trial designs:
+A free single-file generator at **https://enciclopedia.med.br/consort2010**. In one line: the URL keeps the 2010 name; the layout matches CONSORT 2025 once the boxes are relabelled. Runs entirely in the browser, no server or installation required. The tool's name and on-diagram source line still refer to CONSORT 2010, and its default follow-up and analysis labels read "Lost to follow-up" and "Analysed". The box structure it draws is the same as the CONSORT 2025 diagram, so it remains usable for a CONSORT 2025 report. Before exporting, make the labels match the 2025 wording in the table above ("…for primary outcome"). Where the tool does not allow that, note in the figure legend that counts refer to the primary outcome, and cite the CONSORT 2025 statement rather than the 2010 one as the diagram's source. It supports five trial designs:
 
 | `design` value | When to use |
 | --- | --- |
@@ -157,7 +157,7 @@ arms: [
 3. Extract per-arm counts (allocated, received, not received, lost, discontinued, analysed, excluded from analysis) with reasons.
 4. For crossover: extract period 1 and period 2 counts separately.
 5. For cluster: also extract cluster counts at each step.
-6. Open https://enciclopedia.med.br/consort2010, paste the data, and export as SVG.
+6. Open https://enciclopedia.med.br/consort2010 (the URL keeps the 2010 name; the layout matches CONSORT 2025 once the boxes are relabelled), paste the data, and export as SVG.
 7. Check the follow-up and analysis labels against the CONSORT 2025 wording (primary outcome) and cite CONSORT 2025 in the legend.
 
 #### Citation required (CC BY 4.0)
@@ -763,7 +763,7 @@ For publication, prefer DAGitty; the SVG output is cleaner and the file can be r
 
 ### CONSORT generator (enciclopedia.med.br/consort2010)
 
-1. **enciclopedia.med.br/consort2010** (preferred): single-file browser tool, no install. Same box structure as the CONSORT 2025 diagram; relabel follow-up/analysis boxes to the 2025 "for primary outcome" wording. Supports five trial designs (parallel 2-arm, parallel 3-arm, crossover, cluster, factorial). Exports SVG and PNG. CC BY 4.0; citation required.
+1. **enciclopedia.med.br/consort2010** (preferred): single-file browser tool, no install. The URL keeps the 2010 name; the layout matches CONSORT 2025 once the follow-up and analysis boxes are relabelled to the 2025 "for primary outcome" wording. Supports five trial designs (parallel 2-arm, parallel 3-arm, crossover, cluster, factorial). Exports SVG and PNG. CC BY 4.0; citation required.
 2. **Mermaid** (fallback): only fits parallel 2-arm cleanly; the web generator handles the other four designs better.
 
 ### STROBE generator

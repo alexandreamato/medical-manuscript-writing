@@ -194,6 +194,7 @@ A summary "key take-home points" table near the end is particularly valuable for
 10. Are references balanced between classic and recent, and all verified?
 11. Do the cross-section consistency checks pass? `references/paper-review.md` (Cross-Section Consistency Checks).
 12. Does the abstract include the main conclusions and added value, not just a description?
+13. Would the review score 2 on each of the six SANRA items (importance for readers, concrete aims, described literature search, referencing, scientific reasoning, presentation of data)? SANRA is the scale editors and reviewers use for narrative reviews, which have no EQUATOR reporting guideline (Baethge C, Goldbeck-Wood S, Mertens S. Res Integr Peer Rev. 2019;4:5, doi:10.1186/s41073-019-0064-8; `references/reporting-standards.md`, SANRA).
 
 ## Source
 

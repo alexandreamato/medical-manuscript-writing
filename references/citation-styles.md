@@ -31,7 +31,7 @@ Different journals require different citation styles. The first step before form
 | Style | Family | In-text format | Reference list order | Common journals |
 | --- | --- | --- | --- | --- |
 | **Vancouver (ICMJE)** | Numeric | `[1]` or `(1)` | Order of first appearance | NEJM, Lancet, BMJ, Annals of Internal Medicine, Nature Medicine, JAMA family (with AMA variations), Cochrane Reviews, most specialty journals |
-| **AMA (10th–11th ed.)** | Numeric | Superscript number `¹` | Order of first appearance | JAMA, JAMA Internal Medicine, Archives of *, many AMA-affiliated journals |
+| **AMA (10th and 11th ed.)** | Numeric | Superscript number `¹` | Order of first appearance | JAMA, JAMA Internal Medicine, Archives of *, many AMA-affiliated journals |
 | **APA (7th ed.)** | Author-date | `(Smith, 2020)` | Alphabetical | Some psychology, public health, nursing, and medical-education journals |
 | **Harvard** | Author-date | `(Smith 2020)` | Alphabetical | Generic; varies by publisher; common in some UK and Australian health journals |
 | **Chicago / Turabian** | Notes-Bibliography or Author-Date | Footnote or `(Smith 2020)` | Alphabetical (Author-Date) or by note order (Notes-Bibliography) | Some humanities-leaning health journals |
@@ -109,9 +109,9 @@ Do not italicize `et al.` in Vancouver/AMA (some style guides italicize it; not 
 ### Author Names in the Reference List
 
 1. **Format:** surname followed by initials with no periods between letters and no space: `Smith JA`, `Khan FM`. Multiple authors are separated by commas.
-2. **One to six authors:** list **all** authors in classical Vancouver. (AMA 11 and many modern journals now also accept "first three then et al."; verify with the journal.)
-3. **More than six authors (modern AMA-aligned Vancouver):** list the first **three** authors then `et al.` Example: `Smith BM, Kirby M, Hoffman EA, et al.`.
-4. **Older Vancouver / ICMJE classical:** list the first **six** authors then `et al.` Verify which the target journal uses.
+2. **One to six authors:** list **all** authors. Vancouver (ICMJE/NLM) and AMA (10th and 11th editions) agree here.
+3. **Seven or more authors, Vancouver (ICMJE/NLM):** list the first **six** authors then `et al.` Example: `Solomon SD, McMurray JJV, Anand IS, Ge J, Lam CSP, Maggioni AP, et al.`
+4. **Seven or more authors, AMA (10th and 11th editions):** list the first **three** authors then `et al.` Example: `Smith BM, Kirby M, Hoffman EA, et al.` Some Vancouver journals adopt this AMA rule in their own instructions; the journal's instructions decide.
 5. **Organization as author:** spell out in full: `Australian Institute of Health and Welfare.` `World Health Organization.`. Do not abbreviate the organization name in the reference list.
 6. **No author available:** check whether an organization acted as author. If not, list the title first.
 
@@ -135,14 +135,15 @@ Author Surname Author Initials. Title of article: subtitle. Abbreviated Journal 
 Worked examples:
 
 ```
-1. Solomon SD, McMurray JJV, Anand IS, et al. Angiotensin-neprilysin
-   inhibition in heart failure with preserved ejection fraction. N Engl
-   J Med. 2019;381(17):1609-1620. doi:10.1056/NEJMoa1908655
+1. Solomon SD, McMurray JJV, Anand IS, Ge J, Lam CSP, Maggioni AP,
+   et al. Angiotensin-neprilysin inhibition in heart failure with
+   preserved ejection fraction. N Engl J Med. 2019;381(17):1609-1620.
+   doi:10.1056/NEJMoa1908655
 
-2. Naghavi M, Abajobir AA, Abbafati C, et al. Global, regional, and
-   national age-sex specific mortality for 264 causes of death,
-   1980-2016: a systematic analysis for the Global Burden of Disease
-   Study 2016. Lancet. 2017;390(10100):1151-1210.
+2. Naghavi M, Abajobir AA, Abbafati C, Abbas KM, Abd-Allah F, Abera SF,
+   et al. Global, regional, and national age-sex specific mortality for
+   264 causes of death, 1980-2016: a systematic analysis for the Global
+   Burden of Disease Study 2016. Lancet. 2017;390(10100):1151-1210.
    doi:10.1016/S0140-6736(17)32152-9
 
 3. Boatwright KD, Sperry ML. Accuracy of medical marijuana claims

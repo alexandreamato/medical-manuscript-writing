@@ -93,6 +93,7 @@ Sentence skeleton:
 5. Disclose prior versions: preprints, conference abstracts, theses. State the relationship between this manuscript and any prior version.
 6. Image integrity: keep raw image files; do not adjust beyond linear contrast/brightness applied to the entire image; do not splice lanes from different gels into a single image.
 7. Statistical integrity: provide enough detail (model, software, code) for an independent reader to reproduce the analysis.
+8. **When something goes wrong: COPE.** The Committee on Publication Ethics (https://publicationethics.org/guidance) publishes the procedures most journals follow. Its flowcharts give the editor's step-by-step handling of suspected fabrication or falsification, plagiarism, image manipulation, authorship disputes, undisclosed conflicts of interest, redundant publication and paper-mill activity, both before and after publication. Its Retraction guidelines (version 3, 2025) and the separate Expressions of concern guidelines (2025) set when an article is corrected, retracted or flagged, and state that retraction corrects the literature rather than punishes the authors. Use them to anticipate what a journal will ask: an author who finds an error in a published article should contact the editor at once, propose a correction if the conclusions stand, and request retraction if they do not. For a suspected problem in someone else's article, raise it with the journal editor, not in public first.
 
 ## 9. Patient Privacy
 

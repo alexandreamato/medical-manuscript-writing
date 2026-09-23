@@ -2,6 +2,42 @@
 
 All notable changes to the **Medical Manuscript Writing** skill are documented here. Format follows Keep a Changelog (https://keepachangelog.com/) using semantic-style versioning by content scope rather than strict semver.
 
+## [1.11.0] — 2026-09-23
+
+Responds to an external review of 1.10.0.
+
+### Fixed
+
+- **AMA "et al." rule.** `citation-styles-detail.md` said AMA lists six authors then et al.; AMA 10 and 11 list all authors up to six and the first three followed by et al. from seven. The two citation files now agree (Vancouver/NLM: first six; APA 7: up to 20; APA example corrected to 19, ellipsis, last author).
+- **Group authors were dropped** by `refs.py` (Crossref sends them as `{"name": ...}`): now kept as CSL `literal` ("for the STROBE Initiative"). The bundled example's empty author is repaired and re-verified.
+- **EudraCT** mentions aligned with CTIS (Regulation 536/2014, the only route since 31 January 2025) in `abstract.md`, `common-mistakes.md` and the RCT template.
+- Build kit:
+  - `refs.py add` reports a network failure per reference (exit 3) instead of a traceback, and the key suffix starts at `a`.
+  - ORCIDs are checked by their check digit, and the same ORCID on two authors is an error (the example no longer repeats one).
+  - `validate.py --compare` exits 1 when any profile has errors, so it can gate CI.
+  - `refdocx.py` stops with a clear message if a new pandoc's reference.docx no longer takes its styles.
+  - `revision.py start` accepts `--submitted-docx`, as documented.
+- Documentation:
+  - the kit README no longer claims the example validates against every profile;
+  - CI levels are described as 90/95/99%;
+  - the CSL field notes that styles are bundled;
+  - `docx-build.md` points to Submission Convention 3;
+  - the `templates/README.md` TODO claim is removed;
+  - zip sizes are updated;
+  - the lost `## [1.7.0]` heading is restored in this changelog;
+  - the README counts all eleven profiles.
+
+### Added
+
+- `SKILL.md`: "When Information Is Missing" (infer and state the design; ask for the journal only in submission preparation; never assume defaults silently; answer in the user's language, write in the journal's, both languages for bilingual journals).
+- `SKILL.md`: a raw-data rule (numbers the agent derives from raw data are a new analysis to be labelled and confirmed).
+- `SKILL.md`: one four-status taxonomy for remaining problems, shared with `paper-review.md`; Submission Convention 4 (conventions apply only to the text you were asked to change).
+- `SKILL.md`: routing rows for reference formatting, figures and forest plots, translation, letters and conference abstracts, and an out-of-scope line (grants, posters, theses); richer activation triggers.
+- `non-native-authors.md` §6, translation (numbers and CIs identical, MeSH/DeCS, no added content).
+- Reporting standards: PRISMA-ScR, PROCESS 2025 (surgical case series), JBI case-series checklist, SANRA (narrative reviews); COPE guidance for misconduct, retractions and expressions of concern.
+- Artwork resolution by image type in one place (300 halftone, 600 combination, 1000 to 1200 line art); P-value style kept in one place; the `consort2010` URL explained where recommended.
+- 4 new tests (54 in total).
+
 ## [1.10.0] — 2026-09-23
 
 ### Added
@@ -115,6 +151,7 @@ Responds to two external reviews of 1.6.1 and 1.7.0.
 - Figures are written next to the manuscript with the same naming rule (`…_figure-1.png`) instead of `figures/Figure1.png`. Revision file names no longer come from the profile (`clean_name`, `marked_name`, `letter_name` removed).
 - `test_revision.py` uses a throwaway git identity, so it passes on machines without a global git user.
 
+## [1.7.0] — 2026-09-23
 
 ### Added
 

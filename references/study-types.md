@@ -170,7 +170,7 @@ For etiology or rare-outcome questions, large prospective cohorts and case-contr
 ### 18. Case report and case series
 
 - Single patient or small group with a notable clinical course.
-- Reporting: CARE.
+- Reporting: CARE for a case report; for a case series, PROCESS 2025 (surgical) or the JBI case series checklist (`reporting-standards.md`, Case series).
 
 ## Causal Language by Design
 

@@ -103,10 +103,10 @@ def make_key(ref: dict, taken: set[str]) -> str:
     year = str((ref.get("issued", {}).get("date-parts") or [[""]])[0][0] or "nd")
     words = [w for w in re.findall(r"[A-Za-z]+", ref.get("title", "")) if w.lower() not in STOP]
     base = f"{fam}{year}{ascii_slug(words[0]) if words else ''}"
-    key, n = base, 1
+    key, n = base, 0
     while key in taken:
         n += 1
-        key = f"{base}{chr(96 + n)}"
+        key = f"{base}{chr(96 + n)}"  # base, basea, baseb, ...
     return key
 
 
@@ -130,6 +130,16 @@ def fetch_pmid(pmid: str) -> dict | None:
     return r
 
 
+def clean_author(a: dict) -> dict:
+    """Keep the name parts CSL uses. Crossref sends group authors as {"name": ...}:
+    that becomes CSL's `literal`, so "for the STROBE Initiative" is not lost."""
+    keep = {k: v for k, v in a.items() if k in ("family", "given", "literal", "suffix",
+                                                 "non-dropping-particle", "dropping-particle")}
+    if not keep.get("family") and not keep.get("literal") and a.get("name"):
+        keep["literal"] = a["name"]
+    return keep
+
+
 def clean(ref: dict) -> dict:
     out = {k: v for k, v in ref.items() if k not in DROP and not k.startswith("_")}
     if isinstance(out.get("container-title"), list):
@@ -147,9 +157,8 @@ def clean(ref: dict) -> dict:
     # Vancouver prints the NLM journal abbreviation; keep it when the source has it.
     if ref.get("container-title-short") or ref.get("journalAbbreviation"):
         out["container-title-short"] = ref.get("container-title-short") or ref.get("journalAbbreviation")
-    out["author"] = [{k: v for k, v in a.items() if k in ("family", "given", "literal", "suffix",
-                                                           "non-dropping-particle", "dropping-particle")}
-                     for a in out.get("author", [])]
+    out["author"] = [clean_author(a) for a in out.get("author", [])]
+    out["author"] = [a for a in out["author"] if a]
     return out
 
 
@@ -158,32 +167,17 @@ def cmd_add(args):
     taken = {r["id"] for r in refs}
     have_doi = {(r.get("DOI") or "").lower(): r["id"] for r in refs}
     have_pmid = {str(r.get("PMID")): r["id"] for r in refs if r.get("PMID")}
+    failed = 0
     for ident in args.ids:
-        if ident.upper().startswith("PMID:") or ident.isdigit():
-            pmid = ident.split(":")[-1]
-            if pmid in have_pmid:
-                print(f"= already present as {have_pmid[pmid]}")
-                continue
-            ref = fetch_pmid(pmid)
-            if not ref:
-                print(f"! PMID {pmid} not found in PubMed", file=sys.stderr)
-                continue
-            ref["PMID"] = pmid
-        else:
-            doi = norm_doi(ident)
-            if doi.lower() in have_doi:
-                print(f"= already present as {have_doi[doi.lower()]}")
-                continue
-            ref = fetch_doi(doi)
-            if not ref:
-                print(f"! DOI {doi} not found in Crossref", file=sys.stderr)
-                continue
-            pmid = pmid_for_doi(doi)
-            if pmid:
-                ref["PMID"] = pmid
-                pm = fetch_pmid(pmid)
-                if pm and pm.get("container-title-short"):
-                    ref["container-title-short"] = pm["container-title-short"]
+        try:
+            ref = add_one(ident, have_doi, have_pmid)
+        except (urllib.error.URLError, TimeoutError, OSError) as e:
+            print(f"! {ident}: could not reach Crossref/PubMed ({getattr(e, 'reason', e)}); nothing added",
+                  file=sys.stderr)
+            failed += 1
+            continue
+        if ref is None:
+            continue
         ref = clean(ref)
         key = args.key if args.key and len(args.ids) == 1 else make_key(ref, taken)
         if key in taken:
@@ -193,6 +187,38 @@ def cmd_add(args):
         refs.append(ref)
         print(f"+ @{key}  {ref.get('title', '')[:80]}")
     C.save_references(refs)
+    if failed:
+        sys.exit(3)
+
+
+def add_one(ident: str, have_doi: dict, have_pmid: dict) -> dict | None:
+    """Fetch one record; None when it is already present or not found."""
+    if ident.upper().startswith("PMID:") or ident.isdigit():
+        pmid = ident.split(":")[-1]
+        if pmid in have_pmid:
+            print(f"= already present as {have_pmid[pmid]}")
+            return None
+        ref = fetch_pmid(pmid)
+        if not ref:
+            print(f"! PMID {pmid} not found in PubMed", file=sys.stderr)
+            return None
+        ref["PMID"] = pmid
+    else:
+        doi = norm_doi(ident)
+        if doi.lower() in have_doi:
+            print(f"= already present as {have_doi[doi.lower()]}")
+            return None
+        ref = fetch_doi(doi)
+        if not ref:
+            print(f"! DOI {doi} not found in Crossref", file=sys.stderr)
+            return None
+        pmid = pmid_for_doi(doi)
+        if pmid:
+            ref["PMID"] = pmid
+            pm = fetch_pmid(pmid)
+            if pm and pm.get("container-title-short"):
+                ref["container-title-short"] = pm["container-title-short"]
+    return ref
 
 
 def similar(a: str, b: str) -> float:

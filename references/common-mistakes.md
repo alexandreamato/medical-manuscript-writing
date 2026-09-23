@@ -19,11 +19,11 @@ A fast table of desk-rejection patterns and reviewer-comment triggers. Each row 
 
 | Pattern | Why it fails | Fix | See |
 | --- | --- | --- | --- |
-| No participant flow diagram in an RCT | CONSORT mandatory; immediate desk-rejection trigger | Build CONSORT flow at https://enciclopedia.med.br/consort2010 | `diagrams.md`, `reporting-standards.md` |
+| No participant flow diagram in an RCT | CONSORT mandatory; immediate desk-rejection trigger | Build CONSORT flow at https://enciclopedia.med.br/consort2010 (the URL keeps the 2010 name; the layout matches CONSORT 2025 once the boxes are relabelled) | `diagrams.md`, `reporting-standards.md` |
 | No PRISMA flow diagram in a systematic review | PRISMA 2020 mandatory | Build PRISMA flow at https://enciclopedia.med.br/prisma2020 | `diagrams.md`, `systematic-review.md` |
 | No CARE timeline in a case report | CARE Item 7 mandatory | Add a section-based or date-based timeline | `case-report.md`, `diagrams.md` |
 | No reporting-checklist file in the supplement | Most journals require it | Complete the relevant checklist with page/line numbers | `reporting-standards.md` |
-| Trial not registered (or registration not cited in Abstract/Methods) | ICMJE non-publication trigger | Register prospectively; cite the NCT/ISRCTN/EudraCT in Abstract | `ethics-and-integrity.md` |
+| Trial not registered (or registration not cited in Abstract/Methods) | ICMJE non-publication trigger | Register prospectively; cite the NCT/ISRCTN/ReBEC identifier in Abstract (EU: CTIS number under Regulation 536/2014, the only route since 31 January 2025; EudraCT only for legacy trials) | `ethics-and-integrity.md` |
 | Systematic review not registered in PROSPERO | Most journals now require | Register before data extraction; cite PROSPERO ID | `systematic-review.md` |
 | Adherence statement missing in Methods | Editors check | Add "This study is reported in accordance with [standard]. The completed [name] checklist is provided as Supplementary File X." | `reporting-standards.md` |
 

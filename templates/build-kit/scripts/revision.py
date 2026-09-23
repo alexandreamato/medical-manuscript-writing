@@ -236,7 +236,6 @@ def cmd_start(a):
     print(f"round {a.round} started from {a.submitted_tag} for {a.journal}: {d.relative_to(C.TOOLS)}/")
     if a.returned:
         a.file = a.returned
-        a.submitted_docx = None
         cmd_import(a)
 
 
@@ -471,6 +470,7 @@ def main():
     s.add_argument("--submitted-tag", required=True, help="git tag of what was submitted")
     s.add_argument("--journal", required=True)
     s.add_argument("--returned", help="the .docx the journal sent back (runs import)")
+    s.add_argument("--submitted-docx", help="with --returned: the exact file we uploaded (default: rebuild the tag)")
     s.add_argument("--force", action="store_true")
     s.set_defaults(fn=cmd_start)
     i = sub.add_parser("import")
