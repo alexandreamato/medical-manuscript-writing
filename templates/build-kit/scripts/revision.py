@@ -212,7 +212,8 @@ def render_current(journal: str, env_root: Path | None = None) -> Path:
     r = subprocess.run([sys.executable, str(C.TOOLS / "scripts" / "build.py"), "--journal", journal, "--force"],
                        capture_output=True, text=True, env=env)
     root = env_root or C.KIT
-    out = root / "outputs" / journal / "manuscript.docx"
+    found = sorted((root / "outputs" / journal).glob("*_manuscript.docx"))
+    out = found[0] if found else root / "outputs" / journal / "manuscript.docx"
     if r.returncode or not out.exists():
         C.die(f"could not build {journal} from {root}:\n{r.stdout}\n{r.stderr}")
     return out

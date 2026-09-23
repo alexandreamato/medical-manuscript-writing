@@ -2,7 +2,17 @@
 
 All notable changes to the **Medical Manuscript Writing** skill are documented here. Format follows Keep a Changelog (https://keepachangelog.com/) using semantic-style versioning by content scope rather than strict semver.
 
-## [1.7.0] — 2026-09-23
+## [1.7.1] — 2026-09-23
+
+### Added
+
+- **File-name rule** for everything sent to a journal: `<short-name>_<journal>[_rev<N>]_<part>.<ext>` (e.g. `statins-ulcer_jvb_rev1_manuscript-marked.docx`). `short-name` is set once in `metadata.yaml`; the validator rejects a malformed one and flags an author's name in it (an ERROR for blinded journals, since every file carries it). Internal reports are prefixed with `_` (`_validation-report.txt`, `_build-info.json`, `_letter-check.txt`). Documented in the kit README ("File names") and `references/docx-build.md`.
+
+### Changed
+
+- Figures are written next to the manuscript with the same naming rule (`…_figure-1.png`) instead of `figures/Figure1.png`. Revision file names no longer come from the profile (`clean_name`, `marked_name`, `letter_name` removed).
+- `test_revision.py` uses a throwaway git identity, so it passes on machines without a global git user.
+
 
 ### Added
 

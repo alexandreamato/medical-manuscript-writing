@@ -10,15 +10,16 @@
 With --revision N, outputs/<journal>/revision-N/ holds the clean manuscript,
 the marked one (the journal's rule: red text, highlight or tracked changes,
 against the tag made by `revision.py base`), the response letter built from
-revision/round-N/responses.md, and letter-check.txt. See revision.py.
+revision/round-N/responses.md, and _letter-check.txt. See revision.py.
 
-Output in outputs/<journal>/:
-    manuscript.docx         (title page + text, or blinded text if the journal
-                             reviews blind)
-    title-page.docx         (when the journal wants it separate)
-    figures/Figure1.png ... (numbered by first mention, for separate upload)
-    validation-report.txt   (what was checked, against which profile version)
-    build-info.json         (pandoc version, profile, git commit: traceability)
+Output in outputs/<journal>/, named <short-name>_<journal>[_rev<N>]_<part>.<ext>
+(common.file_name):
+    ..._manuscript.docx       title page + text, or blinded text if the journal
+                              reviews blind
+    ..._title-page.docx       when the journal wants it separate
+    ..._figure-1.png ...      numbered by first mention, for separate upload
+    _validation-report.txt    internal: what was checked, against which profile
+    _build-info.json          internal: pandoc version, profile, git commit
 
 Pipeline: validate -> resolve CSL -> reference.docx -> pandoc
           (crossref.lua -> journal.lua -> citeproc).
@@ -147,8 +148,9 @@ def build(name: str, atype: str | None, force: bool, revision: int | None = None
         for p in out.iterdir():
             if not p.name.startswith("revision-"):
                 shutil.rmtree(p) if p.is_dir() else p.unlink()
-    (out / "figures").mkdir(parents=True, exist_ok=True)
-    (out / "validation-report.txt").write_text(rep.text() + "\n", encoding="utf-8")
+    out.mkdir(parents=True, exist_ok=True)
+    (out / "_validation-report.txt").write_text(rep.text() + "\n", encoding="utf-8")
+    fname = lambda part, ext: C.file_name(meta, name, part, ext, revision)
 
     csl = resolve_csl(prof.get("csl", "nlm-citation-sequence"))
     rd = prof.get("reference_docx", {})
@@ -188,7 +190,7 @@ def build(name: str, atype: str | None, force: bool, revision: int | None = None
     ns = sub.get("number_sections", False)
 
     if sub.get("separate_title_page"):
-        run_pandoc(out / "title-page.docx", {"journal-build": {**base, "mode": "titlepage"}, "xref": xref},
+        run_pandoc(out / fname("title-page", ".docx"), {"journal-build": {**base, "mode": "titlepage"}, "xref": xref},
                    csl, refdoc, False, lang)
         mode = "blinded" if sub.get("blinded") else "full"
     else:
@@ -199,12 +201,11 @@ def build(name: str, atype: str | None, force: bool, revision: int | None = None
         omit = list(dict.fromkeys(omit + sub.get("title_page_sections", [])))
     runtime = {"journal-build": {**base, "mode": mode, "omit": omit}, "xref": xref}
     if not revision:
-        run_pandoc(out / "manuscript.docx", runtime, csl, refdoc, ns, lang)
+        run_pandoc(out / fname("manuscript", ".docx"), runtime, csl, refdoc, ns, lang)
     else:
         import revision as R  # local import: only revision builds need git and the base tag
         state = R.load_state(revision)
-        clean = rev.get("clean_name", "manuscript-clean.docx")
-        run_pandoc(out / clean, runtime, csl, refdoc, ns, lang)
+        run_pandoc(out / fname("manuscript-clean", ".docx"), runtime, csl, refdoc, ns, lang)
         marking = rev.get("marking", "tracked")
         if marking != "none":
             old = R.base_ast(state)
@@ -212,7 +213,7 @@ def build(name: str, atype: str | None, force: bool, revision: int | None = None
                                                rev.get("author") or "Authors",
                                                dt.datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ"),
                                                superscript='vertical-align="sup"' in Path(csl).read_text(encoding="utf-8"))
-            run_pandoc(out / rev.get("marked_name", "manuscript-marked.docx"), runtime, csl, refdoc, ns, lang,
+            run_pandoc(out / fname("manuscript-marked", ".docx"), runtime, csl, refdoc, ns, lang,
                        ast_input=marked)
             stats["revision"] = {"base": state["base_tag"], "marking": marking,
                                  "inserted_words": stats_m.inserted_words, "deleted_words": stats_m.deleted_words,
@@ -222,19 +223,19 @@ def build(name: str, atype: str | None, force: bool, revision: int | None = None
         letter_rep = R.check_letter(revision, doc)
         for item in prof.get("revision_checks", []):
             letter_rep.human("journal", item)
-        (out / "letter-check.txt").write_text(letter_rep.text() + "\n", encoding="utf-8")
+        (out / "_letter-check.txt").write_text(letter_rep.text() + "\n", encoding="utf-8")
         print(f"  response letter: {letter_rep.count('ERROR')} error(s), {letter_rep.count('WARN')} warning(s)")
-        R.build_letter(revision, out / rev.get("letter_name", "response-letter.docx"), refdoc, lang, meta, headings)
+        R.build_letter(revision, out / fname("response-letter", ".docx"), refdoc, lang, meta, headings)
 
     # Figures as separate files, renamed by their number.
     nums = C.float_numbers(doc)
     for fid, src in C.image_targets(doc).items():
         p = C.KIT / src if (C.KIT / src).exists() else C.MANUSCRIPT_DIR / src
         if p.exists():
-            prefix = "SupplementaryFigure" if fid.startswith("sfig:") else "Figure"
-            shutil.copy2(p, out / "figures" / f"{prefix}{nums.get(fid, 0)}{p.suffix}")
+            part = ("supplementary-figure" if fid.startswith("sfig:") else "figure") + f"-{nums.get(fid, 0)}"
+            shutil.copy2(p, out / fname(part, p.suffix.lower()))
 
-    (out / "build-info.json").write_text(json.dumps({
+    (out / "_build-info.json").write_text(json.dumps({
         "built_at": dt.datetime.now().isoformat(timespec="seconds"),
         "profile": prof["id"], "article_type": atype,
         "profile_verified_at": prof.get("verified_at"), "profile_source": prof.get("source_url"),

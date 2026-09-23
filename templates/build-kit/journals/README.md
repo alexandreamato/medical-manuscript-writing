@@ -40,8 +40,8 @@ Keys starting with `_` are comments. `null` means "no rule".
 | `required_declarations` | Section ids that must exist: `ethics`, `funding`, `conflicts`, `data-availability`, `author-contributions`, `ai-use`, `trial-registration`, … |
 | `submission` | `{separate_title_page, blinded, number_sections, omit_in_blinded: [section ids], title_page_sections: [section ids]}`. `title_page_sections` are printed on the title page and left out of the manuscript (J Vasc Bras: ethics, conflicts, funding, data availability, contributions). |
 | `style` | `{allow_em_dash, allow_en_dash_ranges, p_value: "P" \| "p" \| null, no_abbreviations_in_title_abstract}`. |
-| `revision` | How revised manuscripts are marked: `{marking: "color" \| "highlight" \| "tracked" \| "none", color: "FF0000", deleted: "strike" \| "omit", author, clean_name, marked_name, letter_name}`. |
-| `revision_checks` | Free-text items listed in every revision's `letter-check.txt` (deadlines, submission route). |
+| `revision` | How revised manuscripts are marked: `{marking: "color" \| "highlight" \| "tracked" \| "none", color: "FF0000", deleted: "strike" \| "omit", author}`. File names follow the kit's rule (README, "File names"). |
+| `revision_checks` | Free-text items listed in every revision's `_letter-check.txt` (deadlines, submission route). |
 | `headings` | Extra `{section id: heading}` renames. |
 | `reporting_guideline` | Guideline the journal expects for this article type (checked against `study-design`). |
 | `human_checks` | Free-text items listed for human review in every report. |

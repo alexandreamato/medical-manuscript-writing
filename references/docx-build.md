@@ -65,6 +65,10 @@ Consequences:
 4. Make the revision. Answer each comment in `revision/round-1/responses.md` (quote it verbatim, answer, `Changed: <section ids>`). Keep scientific changes (new analyses, changed estimates) visible in the letter; never bury them.
 5. `revision.py check`, then `build.py --journal <j> --revision 1`: clean file, marked file in the journal's style (J Vasc Bras: red), response letter, and a check listing unanswered comments, false "changed" claims and unexplained changes.
 
+### File names
+
+Every file sent to a journal is named `<short-name>_<journal>[_rev<N>]_<part>.<ext>` (e.g. `statins-ulcer_jvb_rev1_manuscript-marked.docx`): the manuscript, the journal, the revision round (absent at first submission), the part. The short name is set once in `metadata.yaml` and never contains an author's name, because blinded files carry it. When working outside the kit, name the files the same way by hand.
+
 ## What the validator does and does not decide
 
 | Level | Examples | Who decides |
@@ -79,7 +83,7 @@ Consequences:
 
 The source of truth is the Markdown. Send the generated .docx; co-authors comment or track changes; apply the accepted changes to the Markdown and rebuild. Do not convert an edited .docx back to Markdown after the initial conversion, because citations come back as static text. When co-authors must insert references themselves, have them name the reference in a comment (DOI or PMID) instead of inserting a citation.
 
-Tag each submission in git (`submission-1-<journal>`, `revision-1`). Each build writes `outputs/<journal>/build-info.json` with the profile and its verification date, the CSL, the pandoc version and the commit, so any submitted file can be traced to its exact source. For the tracked-changes version required with a revision, compare the two tagged builds with Word's *Compare Documents*.
+Tag each submission in git (`submission-1-<journal>`, `revision-1`). Each build writes `outputs/<journal>/_build-info.json` with the profile and its verification date, the CSL, the pandoc version and the commit, so any submitted file can be traced to its exact source. For the tracked-changes version required with a revision, compare the two tagged builds with Word's *Compare Documents*.
 
 ## Limits of the kit
 

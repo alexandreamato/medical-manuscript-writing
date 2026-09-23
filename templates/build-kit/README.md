@@ -13,7 +13,7 @@ csl/                 citation styles (Vancouver bundled, others fetched on deman
 figures/             image files referenced from the text
 filters/             pandoc Lua filters: cross-references, journal presentation
 scripts/             refs.py, validate.py, build.py (Python standard library only)
-outputs/<journal>/   generated: manuscript.docx, title-page.docx, figures/, reports
+outputs/<journal>/   generated files to upload (named by the rule below) + _reports
 ```
 
 Requirements: `pandoc` ≥ 3.1 (`brew install pandoc`) and Python ≥ 3.9. No Python packages. Network is needed only for `refs.py` and for downloading a CSL style the first time.
@@ -30,6 +30,28 @@ The kit ships with a **fictional** cohort example that builds cleanly against ev
 Profiles included: `jvb` (**Jornal Vascular Brasileiro**, the default in `metadata.yaml`; rules read in the journal's instructions on 2026-09-23, every rule annotated with its source), `generic-icmje` (drafting defaults before a journal is chosen) and `example-journal-b` (illustrative, never submit against it).
 
 **Two languages.** Journals such as J Vasc Bras want title, abstract and keywords in Portuguese and English. Put the second title and keywords in `metadata.yaml` (`title-alt`, `keywords-alt`, `lang-alt`) and the second abstract in a section `# Resumo {#abstract-alt}` with parts `{#abstract-alt-background}`, etc. The profile names the headings in each language.
+
+## File names
+
+Every file for the journal follows one rule: **what · where · when · which part**.
+
+```
+<short-name>_<journal>[_rev<N>]_<part>.<ext>
+
+statins-ulcer_jvb_manuscript.docx            first submission
+statins-ulcer_jvb_title-page.docx
+statins-ulcer_jvb_figure-1.png
+statins-ulcer_jvb_rev1_manuscript-marked.docx   revision round 1
+statins-ulcer_jvb_rev1_response-letter.docx
+```
+
+- **short-name**: set once in `metadata.yaml` (`short-name: statins-ulcer`), 1 to 5 words. Never an author's name: the blinded manuscript carries it too (the validator checks).
+- **journal**: the profile id (`jvb`).
+- **rev\<N\>**: only in revision rounds; absent at first submission.
+- **part**: `manuscript`, `title-page`, `figure-N`, `supplementary-figure-N`, `manuscript-clean`, `manuscript-marked`, `response-letter`.
+- Lowercase, no accents or spaces; hyphens inside a field, underscores between fields. Files starting with `_` (`_validation-report.txt`, `_build-info.json`) are internal and are not uploaded.
+
+Inside the project the source files keep their own simple rule: `manuscript/NN-section.md`, where the two-digit prefix sets the order (`00-abstract.md`, `01-introduction.md`, …).
 
 ## Daily commands
 
@@ -66,7 +88,7 @@ python3 scripts/revision.py check --round 1                 # letter vs actual c
 python3 scripts/build.py --journal jvb --revision 1
 ```
 
-`outputs/jvb/revision-1/` then holds `manuscript-clean.docx`, `manuscript-marked-red.docx` (inserted text in red, deleted text struck through in red, as J Vasc Bras asks), `response-to-reviewers.docx`, the title page and `letter-check.txt`. The marking rule comes from the profile (`revision.marking`: `color`, `highlight`, `tracked` for real Word tracked changes, or `none`). Both manuscripts have the same reference and figure numbers: a deleted citation is shown as `[citation]` and does not take a number.
+`outputs/jvb/revision-1/` then holds `…_rev1_manuscript-clean.docx`, `…_rev1_manuscript-marked.docx` (inserted text in red, deleted text struck through in red, as J Vasc Bras asks), `…_rev1_response-letter.docx`, the title page and `_letter-check.txt`. The marking rule comes from the profile (`revision.marking`: `color`, `highlight`, `tracked` for real Word tracked changes, or `none`). Both manuscripts have the same reference and figure numbers: a deleted citation is shown as `[citation]` and does not take a number.
 
 In `responses.md`, one `##` per comment, the comment quoted with `>`, the answer, and `Changed: <section ids>` (or `none`). `check` fails when a comment has no answer or claims a change in a section that did not change, and warns when a section changed without any answer mentioning it.
 
@@ -106,7 +128,7 @@ The Markdown is the source; the .docx is a product.
 
 1. Send the generated .docx. Co-authors comment or track changes in Word.
 2. Apply accepted changes to the Markdown (an agent can read the .docx comments and propose the diff). Do not convert the edited .docx back to Markdown: citations become static text.
-3. Rebuild. Tag each submission in git (`git tag submission-1-jvs`, `revision-1`) and keep `outputs/<journal>/build-info.json`, which records the profile version, CSL, pandoc version and commit used.
+3. Rebuild. Tag each submission in git (`git tag submission-1-jvs`, `revision-1`) and keep `outputs/<journal>/_build-info.json`, which records the profile version, CSL, pandoc version and commit used.
 4. For a journal revision, use the revision round above rather than Word's *Compare Documents*: it separates the journal's edits from yours and marks yours the way the journal asks.
 
 Keep identifiable patient data out of the repository.

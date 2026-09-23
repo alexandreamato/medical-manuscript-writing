@@ -118,11 +118,17 @@ def revdiff_text(inlines):
     return " ".join(i["c"] for i in inlines if i.get("t") == "Str")
 
 
+# A throwaway identity, so the test never depends on the machine's git config.
+GIT_ENV = {**{k: v for k, v in os.environ.items() if k != "MANUSCRIPT_CONTENT_ROOT"},
+           "GIT_AUTHOR_NAME": "Test", "GIT_AUTHOR_EMAIL": "test@example.org",
+           "GIT_COMMITTER_NAME": "Test", "GIT_COMMITTER_EMAIL": "test@example.org",
+           "GIT_CONFIG_GLOBAL": os.devnull, "GIT_CONFIG_NOSYSTEM": "1"}
+
+
 @unittest.skipUnless(shutil.which("git") and shutil.which("pandoc"), "needs git and pandoc")
 class RoundTripTest(unittest.TestCase):
     def run_kit(self, *args, cwd=None, ok=True):
-        r = subprocess.run([sys.executable, *args], cwd=cwd or self.repo, capture_output=True, text=True,
-                           env={k: v for k, v in os.environ.items() if k != "MANUSCRIPT_CONTENT_ROOT"})
+        r = subprocess.run([sys.executable, *args], cwd=cwd or self.repo, capture_output=True, text=True, env=GIT_ENV)
         if ok:
             self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
         return r
@@ -140,10 +146,11 @@ class RoundTripTest(unittest.TestCase):
                                                                       ".git"))
         (self.repo / "revision").mkdir()
         shutil.copy(KIT / "revision" / "_responses-template.md", self.repo / "revision")
-        git = lambda *a: subprocess.run(["git", "-C", str(self.repo), *a], capture_output=True, check=True)
+        git = lambda *a: subprocess.run(["git", "-C", str(self.repo), *a], capture_output=True, check=True,
+                                        env=GIT_ENV)
         git("init", "-q")
-        git("-c", "user.name=t", "-c", "user.email=t@t", "add", "-A")
-        git("-c", "user.name=t", "-c", "user.email=t@t", "commit", "-qm", "submitted")
+        git("add", "-A")
+        git("commit", "-qm", "submitted")
         git("tag", "submission-1")
 
         # The journal's copy: tracked insertion, a comment, and an untracked copy-edit.
@@ -158,7 +165,7 @@ class RoundTripTest(unittest.TestCase):
         self.edit(journal, "01-introduction.md", "most disabling complication", "most severe complication")
         self.run_kit("scripts/build.py", "--journal", "jvb", cwd=journal)
         returned = tmp / "returned.docx"
-        shutil.copy(journal / "outputs" / "jvb" / "manuscript.docx", returned)
+        shutil.copy(journal / "outputs" / "jvb" / "statins-ulcer_jvb_manuscript.docx", returned)
 
         r = self.run_kit("scripts/revision.py", "start", "--round", "1", "--submitted-tag", "submission-1",
                          "--journal", "jvb", "--returned", str(returned))
@@ -177,7 +184,7 @@ class RoundTripTest(unittest.TestCase):
         self.edit(self.repo, "01-introduction.md", "most disabling complication", "most severe complication")
         r = self.run_kit("scripts/revision.py", "reconcile", "--round", "1")
         self.assertIn("ready for", r.stdout)
-        git("-c", "user.name=t", "-c", "user.email=t@t", "commit", "-qam", "accept journal edits")
+        git("commit", "-qam", "accept journal edits")
         self.run_kit("scripts/revision.py", "base", "--round", "1")
 
         # The revision itself, and a letter that explains only part of it.
@@ -197,16 +204,17 @@ class RoundTripTest(unittest.TestCase):
 
         self.run_kit("scripts/build.py", "--journal", "jvb", "--revision", "1")
         out = self.repo / "outputs" / "jvb" / "revision-1"
-        for f in ("manuscript-clean.docx", "manuscript-marked-red.docx", "response-to-reviewers.docx", "title-page.docx"):
-            self.assertTrue((out / f).exists(), f)
-        xml = zipfile.ZipFile(out / "manuscript-marked-red.docx").read("word/document.xml").decode()
+        name = lambda part: f"statins-ulcer_jvb_rev1_{part}.docx"
+        for part in ("manuscript-clean", "manuscript-marked", "response-letter", "title-page"):
+            self.assertTrue((out / name(part)).exists(), name(part))
+        xml = zipfile.ZipFile(out / name("manuscript-marked")).read("word/document.xml").decode()
         marked = "".join(re.findall(r'w:rStyle w:val="RevisionInserted".*?<w:t[^>]*>([^<]*)', xml, re.S))
         self.assertIn("diabetes", marked)
         self.assertIn("Adherence", marked)
         self.assertNotIn("CEAP class", marked)  # a journal edit accepted into the base is not ours
         plain = lambda f: subprocess.run(["pandoc", str(out / f), "-t", "plain"], capture_output=True, text=True).stdout
         refs = lambda t: t[t.find("\nReferences"):]
-        self.assertEqual(refs(plain("manuscript-clean.docx")), refs(plain("manuscript-marked-red.docx")))
+        self.assertEqual(refs(plain(name("manuscript-clean"))), refs(plain(name("manuscript-marked"))))
         shutil.rmtree(tmp, ignore_errors=True)
 
 

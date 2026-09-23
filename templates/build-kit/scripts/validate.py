@@ -125,6 +125,21 @@ def validate(prof: dict, doc: dict) -> tuple[Report, dict]:
         elif len(rt) > t["running_title_max_chars"]:
             rep.error("running title", f"{len(rt)} characters; limit {t['running_title_max_chars']}")
 
+    # file names carry the short name, blinded files included (common.file_name)
+    sn = meta.get("short-name")
+    if not sn:
+        rep.warn("short-name", f"no `short-name` in metadata.yaml; files are named after the running title "
+                               f"('{C.short_name(meta)}'). Set a 1-to-5-word name, e.g. `statins-ulcer`.")
+    elif not C.SHORT_NAME_RE.fullmatch(sn):
+        rep.error("short-name", f"'{sn}': use 1 to 5 lowercase ASCII words joined by hyphens, e.g. statins-ulcer")
+    fams = {C.slugify((a or {}).get("name", "").split()[-1] if isinstance(a, dict) and a.get("name") else "", 1)
+            for a in (meta.get("author") or [])} - {"manuscript", ""}
+    hit = [f for f in fams if f in C.short_name(meta).split("-")]
+    if hit:
+        lvl = rep.error if prof.get("submission", {}).get("blinded") else rep.warn
+        lvl("short-name", f"contains an author's name ({', '.join(hit)}); it goes into every file name, "
+                          "including the blinded manuscript")
+
     kw = meta.get("keywords") or []
     k = prof.get("keywords", {})
     if k.get("min") and len(kw) < k["min"]:

@@ -322,6 +322,43 @@ def image_targets(doc: dict) -> dict[str, str]:
     return out
 
 
+# ---------------------------------------------------------------- file names
+#
+# One rule for every file that goes to a journal:
+#
+#     <short-name>_<journal>[_rev<N>]_<part>.<ext>
+#     statins-ulcer_jvb_manuscript.docx
+#     statins-ulcer_jvb_figure-1.png
+#     statins-ulcer_jvb_rev1_manuscript-marked.docx
+#
+# what (the manuscript) · where (the journal profile) · when (revision round,
+# absent at first submission) · which part. Lowercase ASCII, hyphens inside a
+# field, underscores between fields. The short name never contains an author's
+# name: blinded files carry it too. Internal reports start with "_" and are
+# not uploaded.
+
+SHORT_NAME_RE = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+){0,4}")
+_SLUG_STOP = {"a", "an", "the", "of", "in", "on", "and", "for", "to", "with", "by", "at", "de", "da", "do",
+              "das", "dos", "e", "em", "na", "no", "para", "com", "um", "uma", "o", "os", "as"}
+
+
+def slugify(text: str, max_words: int = 3) -> str:
+    import unicodedata
+    t = unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode().lower()
+    words = [w for w in re.findall(r"[a-z0-9]+", t) if w not in _SLUG_STOP]
+    return "-".join(words[:max_words]) or "manuscript"
+
+
+def short_name(meta: dict) -> str:
+    """`short-name` from metadata.yaml, else three words of the running title."""
+    return meta.get("short-name") or slugify(meta.get("running-title") or meta.get("title") or "")
+
+
+def file_name(meta: dict, journal: str, part: str, ext: str, revision: int | None = None) -> str:
+    fields = [short_name(meta), journal] + ([f"rev{revision}"] if revision else []) + [part]
+    return "_".join(fields) + (ext if ext.startswith(".") else "." + ext)
+
+
 # ---------------------------------------------------------------- references
 
 def load_references() -> list[dict]:

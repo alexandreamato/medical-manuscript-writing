@@ -189,9 +189,6 @@
     "marking": "color",
     "color": "FF0000",
     "deleted": "strike",
-    "clean_name": "manuscript-clean.docx",
-    "marked_name": "manuscript-marked-red.docx",
-    "letter_name": "response-to-reviewers.docx",
     "author": "Authors",
     "_comment": "[A] 'Revised manuscripts should clearly indicate changes made to the text, in red font preferably' (PT: 'de preferência em vermelho'). Tracked changes are not mentioned. Deleted text struck through in red so removals are also visible; set \"deleted\": \"omit\" to drop it."
   },

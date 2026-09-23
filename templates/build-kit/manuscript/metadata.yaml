@@ -3,6 +3,7 @@
 title: "Statin use and incident venous leg ulcer in adults with chronic venous disease: a prospective cohort study"
 title-alt: "Uso de estatinas e incidência de úlcera venosa em adultos com doença venosa crônica: estudo de coorte prospectivo"
 running-title: "Statins and venous leg ulcer"
+short-name: statins-ulcer          # names every output file: statins-ulcer_jvb_manuscript.docx (no author names)
 article-type: original          # must match an entry of `article_types` in the profile, or the default
 study-design: cohort            # picks the reporting guideline (scripts/common.py GUIDELINES)
 journal: jvb                    # default profile for `build.py` without --journal
