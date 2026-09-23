@@ -1,6 +1,6 @@
-# Introduction Version 2: Lead With Burden (Familiar Conditions)
+# Opening: Lead With Burden (Familiar Conditions)
 
-`Version 2: Use when the condition (e.g., type 2 diabetes, ischaemic stroke, breast cancer) is well known to the audience and a formal definition is unnecessary.`
+`Use when the condition (e.g., type 2 diabetes, ischaemic stroke, breast cancer) is well known to the audience and a formal definition is unnecessary.`
 
 ## Skeleton
 
@@ -22,7 +22,7 @@ patients reach a treatment-capable centre within the therapeutic window, and 30-
 mortality after ischaemic stroke remains close to 10%.
 ```
 
-## Notes
+## Notes and pitfalls
 
 1. Skip the formal definition; the audience knows what stroke is.
 2. The unmet-need sentence gives the Introduction direction.

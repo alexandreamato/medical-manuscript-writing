@@ -9,7 +9,7 @@ The default text-to-diagram tool is **Mermaid**: free, version-controllable, ren
 1. [Quick Selector](#quick-selector) — diagram type × reporting standard × tool
 2. [Export Rules](#export-rules)
 3. [CONSORT Participant Flow](#consort-participant-flow) — enciclopedia.med.br/consort2010 web tool (parallel-2/3, crossover, cluster, factorial) + Mermaid fallback
-4. [STROBE Participant Flow](#strobe-participant-flow) — observational (Mermaid template)
+4. [STROBE Participant Flow](#strobe-participant-flow) — enciclopedia.med.br/strobe web tool (cohort, case-control, cross-sectional) + Mermaid fallback
 5. [PRISMA 2020 Flow](#prisma-2020-flow) — enciclopedia.med.br/prisma2020 web tool + `PRISMA2020` R package + Mermaid fallback
 6. [STARD Flow](#stard-flow) — diagnostic accuracy (Mermaid template)
 7. [Trial Design Schema](#trial-design-schema) — parallel and three-arm patterns
@@ -30,7 +30,7 @@ The default text-to-diagram tool is **Mermaid**: free, version-controllable, ren
 | Diagram | Required by | Best tool | Section in this file |
 | --- | --- | --- | --- |
 | Participant flow (RCT) | CONSORT (mandatory) | enciclopedia.med.br/consort2010 web tool; Mermaid fallback | [CONSORT](#consort-participant-flow) |
-| Participant flow (cohort / case-control / cross-sectional) | STROBE (recommended) | Mermaid `flowchart` | [STROBE](#strobe-participant-flow) |
+| Participant flow (cohort / case-control / cross-sectional) | STROBE (recommended) | enciclopedia.med.br/strobe web tool; Mermaid fallback | [STROBE](#strobe-participant-flow) |
 | Study selection (systematic review) | PRISMA 2020 (mandatory) | enciclopedia.med.br/prisma2020 web tool; `PRISMA2020` R package; or Mermaid | [PRISMA](#prisma-2020-flow) |
 | Study flow (diagnostic accuracy) | STARD (mandatory) | Mermaid `flowchart` | [STARD](#stard-flow) |
 | Trial design schema | SPIRIT (recommended for protocols) | Mermaid `flowchart` | [Trial schema](#trial-design-schema) |
@@ -63,15 +63,24 @@ For PRISMA flow diagrams generated with the R package, export directly to PDF/PN
 
 ## CONSORT Participant Flow
 
-Mandatory for randomized controlled trials (CONSORT 2010, item 13). Place as **Figure 1** of the manuscript, cited in the Results section before any other figure.
+Mandatory for randomized controlled trials (CONSORT 2025, item 22; item 13 in CONSORT 2010). Place as **Figure 1** of the manuscript, cited in the Results section before any other figure.
 
 The four canonical rows are: **Enrollment → Allocation → Follow-up → Analysis**. Reasons for exclusion at each step must be specified.
+
+**CONSORT 2025 flow diagram vs. 2010.** The layout is unchanged: the same four stages and the same boxes (assessed for eligibility; excluded, with not meeting inclusion criteria / declined / other reasons; randomised; allocated, with received / did not receive; follow-up; analysis). Two box labels now name the primary outcome explicitly:
+
+| Stage | CONSORT 2010 wording | CONSORT 2025 wording |
+| --- | --- | --- |
+| Follow-up | Lost to follow-up (give reasons) | Lost to follow-up **for primary outcome** (give reasons) |
+| Analysis | Analysed (n = ) | Analysed **for primary outcome** (n = ) |
+
+"Discontinued intervention (give reasons)" and "Excluded from analysis (give reasons)" are kept. This matches items 22a and 26, which require the numbers analysed *for the primary outcome* per group.
 
 Two options. Option 1 (the browser-based generator) is **preferred** because it supports all five CONSORT trial designs and produces a publication-ready SVG with proper attribution metadata.
 
 ### Option 1 (preferred) — enciclopedia.med.br/consort2010
 
-A free single-file generator at **https://enciclopedia.med.br/consort2010**. Runs entirely in the browser, no server or installation required. Supports all five CONSORT 2010 trial designs:
+A free single-file generator at **https://enciclopedia.med.br/consort2010**. Runs entirely in the browser, no server or installation required. The tool's name and on-diagram source line still refer to CONSORT 2010, and its default follow-up and analysis labels read "Lost to follow-up" and "Analysed". The box structure it draws is the same as the CONSORT 2025 diagram, so it remains usable for a CONSORT 2025 report. Before exporting, make the labels match the 2025 wording in the table above ("…for primary outcome"). Where the tool does not allow that, note in the figure legend that counts refer to the primary outcome, and cite the CONSORT 2025 statement rather than the 2010 one as the diagram's source. It supports five trial designs:
 
 | `design` value | When to use |
 | --- | --- |
@@ -158,6 +167,7 @@ arms: [
 4. For crossover: extract period 1 and period 2 counts separately.
 5. For cluster: also extract cluster counts at each step.
 6. Open https://enciclopedia.med.br/consort2010, paste the data, and export as SVG.
+7. Check the follow-up and analysis labels against the CONSORT 2025 wording (primary outcome) and cite CONSORT 2025 in the legend.
 
 #### Citation required (CC BY 4.0)
 
@@ -165,9 +175,11 @@ Tool citation:
 
 > Amato ACM. CONSORT 2010 Flow Diagram Generator [Internet]. São Paulo: enciclopedia.med.br; 2025 [cited 2025]. Available from: https://enciclopedia.med.br/consort2010
 
-Plus the canonical CONSORT 2010 reference:
+Plus the canonical CONSORT 2025 reference (the statement was published simultaneously in BMJ, Lancet, JAMA, Nature Medicine, and PLOS Medicine; cite one):
 
-> Schulz KF, Altman DG, Moher D; CONSORT Group. CONSORT 2010 statement: updated guidelines for reporting parallel group randomised trials. BMJ. 2010;340:c332. doi:10.1136/bmj.c332
+> Hopewell S, Chan AW, Collins GS, Hróbjartsson A, Moher D, Schulz KF, et al. CONSORT 2025 statement: updated guideline for reporting randomised trials. BMJ. 2025;389:e081123. doi:10.1136/bmj-2024-081123
+
+If the target journal still requires the 2010 checklist, cite instead: Schulz KF, Altman DG, Moher D; CONSORT Group. CONSORT 2010 statement: updated guidelines for reporting parallel group randomised trials. BMJ. 2010;340:c332. doi:10.1136/bmj.c332
 
 ### Option 2 — Mermaid (when the web tool is unavailable)
 
@@ -182,11 +194,11 @@ flowchart TD
     D[Allocated to intervention<br/>n = 625<br/>Received intervention n = 615<br/>Did not receive n = 10]
     E[Allocated to control<br/>n = 625<br/>Received control n = 620<br/>Did not receive n = 5]
 
-    F[Lost to follow-up n = 22<br/>Discontinued intervention n = 18]
-    G[Lost to follow-up n = 25<br/>Discontinued control n = 12]
+    F[Discontinued intervention n = 18<br/>Lost to follow-up for primary outcome n = 22]
+    G[Discontinued control n = 12<br/>Lost to follow-up for primary outcome n = 25]
 
-    H[Analyzed n = 625<br/>Excluded from analysis n = 0]
-    I[Analyzed n = 625<br/>Excluded from analysis n = 0]
+    H[Analysed for primary outcome n = 625<br/>Excluded from analysis n = 0]
+    I[Analysed for primary outcome n = 625<br/>Excluded from analysis n = 0]
 
     A --> B
     A --> C
@@ -194,7 +206,6 @@ flowchart TD
     C --> E
     D --> F
     E --> G
-    F --> G
     F --> H
     G --> I
 ```
@@ -205,7 +216,103 @@ For crossover, cluster, factorial, or ≥3 arms, the web generator (Option 1) is
 
 ## STROBE Participant Flow
 
-Recommended for observational studies (STROBE item 13). Place as **Figure 1**.
+Recommended for observational studies (STROBE item 13: numbers of individuals at each stage, reasons for non-participation, and the flow diagram suggested in 13c). Place as **Figure 1**, cited in the first paragraph of the Results.
+
+Two options. Option 1 (the browser-based generator) is **preferred**: it has design-specific templates for all three STROBE designs, checks the counts arithmetically, and exports a publication-ready SVG with attribution.
+
+### Option 1 (preferred) — enciclopedia.med.br/strobe
+
+A free single-file generator at **https://enciclopedia.med.br/strobe**. Runs entirely in the browser, no server or installation required. English and Portuguese. Exports SVG and PNG (2×). Released under CC BY 4.0.
+
+| `design` value | Layout | When to use |
+| --- | --- | --- |
+| `cohort` | Main flow (identification → eligibility → included), optionally split into exposure-group columns for follow-up and analysis | Prospective or retrospective cohort |
+| `case-control` | One column per group (cases, controls), joined in a final box | Case-control, matched or unmatched |
+| `cross-sectional` | Single main flow, percentages on by default (participation rate at each stage) | Survey, prevalence study |
+
+Features that matter for STROBE item 13:
+
+1. **Count-consistency check.** Each box must equal the previous box minus its exclusions; the tool flags any mismatch, reasons that do not add up to the exclusion total, and groups that do not add up to the main flow. Resolve every warning before export — a reviewer will do the same arithmetic.
+2. **Phases** (`identification`, `eligibility`, `followup`, `analysis`) are drawn as labelled bands on the left.
+3. **Groups** (2–4 columns) split the flow by exposure or by case/control status. Tick `overlap` when groups are analysis subsets of the same participants rather than disjoint partitions.
+4. **Final box** (`merge`) joins the groups into one summary box (e.g., "Analysed: 1:2 matched"), optionally listing each group with its n.
+5. **Percentages** (`show_pct`) relative to the previous stage — useful for participation rates in cross-sectional studies.
+6. **Load / Save JSON** — the whole diagram is a JSON file, so it can be versioned, regenerated after data updates, and shared with co-authors.
+
+#### JSON format (for "Load JSON")
+
+Build this file from the manuscript's Methods/Results and load it in the tool. Each stage is `{label, n, note, excl_title, excl_n, reasons: [{t, n}]}`; the exclusion box (if any) is drawn to the right, *before* the next stage. Leave `excl_n` as `null` to have the tool sum the reasons.
+
+```json
+{
+  "lang": "en",
+  "design": "cohort",
+  "show_pct": false,
+  "overlap": false,
+  "show_tool_cite": true,
+  "show_strobe_ref": true,
+  "trunk": [
+    { "phase": "identification", "label": "Potentially eligible", "n": 2140,
+      "note": "Cardiology outpatient clinic, 2018–2020",
+      "excl_title": "Not examined", "excl_n": null,
+      "reasons": [ { "t": "Could not be contacted", "n": 96 }, { "t": "Declined screening", "n": 44 } ] },
+    { "phase": "eligibility", "label": "Examined for eligibility", "n": 2000,
+      "excl_title": "Not eligible", "excl_n": null,
+      "reasons": [ { "t": "Prior cardiovascular disease", "n": 210 }, { "t": "Age < 40 years", "n": 120 }, { "t": "Pregnancy", "n": 20 } ] },
+    { "phase": "eligibility", "label": "Confirmed eligible", "n": 1650,
+      "excl_title": "Not included", "excl_n": null,
+      "reasons": [ { "t": "Declined to participate", "n": 130 }, { "t": "Baseline assessment not completed", "n": 20 } ] },
+    { "phase": "eligibility", "label": "Included in the cohort", "n": 1500, "reasons": [] }
+  ],
+  "rows": [ { "phase": "followup" }, { "phase": "followup" }, { "phase": "analysis" } ],
+  "groups": [
+    { "label": "Exposed", "stages": [
+      { "label": "Statin users at baseline", "n": 620, "excl_title": "Lost to follow-up",
+        "reasons": [ { "t": "Moved away", "n": 12 }, { "t": "Withdrew consent", "n": 8 } ] },
+      { "label": "Completed 5-year follow-up", "n": 600, "excl_title": "Excluded from analysis",
+        "reasons": [ { "t": "Missing outcome data", "n": 10 } ] },
+      { "label": "Analysed", "n": 590, "reasons": [] } ] },
+    { "label": "Unexposed", "stages": [
+      { "label": "Non-users at baseline", "n": 880, "excl_title": "Lost to follow-up",
+        "reasons": [ { "t": "Moved away", "n": 22 }, { "t": "Withdrew consent", "n": 14 } ] },
+      { "label": "Completed 5-year follow-up", "n": 844, "excl_title": "Excluded from analysis",
+        "reasons": [ { "t": "Missing outcome data", "n": 16 } ] },
+      { "label": "Analysed", "n": 828, "reasons": [] } ] }
+  ],
+  "merge": { "on": false, "label": "", "note": "", "list": true }
+}
+```
+
+Structure rules:
+
+1. **Cohort / cross-sectional:** the shared stages go in `trunk` (each with a `phase`). If the flow splits by exposure, the last trunk stage (minus its exclusions) must equal the sum of the first group stages; `rows` gives the phase of each group row.
+2. **Case-control:** leave `trunk` empty; put cases and controls in `groups`, with `rows` giving one phase per row (typically `identification`, `eligibility`, `eligibility`, `analysis`), and usually `merge.on: true` with the matching ratio in `merge.note`.
+3. Fewer than two groups means no columns: everything lives in `trunk`.
+4. Up to four groups. Labels and reasons can be in either language; `lang` only switches the interface and the fixed diagram text.
+
+#### Workflow (recommended)
+
+1. Identify the design (`cohort`, `case-control`, `cross-sectional`) from the Methods.
+2. Extract the counts at every stage — source population, examined, eligible, included, followed up, analysed — and the reasons for non-participation at each step (STROBE 13a, 13b).
+3. Check the arithmetic yourself: each n = previous n − excluded; reasons sum to the excluded total. Fix discrepancies in the manuscript text first, not only in the figure.
+4. Write the JSON above (or fill the form, or start from "Load Example"), open https://enciclopedia.med.br/strobe, and load it.
+5. Confirm the consistency check shows "Counts are internally consistent", then export SVG for submission.
+6. Save the JSON alongside the manuscript source so the figure can be regenerated when numbers change.
+7. Make sure the numbers in Figure 1, the Abstract, the first Results paragraph, and Table 1 are identical.
+
+#### Citation required (CC BY 4.0)
+
+Tool citation:
+
+> Amato ACM. STROBE Flow Diagram Generator [Internet]. São Paulo: enciclopedia.med.br; 2026 [cited 2026]. Available from: https://enciclopedia.med.br/strobe
+
+Plus the canonical STROBE reference:
+
+> von Elm E, Altman DG, Egger M, Pocock SJ, Gøtzsche PC, Vandenbroucke JP; STROBE Initiative. The Strengthening the Reporting of Observational Studies in Epidemiology (STROBE) statement: guidelines for reporting observational studies. Lancet. 2007;370(9596):1453-7. doi:10.1016/S0140-6736(07)61602-X
+
+### Option 2 — Mermaid (when the web tool is unavailable)
+
+For a quick draft or a version-controllable text source:
 
 ```mermaid
 flowchart TD
@@ -225,7 +332,7 @@ flowchart TD
     E --> G
 ```
 
-For case-control studies, replace the cohort flow with parallel "Cases" and "Controls" branches showing source, eligibility, and matching steps for each.
+For case-control studies, replace the cohort flow with parallel "Cases" and "Controls" branches showing source, eligibility, and matching steps for each — or use the web generator, which handles the two-column layout and the joined final box.
 
 ## PRISMA 2020 Flow
 
@@ -424,7 +531,7 @@ flowchart LR
 
 A Gantt visualization of the participant journey makes the timing of visits and assessments concrete. Particularly useful in protocols.
 
-**SPIRIT Item 18 (Participant timeline)** explicitly recommends a schematic diagram to efficiently present the overall schedule and time commitment for trial participants in each study group (https://www.consort-spirit.org/item18-participanttimeline). Key elements to convey:
+**SPIRIT Item 18 (Participant timeline; same number in SPIRIT 2013 and SPIRIT 2025)** explicitly recommends a schematic diagram to efficiently present the overall schedule and time commitment for trial participants in each study group (https://www.consort-spirit.org/item18-participanttimeline). Key elements to convey:
 
 1. **Timeline of trial visits**, starting from initial eligibility screening through to study close-out.
 2. **Timeline of interventions**, including any run-in and washout periods.
@@ -713,10 +820,15 @@ Report the calibration intercept and slope, and ideally the integrated calibrati
 3. Web: https://mermaid.live (paste-and-export).
 4. R: `DiagrammeR` package supports Mermaid syntax.
 
-### CONSORT 2010 generator
+### CONSORT generator (enciclopedia.med.br/consort2010)
 
-1. **enciclopedia.med.br/consort2010** (preferred): single-file browser tool, no install. Supports all five CONSORT trial designs (parallel 2-arm, parallel 3-arm, crossover, cluster, factorial). Exports SVG and PNG. CC BY 4.0 — citation required.
+1. **enciclopedia.med.br/consort2010** (preferred): single-file browser tool, no install. Same box structure as the CONSORT 2025 diagram; relabel follow-up/analysis boxes to the 2025 "for primary outcome" wording. Supports five trial designs (parallel 2-arm, parallel 3-arm, crossover, cluster, factorial). Exports SVG and PNG. CC BY 4.0 — citation required.
 2. **Mermaid** (fallback): only fits parallel 2-arm cleanly; the web generator handles the other four designs better.
+
+### STROBE generator
+
+1. **enciclopedia.med.br/strobe** (preferred): single-file browser tool. Cohort, case-control, and cross-sectional templates; exposure-group columns; joined final box; arithmetic consistency check for item 13a; JSON save/load. English + Portuguese. CC BY 4.0 — citation required.
+2. **Mermaid** (fallback): fine for a single-column cohort flow; the web generator handles group columns and case-control layouts better.
 
 ### CARE Timeline generator
 

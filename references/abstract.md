@@ -5,7 +5,7 @@
 Write a strong abstract by doing three things repeatedly:
 
 1. Think through the abstract logic first (clinical question → design → main result).
-2. Follow one template (Version 1 / 2 / 3 below) appropriate for the study type.
+2. Follow the template below that matches the study design (A: randomized trial; B: observational; C: systematic review).
 3. Revise the abstract many times.
 
 ## Format Reminder
@@ -74,75 +74,89 @@ Most journals limit abstracts to 250 to 350 words.
 3. Results: past tense ("The primary outcome occurred in ...").
 4. Conclusions: present or simple-future-style ("[Intervention] reduced ...", "These findings support ..."). Do not write "results will be discussed".
 
-## Version 1: Challenge → Contribution
+## The Logic Every Structured Abstract Follows
 
-Open with the clinical/methodological gap, then in one to two sentences present the study contribution that addresses it. Recommended for trials and prospective cohort studies where the contribution is "we ran the study that the field needed".
+Whatever the headings a journal requires, the abstract answers four questions in order, and each part must connect to the next:
 
-### Structure
+1. **Background: what is unknown, and why does it matter?** One or two sentences: the clinical problem and the specific gap. End on the gap, not on general importance.
+2. **Methods: what design answers that gap?** Design, setting, population, intervention or exposure, comparator, primary outcome and timepoint, and the analysis that handles the main threat to validity (randomization and blinding; confounding adjustment; risk of bias and synthesis).
+3. **Results: what was found, and how precisely?** Participants analysed, then the primary outcome with an effect size and 95% CI (absolute and relative where relevant), then harms or the key prespecified secondary result.
+4. **Conclusions: what does it mean, within what the design allows?** One or two sentences, with the population and follow-up as scope. Causal verbs only for randomized evidence; "was associated with" for observational designs; the GRADE certainty qualifier for evidence syntheses.
 
-1. Clinical question and current evidence gap.
-2. Why prior evidence is inadequate (limitation of design, sample size, population, or follow-up).
-3. One to two sentences naming the present study and its prespecified primary outcome.
-4. Headline result (effect size with 95% CI; absolute and relative if relevant).
-5. Conclusion in one sentence, with explicit scope.
+The three templates below apply this logic to the three most common designs. Choose by design, not by how the paper "feels".
 
-### Expert Notes
+## Template A: Randomized Controlled Trial
 
-1. Discuss prior evidence around the exact gap that this study fills.
-2. For the contribution sentence(s), state design + population + primary outcome; do not preview every secondary analysis.
-3. The clinical condition, intervention, and outcome must be readable to a non-specialist; spell them out before any abbreviation.
-4. This ability — naming the contribution in plain clinical terms — is critical.
-
-Version 1 local cite: `references/examples/abstract/template-a.md`.
-
-## Version 2: Challenge → Insight → Contribution
-
-Open with the clinical gap, then one sentence stating the methodological or biological insight, then one sentence stating the study that operationalizes it. Recommended when the design choice itself is the contribution (e.g., a new biomarker pathway, a noninferiority margin, a target trial emulation, a Mendelian randomization approach).
+Reported under CONSORT and CONSORT for Abstracts.
 
 ### Structure
 
-1. Clinical question.
-2. Limitation of prior evidence with the technical reason.
-3. One sentence introducing the insight that resolves the limitation.
-4. One to two sentences introducing the present study that implements the insight.
-5. Headline result with effect estimate and 95% CI.
-6. Conclusion, with scope and direction.
+1. Clinical question and the specific gap in current evidence (the limitation of design, sample size, population, or follow-up).
+2. Design, population, intervention, comparator, and prespecified primary outcome with timepoint.
+3. Number randomized and analysed.
+4. Primary result: counts in each group, absolute and relative effect, 95% CI.
+5. Harms (serious adverse events) or the key secondary outcome.
+6. Conclusion in causal language, limited to the trial population and duration.
+7. Trial registration identifier (NCT, ISRCTN, EudraCT) per ICMJE.
 
 ### Expert Notes
 
-1. State the insight in one clear sentence (e.g., "We hypothesized that early initiation, rather than dose, drives the effect").
-2. The implementation sentence names the design and the analytic strategy in plain terms.
-3. Avoid preview-of-discussion; reserve interpretation for the Conclusion line.
+1. Discuss prior evidence around the exact gap this trial fills; the first Methods sentence should read as the answer to it.
+2. State design, population, and primary outcome; do not preview every secondary analysis.
+3. The condition, intervention, and outcome must be readable to a non-specialist; spell them out before any abbreviation.
+4. If the primary outcome was not significant, say so; do not lead the Results or Conclusion with a secondary outcome.
 
-Version 2 local cite: `references/examples/abstract/template-b.md`.
+Local cite: `references/examples/abstract/template-a.md`.
 
-## Version 3: Multiple Contributions
+## Template B: Observational Study
 
-When the paper has more than one prespecified contribution (for example: a primary efficacy outcome plus a key subgroup or safety contribution; or a meta-analysis with both pooled effect and heterogeneity finding), describe each contribution together with its quantitative result.
+For cohort, case-control, and cross-sectional studies, target trial emulations, and Mendelian randomization, reported under STROBE or STROBE-MR.
 
 ### Structure
 
-1. Clinical question.
-2. If needed, one contrast sentence with the prior evidence base.
-3. Contribution 1 + headline numeric result.
-4. Contribution 2 + headline numeric result.
-5. Contribution 3 + headline numeric result (if applicable).
-6. Conclusion in one sentence, with scope.
+1. Clinical question and the specific limitation of prior evidence (for example, confounding by indication, immortal time bias, small cohorts, crude exposure measurement).
+2. Design, data source, setting, population, exposure and comparator, outcome, and follow-up.
+3. The strategy that addresses the main bias: confounders adjusted for and how, the target trial specification, or the genetic instruments.
+4. Adjusted association with 95% CI, and at least one sensitivity analysis for residual confounding (for example, an E-value or a negative-control outcome).
+5. Conclusion stated as an association, with scope and the appropriate next step.
 
 ### Expert Notes
 
-1. Each contribution sentence pairs design choice + measured result; keep one message per sentence.
-2. Avoid spreading a single finding across multiple sentences.
-3. For trials, always include the trial registration identifier (NCT, ISRCTN, EudraCT) in the abstract per ICMJE.
+1. A prespecified hypothesis can be stated in one sentence; do not frame it as a discovery.
+2. Name the analytic strategy in plain terms so a reviewer can map it to STROBE items 7 to 12.
+3. A design that reduces bias does not license causal verbs; keep "was associated with" in the Conclusion.
+4. Avoid previewing the Discussion; reserve interpretation for the Conclusion line.
 
-Version 3 local cite: `references/examples/abstract/template-c.md`.
+Local cite: `references/examples/abstract/template-b.md`.
+
+## Template C: Systematic Review and Meta-Analysis
+
+Reported under PRISMA 2020 and PRISMA for Abstracts.
+
+### Structure
+
+1. Why a synthesis is needed now (conflicting trials, new trials since the last review, an unresolved subgroup or harm).
+2. Eligibility (PICO and designs), databases and search dates, risk-of-bias tool, synthesis method, and certainty assessment (GRADE).
+3. Number of studies and participants included.
+4. Pooled effect with 95% CI and heterogeneity (I², prediction interval where possible).
+5. Prespecified subgroup, sensitivity, or harms result, with the interaction test for subgroups.
+6. Certainty of evidence for the main outcomes and the main reasons for rating down.
+7. Conclusion whose verb and strength match the certainty; PROSPERO registration.
+
+### Expert Notes
+
+1. One finding per sentence, each with its quantitative result.
+2. Report only prespecified subgroups in the abstract; label any post-hoc subgroup as exploratory.
+3. Low or very low certainty calls for "may" or "is uncertain", not "reduces".
+
+Local cite: `references/examples/abstract/template-c.md`.
 
 ## Example Bank
 
 1. `references/examples/abstract-examples.md`
-2. `references/examples/abstract/template-a.md` — RCT (Challenge → Contribution)
-3. `references/examples/abstract/template-b.md` — Observational / target trial emulation (Challenge → Insight → Contribution)
-4. `references/examples/abstract/template-c.md` — Systematic review / meta-analysis (Multiple Contributions)
+2. `references/examples/abstract/template-a.md`: randomized controlled trial
+3. `references/examples/abstract/template-b.md`: observational study, target trial emulation, Mendelian randomization
+4. `references/examples/abstract/template-c.md`: systematic review and meta-analysis
 
 ## See Also
 

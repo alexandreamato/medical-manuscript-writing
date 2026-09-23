@@ -360,8 +360,9 @@ not a valid method for identifying confounders; standardized mean differences
 are preferred. (3) Inferential measures in baseline tables address whether
 exposure and a covariate are associated in the underlying population, which
 is tangential to the study hypotheses. (4) Multiple comparisons in baseline
-tables generate false-positive associations. CONSORT 2010 also discourages
-this practice in randomized trials. We hope the reviewer and editor agree.
+tables generate false-positive associations. The CONSORT 2025 explanation and
+elaboration states that significance testing of baseline differences in
+randomized trials is not recommended and should not be reported. We hope the reviewer and editor agree.
 However, we can add the P values at the discretion of the Editor.
 ```
 

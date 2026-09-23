@@ -18,10 +18,11 @@
 ## Worked rationale openings
 
 ```
-% Why a Cox model rather than logistic regression
-We selected Cox proportional hazards regression because the time to event was variable
-across participants and informative censoring (death from competing causes) was expected
-in older adults.
+% Why a time-to-event model rather than logistic regression
+We used Cox proportional hazards regression because follow-up time varied across
+participants and censoring was expected. Because death from other causes precludes the
+outcome in older adults, we treated it as a competing event and estimated cumulative
+incidence with the Fine-Gray model as a sensitivity analysis.
 
 % Why central blinded adjudication
 Because outcome ascertainment of recurrent stroke can be biased by knowledge of treatment

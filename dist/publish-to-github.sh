@@ -44,9 +44,9 @@ else
 
 Author: Alexandre Campos Moraes Amato
 License: CC BY 4.0
-Reporting standards: CONSORT 2010, STROBE, PRISMA 2020, STARD 2015, CARE 2013
+Reporting standards: CONSORT 2025, SPIRIT 2025, STROBE, PRISMA 2020, STARD 2015, CARE 2013
 Citation default: Vancouver (ICMJE)
-Diagram tools: enciclopedia.med.br/{prisma2020, consort2010, care-timeline}"
+Diagram tools: enciclopedia.med.br/{prisma2020, consort2010, strobe, care-timeline}"
 fi
 
 # 3. Create the private remote repo (if it does not already exist) and push.

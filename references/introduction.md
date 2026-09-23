@@ -49,8 +49,8 @@ graph LR
 ### Backward reasoning (answer these first)
 
 1. What is the specific clinical question, and why is it currently unresolved? (important)
-2. What is our contribution: a new trial, a larger or better-controlled cohort, a new diagnostic, an updated synthesis, a new mechanistic insight, or a new metric?
-3. What is the benefit of our study, why can it close the gap, and what new knowledge does it bring? (important)
+2. What kind of gap is it: evidence absent, conflicting, from another population, of low certainty, about a new condition or test, or visible as unexplained practice variation? (See the selector in Part B.)
+3. Which feature of our design (randomization, population, comparator, outcome, follow-up, bias-removing analysis) closes that gap, and what clinical decision will the answer inform? (important)
 4. How do we use prior evidence to bring readers from the disease burden to our specific aim?
 
 ### Forward story (write in this order)
@@ -58,7 +58,7 @@ graph LR
 1. Establish clinical importance and disease burden.
 2. Use prior evidence to lead to the specific knowledge gap we address.
 3. State the present study and its prespecified primary outcome.
-4. State the hypothesis and the practical advantage of our design. (important)
+4. State the hypothesis and the design feature that fixes the weakness of prior evidence. (important)
 
 ## Three-Part Structure (Armağan 2013)
 
@@ -133,7 +133,7 @@ Sentence skeletons:
 2. `[Condition] affects approximately [N] per 100,000 person-years and is associated with [burden].`
 3. `Current management relies on [standard of care], which [achieves / fails at] [outcome].`
 
-Local cite: `references/examples/introduction/version-1-task-then-application.md`.
+Local cite: `references/examples/introduction/opening-define-entity-then-burden.md`.
 
 ### Version 2 — Familiar condition: lead with burden
 
@@ -149,7 +149,7 @@ Sentence skeleton:
 
 1. `[Condition] is a leading cause of [outcome] worldwide and accounts for [statistic].`
 
-Local cite: `references/examples/introduction/version-2-application-first.md`.
+Local cite: `references/examples/introduction/opening-lead-with-burden.md`.
 
 ### Version 3 — General problem, then specific clinical setting
 
@@ -166,7 +166,7 @@ Sentence skeleton:
 1. `[Condition] is associated with [burden] across populations.`
 2. `This study focuses on [specific population] in [setting], where [special consideration] makes the existing evidence base inadequate.`
 
-Local cite: `references/examples/introduction/version-3-general-to-specific-setting.md`.
+Local cite: `references/examples/introduction/opening-general-to-specific-setting.md`.
 
 ### Version 4 — Open with burden and immediately expose the gap
 
@@ -190,7 +190,7 @@ Expert note:
 1. Stating the unresolved question in paragraph 1 is powerful but only works when the field has a clearly accepted shared baseline.
 2. More commonly, paragraph 2 or 3 introduces the gap.
 
-Local cite: `references/examples/introduction/version-4-open-with-challenge.md`.
+Local cite: `references/examples/introduction/opening-burden-with-immediate-gap.md`.
 
 ## Part B: Establish the Knowledge Gap (Very Important)
 
@@ -208,68 +208,43 @@ Logic before writing:
 
 Important warning:
 
-1. Do not first present a strawman prior study and then describe your improvement over it. Reviewers and clinicians read this as score-padding.
+1. Do not first present a strawman prior study and then describe your improvement over it. Reviewers read this as self-promotion rather than a clinical rationale.
 2. Even if your study is incremental, frame it through the unresolved clinical question, not through "Smith 2023 was small".
 3. Avoid statements such as "no study has ever..." unless you have actually verified that with a recent systematic search.
 
-### Gap Version 1 — Established question with multiple prior studies
+### Choose the gap by type
 
-`Use when there is a clear chain: foundational studies → recent trials/cohorts → remaining gap.`
+Name the type of gap before writing; each type needs different evidence in the paragraph and implies a different design in the closing paragraph.
+
+| Gap type | What the paragraph must show | Design it usually implies | Example file |
+| --- | --- | --- | --- |
+| Evidence absent | The clinical decision at stake, the indirect evidence available, and a documented search showing no direct studies | Any confirmatory design; often a first trial or a well-controlled cohort | `gap-evidence-absent.md` |
+| Evidence conflicting | What is established, what the studies found, and **why** they disagree | A design that removes the reason for disagreement (size, dose, timing, bias) | `gap-conflicting-evidence.md` |
+| Evidence from another population or setting | Who was excluded from the main evidence and a concrete reason the effect may differ there | Study in the excluded population; effect-modification analysis | `gap-evidence-from-other-population.md` |
+| Evidence of low certainty | The mechanism of uncertainty (confounding, imprecision, surrogate outcome, bias), ideally with a GRADE rating from a review or guideline | Randomization, adequate power, patient-important outcome, longer follow-up | `gap-low-certainty-evidence.md` |
+| New condition, test, or technology | Why the entity is new, what is known, and the obstacles a credible study must overcome (definition, comparator, follow-up) | Inception cohort, diagnostic accuracy study, early-phase trial | `gap-new-condition-test-or-technology.md` |
+| Existing tools perform poorly | Named scores or tests and the measurable way they fail (calibration, sensitivity, missing inputs) | Model development, updating, or external validation (TRIPOD); accuracy study (STARD) | `gap-existing-tools-inadequate.md` |
+| Unexplained practice variation | Quantified variation, not explained by case mix, with guidelines silent for lack of evidence | Pragmatic, cluster, or registry-based randomized trial; comparative effectiveness cohort | `gap-practice-variation.md` |
+
+All files are in `references/examples/introduction/`.
+
+### Writing the gap paragraph (applies to every type)
 
 Writing structure:
 
-1. Start with what is established (the consensus or guideline-level statement).
-2. Briefly summarize the most relevant prior study or systematic review and its limitation.
-3. Briefly summarize a more recent or contradictory study and its limitation with a methodological reason (small sample, short follow-up, non-representative population, residual confounding, surrogate outcome).
-4. Ensure the final unresolved item is exactly the question your study addresses.
+1. Start with what is established (the consensus or guideline-level statement), with verified citations.
+2. Summarize the most relevant prior evidence and name its specific limitation with a methodological reason (small sample, short follow-up, non-representative population, residual confounding, surrogate outcome).
+3. If studies conflict, say why they conflict.
+4. End with one sentence stating the unresolved question in PICO/PECO terms; it must be exactly the question your study answers.
 
 Sentence skeletons:
 
 1. `It is established that [consensus statement; cite guideline or seminal trial].`
 2. `However, the [LIMITATION-A] of these studies leaves [SPECIFIC QUESTION] unresolved because [METHODOLOGICAL REASON].`
 3. `More recent [trials / cohorts] have suggested [FINDING], but [LIMITATION-B] limits their applicability to [POPULATION / SETTING].`
+4. `Whether [INTERVENTION / EXPOSURE] [changes] [OUTCOME] in [POPULATION] therefore remains unknown.`
 
-Local cite: `references/examples/introduction/technical-challenge-version-1-existing-task.md`.
-
-### Gap Version 2 — Existing question; the older literature already hints at our hypothesis
-
-`Use when the design or hypothesis was foreshadowed by an older mechanistic or observational line of work.`
-
-Writing structure:
-
-1. Start from mainstream methods/findings and state their limitation.
-2. Introduce the older line of evidence that prefigures your hypothesis.
-3. Explain why that older line is still insufficient on its own.
-4. Return to recent evidence and show what remains unresolved.
-5. Bridge to your study naturally.
-
-Sentence skeletons:
-
-1. `Recent [trials / cohorts] suggest ... However, they ... because ...`
-2. `An older line of [mechanistic / observational] evidence already raised the possibility that [HYPOTHESIS], but those studies [LIMITATION].`
-3. `Whether [HYPOTHESIS] holds in [POPULATION / SETTING] when tested with [DESIGN] is still unknown.`
-
-Local cite: `references/examples/introduction/technical-challenge-version-2-existing-task-insight-backed-by-traditional.md`.
-
-### Gap Version 3 — Novel clinical question, no direct prior studies
-
-`Use when the question is new (a newly recognized syndrome, a new diagnostic, a recent regulatory change) and prior evidence is indirect.`
-
-Writing structure:
-
-1. State the goal and explain why the question is challenging for N reasons.
-2. Use `First / Second / Finally` to separate independent challenges.
-3. For each, state the observable difficulty and the methodological/clinical reason.
-4. End with a transition to your study.
-
-Sentence skeletons:
-
-1. `In this study, our aim is to [AIM]. This question is challenging for three reasons.`
-2. `First, ...`
-3. `Second, ...`
-4. `Finally, ...`
-
-Local cite: `references/examples/introduction/technical-challenge-version-3-novel-task.md`.
+For a genuinely new condition, test, or technology, replace steps 1 to 3 with: what the entity is and why it matters now, what is known, and at most three obstacles a credible study must overcome (`First / Second / Finally`). Each obstacle must be answered by a specific choice in the Methods.
 
 ## Part C: Aim, Hypothesis, and Design — How to Close the Introduction
 
@@ -280,7 +255,7 @@ Key questions before writing:
 1. What is the prespecified primary outcome and analysis population?
 2. What is the directional hypothesis (superiority, noninferiority, equivalence)?
 3. Why is this design appropriate to answer the question?
-4. What is the practical advantage over prior designs?
+4. Which weakness of prior evidence does the design fix?
 
 ### For exploratory or descriptive studies
 
@@ -288,98 +263,45 @@ Key questions before writing:
 2. What hypotheses (if any) are explored, and labeled as such?
 3. Why is this dataset / population / method appropriate?
 
-### Design Version 1 — One contribution with multiple advantages
+### Choose the closing pattern
 
-`Use when one core design choice carries the paper.`
+| Situation | Closing pattern | Example file |
+| --- | --- | --- |
+| Default confirmatory study | Aim (PICO/PECO) → hypothesis → the design feature that fixes the weakness named in the gap | `closing-aim-hypothesis-design.md` |
+| Two prespecified questions (efficacy plus safety; pooled effect plus heterogeneity) | Primary aim → concern that motivates the second question → how it was prespecified | `closing-primary-and-key-safety-question.md` |
+| Observational study whose strength is removing a known bias | Bias in prior analyses → design that removes it → aim stated as an estimand | `closing-design-addresses-known-bias.md` |
+| Study prompted by a pilot, case series, or registry signal | Prior signal → why it is insufficient → the stronger design → proportionate stakes | `closing-testing-a-prior-signal.md` |
 
-Writing structure:
+Writing structure (all patterns):
 
-1. State the present study in one sentence (design + population + intervention/exposure + outcome).
-2. Point to the trial profile or study flow figure.
-3. State the key methodological strength in one sentence.
-4. Briefly state implementation (registration, preregistration, blinding, follow-up duration).
-5. State 1–2 specific advantages over prior evidence.
+1. State the aim as the answer to the gap, in one sentence: design, population, intervention or exposure, comparator, primary outcome, timepoint.
+2. State the hypothesis, with its direction (and superiority, noninferiority, or equivalence for trials); for exploratory studies, say that the analysis is exploratory.
+3. Justify the design by the specific weakness of prior evidence it fixes.
+4. Keep it to one paragraph; registration, randomization details, and analysis populations belong in the Methods.
 
 Sentence skeletons:
 
-1. `In this [study type], we [aim] in [population] using [design].`
-2. `The trial profile is shown in [Figure 1].`
-3. `Our innovation is [METHODOLOGICAL STRENGTH].`
-4. `Specifically, we [DETAIL: blinding / registry / outcome ascertainment / analysis plan].`
-5. `In contrast to prior [studies], this design allows us to [ADVANTAGE].`
+1. `We therefore conducted a [DESIGN] to assess whether [INTERVENTION], compared with [COMPARATOR], [changes] [PRIMARY OUTCOME] at [TIMEPOINT] in [POPULATION].`
+2. `We hypothesized that [INTERVENTION] would [DIRECTION] [PRIMARY OUTCOME].`
+3. `Unlike [PRIOR EVIDENCE], this [DESIGN FEATURE] addresses [SPECIFIC WEAKNESS].`
 
-Local cite: `references/examples/introduction/pipeline-version-1-one-contribution-multi-advantages.md`.
+Avoid self-description ("our innovation", "novel", "for the first time", "our contribution"). A reviewer can verify a design feature and the bias it removes; they cannot verify novelty.
 
-### Design Version 2 — Two contributions
+### Not recommended patterns
 
-`Use when the paper makes two prespecified contributions (e.g., efficacy plus a safety contribution; or pooled effect plus a heterogeneity contribution).`
+Six patterns reviewers penalize, each with a better alternative: abstract conceptual closing without a design, self-description instead of justification, unverified "no study has ever" claims, vague gaps, an aim that does not match the gap, and strawman prior studies.
 
-Writing structure:
-
-1. State the study and its overarching aim.
-2. State the key methodological strength.
-3. Point to the figure.
-4. Explain contribution 1 and its advantage.
-5. Introduce the remaining unresolved sub-question.
-6. Explain contribution 2 as the response.
-
-Local cite: `references/examples/introduction/pipeline-version-2-two-contributions.md`.
-
-### Design Version 3 — New analytic step on an established design
-
-`Use when you take a familiar design (e.g., a cohort, a meta-analysis) and add one new analytic component (e.g., target trial emulation, individual participant data, network meta-analysis, sensitivity analysis with E-values).`
-
-Writing structure:
-
-1. Start from the established design.
-2. Introduce the new analytic component as the key contribution.
-3. Provide the observation or methodological insight that motivates it.
-4. Explain how the component changes the inference.
-5. Compare against the conventional analysis and state why this is more credible.
-
-Local cite: `references/examples/introduction/pipeline-version-3-new-module-on-existing-pipeline.md`.
-
-### Design Version 4 — Observation-driven contribution
-
-`Use when the contribution comes from one striking observation or pilot finding that the present study confirms in a definitive design.`
-
-Writing structure:
-
-1. State the key methodological or biological insight first.
-2. Briefly state the observation that motivates it (a pilot signal, a registry trend, a mechanistic finding).
-3. Briefly state the present study that tests it.
-4. State the expected practical impact.
-
-Local cite: `references/examples/introduction/pipeline-version-4-observation-driven.md`.
-
-### Not Recommended Pattern
-
-`Not recommended: present only an abstract conceptual frame in the Introduction without naming the design, population, primary outcome, or hypothesis.`
-
-Why it fails reviewers:
-
-1. The reader cannot tell whether the study is confirmatory or exploratory.
-2. Important elements (registration, blinding, follow-up) are hidden until Methods, which delays trust.
-3. The Discussion ends up making claims that the design cannot support.
-
-Local cite: `references/examples/introduction/pipeline-not-recommended-abstract-only.md`.
+Local cite: `references/examples/introduction/not-recommended-patterns.md`.
 
 ## Example Bank
 
-1. `references/examples/introduction-examples.md`
-2. `references/examples/introduction/version-1-task-then-application.md`
-3. `references/examples/introduction/version-2-application-first.md`
-4. `references/examples/introduction/version-3-general-to-specific-setting.md`
-5. `references/examples/introduction/version-4-open-with-challenge.md`
-6. `references/examples/introduction/technical-challenge-version-1-existing-task.md`
-7. `references/examples/introduction/technical-challenge-version-2-existing-task-insight-backed-by-traditional.md`
-8. `references/examples/introduction/technical-challenge-version-3-novel-task.md`
-9. `references/examples/introduction/pipeline-version-1-one-contribution-multi-advantages.md`
-10. `references/examples/introduction/pipeline-version-2-two-contributions.md`
-11. `references/examples/introduction/pipeline-version-3-new-module-on-existing-pipeline.md`
-12. `references/examples/introduction/pipeline-version-4-observation-driven.md`
-13. `references/examples/introduction/pipeline-not-recommended-abstract-only.md`
-14. `references/examples/introduction/novel-task-challenge-decomposition.md`
+1. `references/examples/introduction-examples.md` (index)
+2. Opening: `opening-define-entity-then-burden.md`, `opening-lead-with-burden.md`, `opening-general-to-specific-setting.md`, `opening-burden-with-immediate-gap.md`
+3. Gap by type: `gap-evidence-absent.md`, `gap-conflicting-evidence.md`, `gap-evidence-from-other-population.md`, `gap-low-certainty-evidence.md`, `gap-new-condition-test-or-technology.md`, `gap-existing-tools-inadequate.md`, `gap-practice-variation.md`
+4. Closing: `closing-aim-hypothesis-design.md`, `closing-primary-and-key-safety-question.md`, `closing-design-addresses-known-bias.md`, `closing-testing-a-prior-signal.md`
+5. Anti-patterns: `not-recommended-patterns.md`
+
+All files in items 2 to 5 are in `references/examples/introduction/`.
 
 ## See Also
 

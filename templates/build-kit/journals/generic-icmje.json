@@ -1,0 +1,158 @@
+{
+  "_comment": "Generic ICMJE-style defaults for drafting before a journal is chosen. NOT a journal's rules: create a profile for the target journal before submitting.",
+  "name": "Generic ICMJE defaults (no journal chosen)",
+  "generic": true,
+  "source_url": "https://www.icmje.org/recommendations/",
+  "verified_at": null,
+  "csl": "nlm-citation-sequence",
+  "reference_docx": {
+    "font": "Times New Roman",
+    "size_pt": 12,
+    "line_spacing": 2.0,
+    "line_numbers": true,
+    "margins_cm": 2.5,
+    "page_numbers": true
+  },
+  "title": {
+    "max_chars": null,
+    "running_title_max_chars": null
+  },
+  "keywords": {
+    "min": 3,
+    "max": 6
+  },
+  "authors": {
+    "require_orcid": "corresponding",
+    "max": null
+  },
+  "abstract": {
+    "required": true,
+    "limit": {
+      "unit": "words",
+      "max": 250
+    },
+    "structure": [
+      {
+        "id": "background",
+        "heading": "Background"
+      },
+      {
+        "id": "methods",
+        "heading": "Methods"
+      },
+      {
+        "id": "results",
+        "heading": "Results"
+      },
+      {
+        "id": "conclusions",
+        "heading": "Conclusions"
+      }
+    ]
+  },
+  "main_text": {
+    "sections": [
+      {
+        "id": "introduction",
+        "heading": "Introduction"
+      },
+      {
+        "id": "methods",
+        "heading": "Methods"
+      },
+      {
+        "id": "results",
+        "heading": "Results"
+      },
+      {
+        "id": "discussion",
+        "heading": "Discussion"
+      }
+    ],
+    "limit": {
+      "unit": "words",
+      "max": 3500,
+      "count_sections": [
+        "introduction",
+        "methods",
+        "results",
+        "discussion"
+      ],
+      "include_floats": false
+    }
+  },
+  "section_limits": {},
+  "references": {
+    "max": null,
+    "require_identifier": false
+  },
+  "figures": {
+    "max": null,
+    "placement": "inline"
+  },
+  "tables": {
+    "max": null,
+    "placement": "inline"
+  },
+  "figures_tables_max": null,
+  "required_declarations": [
+    "ethics",
+    "funding",
+    "conflicts",
+    "data-availability",
+    "author-contributions",
+    "ai-use"
+  ],
+  "submission": {
+    "separate_title_page": false,
+    "blinded": false,
+    "number_sections": false,
+    "omit_in_blinded": []
+  },
+  "style": {
+    "allow_em_dash": false,
+    "allow_en_dash_ranges": false,
+    "p_value": null
+  },
+  "headings": {},
+  "human_checks": [],
+  "article_types": {
+    "original": {
+      "_comment": "journal defaults apply"
+    },
+    "case-report": {
+      "abstract": {
+        "limit": {
+          "unit": "words",
+          "max": 150
+        },
+        "structure": []
+      },
+      "main_text": {
+        "sections": [
+          {
+            "id": "introduction",
+            "heading": "Introduction"
+          },
+          {
+            "id": "case",
+            "heading": "Case presentation"
+          },
+          {
+            "id": "discussion",
+            "heading": "Discussion"
+          }
+        ],
+        "limit": {
+          "max": 1500,
+          "count_sections": [
+            "introduction",
+            "case",
+            "discussion"
+          ]
+        }
+      },
+      "reporting_guideline": "CARE"
+    }
+  }
+}

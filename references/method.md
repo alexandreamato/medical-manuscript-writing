@@ -355,7 +355,7 @@ For observational studies, append:
 2. `references/examples/method/pre-writing-questions.md`
 3. `references/examples/method/three-element-pattern.md` — generic three-element pattern adapted for a clinical example
 4. `references/examples/method/detailed-procedure-description.md` — design + forward process pattern adapted for diagnostic accuracy
-5. `references/examples/method/module-motivation-patterns.md` — rationale-writing patterns
+5. `references/examples/method/rationale-patterns.md` — rationale-writing patterns
 6. `references/examples/method/section-skeleton.md`
 7. `references/examples/method/overview-template.md`
 8. `references/examples/method/example-of-the-three-elements.md`

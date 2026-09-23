@@ -65,7 +65,7 @@ For etiology or rare-outcome questions, large prospective cohorts and case-contr
 
 - Random allocation to intervention or comparator at the individual level.
 - Allows causal inference if conducted with allocation concealment, blinding, ITT analysis, and adequate power.
-- Reporting: CONSORT 2010.
+- Reporting: CONSORT 2025 (supersedes CONSORT 2010); protocol: SPIRIT 2025.
 
 ### 2. Cluster randomized trial
 

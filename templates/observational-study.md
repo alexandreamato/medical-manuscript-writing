@@ -135,7 +135,7 @@ This study is reported in accordance with the Strengthening the Reporting of Obs
 
 [Of [N] potentially eligible participants, [N] were excluded ([reason 1: n], [reason 2: n], [reason 3: n]), leaving [N] in the analytical cohort]. The flow is shown in Figure 1.
 
-<!-- Build Figure 1 STROBE flow at references/diagrams.md (Mermaid template) -->
+<!-- Build Figure 1 STROBE flow at https://enciclopedia.med.br/strobe (preferred — cohort / case-control / cross-sectional templates, count-consistency check, JSON save/load); Mermaid fallback in references/diagrams.md -->
 
 ### 3.2 Baseline characteristics
 <!-- STROBE 14a, 14b, 14c -->
@@ -207,7 +207,7 @@ Unadjusted [effect measure] for [exposure] vs. [outcome] was [estimate] (95% CI)
 
 **Table 2.** Crude and adjusted association between [exposure] and [outcome].
 
-**Figure 1.** STROBE participant flow diagram.
+**Figure 1.** STROBE participant flow diagram. [Generate at https://enciclopedia.med.br/strobe.]
 
 ---
 
@@ -222,7 +222,7 @@ Unadjusted [effect measure] for [exposure] vs. [outcome] was [estimate] (95% CI)
 
 <!-- Pre-submission checklist (delete before submitting):
      [ ] Causal verbs avoided in body and conclusion (use "was associated with")
-     [ ] STROBE flow diagram included
+     [ ] STROBE flow diagram included (built at https://enciclopedia.med.br/strobe; consistency check passes)
      [ ] STROBE checklist completed and uploaded
      [ ] DAG provided in supplementary file
      [ ] E-value or equivalent residual-confounding sensitivity reported
@@ -243,7 +243,7 @@ Unadjusted [effect measure] for [exposure] vs. [outcome] was [estimate] (95% CI)
 - `references/study-types.md` — design selection and causal language by design
 - `references/statistical-reporting.md` — Cox / logistic / mixed models, missing data, sensitivity analyses
 - `references/manuscript-conventions.md`, `references/citation-styles.md`, `references/figures-and-tables.md`
-- `references/diagrams.md` — STROBE participant flow diagram (Mermaid template)
+- `references/diagrams.md` — STROBE participant flow diagram (enciclopedia.med.br/strobe web tool + JSON format; Mermaid fallback)
 - `references/ethics-and-integrity.md` — IRB, consent, registration, AI disclosure
 - `references/scientific-writing-principles.md`, `references/paragraph-flow.md`, `references/read-as-reader.md`
 - `references/common-mistakes.md`, `references/paper-review.md`, `references/responding-to-reviewers.md`

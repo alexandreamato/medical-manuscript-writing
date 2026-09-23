@@ -1,6 +1,6 @@
-# Abstract Template B — Challenge → Insight → Contribution (Observational)
+# Abstract Template B: Observational Study (Cohort, Case-Control, Target Trial Emulation, Mendelian Randomization)
 
-Use for observational cohort studies, case-control studies, target trial emulations, and Mendelian randomization studies reported under STROBE / STROBE-MR.
+Use for observational cohort studies, case-control studies, target trial emulations, and Mendelian randomization studies reported under STROBE / STROBE-MR. Logic: gap in the evidence → the design and the confounding strategy that address it → adjusted association with 95% CI and a sensitivity analysis → conclusion stated as an association, with the next appropriate step.
 
 ## Structured-abstract skeleton
 
@@ -22,12 +22,12 @@ Conclusions
 
 1. `[Condition / question] is [importance].`
 2. `Whether [exposure] is associated with [outcome] in [population / setting] is uncertain because [prior evidence limitation].`
-3. `We hypothesized that [insight].`
+3. `We hypothesized that [exposure] is associated with [direction] [outcome] (optional; state only if prespecified).`
 4. `In this [prospective cohort / case-control / target trial emulation], we [followed / assembled / matched] [N] participants with [eligibility criterion] using [data source]. The primary outcome was [outcome] over [time horizon]. We adjusted for [key confounders] using [analytic method] and assessed residual confounding with [sensitivity analysis].`
 5. `Over a median follow-up of [duration], [n] events occurred. After adjustment, [exposure] was associated with [outcome]: [hazard / odds / risk ratio] [point estimate] (95% CI, [lower] to [upper]). Results were robust to [sensitivity analysis] (E-value [X]).`
 6. `[Exposure] was associated with [direction] [outcome] in [population]. Confirmatory randomized evidence is needed before clinical recommendations.`
 
-## Worked example (illustrative — fictional numbers)
+## Worked example (illustrative; fictional numbers)
 
 ```
 Background
@@ -43,9 +43,10 @@ Conclusions
 Higher long-term PM2.5 exposure was associated with a higher risk of incident dementia in this population-based cohort. These observational findings support a public health rationale for reducing ambient air pollution but require confirmation through quasi-experimental and Mendelian randomization studies.
 ```
 
-## Notes
+## Notes and pitfalls
 
 1. The associative verb ("was associated with") matches the observational design.
-2. The insight sentence — that long-term exposure with individual assessment may resolve prior limitations — sits between the gap and the contribution.
+2. The Background names the specific limitation of prior evidence (here, lack of large cohorts with individual-level exposure), and the Methods show how this study addresses it.
 3. The Methods sentence reports analytic strategy (Cox model + adjustment + E-value) so a reviewer can map to STROBE.
 4. The Conclusion is calibrated: it acknowledges the design's inferential limit and states the appropriate next step.
+5. Do not let a bias-reducing design (target trial emulation, Mendelian randomization) license causal verbs in the Conclusion; residual confounding or pleiotropy remains.

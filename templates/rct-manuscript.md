@@ -1,7 +1,7 @@
-<!-- TEMPLATE: Randomized Controlled Trial manuscript (CONSORT 2010 aligned) -->
+<!-- TEMPLATE: Randomized Controlled Trial manuscript (CONSORT 2025 aligned) -->
 <!-- Replace text in [BRACKETS] with your content. -->
 <!-- Inline comments like "<!-- CONSORT 1 -->" point to the reporting-standard item being addressed. -->
-<!-- See references/reporting-standards.md for the full CONSORT 25-item checklist. -->
+<!-- Item numbers follow CONSORT 2025 (30 items), which supersedes CONSORT 2010; see references/reporting-standards.md. -->
 
 # [Title: noun phrase including the words "randomized" or "randomised"; identify the trial design (e.g., parallel-group, double-blind); name the population, intervention, and primary outcome]
 <!-- CONSORT 1a -->
@@ -23,9 +23,9 @@
 - **Word counts:** Abstract [N], Body [N], References [N]
 - **Tables:** [N] (Table 1 baseline characteristics; Table 2 primary and secondary outcomes; Table 3 adverse events)
 - **Figures:** [N] (Figure 1 CONSORT participant flow; Figure 2 primary outcome over time)
-- **Trial registration:** ClinicalTrials.gov [NCT00000000] / ISRCTN [ISRCTNxxxxxxxx] / EudraCT [200x-00000x-00] <!-- CONSORT 23 -->
-- **Funding:** [Grant body, grant number, role of funder] <!-- CONSORT 25 -->
-- **Conflicts of interest:** [Per ICMJE Disclosure Form; see references/ethics-and-integrity.md]
+- **Trial registration:** ClinicalTrials.gov [NCT00000000] / ISRCTN [ISRCTNxxxxxxxx] / EudraCT [200x-00000x-00], registered on [date] <!-- CONSORT 2 -->
+- **Funding:** [Grant body, grant number, role of funder] <!-- CONSORT 5a -->
+- **Conflicts of interest:** [Per ICMJE Disclosure Form; see references/ethics-and-integrity.md] <!-- CONSORT 5b -->
 
 ---
 
@@ -45,14 +45,14 @@
 ---
 
 ## 1. Introduction
-<!-- CONSORT 2a, 2b -->
+<!-- CONSORT 6, 7 -->
 <!-- See references/introduction.md and references/related-work.md -->
 
 [Paragraph 1 — clinical importance and burden.] [Disease X affects Y people; current management is Z; recent guidelines recommend W.]
 
 [Paragraph 2 — what is known and what remains unresolved.] [Trials A and B have shown ...; however, [methodological limitation] leaves [specific question] unanswered.]
 
-[Paragraph 3 — the present trial.] We conducted a [design] in [population] to test the hypothesis that [intervention] reduces [primary outcome] compared with [comparator]. We hypothesized that ... <!-- CONSORT 2b -->
+[Paragraph 3 — the present trial.] We conducted a [design] in [population] to test the hypothesis that [intervention] reduces [primary outcome] compared with [comparator]. We hypothesized that ... [State objectives for both benefits and harms.] <!-- CONSORT 7 -->
 
 ---
 
@@ -60,84 +60,91 @@
 <!-- See references/method.md -->
 
 ### 2.1 Trial design
-<!-- CONSORT 3a, 3b -->
+<!-- CONSORT 9, 10 -->
 
-[Trial design: parallel-group, factorial, crossover, cluster; allocation ratio (e.g., 1:1); superiority/non-inferiority/equivalence framework]. [Any important changes to methods after the trial commenced, with reasons. If none, write "There were no changes to methods after the trial commenced."]
+[Trial design: parallel-group, factorial, crossover, cluster; allocation ratio (e.g., 1:1); framework: superiority / non-inferiority / equivalence / exploratory]. [Any important changes to the trial after it commenced, including any outcomes or analyses that were not prespecified, with reasons. If none, write "There were no important changes to the trial after it commenced."]
 
 ### 2.2 Trial setting
-<!-- CONSORT 4b -->
+<!-- CONSORT 11 -->
 
 The trial was conducted at [N] [centres / sites] in [country/countries] between [start date] and [end date]. <!-- ethics number here too --> The protocol was approved by [IRB/ethics committee name] (protocol number [xxx]) and registered prospectively at [registry] ([ID]) on [date].
 
 ### 2.3 Participants
-<!-- CONSORT 4a -->
+<!-- CONSORT 12a, 12b -->
 
 **Inclusion criteria.** [Adults aged X or older; with diagnosis Y confirmed by Z; ...]
 
 **Exclusion criteria.** [Pregnancy; contraindication; competing risk; ...]
 
+**Sites and intervention providers.** [If applicable: eligibility criteria for sites (e.g., minimum annual case volume) and for the individuals delivering the interventions (e.g., surgeons with ≥ N prior procedures).] <!-- CONSORT 12b -->
+
 **Recruitment.** Participants were recruited consecutively from [setting]. Written informed consent was obtained from all participants before any study procedure.
 
 ### 2.4 Interventions
-<!-- CONSORT 5 -->
+<!-- CONSORT 13 -->
 
 **Intervention group.** [Drug name (generic), dose, route, frequency, duration]. [Manufacturer, formulation]. Adherence was monitored by [pill count / electronic dispensing / self-report].
 
 **Comparator group.** [Comparator (e.g., matching placebo), administered identically to maintain blinding].
 
-[Concomitant therapy permitted/prohibited]. [Rescue medication rules].
+[Concomitant therapy permitted/prohibited]. [Rescue medication rules]. [Where additional materials describing the intervention and comparator (e.g., intervention manual) can be accessed.]
 
 ### 2.5 Outcomes
-<!-- CONSORT 6a, 6b -->
+<!-- CONSORT 14, 15 -->
 
-**Primary outcome.** [The primary outcome was [definition], measured at [timepoint] using [instrument]]. [Adjudication procedure if any].
+**Primary outcome.** [The primary outcome was [measurement variable, e.g., systolic blood pressure], analysed as [analysis metric: change from baseline / final value / time to event], summarised as [method of aggregation: mean / median / proportion], at [time point], measured using [instrument]]. [Adjudication procedure if any]. <!-- CONSORT 14 -->
 
-**Secondary outcomes.** [List in prespecified order, each with definition, instrument, timepoint].
+**Secondary outcomes.** [List in prespecified order, each with measurement variable, analysis metric, method of aggregation, and time point]. <!-- CONSORT 14 -->
 
-**Safety outcomes.** [All-cause mortality, serious adverse events, discontinuation due to adverse events, prespecified safety endpoints]. <!-- CONSORT 6a -->
+**Harms.** [How harms were defined (e.g., MedDRA terms, CTCAE grade) and assessed: systematically (e.g., structured questionnaire at each visit) or non-systematically (spontaneous report)]. [Prespecified safety endpoints]. <!-- CONSORT 15 -->
 
-[Any changes to outcomes after the trial commenced — with reasons. If none, write "Outcomes were not changed after the trial commenced."] <!-- CONSORT 6b -->
+[Any changes to outcomes after the trial commenced, with reasons, belong in 2.1 (CONSORT 10).]
 
 ### 2.6 Sample size
-<!-- CONSORT 7a, 7b -->
+<!-- CONSORT 16a, 16b -->
 
 [Assuming a primary-outcome event rate of X% in the comparator arm and an absolute reduction of Y percentage points (relative risk reduction Z%), based on [pilot data / prior trial / mechanistic estimate], a two-sided alpha of 0.05, and 80% power, the trial required N participants per arm. We inflated to N+inflation to allow Z% loss to follow-up.]
 
-[Any interim analyses and stopping guidelines, or "There were no interim analyses."] <!-- CONSORT 7b -->
+[Any interim analyses and stopping guidelines, or "There were no interim analyses."] <!-- CONSORT 16b -->
 
 ### 2.7 Randomization
-<!-- CONSORT 8a, 8b, 9, 10 -->
+<!-- CONSORT 17a, 17b, 18, 19 -->
 
-**Sequence generation.** [Computer-generated random allocation, stratified by [factor], with permuted blocks of size [4/6/variable]].
+**Sequence generation.** [Who generated the sequence]. [Computer-generated random allocation, stratified by [factor], with permuted blocks of size [4/6/variable]].
 
 **Allocation concealment.** [Centralised web-based / sealed opaque sequentially numbered envelopes / pharmacy-controlled].
 
-**Implementation.** [Who generated the sequence, who enrolled participants, who assigned to groups].
+**Implementation.** [Whether the personnel who enrolled participants and those who assigned them to groups had access to the allocation sequence].
 
 ### 2.8 Blinding
-<!-- CONSORT 11a, 11b -->
+<!-- CONSORT 20a, 20b -->
 
 [Participants, treating clinicians, outcome assessors, and analysts were blinded to assignment. The intervention and placebo were identical in [appearance, taste, packaging].] [If unblinded, describe rationale and which parties were unblinded.]
 
 ### 2.9 Statistical analysis
-<!-- CONSORT 12a, 12b -->
+<!-- CONSORT 21a, 21b, 21c, 21d -->
 <!-- See references/statistical-reporting.md -->
 
-The primary analysis followed the **intention-to-treat principle** and included all randomized participants. The primary outcome was analysed using [model] with [covariates] as fixed effects, producing [effect measure] with 95% CI. Missing data on the primary outcome were handled by [multiple imputation under MAR / complete-case]; the assumed mechanism was [MAR/MCAR/MNAR].
+The primary analysis followed the **intention-to-treat principle** and included all randomized participants, analysed in the group to which they were assigned. <!-- CONSORT 21b --> The primary outcome was analysed using [model] with [covariates] as fixed effects, producing [effect measure] with 95% CI. Missing data on the primary outcome were handled by [multiple imputation under MAR / complete-case]; the assumed mechanism was [MAR/MCAR/MNAR]. <!-- CONSORT 21c --> Harms were compared between groups using [method]. <!-- CONSORT 21a -->
 
-Secondary outcomes were analysed in the prespecified order. Subgroup analyses were performed on [factors] with interaction p values reported. Sensitivity analyses included [per-protocol; alternative missing-data assumption; alternative model specification].
+Secondary outcomes were analysed in the prespecified order. Subgroup analyses were performed on [factors] with interaction p values reported. Sensitivity analyses included [per-protocol; alternative missing-data assumption; alternative model specification]. [State which additional analyses were prespecified and which were post hoc.] <!-- CONSORT 21d -->
 
 A two-sided p < 0.05 was considered statistically significant. [Multiplicity adjustment if applicable]. Analyses were performed in [R 4.x / SAS 9.4 / Stata 18] using [packages with versions].
 
 ### 2.10 Ethics, registration, and role of funder
-<!-- CONSORT 23, 24, 25 -->
+<!-- CONSORT 2, 3, 5a (open science; data sharing = CONSORT 4, see the Data sharing section) -->
 <!-- See references/ethics-and-integrity.md -->
 
-The study was approved by [IRB / ethics committee] (protocol [number]) and conducted in accordance with the Declaration of Helsinki and Good Clinical Practice. The trial was registered prospectively at [registry] ([ID]) on [date], before the first participant was enrolled. The full protocol is available at [URL or upon request]. The funder had [no role / a specific role: e.g., provided study medication] in the design, conduct, analysis, interpretation, or decision to submit.
+The study was approved by [IRB / ethics committee] (protocol [number]) and conducted in accordance with the Declaration of Helsinki and Good Clinical Practice. The trial was registered prospectively at [registry] ([ID]) on [date], before the first participant was enrolled. The full protocol and the statistical analysis plan are available at [URL]. The funder had [no role / a specific role: e.g., provided study medication] in the design, conduct, analysis, interpretation, or decision to submit.
+
+### 2.11 Patient and public involvement
+<!-- CONSORT 8 -->
+
+[How patients or members of the public were involved in the design, conduct, and reporting of the trial (e.g., choice of primary outcome, review of participant materials). If there was no involvement, state so explicitly: "Patients and the public were not involved in the design, conduct, or reporting of this trial."]
 
 ---
 
-This study is reported in accordance with the Consolidated Standards of Reporting Trials (CONSORT 2010) statement. A completed CONSORT checklist is provided as Supplementary File 1.
+This study is reported in accordance with the Consolidated Standards of Reporting Trials (CONSORT 2025) statement. A completed CONSORT 2025 checklist is provided as Supplementary File 1.
 
 ---
 
@@ -145,33 +152,39 @@ This study is reported in accordance with the Consolidated Standards of Reportin
 <!-- See references/results.md -->
 
 ### 3.1 Participant flow
-<!-- CONSORT 13a, 13b, 14a, 14b -->
+<!-- CONSORT 22a, 22b, 23a, 23b -->
 
-[Between dates], [N] patients were assessed for eligibility, of whom [N] were excluded ([reason 1: n], [reason 2: n], [reason 3: n]). [N] participants were randomized: [N] to intervention and [N] to control. [Receipt of intervention; loss to follow-up with reasons; analysis population]. The participant flow is shown in Figure 1.
+[Recruitment ran from [date] to [date]; follow-up ended on [date]. If the trial was stopped early, why.] <!-- CONSORT 23a, 23b --> [Between dates], [N] patients were assessed for eligibility, of whom [N] were excluded ([reason 1: n], [reason 2: n], [reason 3: n]). [N] participants were randomized: [N] to intervention and [N] to control. [Receipt of intervention; loss to follow-up with reasons; analysis population]. The participant flow is shown in Figure 1.
 
-<!-- Build Figure 1 CONSORT flow diagram at https://enciclopedia.med.br/consort2010 -->
+<!-- Build Figure 1 CONSORT flow diagram at https://enciclopedia.med.br/consort2010; use the CONSORT 2025 wording "Lost to follow-up for primary outcome" and "Analysed for primary outcome" (see references/diagrams.md) -->
 
 ### 3.2 Baseline characteristics
-<!-- CONSORT 15 -->
+<!-- CONSORT 25 -->
 
 Baseline characteristics were balanced between groups (Table 1). <!-- CONSORT discourages baseline p values in randomized trials -->
 
-### 3.3 Primary outcome
-<!-- CONSORT 16, 17a, 17b -->
+### 3.3 Intervention and comparator delivery
+<!-- CONSORT 24a, 24b -->
 
-The primary outcome occurred in [n/N (%)] of the [intervention] group vs. [n/N (%)] of the [comparator] group, corresponding to a [risk difference] of [X] percentage points (95% CI, [low] to [high]) and a [hazard / risk / odds ratio] of [point estimate] (95% CI, [low] to [high]; p = [value]; Table 2; Figure 2).
+[How the intervention and comparator were actually delivered: who delivered them, adherence (e.g., n/N (%) took ≥ 80% of doses), and fidelity to the protocol.] [Concomitant care received in each group (e.g., statin use at 12 months, n/N (%)).]
 
-### 3.4 Secondary outcomes
+### 3.4 Primary outcome
+<!-- CONSORT 26 -->
+
+[Of [N] randomized per group, [n] were included in the analysis and [n] had available data at [time point].] The primary outcome occurred in [n/N (%)] of the [intervention] group vs. [n/N (%)] of the [comparator] group, corresponding to a [risk difference] of [X] percentage points (95% CI, [low] to [high]) and a [hazard / risk / odds ratio] of [point estimate] (95% CI, [low] to [high]; p = [value]; Table 2; Figure 2).
+
+### 3.5 Secondary outcomes
+<!-- CONSORT 26 -->
 
 [Report each in the prespecified order with effect estimate and 95% CI; cross-reference to Table 2.]
 
-### 3.5 Subgroup and sensitivity analyses
-<!-- CONSORT 18 -->
+### 3.6 Subgroup and sensitivity analyses
+<!-- CONSORT 28 -->
 
 [Subgroup forest plot or table; interaction p values; mark exploratory subgroups explicitly.] [Sensitivity analyses confirmed / did not change the primary conclusion.]
 
-### 3.6 Adverse events
-<!-- CONSORT 19 -->
+### 3.7 Harms
+<!-- CONSORT 27 -->
 
 [Serious adverse events occurred in n/N (%) of intervention vs. n/N (%) of comparator]. Common adverse events (occurring in ≥ 5% of either group) are listed in Table 3.
 
@@ -181,6 +194,7 @@ The primary outcome occurred in [n/N (%)] of the [intervention] group vs. [n/N (
 <!-- See references/discussion.md -->
 
 ### 4.1 Principal findings
+<!-- CONSORT 29 -->
 
 [Open with one sentence: "In this [design] of N participants with [condition], [intervention] reduced [outcome] compared with [comparator]: [effect estimate, 95% CI; p value]." Use causal language calibrated to the design.]
 
@@ -193,12 +207,12 @@ The primary outcome occurred in [n/N (%)] of the [intervention] group vs. [n/N (
 [Biological or clinical mechanism that could explain the observed effect.]
 
 ### 4.4 Strengths and limitations
-<!-- CONSORT 20 -->
+<!-- CONSORT 30 (includes generalisability, a separate item in 2010) -->
 
-[State design features that increase confidence (preregistration, blinding, low loss to follow-up). State limitations honestly: design, population, measurement, statistical, external validity. See references/discussion.md.]
+[State design features that increase confidence (preregistration, blinding, low loss to follow-up). State limitations honestly: sources of potential bias, imprecision, generalisability (external validity), and, if relevant, multiplicity of analyses. See references/discussion.md.]
 
 ### 4.5 Implications for practice and future research
-<!-- CONSORT 21, 22 -->
+<!-- CONSORT 29: interpretation consistent with results, balancing benefits and harms -->
 
 [Specific practice implication if the design supports it. Concrete future research direction.]
 
@@ -219,12 +233,14 @@ The primary outcome occurred in [n/N (%)] of the [intervention] group vs. [n/N (
 [List each author with their CRediT roles. See references/ethics-and-integrity.md.]
 
 ## Conflict of interest
+<!-- CONSORT 5b -->
 
 [Per ICMJE Disclosure Form for every author.]
 
 ## Data sharing
+<!-- CONSORT 4 -->
 
-[De-identified individual participant data and the statistical analysis plan will be available [conditions, time frame, platform]. Code is available at [GitHub / Zenodo URL with DOI].]
+[De-identified individual participant data (with data dictionary), statistical code, and other materials will be available [conditions, time frame, platform]. Code is available at [GitHub / Zenodo URL with DOI].]
 
 ## AI disclosure
 
@@ -251,7 +267,7 @@ The primary outcome occurred in [n/N (%)] of the [intervention] group vs. [n/N (
 
 ## Figure legends
 
-**Figure 1.** CONSORT participant flow diagram. [Generate at https://enciclopedia.med.br/consort2010.]
+**Figure 1.** CONSORT 2025 participant flow diagram. [Generate at https://enciclopedia.med.br/consort2010.]
 
 **Figure 2.** [Primary outcome over time, by group; describe error bars and statistical test.]
 
@@ -259,7 +275,7 @@ The primary outcome occurred in [n/N (%)] of the [intervention] group vs. [n/N (
 
 ## Supplementary materials
 
-- Supplementary File 1. Completed CONSORT 2010 checklist with page/line numbers.
+- Supplementary File 1. Completed CONSORT 2025 checklist with page/line numbers.
 - Supplementary File 2. Full study protocol.
 - Supplementary File 3. Statistical analysis plan.
 - Supplementary File 4. Full results of subgroup and sensitivity analyses.
@@ -273,7 +289,7 @@ The primary outcome occurred in [n/N (%)] of the [intervention] group vs. [n/N (
      [ ] Tables and figures cited in text in order of appearance
      [ ] Vancouver references in order of first appearance, all real
      [ ] No em-dashes (—) in body sentences
-     [ ] CONSORT checklist completed and uploaded
+     [ ] CONSORT 2025 checklist completed and uploaded (2025 item numbers, not 2010)
      [ ] Trial registration ID in Abstract and Methods
      [ ] Ethics statement, conflicts, funding, data sharing, AI disclosure all present
      [ ] Run references/common-mistakes.md speed audit
@@ -289,7 +305,7 @@ While filling this template, consult the following section guides:
 - `references/discussion.md` — Discussion structure (six-paragraph order, divide-and-conquer, alternative explanations)
 - `references/abstract.md` — structured abstract templates and CONSORT for Abstracts
 - `references/introduction.md` — three-part Introduction structure with aim/objective distinction
-- `references/reporting-standards.md` — full CONSORT 2010 25-item checklist with section-by-section organisation
+- `references/reporting-standards.md` — full CONSORT 2025 30-item checklist, changes from 2010, and SPIRIT 2025
 - `references/study-types.md` — RCT design variants (parallel, crossover, cluster, factorial, noninferiority)
 - `references/statistical-reporting.md` — effect sizes, CIs, p values, missing data, sensitivity analyses
 - `references/manuscript-conventions.md` — em-dash rule, citation order, table/figure referencing, .docx export

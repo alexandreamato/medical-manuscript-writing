@@ -1,6 +1,6 @@
-# Introduction Version 3: General Problem, Then Specific Setting
+# Opening: General Problem, Then Specific Setting
 
-`Version 3: Use when the broad problem is well known but the present study addresses a specific population, setting, or comparison (recommended when the setting is comparatively novel).`
+`Use when the broad problem is well known but the present study addresses a specific population, setting, or comparison (recommended when the setting is comparatively novel).`
 
 ## Skeleton
 
@@ -24,8 +24,8 @@ trial populations problematic and where prospective evidence on early balanced c
 resuscitation strategies is sparse.
 ```
 
-## Notes
+## Notes and pitfalls
 
 1. Move from the general (the global problem) to the specific (the population that the present study informs).
-2. Make the special consideration concrete and methodological — why prior evidence does not generalize.
+2. Make the special consideration concrete and methodological: say why prior evidence does not generalize.
 3. End the paragraph with a sentence that sets up the gap paragraph.

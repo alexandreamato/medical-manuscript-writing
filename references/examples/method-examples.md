@@ -12,7 +12,7 @@ All Methods example cites point to the local files below.
 2. Three-element pattern (overview): `references/examples/method/three-element-pattern.md`
 3. Annotated walk-through of a Methods section: `references/examples/method/methods-section-walkthrough.md`
 4. Detailed procedure description (worked diagnostic accuracy example): `references/examples/method/detailed-procedure-description.md`
-5. Rationale-writing patterns: `references/examples/method/module-motivation-patterns.md`
+5. Rationale-writing patterns: `references/examples/method/rationale-patterns.md`
 
 ## C. Section-Level Templates
 

@@ -74,16 +74,17 @@ Entry point: [`SKILL.md`](SKILL.md). All section guides are in [`references/`](r
 
 ## Companion tools
 
-Two browser-based diagram generators are integrated as the preferred options for the mandatory participant flow diagrams:
+Browser-based diagram generators are integrated as the preferred options for the participant flow diagrams:
 
-- **CONSORT 2010 Flow Diagram Generator** — https://enciclopedia.med.br/consort2010 (parallel-2/3, crossover, cluster, factorial)
+- **CONSORT Flow Diagram Generator** — https://enciclopedia.med.br/consort2010 (parallel-2/3, crossover, cluster, factorial; same box structure as the CONSORT 2025 diagram, relabel follow-up/analysis boxes "for primary outcome")
 - **PRISMA 2020 Flow Diagram Generator** — https://enciclopedia.med.br/prisma2020 (new and updated reviews; English and Portuguese)
+- **STROBE Flow Diagram Generator** — https://enciclopedia.med.br/strobe (cohort, case-control, cross-sectional; count-consistency check; JSON save/load)
 
-Both released under CC BY 4.0.
+All released under CC BY 4.0.
 
 ## Reference files
 
-The skill comprises 26 reference files organized in five thematic groups (Section guides; Article types; Cross-cutting standards; Form, format, and presentation; Writing quality and process). See `SKILL.md` for the full map and the Quick Start by Scenario.
+The skill comprises 29 reference files organized in five thematic groups (Section guides; Article types; Cross-cutting standards; Form, format, and presentation; Writing quality and process). See `SKILL.md` for the full map and the Quick Start by Scenario.
 
 ## Manuscript starter templates
 
@@ -91,12 +92,16 @@ Ready-to-fill scaffolds for the four most common article types are in [`template
 
 | Template | Article type | Reporting standard |
 | --- | --- | --- |
-| [`rct-manuscript.md`](templates/rct-manuscript.md) | Randomized controlled trial | CONSORT 2010 |
+| [`rct-manuscript.md`](templates/rct-manuscript.md) | Randomized controlled trial | CONSORT 2025 |
 | [`observational-study.md`](templates/observational-study.md) | Cohort / case-control / cross-sectional | STROBE |
 | [`case-report.md`](templates/case-report.md) | Case report | CARE 2013 |
 | [`systematic-review.md`](templates/systematic-review.md) | Systematic review and meta-analysis | PRISMA 2020 |
 
 Each template contains the standard section structure, placeholder text, and inline references to the matching reporting-standard items.
+
+## Procedural .docx build
+
+[`templates/build-kit/`](templates/build-kit/) keeps the manuscript as Markdown sections under git, references as CSL-JSON cited by key, and each journal's rules as a JSON profile, then generates the submission files with pandoc. Reference and figure/table numbering are recomputed on every build; changing journal is choosing another profile. A standard-library Python validator checks limits, required sections and declarations, citations, and placeholders; `refs.py` adds references by DOI or PMID and verifies them against Crossref and PubMed, including retractions. Workflow and agent rules: [`references/docx-build.md`](references/docx-build.md). Requires pandoc ≥ 3.1.
 
 ## Quick reference files
 
@@ -119,7 +124,9 @@ The skill synthesizes guidance from peer-reviewed methodological papers, officia
 
 ## Reporting standards (official statements)
 
-- Schulz KF, Altman DG, Moher D; CONSORT Group. CONSORT 2010 statement: updated guidelines for reporting parallel group randomised trials. *BMJ* 2010;340:c332. doi:10.1136/bmj.c332
+- Hopewell S, Chan AW, Collins GS, Hróbjartsson A, Moher D, Schulz KF, et al. CONSORT 2025 statement: updated guideline for reporting randomised trials. *BMJ* 2025;389:e081123. doi:10.1136/bmj-2024-081123
+- Hopewell S, Chan AW, Collins GS, Hróbjartsson A, Moher D, Schulz KF, et al. CONSORT 2025 explanation and elaboration: updated guideline for reporting randomised trials. *BMJ* 2025;389:e081124. doi:10.1136/bmj-2024-081124
+- Schulz KF, Altman DG, Moher D; CONSORT Group. CONSORT 2010 statement: updated guidelines for reporting parallel group randomised trials. *BMJ* 2010;340:c332. doi:10.1136/bmj.c332 (superseded by CONSORT 2025)
 - von Elm E, Altman DG, Egger M, Pocock SJ, Gøtzsche PC, Vandenbroucke JP; STROBE Initiative. The Strengthening the Reporting of Observational Studies in Epidemiology (STROBE) Statement: guidelines for reporting observational studies. *PLoS Med* 2007;4(10):e296.
 - STROBE Statement v4 combined checklist (cohort, case-control, cross-sectional studies). https://www.strobe-statement.org
 - Page MJ, McKenzie JE, Bossuyt PM, Boutron I, Hoffmann TC, Mulrow CD, et al. The PRISMA 2020 statement: an updated guideline for reporting systematic reviews. *BMJ* 2021;372:n71. doi:10.1136/bmj.n71
@@ -129,7 +136,9 @@ The skill synthesizes guidance from peer-reviewed methodological papers, officia
 - Collins GS, Reitsma JB, Altman DG, Moons KGM. Transparent Reporting of a multivariable prediction model for Individual Prognosis Or Diagnosis (TRIPOD): the TRIPOD Statement. *BMJ* 2015;350:g7594.
 - Collins GS, Moons KGM, Dhiman P, Riley RD, Beam AL, Van Calster B, et al. TRIPOD+AI statement: updated guidance for reporting clinical prediction models that use regression or machine learning methods. *BMJ* 2024;385:e078378.
 - Percie du Sert N, Hurst V, Ahluwalia A, Alam S, Avey MT, Baker M, et al. The ARRIVE guidelines 2.0: Updated guidelines for reporting animal research. *PLoS Biol* 2020;18(7):e3000410.
-- Chan AW, Tetzlaff JM, Altman DG, Laupacis A, Gøtzsche PC, Krleža-Jerić K, et al. SPIRIT 2013 statement: defining standard protocol items for clinical trials. *Ann Intern Med* 2013;158(3):200-207.
+- Chan AW, Boutron I, Hopewell S, Moher D, Schulz KF, Collins GS, et al. SPIRIT 2025 statement: updated guideline for protocols of randomised trials. *BMJ* 2025;389:e081477. doi:10.1136/bmj-2024-081477
+- Hróbjartsson A, Boutron I, Hopewell S, Moher D, Schulz KF, Collins GS, et al. SPIRIT 2025 explanation and elaboration: updated guideline for protocols of randomised trials. *BMJ* 2025;389:e081660. doi:10.1136/bmj-2024-081660
+- Chan AW, Tetzlaff JM, Altman DG, Laupacis A, Gøtzsche PC, Krleža-Jerić K, et al. SPIRIT 2013 statement: defining standard protocol items for clinical trials. *Ann Intern Med* 2013;158(3):200-207. (superseded by SPIRIT 2025)
 - SPIRIT-CONSORT Item 18: Participant timeline. https://www.consort-spirit.org/item18-participanttimeline
 - Husereau D, Drummond M, Augustovski F, de Bekker-Grob E, Briggs AH, Carswell C, et al. Consolidated Health Economic Evaluation Reporting Standards 2022 (CHEERS 2022) statement. *BMJ* 2022;376:e067975.
 - Ogrinc G, Davies L, Goodman D, Batalden P, Davidoff F, Stevens D. SQUIRE 2.0 (Standards for QUality Improvement Reporting Excellence): revised publication guidelines from a detailed consensus process. *BMJ Qual Saf* 2016;25:986-992.
@@ -226,6 +235,7 @@ The skill synthesizes guidance from peer-reviewed methodological papers, officia
 - PRISMA2020 R package. https://cran.r-project.org/web/packages/PRISMA2020/
 - Amato ACM. PRISMA 2020 Flow Diagram Generator [Internet]. São Paulo: enciclopedia.med.br; 2025. Available from: https://enciclopedia.med.br/prisma2020
 - Amato ACM. CONSORT 2010 Flow Diagram Generator [Internet]. São Paulo: enciclopedia.med.br; 2025. Available from: https://enciclopedia.med.br/consort2010
+- Amato ACM. STROBE Flow Diagram Generator [Internet]. São Paulo: enciclopedia.med.br; 2026. Available from: https://enciclopedia.med.br/strobe
 - Textor J, van der Zander B, Gilthorpe MS, Liśkiewicz M, Ellison GTH. Robust causal inference using directed acyclic graphs: the R package "dagitty". *Int J Epidemiol* 2016;45(6):1887-1894. https://www.dagitty.net
 - Mermaid: text-to-diagram syntax. https://mermaid.js.org
 

@@ -1,6 +1,6 @@
-# Abstract Template A — Challenge → Contribution (RCT)
+# Abstract Template A: Randomized Controlled Trial
 
-Use for randomized controlled trials reported under CONSORT.
+Use for randomized controlled trials reported under CONSORT (and its abstract extension). Logic: gap in the evidence → the trial that answers it (design, population, comparison, primary outcome) → primary result with absolute and relative effect and 95% CI, plus harms → conclusion in causal language limited to the trial population and follow-up.
 
 ## Structured-abstract skeleton
 
@@ -30,7 +30,7 @@ Trial registration
 5. `[Secondary or safety result, briefly.]`
 6. `Among [population], [intervention] [reduced / did not reduce] [outcome] over [duration].`
 
-## Worked example (illustrative — fictional numbers)
+## Worked example (illustrative; fictional numbers)
 
 ```
 Background
@@ -40,7 +40,7 @@ Methods
 We conducted a multicenter, double-blind, placebo-controlled randomized trial. Adults aged 60 years or older with HFpEF (left ventricular ejection fraction >= 50%) and a recent hospitalization for heart failure were randomly assigned 1:1 to dapagliflozin 10 mg once daily or matching placebo. The primary outcome was a composite of cardiovascular death or hospitalization for heart failure at 24 months.
 
 Results
-Among 4,250 participants (mean age 72 years, 56% women), the primary outcome occurred in 462 (21.7%) of 2,128 participants in the dapagliflozin group vs. 568 (26.7%) of 2,122 in the placebo group (hazard ratio 0.79; 95% CI, 0.70 to 0.89; p < 0.001). Serious adverse events were reported in 14.2% vs. 14.8% of participants.
+Among 4,250 participants (mean age 72 years, 56% women), the primary outcome occurred in 462 (21.7%) of 2,128 participants in the dapagliflozin group vs. 568 (26.7%) of 2,122 in the placebo group (absolute difference 5.0 percentage points; hazard ratio 0.79; 95% CI, 0.70 to 0.89; p < 0.001). Serious adverse events were reported in 14.2% vs. 14.8% of participants.
 
 Conclusions
 Among older adults with HFpEF, dapagliflozin reduced the composite of cardiovascular death or hospitalization for heart failure compared with placebo over a median follow-up of 24 months.
@@ -49,10 +49,11 @@ Trial registration
 ClinicalTrials.gov NCT00000000.
 ```
 
-## Notes
+## Notes and pitfalls
 
-1. The contribution sentence states design + population + intervention + outcome plainly. No technical jargon.
-2. The Results sentence reports the primary outcome with effect estimate, 95% CI, and p value, plus one safety line.
+1. The Background ends on the gap, and the first Methods sentence answers it: design, population, intervention, comparator, and primary outcome, stated plainly.
+2. The Results report the primary outcome with counts, an absolute and a relative effect, the 95% CI, and a p value, plus one harms line (CONSORT for Abstracts asks for harms).
 3. The Conclusion uses causal language ("reduced") because this is an RCT.
 4. The Conclusion repeats the population and the duration so scope is explicit.
 5. The trial registration number is included per ICMJE.
+6. If the primary outcome was not significant, say so in the Conclusion; do not lead with a secondary outcome.

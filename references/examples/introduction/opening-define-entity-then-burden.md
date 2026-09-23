@@ -1,6 +1,6 @@
-# Introduction Version 1: Define the Entity, Then the Burden
+# Opening: Define the Entity, Then the Burden
 
-`Version 1: Use when the condition, exposure, or population is unfamiliar to a general medical audience.`
+`Use when the condition, exposure, or population is unfamiliar to a general medical audience.`
 
 ## Skeleton
 
@@ -26,7 +26,7 @@ Current management combines weight loss and acetazolamide, but adherence is limi
 a substantial proportion of patients progress despite optimal medical therapy.
 ```
 
-## Notes
+## Notes and pitfalls
 
 1. The first sentence is operational, not encyclopaedic. Do not bury the definition inside burden statistics.
 2. The burden sentence anchors the reader to a population and a magnitude.

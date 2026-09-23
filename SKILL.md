@@ -37,6 +37,8 @@ Find your situation and follow the suggested reading order:
 | **Choosing a citation style and formatting references** | `manuscript-conventions.md` → `citation-styles.md` (Vancouver default) |
 | **Building a flow diagram (CONSORT, STROBE, PRISMA, STARD)** | `diagrams.md` → `reporting-standards.md` |
 | **Just received reviewer comments — preparing the response** | `responding-to-reviewers.md` → `paper-review.md` (re-audit) → `writing-process.md` (Three-pass self-review) |
+| **Setting up a manuscript as source files and building the .docx** | `docx-build.md` → `templates/build-kit/README.md` → `templates/build-kit/journals/README.md` (journal profile) |
+| **Changing target journal after a rejection** | `docx-build.md` (new profile, `validate.py --compare`) → `paper-review.md` |
 | **Pre-submission final pass** | `paper-review.md` → `manuscript-conventions.md` → `reporting-standards.md` (adherence statement) → `ethics-and-integrity.md` |
 
 ## Core Workflow
@@ -56,8 +58,8 @@ These are non-negotiable. They reflect the most common reasons medical manuscrip
 1. **Never fabricate or hallucinate references.** Every citation must point to a real, verifiable publication. If a fact is uncertain, mark it `[CITATION NEEDED]` and let the author resolve it; never invent an author, year, journal, or DOI to fill the gap.
 2. **Cite every table and figure in the text, in the exact order they appear.** Tables and figures are numbered by their first mention in the body text (Table 1 must be cited before Table 2; Figure 2 must be cited before Figure 3). After drafting, scan the manuscript and verify the order.
 3. **References must be numbered or ordered consistently with the citation style.** Always check the target journal's Instructions to Authors first. **If the journal has not yet been chosen, default to Vancouver** (the ICMJE-recommended numeric style used by most major medical journals — NEJM, Lancet, BMJ, Annals, Nature Medicine). For Vancouver, references are numbered in order of first appearance in the text; renumber when sentences move. For AMA, APA, Harvard, Chicago, and other styles, see `references/citation-styles.md`.
-4. **Do not use the em-dash (`—`) or en-dash inside body sentences.** Replace with a comma, semicolon, parenthesis, or a full stop. (Hyphens in compound terms such as `placebo-controlled` are fine. Numeric ranges should use `to`: write `12 to 18 months`, not `12—18 months`.)
-5. **Default output format is Word (.docx).** Most medical journals require .docx submission. Generate manuscripts as .docx with: numbered headings, double-spaced body, line numbering, references in the journal's required style, and tables/figures placed at the end of the document or in separate files according to the journal's instructions for authors.
+4. **Do not use the em-dash (`—`) or en-dash inside body sentences.** Replace with a comma, semicolon, parenthesis, or a full stop. (Hyphens in compound terms such as `placebo-controlled` are fine. Numeric ranges should use `to`: write `12 to 18 months`, not `12—18 months`.) **Exception:** the target journal's style wins. If its instructions or recent articles print ranges with an en-dash (`95% CI 0.55–0.94`), follow them consistently throughout; never use the dash with a negative bound (`-0.4 to 0.2`), and never mix the two forms. Details in `references/manuscript-conventions.md` §3.1.
+5. **Default output format is Word (.docx), and the .docx is generated, never hand-edited.** Keep the text as Markdown sections, references as CSL-JSON cited by key (`[@key]`, never a typed number), and the journal's rules in a profile; build the .docx with pandoc (`templates/build-kit/`, workflow in `references/docx-build.md`). This keeps citation and figure/table numbering correct after every edit, validates word limits and required sections per journal, and makes changing journal a rebuild. Add references only through `scripts/refs.py add <DOI|PMID>`, never by typing bibliographic data. If the user cannot run pandoc, produce the .docx another way but apply the same conventions (double spacing, line numbers, the journal's reference style, tables/figures placed as the journal requires).
 
 See `references/manuscript-conventions.md` for the full list, including dash usage, citation ordering, figure/table referencing, and .docx export guidance.
 
@@ -122,10 +124,11 @@ Load only the file you need. The references are organized in five groups:
 ### D. Form, format, and presentation
 
 - Manuscript conventions (dashes, citation order, table/figure referencing, .docx export): `references/manuscript-conventions.md`
+- Generating the .docx procedurally (Markdown + CSL-JSON + journal profile → pandoc; validator; reference verification; co-author round trip; ready kit in `templates/build-kit/`): `references/docx-build.md`
 - Citation styles — Vancouver (default), comparison table, reference managers, hard rules: `references/citation-styles.md`
 - Citation styles — full detail on AMA, APA 7, Harvard, Chicago 18, CSE: `references/citation-styles-detail.md`
 - Figures and tables (design principles, types, captions, file formats, accessibility, image-manipulation ethics): `references/figures-and-tables.md`
-- Diagrams (Mermaid templates for CONSORT, STROBE, PRISMA, STARD, CARE timeline, trial schema; pointers to PRISMA2020 R package and DAGitty; statistical-figure tooling): `references/diagrams.md`
+- Diagrams (web generators at enciclopedia.med.br for CONSORT, STROBE, PRISMA 2020, and CARE timeline; Mermaid templates for all flows, STARD, and trial schema; pointers to PRISMA2020 R package and DAGitty; statistical-figure tooling): `references/diagrams.md`
 
 ### E. Writing quality and process
 
@@ -138,7 +141,7 @@ Load only the file you need. The references are organized in five groups:
 - Responding to reviewers (point-by-point letter, tracked changes, disagreeing respectfully): `references/responding-to-reviewers.md`
 - Glossary of statistical, methodological, and reporting terms (~60 entries): `references/glossary.md`
 - Example bank index (worked abstracts, introductions, and methods): `references/examples/index.md`
-- Manuscript starter templates (RCT, observational study, case report, systematic review): `templates/`
+- Manuscript starter templates (RCT, observational study, case report, systematic review) and the build kit (`templates/build-kit/`): `templates/`
 
 ## Pre-Submission Review Core Points
 

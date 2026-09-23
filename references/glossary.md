@@ -40,7 +40,7 @@ Short definitions of statistical, methodological, and reporting terms used throu
 
 **Confounding.** A third variable causally related to both the exposure and the outcome that distorts their observed association. Adjustment, matching, weighting, or instrumental variables can reduce — not eliminate — measured confounding.
 
-**CONSORT.** Consolidated Standards of Reporting Trials — reporting standard for randomized trials (CONSORT 2010, 25 items + flow diagram).
+**CONSORT.** Consolidated Standards of Reporting Trials — reporting standard for randomized trials (CONSORT 2025, 30 items + flow diagram; supersedes CONSORT 2010, 25 items).
 
 **Cox proportional-hazards model.** Regression for time-to-event data assuming a proportional hazards relationship. Yields hazard ratios with 95% CI. Verify the assumption with Schoenfeld residuals.
 
@@ -206,7 +206,7 @@ Short definitions of statistical, methodological, and reporting terms used throu
 
 **Specificity.** Probability that a non-diseased subject is correctly identified as negative. `True Negatives / (True Negatives + False Positives)`.
 
-**SPIRIT.** Standard Protocol Items: Recommendations for Interventional Trials — reporting standard for trial protocols (SPIRIT 2013, 33 items).
+**SPIRIT.** Standard Protocol Items: Recommendations for Interventional Trials — reporting standard for trial protocols (SPIRIT 2025, 34 items; supersedes SPIRIT 2013, 33 items).
 
 **SRQR.** Standards for Reporting Qualitative Research.
 

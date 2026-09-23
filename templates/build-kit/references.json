@@ -1,0 +1,151 @@
+[
+  {
+    "publisher": "Public Library of Science (PLoS)",
+    "issue": "10",
+    "DOI": "10.1371/journal.pmed.0040297",
+    "type": "article-journal",
+    "page": "e297",
+    "title": "Strengthening the Reporting of Observational Studies in Epidemiology (STROBE): Explanation and Elaboration",
+    "volume": "4",
+    "author": [
+      {
+        "given": "Jan P",
+        "family": "Vandenbroucke"
+      },
+      {
+        "given": "Erik",
+        "family": "von Elm"
+      },
+      {
+        "given": "Douglas G",
+        "family": "Altman"
+      },
+      {
+        "given": "Peter C",
+        "family": "Gøtzsche"
+      },
+      {
+        "given": "Cynthia D",
+        "family": "Mulrow"
+      },
+      {
+        "given": "Stuart J",
+        "family": "Pocock"
+      },
+      {
+        "given": "Charles",
+        "family": "Poole"
+      },
+      {
+        "given": "James J",
+        "family": "Schlesselman"
+      },
+      {
+        "given": "Matthias",
+        "family": "Egger"
+      },
+      {}
+    ],
+    "container-title": "PLoS Medicine",
+    "language": "en",
+    "issued": {
+      "date-parts": [
+        [
+          2007,
+          10,
+          16
+        ]
+      ]
+    },
+    "URL": "http://dx.doi.org/10.1371/journal.pmed.0040297",
+    "ISSN": "1549-1676",
+    "container-title-short": "PLoS Med",
+    "PMID": "17941715",
+    "id": "vandenbroucke2007strengthening"
+  },
+  {
+    "publisher": "American College of Physicians",
+    "issue": "4",
+    "DOI": "10.7326/m16-2607",
+    "type": "article-journal",
+    "page": "268-274",
+    "title": "Sensitivity Analysis in Observational Research: Introducing the E-Value",
+    "volume": "167",
+    "author": [
+      {
+        "given": "Tyler J.",
+        "family": "VanderWeele"
+      },
+      {
+        "given": "Peng",
+        "family": "Ding"
+      }
+    ],
+    "container-title": "Annals of Internal Medicine",
+    "language": "en",
+    "issued": {
+      "date-parts": [
+        [
+          2017,
+          8,
+          15
+        ]
+      ]
+    },
+    "URL": "http://dx.doi.org/10.7326/M16-2607",
+    "ISSN": "0003-4819",
+    "container-title-short": "Ann Intern Med",
+    "PMID": "28693043",
+    "id": "vanderweele2017sensitivity"
+  },
+  {
+    "publisher": "Elsevier BV",
+    "issue": "9596",
+    "DOI": "10.1016/s0140-6736(07)61602-x",
+    "type": "article-journal",
+    "page": "1453-1457",
+    "title": "The Strengthening the Reporting of Observational Studies in Epidemiology (STROBE) statement: guidelines for reporting observational studies",
+    "volume": "370",
+    "author": [
+      {
+        "given": "Erik",
+        "family": "von Elm"
+      },
+      {
+        "given": "Douglas G",
+        "family": "Altman"
+      },
+      {
+        "given": "Matthias",
+        "family": "Egger"
+      },
+      {
+        "given": "Stuart J",
+        "family": "Pocock"
+      },
+      {
+        "given": "Peter C",
+        "family": "Gøtzsche"
+      },
+      {
+        "given": "Jan P",
+        "family": "Vandenbroucke"
+      }
+    ],
+    "container-title": "The Lancet",
+    "language": "en",
+    "issued": {
+      "date-parts": [
+        [
+          2007,
+          10
+        ]
+      ]
+    },
+    "URL": "http://dx.doi.org/10.1016/S0140-6736(07)61602-X",
+    "ISSN": "0140-6736",
+    "container-title-short": "Lancet",
+    "PMID": "18064739",
+    "id": "vonelm2007strengthening"
+  }
+]

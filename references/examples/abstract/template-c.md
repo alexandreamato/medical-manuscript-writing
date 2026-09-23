@@ -1,6 +1,6 @@
-# Abstract Template C — Multiple Contributions (Systematic Review / Meta-Analysis)
+# Abstract Template C: Systematic Review and Meta-Analysis
 
-Use for systematic reviews and meta-analyses reported under PRISMA. The "multiple contributions" pattern fits this design because most reviews report (a) the pooled effect, (b) a heterogeneity / subgroup contribution, and (c) the certainty assessment.
+Use for systematic reviews and meta-analyses reported under PRISMA 2020 (and PRISMA for Abstracts). Logic: why a synthesis is needed now → eligibility, sources, risk of bias, synthesis, and certainty methods → pooled effect with 95% CI and heterogeneity, then prespecified subgroup or harms results, then GRADE certainty → conclusion whose verb and strength match the certainty.
 
 ## Structured-abstract skeleton
 
@@ -28,11 +28,11 @@ Registration
 3. `We searched [databases] from [start date] to [latest date] for [study designs] of [intervention/exposure] vs. [comparator] in [population], reporting [outcomes].`
 4. `Two reviewers independently selected studies, extracted data, and assessed risk of bias using [RoB 2 / ROBINS-I / QUADAS-2 / Newcastle-Ottawa]. We pooled estimates with a random-effects model and rated certainty of evidence with GRADE.`
 5. `[Number] studies (N = [total participants]) met eligibility. The pooled effect was [point estimate] (95% CI, [lower] to [upper]; I² = [X]%; [N] studies).`
-6. `[Subgroup / sensitivity contribution]: in [subgroup], the effect was [point estimate] (95% CI, [lower] to [upper]; interaction p = [value]).`
+6. `[Prespecified subgroup or sensitivity analysis]: in [subgroup], the effect was [point estimate] (95% CI, [lower] to [upper]; interaction p = [value]).`
 7. `Certainty of evidence for the primary outcome was [high / moderate / low / very low], rated down for [reasons].`
 8. `[Intervention / exposure] [verb appropriate to evidence base] [outcome] in [population], with [moderate / low] certainty.`
 
-## Worked example (illustrative — fictional numbers)
+## Worked example (illustrative; fictional numbers)
 
 ```
 Background
@@ -51,10 +51,11 @@ Registration
 PROSPERO CRD420260000000.
 ```
 
-## Notes
+## Notes and pitfalls
 
-1. Each sentence in Results pairs one contribution with its quantitative result.
+1. Each Results sentence carries one finding with its quantitative result, in the order: pooled effect, heterogeneity, subgroup or harms, certainty.
 2. Heterogeneity is reported alongside the pooled estimate.
 3. The subgroup result includes the interaction p value, not just the within-subgroup point estimate.
 4. The Conclusion communicates effect direction, magnitude, and certainty in one sentence.
 5. PROSPERO registration is named per PRISMA.
+6. Report only prespecified subgroups in the abstract; a post-hoc subgroup, if mentioned, is labelled as exploratory.

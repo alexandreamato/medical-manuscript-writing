@@ -68,6 +68,16 @@ Examples:
 | `The follow-up period was 12—18 months.` | `The follow-up period was 12 to 18 months.` |
 | `The intervention reduced mortality — a finding consistent with prior trials.` | `The intervention reduced mortality, a finding consistent with prior trials.` |
 
+#### Exception: the journal's own style wins
+
+The rule is the house default, used when the journal has not said otherwise. It yields in three cases:
+
+1. **The journal prints ranges with an en-dash.** Many do, especially for confidence intervals and ranges inside parentheses (`95% CI 0.55–0.94`, `IQR 12–18`). When the Instructions for Authors or recent articles of the target journal use the en-dash, follow them, and apply the same form everywhere in the manuscript, tables included. Two traps survive the exception: never write a range with a negative bound as `-0.4–0.2` (use `to`: `-0.4 to 0.2`), and never mix `12–18` and `12 to 18` in one manuscript.
+2. **The journal's style sheet uses the em-dash** (some print it in titles, for example `Statins and venous ulcer—a cohort study`). Use it only where the style sheet does, never as a general punctuation habit in body sentences.
+3. **Fixed names and quotations** keep their original punctuation: a guideline title, a scale, a quoted sentence, a reference title.
+
+In the build kit, this is a per-journal switch: `"style": {"allow_en_dash_ranges": true, "allow_em_dash": false}` in the journal profile. The validator then stops warning about en-dash ranges for that journal only.
+
 ### 3.2 Numbers, units, and abbreviations
 
 1. Spell out numbers under 10 except in measurements, statistics, ages, and doses.
@@ -86,17 +96,17 @@ Examples:
 
 ### 4.1 Default format: Microsoft Word (.docx)
 
-Most medical journals require Word `.docx` submission. Configure the document as follows:
+Most medical journals require Word `.docx` submission. **Generate the .docx; do not write it by hand.** Keep the text in Markdown, the references as CSL-JSON, the journal's rules in a profile, and let the build produce the file: `references/docx-build.md` explains the workflow, and `templates/build-kit/` is a ready-to-copy scaffold that applies every setting below automatically. The settings, for when a journal gives no template:
 
 1. **Page setup:** A4 or US Letter, 2.5 cm margins.
 2. **Font:** Times New Roman 12 pt for body text, 10 pt for tables and captions. (Some journals accept Arial 11 pt — check.)
 3. **Line spacing:** double-spaced throughout, including references and table captions.
 4. **Line numbering:** continuous, starting at 1 on the first page of the body text.
 5. **Page numbers:** bottom right.
-6. **Headings:** numbered (1, 1.1, 1.2). Use Word's heading styles (Heading 1, Heading 2) so the table of contents and journal style sheet can map them.
+6. **Headings:** numbered (1, 1.1, 1.2) only when the journal asks for it; most medical journals use unnumbered headings. Either way, use Word's heading styles (Heading 1, Heading 2) so the table of contents and journal style sheet can map them.
 7. **Tables:** native Word tables (not images). One table per page or all tables at the end of the manuscript, depending on journal style.
 8. **Figures:** placed at the end of the manuscript or submitted as separate files. Resolution: 300 dpi minimum for raster images; vector format (.eps, .pdf) preferred for line art.
-9. **References:** managed in Zotero, EndNote, or Mendeley with the journal's CSL style. Embed citations as fields, not plain text, until the final accepted-manuscript stage.
+9. **References:** cited by stable key and formatted by the journal's CSL style at build time (`references/docx-build.md`), or managed in Zotero, EndNote, or Mendeley with live fields. Never type reference numbers by hand.
 
 ### 4.2 Suggested file structure for a journal submission
 

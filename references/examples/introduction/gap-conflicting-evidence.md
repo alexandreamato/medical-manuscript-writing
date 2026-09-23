@@ -1,6 +1,6 @@
-# Knowledge Gap Version 1 — Established Question With Multiple Prior Studies
+# Gap: Prior Studies Disagree
 
-`Version 1: For an established question with prior trials and cohorts, build the gap as a chain: foundational evidence -> recent evidence -> remaining unresolved question.`
+`Use when an established question has prior trials or cohorts whose results conflict. Build the gap as a chain: what is established, what the studies found, why they disagree, and the precise question that remains.`
 
 ## Skeleton
 
@@ -42,8 +42,9 @@ adults presenting to the emergency department with acute decompensated heart fai
 therefore remains unanswered.
 ```
 
-## Notes
+## Notes and pitfalls
 
 1. Each sentence cites prior evidence (in a real manuscript, with verifiable citations) and links to a specific limitation.
 2. Avoid framing prior studies as strawmen. Acknowledge what they got right.
-3. The closing sentence states the present study's question precisely; this anchors the rest of the Introduction.
+3. Explain why the studies disagree (size, dose, timing, population, bias). Listing contradictory results without a reason leaves the reader unsure what the new study must do differently.
+4. The closing sentence states the present study's question precisely; this anchors the rest of the Introduction.

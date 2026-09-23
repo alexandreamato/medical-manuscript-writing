@@ -2,6 +2,26 @@
 
 All notable changes to the **Medical Manuscript Writing** skill are documented here. Format follows Keep a Changelog (https://keepachangelog.com/) using semantic-style versioning by content scope rather than strict semver.
 
+## [1.6.0] — 2026
+
+### Added
+
+- `references/diagrams.md`: STROBE Flow Diagram Generator at `enciclopedia.med.br/strobe` integrated as Option 1 (preferred) for observational-study flow diagrams — cohort, case-control, and cross-sectional templates; exposure-group columns; joined final box; arithmetic consistency check for item 13a; documented JSON format for "Load JSON" with a worked cohort example; workflow and citation block. Mermaid template kept as Option 2 fallback.
+
+- `templates/build-kit/` — procedural manuscript build: Markdown sections + CSL-JSON references + per-journal JSON profiles → pandoc → `.docx`. Includes `refs.py` (add by DOI/PMID from Crossref/PubMed; verify title/year/first author; retractions and corrections via Crossref `updated-by` and PubMed), `validate.py` (ERROR / WARN / HUMAN report: limits with explicit counting scope, required sections, structured-abstract parts, declarations, citation keys, duplicate DOIs, figure/table cross-references, placeholders, ORCID, abbreviations, abstract numbers, dash and P-value style; `--compare` across all profiles), `build.py` (CSL resolution including dependent styles, generated reference.docx with double spacing, line numbers, page numbers, margins; separate title page; blinded manuscript; tables at end; figure legends at end with numbered figure files; `build-info.json` for traceability), Lua filters for first-mention figure/table numbering and journal presentation, a generic ICMJE profile, an illustrative second profile, and a fictional cohort example that builds cleanly.
+- `references/docx-build.md` — architecture, agent workflow (new manuscript, converting an existing `.docx`, revisions, changing journal), what the validator does and does not decide, co-author round trip, and limits.
+- `references/reporting-standards.md`: CONSORT 2025 (30 items, by manuscript section, with changes from 2010 and transition note) replaces CONSORT 2010; SPIRIT 2025 (34 items) replaces SPIRIT 2013. Citations verified against Crossref.
+- `references/examples/introduction/`: gap-type example bank (evidence absent, conflicting, other population, low certainty, new condition/test/technology, existing tools inadequate, practice variation) and closing patterns (aim/hypothesis/design), replacing files inherited from a computer-science paper-writing structure.
+- `dist/build-zips.sh` — builds the three distribution zips; plugin version read from this changelog.
+
+### Changed
+
+- `templates/observational-study.md`, `references/reporting-standards.md`, `SKILL.md`, and `README.md` now point to the STROBE web tool for Figure 1.
+- `templates/rct-manuscript.md` remapped to CONSORT 2025 numbering, with the new items (patient and public involvement, harms, protocol/SAP access, data sharing, intervention delivery). `references/diagrams.md` CONSORT section notes the 2025 box labels ("for primary outcome") and cites CONSORT 2025.
+- `references/introduction.md`, `references/abstract.md` and the abstract templates rewritten around clinical logic (known → gap → design → aim; effect size with CI; conclusion proportional to design). "Our innovation / contribution / pipeline" framing removed. `references/examples/method/module-motivation-patterns.md` renamed `rationale-patterns.md`, with a corrected Cox/competing-risk example.
+- `SKILL.md` hard rule 4 gains an explicit exception: the target journal's dash style wins (en-dash ranges when the journal uses them, never with negative bounds, never mixed). Detail in `references/manuscript-conventions.md` §3.1.
+- `SKILL.md` hard rule 5: the `.docx` is generated from source, never hand-edited; references added only by DOI/PMID. `references/manuscript-conventions.md` §4.1 points to the build kit; numbered headings only when the journal asks.
+
 ## [1.5.0] — 2026
 
 ### Added

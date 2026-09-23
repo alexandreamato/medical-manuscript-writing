@@ -1,0 +1,104 @@
+{
+  "_comment": "ILLUSTRATIVE profile, not a real journal. It exists to show how the same manuscript changes when the journal changes: different abstract headings, stricter limits, tables at the end, legends at the end, separate title page, blinded review, AMA citations, P in capitals, dashes allowed in ranges.",
+  "extends": "generic-icmje",
+  "name": "Example Journal B (illustrative)",
+  "illustrative": true,
+  "generic": false,
+  "source_url": null,
+  "verified_at": null,
+  "csl": "american-medical-association",
+  "title": {
+    "max_chars": 150,
+    "running_title_max_chars": 50
+  },
+  "keywords": {
+    "min": 3,
+    "max": 5
+  },
+  "authors": {
+    "require_orcid": "all"
+  },
+  "abstract": {
+    "limit": {
+      "unit": "words",
+      "max": 200
+    },
+    "structure": [
+      {
+        "id": "background",
+        "heading": "Importance"
+      },
+      {
+        "id": "methods",
+        "heading": "Design, Setting, and Participants"
+      },
+      {
+        "id": "results",
+        "heading": "Findings"
+      },
+      {
+        "id": "conclusions",
+        "heading": "Interpretation"
+      }
+    ]
+  },
+  "main_text": {
+    "sections": [
+      {
+        "id": "introduction",
+        "heading": "Introduction"
+      },
+      {
+        "id": "methods",
+        "heading": "Patients and Methods"
+      },
+      {
+        "id": "results",
+        "heading": "Results"
+      },
+      {
+        "id": "discussion",
+        "heading": "Discussion"
+      }
+    ],
+    "limit": {
+      "unit": "words",
+      "max": 3000
+    }
+  },
+  "section_limits": {
+    "discussion": {
+      "unit": "words",
+      "max": 1000
+    }
+  },
+  "references": {
+    "max": 30,
+    "require_identifier": true
+  },
+  "figures": {
+    "max": 4,
+    "placement": "legends-at-end"
+  },
+  "tables": {
+    "max": 3,
+    "placement": "end"
+  },
+  "figures_tables_max": 6,
+  "submission": {
+    "separate_title_page": true,
+    "blinded": true,
+    "number_sections": false,
+    "omit_in_blinded": [
+      "acknowledgments",
+      "author-contributions"
+    ]
+  },
+  "style": {
+    "allow_en_dash_ranges": true,
+    "p_value": "P"
+  },
+  "human_checks": [
+    "Key Points box (Question, Findings, Meaning; 100 words) is prepared as a separate field in the submission system."
+  ]
+}

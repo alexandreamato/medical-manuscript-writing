@@ -1,0 +1,28 @@
+# Manuscript metadata. Content only: no journal rules live here.
+# Everything below is FICTIONAL example data; replace it.
+title: "Statin use and incident venous leg ulcer in adults with chronic venous disease: a prospective cohort study"
+running-title: "Statins and venous leg ulcer"
+article-type: original          # must match an entry of `article_types` in the profile, or the default
+study-design: cohort            # picks the reporting guideline (scripts/common.py GUIDELINES)
+journal: generic-icmje          # default profile for `build.py` without --journal
+lang: en-US
+keywords:
+  - chronic venous disease
+  - venous leg ulcer
+  - statins
+  - cohort studies
+author:
+  - name: Ana Example
+    orcid: 0000-0002-1825-0097   # fictional researcher Josiah Carberry, used in ORCID documentation
+    affiliations: [1, 2]
+    corresponding: true
+    email: ana.example@example.org
+    address: "Example Street 1, São Paulo, Brazil"
+  - name: Bruno Placeholder
+    orcid: 0000-0002-1825-0097
+    affiliations: [2]
+affiliations:
+  - id: 1
+    name: "Department of Vascular Surgery, Example University, São Paulo, Brazil"
+  - id: 2
+    name: "Example Institute of Clinical Research, São Paulo, Brazil"

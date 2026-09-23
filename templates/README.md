@@ -4,10 +4,12 @@ Ready-to-fill scaffolds for the four most common medical-manuscript types. Each 
 
 | Template | Article type | Reporting standard | Typical body words |
 | --- | --- | --- | --- |
-| [`rct-manuscript.md`](rct-manuscript.md) | Randomized controlled trial (parallel) | CONSORT 2010 | 2,500–4,000 |
+| [`rct-manuscript.md`](rct-manuscript.md) | Randomized controlled trial (parallel) | CONSORT 2025 | 2,500–4,000 |
 | [`observational-study.md`](observational-study.md) | Cohort / case-control / cross-sectional | STROBE | 2,500–4,000 |
 | [`case-report.md`](case-report.md) | Case report or small case series | CARE 2013 | 1,000–1,500 |
 | [`systematic-review.md`](systematic-review.md) | Systematic review with or without meta-analysis | PRISMA 2020 | 4,000–6,000 |
+
+For writing the manuscript as source files and generating the `.docx` per journal, use [`build-kit/`](build-kit/) (Markdown + CSL-JSON + journal profiles + pandoc). The four templates above are content scaffolds: their sections can be pasted into the kit's `manuscript/` files.
 
 ## How to use
 
@@ -15,7 +17,7 @@ Ready-to-fill scaffolds for the four most common medical-manuscript types. Each 
 2. Replace placeholder text (everything in `[BRACKETS]`) with your content.
 3. Inline comments (`<!-- CONSORT 5; see references/reporting-standards.md -->`) point to the matching reporting-standard item; consult that file when filling the section.
 4. Inline `TODO` comments mark steps that often require external action (e.g., trial registration, ethics submission, search strategy).
-5. After filling, re-render to `.docx` for journal submission. See `references/manuscript-conventions.md` for Word formatting conventions.
+5. After filling, generate the `.docx` with the build kit (`build-kit/README.md`; workflow in `references/docx-build.md`) rather than formatting Word by hand. Formatting conventions: `references/manuscript-conventions.md`.
 
 ## What's included in each template
 
@@ -30,5 +32,5 @@ Ready-to-fill scaffolds for the four most common medical-manuscript types. Each 
 
 - The actual content (you write that).
 - Tables and figures (build separately; insert at the end of the document or as separate files).
-- Reference list (manage with Zotero, EndNote, Mendeley, or the BibTeX/CSL workflow described in `references/citation-styles.md`).
+- Reference list (in the build kit, added by DOI/PMID with `scripts/refs.py` and formatted by the journal's CSL style; otherwise Zotero, EndNote, or Mendeley, see `references/citation-styles.md`).
 - Reporting-standard PDF checklist (download from EQUATOR Network and complete with page/line numbers).
