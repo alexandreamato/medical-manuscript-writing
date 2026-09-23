@@ -75,12 +75,12 @@ A well-formulated protocol increases efficiency and reduces wasted screening tim
 
 A comprehensive search is the foundation of a credible systematic review. For PubMed-specific basics (Boolean operators, MeSH, field tags, Clinical Queries) see `references/pubmed-essentials.md`. The principles below apply across all databases:
 
-1. **Search multiple databases.** Medline (via PubMed), Embase, Cochrane CENTRAL. Medline alone misses 20 to 70% of relevant RCTs. Medline and Embase overlap by only ~34% — both are needed.
+1. **Search multiple databases.** Medline (via PubMed), Embase, Cochrane CENTRAL at minimum. No single database indexes all relevant trials, and Medline and Embase cover different journals, so searching one of them alone misses eligible studies (see the Cochrane Handbook chapter on searching for the evidence).
 2. **Add specialty databases when relevant.** CINAHL (nursing), PsycINFO (psychology), LILACS / SciELO (Latin American), AIM (African), IMSEAR (South-East Asian), WPRIM (Western Pacific), KoreaMed.
-3. **Search trial registries.** ClinicalTrials.gov, ISRCTN, EU Clinical Trials Register, WHO ICTRP.
+3. **Search trial registries.** ClinicalTrials.gov, WHO ICTRP (which aggregates primary registries such as ReBEC and ISRCTN), and for the EU the CTIS public portal (euclinicaltrials.eu) plus the legacy EU Clinical Trials Register.
 4. **Hand-search pertinent journals**, especially the most recent 6 months that may not yet be indexed.
 5. **Search bibliographies** of included studies and of recent reviews on the topic.
-6. **Search grey literature** — theses (ProQuest Dissertations), conference proceedings, regulatory documents (FDA, EMA), industry reports. Meta-analyses limited to published trials overestimate effects by ~12% relative to those including grey literature.
+6. **Search grey literature** — theses (ProQuest Dissertations), conference proceedings, regulatory documents (FDA, EMA), industry reports. In one methodological study, published trials yielded intervention effects on average 15% larger than grey literature (ratio of odds ratios 1.15, 95% CI 1.04 to 1.28; McAuley L, Pham B, Tugwell P, Moher D. Lancet 2000;356(9237):1228-31, doi:10.1016/S0140-6736(00)02786-0).
 7. **Avoid English-only restrictions** when feasible; positive results are more likely published in English (English-language bias). If translation cost is prohibitive, state the limitation.
 8. **Document the strategy.** Record exact search strings, field tags, dates of last search, and number of records retrieved per source. Provide the full strategy as a supplementary file.
 
@@ -119,7 +119,7 @@ Prefer **checklists** over numerical quality scores — a single fatal flaw can 
 
 The four high-yield biases to assess:
 
-1. **Selection bias.** Adequate sequence generation? Adequate allocation concealment? Inadequate concealment overestimates effects by ~30 to 40%.
+1. **Selection bias.** Adequate sequence generation? Adequate allocation concealment? In trials from Cochrane pregnancy and childbirth meta-analyses, odds ratios were exaggerated by 41% when concealment was inadequate and by 30% when it was unclear (Schulz KF, Chalmers I, Hayes RJ, Altman DG. JAMA 1995;273(5):408-12, doi:10.1001/jama.273.5.408).
 2. **Performance bias.** Were participants and providers blinded?
 3. **Detection bias.** Were outcome assessors blinded?
 4. **Attrition bias.** How were losses to follow-up handled? Was intention-to-treat used?

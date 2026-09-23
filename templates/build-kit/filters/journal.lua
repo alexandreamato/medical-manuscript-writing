@@ -11,6 +11,13 @@ Reads metadata written by build.py from the journal profile (`journal-build`):
   word-counts    {abstract=, main=} computed by validate.py, printed on the title page
   omit           list of section ids to drop in this output (e.g. acknowledgments
                  in the blinded file)
+  titlepage-sections  section ids printed on the title page instead of the text
+                 (J Vasc Bras: ethics, conflicts, funding, data availability, contributions)
+  keywords-after-abstract  print "Keywords:" after each abstract (and the
+                 second-language list after `abstract-alt`) instead of on the title page
+
+Second language (metadata): title-alt, keywords-alt, lang-alt; the second
+abstract is the section {#abstract-alt}.
 
 Author metadata (metadata.yaml):
   author:
@@ -33,11 +40,28 @@ local function lst(v)
   return {v}
 end
 
+-- Title-page labels in the manuscript's language (metadata `lang`).
+local LABELS = {
+  en = {running = "Running title", corr = "Corresponding author", email = "E-mail",
+        wc = "Word count: abstract %s; main text %s.", kw = "Keywords"},
+  pt = {running = "Título curto", corr = "Autor correspondente", email = "E-mail",
+        wc = "Contagem de palavras: resumo %s; texto %s.", kw = "Palavras-chave"},
+  es = {running = "Título corto", corr = "Autor de correspondencia", email = "Correo electrónico",
+        wc = "Recuento de palabras: resumen %s; texto %s.", kw = "Palabras clave"},
+}
+
+local function labels(meta)
+  local code = (meta.lang and S(meta.lang) or "en"):match("^(%a+)") or "en"
+  return LABELS[code] or LABELS.en
+end
+
 local function title_page(meta)
+  local L = labels(meta)
   local blocks = pandoc.Blocks{}
   blocks:insert(pandoc.Para{pandoc.Strong(meta.title)})
+  if meta["title-alt"] then blocks:insert(pandoc.Para{pandoc.Strong(meta["title-alt"])}) end
   if meta["running-title"] then
-    blocks:insert(pandoc.Para{pandoc.Str("Running title:"), pandoc.Space(), table.unpack(meta["running-title"])})
+    blocks:insert(pandoc.Para{pandoc.Str(L.running .. ":"), pandoc.Space(), table.unpack(meta["running-title"])})
   end
 
   -- Affiliation numbering follows order of first appearance among authors.
@@ -79,24 +103,53 @@ local function title_page(meta)
     blocks:extend(orcids)
   end
   if corr then
-    local c = {pandoc.Strong{pandoc.Str("Corresponding author:")}, pandoc.Space(), pandoc.Str(S(corr.name))}
+    local c = {pandoc.Strong{pandoc.Str(L.corr .. ":")}, pandoc.Space(), pandoc.Str(S(corr.name))}
     if corr.address then table.insert(c, pandoc.Str(", " .. S(corr.address))) end
-    if corr.email then table.insert(c, pandoc.Str(". E-mail: " .. S(corr.email))) end
+    if corr.email then table.insert(c, pandoc.Str(". " .. L.email .. ": " .. S(corr.email))) end
     blocks:insert(pandoc.Para(c))
   end
   local jb = meta["journal-build"] or {}
   local wc = jb["word-counts"]
   if wc then
-    blocks:insert(pandoc.Para{pandoc.Str("Word count: abstract " .. S(wc.abstract or "?")
-      .. "; main text " .. S(wc.main or "?") .. ".")})
+    blocks:insert(pandoc.Para{pandoc.Str(string.format(L.wc, S(wc.abstract or "?"), S(wc.main or "?")))})
   end
   if meta.keywords then
     local kws = {}
     for _, k in ipairs(lst(meta.keywords)) do table.insert(kws, S(k)) end
-    blocks:insert(pandoc.Para{pandoc.Strong{pandoc.Str("Keywords:")}, pandoc.Space(),
+    blocks:insert(pandoc.Para{pandoc.Strong{pandoc.Str(L.kw .. ":")}, pandoc.Space(),
                               pandoc.Str(table.concat(kws, "; "))})
   end
   return blocks
+end
+
+-- Blocks of the section with identifier `id` (its header and everything up to
+-- the next header of the same or higher level).
+local function section_blocks(blocks, id)
+  local out, level = pandoc.Blocks{}, nil
+  for _, b in ipairs(blocks) do
+    if level then
+      if b.t == "Header" and b.level <= level then break end
+      out:insert(b)
+    elseif b.t == "Header" and b.identifier == id then
+      level = b.level
+      out:insert(b)
+    end
+  end
+  return out
+end
+
+local function keywords_para(label, kws)
+  local list = {}
+  for _, k in ipairs(lst(kws)) do table.insert(list, S(k)) end
+  if #list == 0 then return nil end
+  return pandoc.Para{pandoc.Strong{pandoc.Str(label .. ":")}, pandoc.Space(),
+                     pandoc.Str(table.concat(list, "; ") .. ".")}
+end
+
+local function titles(meta)
+  local b = pandoc.Blocks{pandoc.Para{pandoc.Strong(meta.title)}}
+  if meta["title-alt"] then b:insert(pandoc.Para{pandoc.Strong(meta["title-alt"])}) end
+  return b
 end
 
 function Pandoc(doc)
@@ -106,38 +159,61 @@ function Pandoc(doc)
   local omit = {}
   for _, id in ipairs(lst(jb.omit)) do omit[S(id)] = true end
   local unstructured = jb.unstructured == true
+  local kw_after = jb["keywords-after-abstract"] == true
+  local heading_of = function(id) return headings[id] and S(headings[id]) or nil end
 
   local out = pandoc.Blocks{}
-  local skipping = false
-  local in_abstract = false
-  for _, b in ipairs(doc.blocks) do
-    if b.t == "Header" and b.level == 1 then
-      skipping = omit[b.identifier] or false
-      in_abstract = b.identifier == "abstract"
-    elseif b.t == "Header" and b.level == 2 and omit[b.identifier] then
-      skipping = true
-    elseif b.t == "Header" and b.level == 2 and skipping and not omit[b.identifier] then
-      skipping = false
+  local skip_level = nil   -- level of the omitted section being skipped
+  local in_abstract = nil  -- "abstract" / "abstract-alt" while inside one
+  local function close_abstract()
+    if kw_after and in_abstract then
+      local p = in_abstract == "abstract"
+        and keywords_para(S(jb["keywords-label"] or "Keywords"), doc.meta.keywords)
+        or keywords_para(S(jb["keywords-label-alt"] or "Keywords"), doc.meta["keywords-alt"])
+      if p then out:insert(p) end
     end
-    if not skipping then
-      if b.t == "Header" and headings[b.identifier] then
-        b.content = pandoc.Inlines(S(headings[b.identifier]))
+    in_abstract = nil
+  end
+
+  for _, b in ipairs(doc.blocks) do
+    if b.t == "Header" then
+      if skip_level and b.level <= skip_level then skip_level = nil end
+      if b.level == 1 then
+        close_abstract()
+        if b.identifier == "abstract" or b.identifier == "abstract-alt" then in_abstract = b.identifier end
+      end
+      if not skip_level and omit[b.identifier] then skip_level = b.level end
+    end
+    if not skip_level then
+      if b.t == "Header" and heading_of(b.identifier) then
+        b.content = pandoc.Inlines(heading_of(b.identifier))
       end
       if not (unstructured and in_abstract and b.t == "Header" and b.level == 2) then
         out:insert(b)
       end
     end
   end
+  close_abstract()
+
+  if kw_after then doc.meta.keywords = nil end  -- printed after the abstracts, not on the title page
 
   if mode == "titlepage" then
-    doc.blocks = title_page(doc.meta)
+    local tp = title_page(doc.meta)
+    for _, id in ipairs(lst(jb["titlepage-sections"])) do
+      local sec = section_blocks(doc.blocks, S(id))
+      for _, b in ipairs(sec) do
+        if b.t == "Header" and heading_of(b.identifier) then b.content = pandoc.Inlines(heading_of(b.identifier)) end
+      end
+      tp:extend(sec)
+    end
+    doc.blocks = tp
   elseif mode == "full" then
     local tp = title_page(doc.meta)
     tp:insert(pandoc.RawBlock("openxml", '<w:p><w:r><w:br w:type="page"/></w:r></w:p>'))
     tp:extend(out)
     doc.blocks = tp
-  else -- blinded: title only, no authors anywhere
-    local tp = pandoc.Blocks{pandoc.Para{pandoc.Strong(doc.meta.title)}}
+  else -- blinded: titles only, no authors anywhere
+    local tp = titles(doc.meta)
     tp:extend(out)
     doc.blocks = tp
   end

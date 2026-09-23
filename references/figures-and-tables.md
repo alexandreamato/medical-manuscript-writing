@@ -48,7 +48,7 @@ Common medical-manuscript tables:
 
 Common medical-manuscript figures:
 
-1. Participant flow diagram (mandatory in CONSORT, STROBE, PRISMA, STARD).
+1. Participant flow diagram (required by CONSORT, PRISMA, STARD; recommended by STROBE item 13c).
 2. Forest plot of primary outcome and subgroups.
 3. Kaplan-Meier survival curves.
 4. ROC curves for diagnostic studies.

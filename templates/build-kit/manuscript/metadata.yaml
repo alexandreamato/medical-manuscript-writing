@@ -1,16 +1,23 @@
 # Manuscript metadata. Content only: no journal rules live here.
 # Everything below is FICTIONAL example data; replace it.
 title: "Statin use and incident venous leg ulcer in adults with chronic venous disease: a prospective cohort study"
+title-alt: "Uso de estatinas e incidência de úlcera venosa em adultos com doença venosa crônica: estudo de coorte prospectivo"
 running-title: "Statins and venous leg ulcer"
 article-type: original          # must match an entry of `article_types` in the profile, or the default
 study-design: cohort            # picks the reporting guideline (scripts/common.py GUIDELINES)
-journal: generic-icmje          # default profile for `build.py` without --journal
-lang: en-US
-keywords:
-  - chronic venous disease
-  - venous leg ulcer
-  - statins
-  - cohort studies
+journal: jvb                    # default profile for `build.py` without --journal
+lang: en-US                     # language of the manuscript
+lang-alt: pt-BR                 # second language, for journals that want two (J Vasc Bras)
+keywords:                       # MeSH / DeCS descriptors; check at https://decs.bvsalud.org
+  - Venous Insufficiency
+  - Varicose Ulcer
+  - Hydroxymethylglutaryl-CoA Reductase Inhibitors
+  - Cohort Studies
+keywords-alt:
+  - Insuficiência Venosa
+  - Úlcera Varicosa
+  - Inibidores de Hidroximetilglutaril-CoA Redutases
+  - Estudos de Coortes
 author:
   - name: Ana Example
     orcid: 0000-0002-1825-0097   # fictional researcher Josiah Carberry, used in ORCID documentation

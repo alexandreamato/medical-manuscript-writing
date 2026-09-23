@@ -9,7 +9,8 @@
 # What it does:
 #   1. Verifies you're inside a source folder that contains SKILL.md.
 #   2. Mirrors the source to ~/.claude/skills/medical-manuscript-writing/.
-#   3. Excludes build/dev artifacts (.git, dist/*.zip, .DS_Store, IDE folders).
+#   3. Excludes build/dev artifacts (.git, .claude, dist/*.zip, __pycache__, the build kit's
+#      outputs/ and build/, .DS_Store, IDE folders).
 #   4. Uses --delete so files removed in the source are removed from the install.
 set -euo pipefail
 
@@ -36,6 +37,10 @@ echo
 
 rsync -a --delete \
   --exclude='.git/' \
+  --exclude='.claude/' \
+  --exclude='__pycache__/' \
+  --exclude='templates/build-kit/outputs/' \
+  --exclude='templates/build-kit/build/' \
   --exclude='.DS_Store' \
   --exclude='._*' \
   --exclude='*.swp' \

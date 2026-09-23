@@ -37,6 +37,11 @@
         "heading": "Background"
       },
       {
+        "id": "objectives",
+        "heading": "Objectives",
+        "required": false
+      },
+      {
         "id": "methods",
         "heading": "Methods"
       },

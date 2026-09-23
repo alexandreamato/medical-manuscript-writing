@@ -146,31 +146,59 @@ def validate(prof: dict, doc: dict) -> tuple[Report, dict]:
     amax = prof.get("authors", {}).get("max")
     if amax and len(authors) > amax:
         rep.error("authors", f"{len(authors)} authors; this journal/article type allows {amax}")
+    soft = prof.get("authors", {}).get("max_without_justification")
+    if soft and len(authors) > soft:
+        rep.warn("authors", f"{len(authors)} authors; above {soft} the journal requires a statement "
+                            "justifying each author's inclusion")
 
-    # ---- abstract
+    # ---- second language (e.g. J Vasc Bras: title, abstract and keywords in Portuguese and English)
+    bilingual = prof.get("abstract", {}).get("bilingual")
+    if bilingual:
+        if not meta.get("lang-alt"):
+            rep.error("language", "journal wants two languages: set `lang-alt` in metadata.yaml (e.g. en-US)")
+        if not meta.get("title-alt"):
+            rep.error("title", "missing `title-alt` (title in the second language)")
+        elif t.get("max_chars") and len(meta["title-alt"]) > t["max_chars"]:
+            rep.error("title", f"title-alt: {len(meta['title-alt'])} characters; limit {t['max_chars']}")
+        kwa = meta.get("keywords-alt") or []
+        if k.get("min") and len(kwa) < k["min"]:
+            rep.error("keywords", f"keywords-alt: {len(kwa)} given; minimum {k['min']}")
+        if k.get("max") and len(kwa) > k["max"]:
+            rep.error("keywords", f"keywords-alt: {len(kwa)} given; maximum {k['max']}")
+
+    # ---- abstract(s): `abstract`, plus `abstract-alt` when the journal is bilingual
     ab = prof.get("abstract", {})
     if ab.get("required", True):
-        s = secs.get("abstract")
-        if not s:
-            rep.error("abstract", "no `# Abstract {#abstract}` section")
-        else:
+        for sec_id in ["abstract"] + (["abstract-alt"] if bilingual else []):
+            s = secs.get(sec_id)
+            if not s:
+                rep.error(sec_id, f"no `# ... {{#{sec_id}}}` section")
+                continue
             txt = C.text_of_blocks(s["blocks"])
-            stats["abstract_words"] = C.count_words(txt)
-            check_limit(rep, "abstract", txt, ab.get("limit"))
+            if sec_id == "abstract":
+                stats["abstract_words"] = C.count_words(txt)
+            check_limit(rep, sec_id, txt, ab.get("limit"))
             want = [x["id"] for x in ab.get("structure", [])]
             have = [ss["id"] for ss in s["subsections"]]
             if want:
-                missing = [w for w in want if f"abstract-{w}" not in have]
-                extra = [h for h in have if h.removeprefix("abstract-") not in want]
+                needed = [x["id"] for x in ab.get("structure", []) if x.get("required", True)]
+                missing = [w for w in needed if f"{sec_id}-{w}" not in have]
+                extra = [h for h in have if h.removeprefix(f"{sec_id}-") not in want]
                 if missing:
-                    rep.error("abstract", "missing structured parts: " + ", ".join(missing)
-                              + " (headers `## ... {#abstract-<id>}`)")
+                    rep.error(sec_id, "missing structured parts: " + ", ".join(missing)
+                              + f" (headers `## ... {{#{sec_id}-<part>}}`)")
                 if extra:
-                    rep.warn("abstract", "parts not in this journal's structure: " + ", ".join(extra)
+                    rep.warn(sec_id, "parts not in this journal's structure: " + ", ".join(extra)
                              + ". Merge or rewrite them.")
             elif have:
-                rep.warn("abstract", "journal wants an unstructured abstract; subheadings will be "
-                                     "dropped on export but the text still reads as structured.")
+                rep.warn(sec_id, "journal wants an unstructured abstract; subheadings will be "
+                                 "dropped on export but the text still reads as structured.")
+        if bilingual and "abstract" in secs and "abstract-alt" in secs:
+            n1 = C.count_words(C.text_of_blocks(secs["abstract"]["blocks"]))
+            n2 = C.count_words(C.text_of_blocks(secs["abstract-alt"]["blocks"]))
+            if n1 and abs(n1 - n2) / n1 > 0.25:
+                rep.warn("abstract", f"the two abstracts differ in length ({n1} vs {n2} words); "
+                                     "the journal expects the same content in both languages")
 
     # ---- main text: required sections, total and per-section limits
     mt = prof.get("main_text", {})
@@ -301,8 +329,20 @@ def validate(prof: dict, doc: dict) -> tuple[Report, dict]:
             for m in re.finditer(bad, txt):
                 rep.warn(f"section {sid}", f"P-value written '{m.group(0)}'; journal style is '{pv}'")
 
+    # abbreviations the journal bans outright in the title and abstract
+    if style.get("no_abbreviations_in_title_abstract"):
+        roman = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"}
+        for scope, txt in (("title", meta.get("title") or ""), ("title-alt", meta.get("title-alt") or ""),
+                           ("abstract", full.get("abstract", "")), ("abstract-alt", full.get("abstract-alt", ""))):
+            found = sorted({m.group(0) for m in re.finditer(r"\b[A-Z]{2}[A-Z0-9]{0,5}\b", txt)} - roman)
+            if found:
+                rep.warn(scope, "journal does not allow abbreviations here: " + ", ".join(found))
+
     # abbreviations: first use must be the defined form "... (ABBR)"
-    for scope, ids in (("abstract", ["abstract"]), ("main text", [i for i in full if i not in ("abstract", "_front", "declarations", "references")])):
+    abstract_ids = ("abstract", "abstract-alt")
+    for scope, ids in (("abstract", ["abstract"]), ("abstract-alt", ["abstract-alt"]),
+                       ("main text", [i for i in full if i not in (*abstract_ids, "_front", "declarations",
+                                                                  "references")])):
         txt = " ".join(full.get(i, "") for i in ids)
         seen = set()
         for m in re.finditer(r"\b[A-Z]{2}[A-Z0-9]{0,5}s?\b", txt):
@@ -315,7 +355,7 @@ def validate(prof: dict, doc: dict) -> tuple[Report, dict]:
 
     # numbers in the abstract must appear in the rest of the manuscript
     if "abstract" in full:
-        rest = " ".join(v for k_, v in full.items() if k_ != "abstract")
+        rest = " ".join(v for k_, v in full.items() if k_ not in ("abstract", "abstract-alt"))
         norm = lambda s: s.replace(",", "")
         rest_nums = set(re.findall(r"\d+(?:\.\d+)?", norm(rest)))
         for num in dict.fromkeys(re.findall(r"\d+(?:\.\d+)?", norm(full["abstract"]))):

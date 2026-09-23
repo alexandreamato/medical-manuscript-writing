@@ -63,7 +63,7 @@ For each step, state:
 4. Number followed up (with reason for loss).
 5. Number analyzed for the primary outcome (with reason for any exclusion from analysis).
 
-The diagram is mandatory under CONSORT, STROBE, PRISMA, and STARD. Cite it as `Figure 1` in the first paragraph of the Results.
+The diagram is required by CONSORT, PRISMA, and STARD, and recommended by STROBE (item 13c); include it for observational studies too, since reviewers expect it. Cite it as `Figure 1` in the first paragraph of the Results.
 
 ## Baseline Characteristics (Table 1)
 

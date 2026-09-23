@@ -6,12 +6,12 @@ These items must be addressed in every medical manuscript. Reviewers and editors
 
 1. State the name of the IRB / ethics committee that approved the study and the protocol number.
 2. State the date of approval, or the date range if multiple approvals (e.g., across centers).
-3. State that the study was conducted in accordance with the Declaration of Helsinki and applicable national regulations.
+3. State that the study was conducted in accordance with the Declaration of Helsinki and applicable national regulations. The current version is the 2024 revision (World Medical Association. World Medical Association Declaration of Helsinki: ethical principles for medical research involving human participants. JAMA 2025;333(1):71-4, doi:10.1001/jama.2024.21972), which now speaks of research *participants* rather than subjects.
 4. For animal studies, state the institutional animal care committee approval and ARRIVE compliance.
 
 Sentence skeleton:
 
-1. `The study was approved by the [IRB / ethics committee name] (protocol [number]) on [date] and was conducted in accordance with the Declaration of Helsinki.`
+1. `The study was approved by the [IRB / ethics committee name] (protocol [number]) on [date] and was conducted in accordance with the Declaration of Helsinki (2024 revision).` In Brazil, name the CEP and, where applicable, the CAAE number from Plataforma Brasil.
 
 ## 2. Informed Consent
 
@@ -21,7 +21,7 @@ Sentence skeleton:
 
 ## 3. Trial / Review Registration
 
-1. **Trials** must be registered prospectively in a public registry. Most accepted registries: ClinicalTrials.gov (NCT), ISRCTN, EU Clinical Trials Register (EudraCT), JPRN, ANZCTR, ChiCTR, REBEC, the Brazilian Registry of Clinical Trials.
+1. **Trials** must be registered prospectively in a public registry: ClinicalTrials.gov (NCT), a WHO ICTRP primary registry, or an equivalent accepted by ICMJE. Common ones: ISRCTN, ANZCTR, ChiCTR, JPRN, and ReBEC (Registro Brasileiro de Ensaios Clínicos, the Brazilian registry). **EU:** since the Clinical Trials Regulation (EU) No 536/2014, trials are authorised and registered through the Clinical Trials Information System (CTIS; public portal euclinicaltrials.eu). CTIS became the only route on 31 January 2025; EudraCT numbers still identify legacy trials run under the old Directive 2001/20/EC.
 2. State the registry name and identifier in the abstract and Methods.
 3. **Systematic reviews** should be registered in PROSPERO before data extraction begins.
 4. For reviews of diagnostic accuracy, animal studies, or other special types: use the appropriate prospective registry (e.g., PROSPERO for animal preclinical reviews, INPLASY for systematic reviews of any type).

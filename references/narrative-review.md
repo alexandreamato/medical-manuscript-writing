@@ -65,7 +65,7 @@ Where possible, base recommendations on POEM. When only DOE is available, say so
 
 The methodological section is the weakest part of most narrative review papers. For PubMed-specific basics (Boolean operators, MeSH, field tags, Clinical Queries), see `references/pubmed-essentials.md`. Even when the review is non-systematic, report:
 
-1. **Databases searched.** Medline (via PubMed), Embase, Cochrane CENTRAL, plus specialty databases when relevant (CINAHL for nursing, PsycINFO for psychology, LILACS / SciELO for Latin American sources). For evidence-based clinical reviews, add: Cochrane Library, BMJ Clinical Evidence, AHRQ guidelines, USPSTF, National Guideline Clearinghouse, TRIP database.
+1. **Databases searched.** Medline (via PubMed), Embase, Cochrane CENTRAL, plus specialty databases when relevant (CINAHL for nursing, PsycINFO for psychology, LILACS / SciELO for Latin American sources). For evidence-based clinical reviews, add: Cochrane Library, USPSTF recommendations, guideline repositories (ECRI Guidelines Trust, the successor of the AHRQ National Guideline Clearinghouse that closed in July 2018; the Guidelines International Network library; NICE), and the TRIP database. BMJ Clinical Evidence is discontinued (its content moved into BMJ Best Practice; the archive remains searchable in PubMed Central), so cite it only as a historical source.
 2. **Search terms.** Including MeSH headings, free-text terms, Boolean operators (AND, OR, NOT) and wildcards (`transport*`).
 3. **Languages covered** and the rationale for any restriction.
 4. **Time frame** with rationale (e.g., post-1998 because earlier reviews exist; or last 5 years because the methodology emerged then).

@@ -57,6 +57,14 @@ Consequences:
 2. `validate.py --journal <new>`. Presentation differences are handled by the build. **Content differences are not:** a 267-word abstract for a 250-word limit, an unstructured abstract turned structured, a shorter Discussion. Propose those as a normal, reviewable edit; the exporter never cuts text.
 3. Build, open the .docx, and compare it with the instructions once by eye.
 
+### Revision round
+
+1. Tag the submitted commit (`git tag submission-1`) if it was not tagged at submission.
+2. `revision.py start --round 1 --submitted-tag submission-1 --journal <j> --returned <file.docx>`. Read `revision/round-1/journal-changes.md`: tracked changes, comments, and edits made without tracking (found by comparing with what was submitted). Present each item to the authors; apply the accepted ones to the Markdown. Never paste the returned file back.
+3. `revision.py reconcile` until the only differences left are journal edits the authors rejected on purpose. Commit; `revision.py base` tags the base.
+4. Make the revision. Answer each comment in `revision/round-1/responses.md` (quote it verbatim, answer, `Changed: <section ids>`). Keep scientific changes (new analyses, changed estimates) visible in the letter; never bury them.
+5. `revision.py check`, then `build.py --journal <j> --revision 1`: clean file, marked file in the journal's style (J Vasc Bras: red), response letter, and a check listing unanswered comments, false "changed" claims and unexplained changes.
+
 ## What the validator does and does not decide
 
 | Level | Examples | Who decides |

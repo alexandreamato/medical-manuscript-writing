@@ -254,12 +254,13 @@ Sentence rule: never start a sentence with a numeral. Either spell it out or res
 
 ### Ranges
 
-Use an en-dash (`–`) or `to` for ranges; include the unit only after the second number.
+House default: write ranges with `to`, and put the unit only after the second number. If the target journal prints ranges with an en-dash (`–`, not the hyphen `-`), follow the journal consistently (`references/manuscript-conventions.md` §3.1).
 
 ```
-15-20 mg          (en-dash; preferred in many journals)
-15 to 20 mg       (alternative; required by some journals — consistent with the no-em-dash rule)
-NOT 15 mg-20 mg
+15 to 20 mg       (house default)
+15–20 mg          (en-dash, only when the journal uses it; never a hyphen: 15-20 mg)
+-0.4 to 0.2       (always "to" when a bound is negative)
+NOT 15 mg to 20 mg, NOT 15 mg–20 mg
 ```
 
 ## Common Clarity Problems

@@ -531,7 +531,7 @@ flowchart LR
 
 A Gantt visualization of the participant journey makes the timing of visits and assessments concrete. Particularly useful in protocols.
 
-**SPIRIT Item 18 (Participant timeline; same number in SPIRIT 2013 and SPIRIT 2025)** explicitly recommends a schematic diagram to efficiently present the overall schedule and time commitment for trial participants in each study group (https://www.consort-spirit.org/item18-participanttimeline). Key elements to convey:
+**SPIRIT 2025 Item 18 (Participant timeline; item 13 in SPIRIT 2013)** explicitly recommends a schematic diagram to efficiently present the overall schedule and time commitment for trial participants in each study group (https://www.consort-spirit.org/item18-participanttimeline). Key elements to convey:
 
 1. **Timeline of trial visits**, starting from initial eligibility screening through to study close-out.
 2. **Timeline of interventions**, including any run-in and washout periods.

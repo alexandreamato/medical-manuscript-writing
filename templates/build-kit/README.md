@@ -7,7 +7,8 @@ manuscript/          the text: one Markdown file per section, numbered for order
   metadata.yaml      title, authors (ORCID, affiliations), keywords, study design
 references.json      CSL-JSON, one complete record per reference, key = @citation
 references.verified.json   result of the last Crossref/PubMed check (generated)
-journals/*.json      one profile per journal: limits, structure, style (journals/README.md)
+journals/*.json      one profile per journal: limits, structure, style, revision rule (journals/README.md)
+revision/round-N/    one folder per revision round: state, journal's returned file, report, responses.md
 csl/                 citation styles (Vancouver bundled, others fetched on demand)
 figures/             image files referenced from the text
 filters/             pandoc Lua filters: cross-references, journal presentation
@@ -24,7 +25,11 @@ cp -R ~/.claude/skills/medical-manuscript-writing/templates/build-kit ~/path/my-
 cd ~/path/my-article && git init
 ```
 
-The kit ships with a **fictional** cohort example that builds cleanly. Replace the example text, metadata and figure; keep the structure.
+The kit ships with a **fictional** cohort example that builds cleanly against every profile. Replace the example text, metadata and figure; keep the structure.
+
+Profiles included: `jvb` (**Jornal Vascular Brasileiro**, the default in `metadata.yaml`; rules read in the journal's instructions on 2026-09-23, every rule annotated with its source), `generic-icmje` (drafting defaults before a journal is chosen) and `example-journal-b` (illustrative, never submit against it).
+
+**Two languages.** Journals such as J Vasc Bras want title, abstract and keywords in Portuguese and English. Put the second title and keywords in `metadata.yaml` (`title-alt`, `keywords-alt`, `lang-alt`) and the second abstract in a section `# Resumo {#abstract-alt}` with parts `{#abstract-alt-background}`, etc. The profile names the headings in each language.
 
 ## Daily commands
 
@@ -40,6 +45,30 @@ python3 scripts/validate.py --compare                       # fit against every 
 python3 scripts/build.py --journal generic-icmje            # validate, then build the .docx
 python3 scripts/build.py --journal x --force                # draft build despite errors
 ```
+
+## Revision rounds
+
+The journal often sends back a .docx its staff or reviewers edited. Absorb their edits first; then mark only yours.
+
+```bash
+git tag submission-1                                         # at submission (or later, on that commit)
+python3 scripts/revision.py start --round 1 --submitted-tag submission-1 --journal jvb \
+    --returned ~/Downloads/returned.docx                    # -> revision/round-1/journal-changes.md
+#   the report lists tracked changes, comments, and edits made WITHOUT tracking
+#   (compared with what we sent; pass --submitted-docx to compare with the exact
+#   file uploaded instead of a rebuild of the tag). Apply the accepted ones to
+#   manuscript/*.md; never paste the returned file back (its citations are text).
+python3 scripts/revision.py reconcile --round 1             # journal edits still missing
+git commit -am "Round 1: journal edits accepted"
+python3 scripts/revision.py base --round 1                  # tag revision-1-base
+#   now revise manuscript/*.md and answer in revision/round-1/responses.md
+python3 scripts/revision.py check --round 1                 # letter vs actual changes
+python3 scripts/build.py --journal jvb --revision 1
+```
+
+`outputs/jvb/revision-1/` then holds `manuscript-clean.docx`, `manuscript-marked-red.docx` (inserted text in red, deleted text struck through in red, as J Vasc Bras asks), `response-to-reviewers.docx`, the title page and `letter-check.txt`. The marking rule comes from the profile (`revision.marking`: `color`, `highlight`, `tracked` for real Word tracked changes, or `none`). Both manuscripts have the same reference and figure numbers: a deleted citation is shown as `[citation]` and does not take a number.
+
+In `responses.md`, one `##` per comment, the comment quoted with `>`, the answer, and `Changed: <section ids>` (or `none`). `check` fails when a comment has no answer or claims a change in a section that did not change, and warns when a section changed without any answer mentioning it.
 
 ## Writing rules (what keeps it from breaking)
 
@@ -71,13 +100,13 @@ python3 scripts/build.py --journal x --force                # draft build despit
 - **WARN:** unverified, incomplete, expired (> 90 days) or to-check references, references without identifier or manual verification, references never cited, abbreviations used before definition, numbers in the abstract that appear nowhere else, em-dashes and en-dash ranges (unless the profile allows them), P-value style, source order of figures/tables, profile not verified or out of date.
 - **HUMAN:** the reporting checklist for the study design (CONSORT 2025, STROBE, PRISMA 2020, …), the claim–evidence map, and whether each citation supports its sentence. Code cannot judge these; the report lists them so nobody forgets.
 
-## Co-authors and revisions
+## Co-authors
 
 The Markdown is the source; the .docx is a product.
 
 1. Send the generated .docx. Co-authors comment or track changes in Word.
 2. Apply accepted changes to the Markdown (an agent can read the .docx comments and propose the diff). Do not convert the edited .docx back to Markdown: citations become static text.
 3. Rebuild. Tag each submission in git (`git tag submission-1-jvs`, `revision-1`) and keep `outputs/<journal>/build-info.json`, which records the profile version, CSL, pandoc version and commit used.
-4. For the response to reviewers, produce the marked-up version with Word's *Compare Documents* between the two tagged builds.
+4. For a journal revision, use the revision round above rather than Word's *Compare Documents*: it separates the journal's edits from yours and marks yours the way the journal asks.
 
 Keep identifiable patient data out of the repository.

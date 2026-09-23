@@ -168,7 +168,7 @@ Anchor the discussion to one question: **why is this case worth publishing?** Ch
 2. **Hypothesis or proposed mechanism.** A plausible explanation linking the new observation to existing knowledge.
 3. **Diagnostic process.** Use a table or short algorithm to communicate the chronology and the differential narrowing. Graphics can replace 200 words.
 4. **Outcomes.** Drug-drug interactions, drug-condition interactions, unexpected response, harm.
-5. **Causality probability for drug-related cases.** For suspected adverse drug reactions, apply a validated probability scale and report the score. The most common is the **Naranjo Adverse Drug Reaction Probability Scale** (ten items, each scored +1, 0, or -1; total interpreted as definite ≥ 9, probable 5–8, possible 1–4, doubtful ≤ 0). Other tools include the WHO-UMC causality assessment and the Liverpool ADR Causality Assessment Tool. State the tool, the score, and the resulting category.
+5. **Causality probability for drug-related cases.** For suspected adverse drug reactions, apply a validated probability scale and report the score. The most common is the **Naranjo Adverse Drug Reaction Probability Scale** (ten questions answered yes / no / do not know; most score +1 or 0, but three can score +2: the reaction appeared after the drug (+2 / -1), it reappeared on readministration (+2 / -1), and no alternative cause could explain it (+2; an alternative cause scores -1). Total -4 to +13, interpreted as definite ≥ 9, probable 5 to 8, possible 1 to 4, doubtful ≤ 0; Naranjo et al., Clin Pharmacol Ther 1981;30(2):239-45, doi:10.1038/clpt.1981.154). Other tools include the WHO-UMC causality assessment and the Liverpool ADR Causality Assessment Tool. State the tool, the score, and the resulting category.
 6. **Strengths and limitations.** Single observation cannot establish causality; selection of the case is non-random; outcome may be influenced by clinical context not fully reported.
 
 Avoid framing the article as "Case report and review of the literature." Reviewers and editors discourage this hybrid form because the literature review and the case report are different article types serving different needs. Keep the literature integration brief and tied to the present observation.
@@ -194,9 +194,10 @@ For case reports involving drugs, drug interactions, adverse drug reactions, med
 | Framework | When to use | Score range |
 | --- | --- | --- |
 | Naranjo ADR Probability Scale | Single ADR, most common in ADR case reports | -4 to +13; definite ≥ 9 |
-| WHO-UMC | Pharmacovigilance reporting | Categorical: certain / probable / possible / unlikely / unclassified |
+| WHO-UMC | Pharmacovigilance reporting | Categorical: certain / probable (likely) / possible / unlikely / conditional (unclassified) / unassessable (unclassifiable) |
 | Liverpool ADR Causality Assessment | Paediatric and complex cases | Categorical |
-| RUCAM | Drug-induced liver injury | -7 to +14 |
+| Updated RUCAM (2016) | Drug- and herb-induced liver injury; separate scales for hepatocellular and cholestatic/mixed injury | -9 to +14 (-7 to +11 without rechallenge); excluded ≤ 0, unlikely 1 to 2, possible 3 to 5, probable 6 to 8, highly probable ≥ 9 (Danan G, Teschke R. Int J Mol Sci 2016;17(1):14, doi:10.3390/ijms17010014) |
+| RECAM | Drug-induced liver injury; electronic, data-driven revision of RUCAM | Categorical output; report the version used (Hayashi PH, Lucena MI, Fontana RJ, et al. Hepatology 2022;76(1):18-31, doi:10.1002/hep.32327) |
 | Drug Interaction Probability Scale (DIPS) | Suspected drug-drug interactions | Definite / probable / possible / doubtful |
 
 ### Conclusions / Recommendations (the take-home message)
@@ -230,7 +231,7 @@ Informed consent for publication is mandatory. The patient (or legal guardian, o
 
 1. **Word limit.** Most journals: 1,000 to 1,500 words for the body, with 10 to 20 references and 1 to 3 figures or tables.
 2. **Author instructions.** Read them before drafting; format varies by journal.
-3. **Uniform Requirements (ICMJE).** When the journal's instructions are silent, default to ICMJE.
+3. **ICMJE Recommendations** (formerly the "Uniform Requirements", renamed in 2013). When the journal's instructions are silent, default to ICMJE.
 4. **Where to submit.** General medical journals (BMJ Case Reports, JMCR, BMC), specialty journals, *NEJM* "Images in Clinical Medicine" or letters, *Lancet* "Case Reports", regional and society journals. Match the audience to the case.
 
 ## Common Reasons Case Reports Are Rejected

@@ -15,7 +15,9 @@ Three install formats are available. Pick the one that matches your environment.
 | **Local skill** | Claude Code or Cowork — personal Mac/Linux/Windows |
 | **Plugin** | Claude Code plugin for team or marketplace distribution |
 
-All three contain the same skill content; only the packaging differs. Pre-built zips are in [`dist/`](dist/).
+All three contain the same skill content; only the packaging differs. The zips are not stored in git (`.gitignore` excludes `dist/*.zip`): build them with `bash dist/build-zips.sh`, which writes them to [`dist/`](dist/) and takes the version from `CHANGELOG.md`, or download them from the repository's GitHub Releases when published there.
+
+`agents/openai.yaml` is optional interface metadata for OpenAI Codex / ChatGPT skills (display name, short description, default prompt; see https://developers.openai.com/codex/skills). Claude ignores it; it lets the same folder be installed as a Codex skill.
 
 ### 1. Claude.ai (web or desktop)
 
@@ -105,7 +107,7 @@ Each template contains the standard section structure, placeholder text, and inl
 
 ## Quick reference files
 
-- [`references/glossary.md`](references/glossary.md) — ~60 statistical, methodological, and reporting terms with short definitions.
+- [`references/glossary.md`](references/glossary.md) — ~90 statistical, methodological, and reporting terms with short definitions.
 - [`references/common-mistakes.md`](references/common-mistakes.md) — single-page cheatsheet of desk-rejection patterns, why they fail, and how to fix them. Use as a 5-minute pre-submission audit.
 - [`references/research-apis.md`](references/research-apis.md) — ten open APIs for programmatic literature work (Crossref, OpenAlex, Semantic Scholar, DataCite, NCBI E-utilities, Europe PMC, CORE, arXiv, ORCID, OpenCitations) with authentication, rate-limit guidance, and "best API by goal" mapping.
 - [`references/citation-styles.md`](references/citation-styles.md) — Vancouver (default), comparison table, reference-manager workflow, hard rules. Paired with [`references/citation-styles-detail.md`](references/citation-styles-detail.md) for AMA, APA 7, Harvard, Chicago 18, and CSE detail.

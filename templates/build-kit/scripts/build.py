@@ -4,6 +4,13 @@
     python3 scripts/build.py --journal generic-icmje
     python3 scripts/build.py --journal generic-icmje --force     # build despite ERRORs
     python3 scripts/build.py --all                               # every profile
+    python3 scripts/build.py --journal jvb --revision 1          # revised files (clean,
+                                                                 # marked, response letter)
+
+With --revision N, outputs/<journal>/revision-N/ holds the clean manuscript,
+the marked one (the journal's rule: red text, highlight or tracked changes,
+against the tag made by `revision.py base`), the response letter built from
+revision/round-N/responses.md, and letter-check.txt. See revision.py.
 
 Output in outputs/<journal>/:
     manuscript.docx         (title page + text, or blinded text if the journal
@@ -29,9 +36,11 @@ import shutil
 import subprocess
 import sys
 import urllib.request
+from pathlib import Path
 
 import common as C
 import refdocx
+import revdiff
 import validate as V
 
 CSL_REPO = "https://raw.githubusercontent.com/citation-style-language/styles/master/"
@@ -66,6 +75,14 @@ def resolve_csl(name: str) -> str:
     return str(path)
 
 
+def pick(value, lang: str):
+    """A heading given per language ({"pt": "Métodos", "en": "Methods"}) or as a plain string."""
+    if not isinstance(value, dict):
+        return value
+    code = (lang or "").split("-")[0]
+    return value.get(lang) or value.get(code) or next(iter(value.values()))
+
+
 def git_commit() -> str | None:
     try:
         r = subprocess.run(["git", "-C", str(C.KIT), "rev-parse", "--short", "HEAD"],
@@ -79,11 +96,19 @@ def git_commit() -> str | None:
         return None
 
 
-def run_pandoc(out_file, runtime_meta, csl, refdoc, number_sections, lang):
+def run_pandoc(out_file, runtime_meta, csl, refdoc, number_sections, lang, ast_input=None):
+    """Markdown sources -> docx; or, with `ast_input`, a pandoc JSON AST (the
+    marked revision) through exactly the same filters and citeproc."""
     C.BUILD.mkdir(exist_ok=True)
     rt = C.BUILD / "runtime-meta.json"
     rt.write_text(json.dumps(runtime_meta, ensure_ascii=False), encoding="utf-8")
-    cmd = [C.require_pandoc(), "-f", "markdown", "-t", "docx",
+    if ast_input is not None:
+        src = C.BUILD / "input-ast.json"
+        src.write_text(json.dumps(ast_input, ensure_ascii=False), encoding="utf-8")
+        inputs, fmt = [str(src)], "json"
+    else:
+        inputs, fmt = [str(f) for f in C.section_files()], "markdown"
+    cmd = [C.require_pandoc(), "-f", fmt, "-t", "docx",
            "--metadata-file", str(C.METADATA), "--metadata-file", str(rt),
            "--resource-path", f"{C.KIT}:{C.MANUSCRIPT_DIR}",
            "--lua-filter", str(C.FILTERS / "crossref.lua"),
@@ -91,7 +116,7 @@ def run_pandoc(out_file, runtime_meta, csl, refdoc, number_sections, lang):
            "--citeproc", "--csl", csl, "--bibliography", str(C.REFERENCES),
            "--reference-doc", str(refdoc),
            "-M", f"lang={lang}", "-M", "link-citations=false",
-           "-o", str(out_file), *map(str, C.section_files())]
+           "-o", str(out_file), *inputs]
     if number_sections:
         cmd.insert(3, "--number-sections")
     res = subprocess.run(cmd, capture_output=True, text=True)
@@ -102,13 +127,13 @@ def run_pandoc(out_file, runtime_meta, csl, refdoc, number_sections, lang):
         print("  pandoc:", line)
 
 
-def build(name: str, atype: str | None, force: bool) -> bool:
+def build(name: str, atype: str | None, force: bool, revision: int | None = None) -> bool:
     doc = C.ast()
     meta = C.metadata(doc)
     atype = atype or meta.get("article-type")
     prof = C.load_profile(name, atype)
-    out = C.OUTPUTS / name
-    print(f"== {name}" + (f" / {atype}" if atype else ""))
+    out = C.OUTPUTS / name / (f"revision-{revision}" if revision else "")
+    print(f"== {name}" + (f" / {atype}" if atype else "") + (f" / revision {revision}" if revision else ""))
 
     rep, stats = V.validate(prof, doc)
     print(f"  validation: {rep.count('ERROR')} error(s), {rep.count('WARN')} warning(s)")
@@ -117,29 +142,49 @@ def build(name: str, atype: str | None, force: bool) -> bool:
         print(f"  not built: fix the errors or pass --force (draft build).")
         return False
 
+    # Replace this build's files but keep revision-N/ folders of earlier rounds.
     if out.exists():
-        shutil.rmtree(out)
-    (out / "figures").mkdir(parents=True)
+        for p in out.iterdir():
+            if not p.name.startswith("revision-"):
+                shutil.rmtree(p) if p.is_dir() else p.unlink()
+    (out / "figures").mkdir(parents=True, exist_ok=True)
     (out / "validation-report.txt").write_text(rep.text() + "\n", encoding="utf-8")
 
     csl = resolve_csl(prof.get("csl", "nlm-citation-sequence"))
     rd = prof.get("reference_docx", {})
-    refdoc = (C.KIT / rd["file"]) if rd.get("file") else refdocx.ensure(prof["id"], rd)
+    rev = prof.get("revision", {})
+    refdoc = (C.KIT / rd["file"]) if rd.get("file") else refdocx.ensure(prof["id"], rd, rev if revision else None)
 
     abs_cfg = prof.get("abstract", {})
-    headings = {f"abstract-{p['id']}": p["heading"] for p in abs_cfg.get("structure", []) if p.get("heading")}
-    headings.update({s["id"]: s["heading"] for s in prof.get("main_text", {}).get("sections", [])
+    lang = meta.get("lang") or prof.get("lang", "en-US")
+    lang_alt = meta.get("lang-alt") or ""
+    bilingual = bool(abs_cfg.get("bilingual"))
+    headings = {f"abstract-{p['id']}": pick(p["heading"], lang) for p in abs_cfg.get("structure", [])
+                if p.get("heading")}
+    if abs_cfg.get("title"):
+        headings["abstract"] = pick(abs_cfg["title"], lang)
+    if bilingual:
+        headings.update({f"abstract-alt-{p['id']}": pick(p["heading"], lang_alt)
+                         for p in abs_cfg.get("structure", []) if p.get("heading")})
+        if abs_cfg.get("title"):
+            headings["abstract-alt"] = pick(abs_cfg["title"], lang_alt)
+    headings.update({s["id"]: pick(s["heading"], lang) for s in prof.get("main_text", {}).get("sections", [])
                      if s.get("heading")})
-    headings.update(prof.get("headings", {}))
+    headings.update({k: pick(v, lang) for k, v in prof.get("headings", {}).items()})
     sub = prof.get("submission", {})
+    kw_labels = {"pt": "Palavras-chave", "en": "Keywords", "es": "Palabras clave"}
+    kw_labels.update(prof.get("keywords", {}).get("labels", {}))
     base = {
         "headings": headings,
         "unstructured": not abs_cfg.get("structure"),
         "word-counts": {"abstract": stats.get("abstract_words"), "main": stats.get("main_text_words")},
+        "keywords-after-abstract": bool(prof.get("keywords", {}).get("after_abstract")),
+        "keywords-label": pick(kw_labels, lang),
+        "keywords-label-alt": pick(kw_labels, lang_alt) if lang_alt else "",
+        "titlepage-sections": sub.get("title_page_sections", []),
     }
     xref = {"tables": prof.get("tables", {}).get("placement", "inline"),
             "figures": prof.get("figures", {}).get("placement", "inline")}
-    lang = meta.get("lang") or prof.get("lang", "en-US")
     ns = sub.get("number_sections", False)
 
     if sub.get("separate_title_page"):
@@ -149,8 +194,37 @@ def build(name: str, atype: str | None, force: bool) -> bool:
     else:
         mode = "blinded" if sub.get("blinded") else "full"
     omit = sub.get("omit_in_blinded", []) if mode == "blinded" else []
-    run_pandoc(out / "manuscript.docx", {"journal-build": {**base, "mode": mode, "omit": omit}, "xref": xref},
-               csl, refdoc, ns, lang)
+    if sub.get("separate_title_page"):
+        # What the journal wants on the title page is not repeated in the manuscript.
+        omit = list(dict.fromkeys(omit + sub.get("title_page_sections", [])))
+    runtime = {"journal-build": {**base, "mode": mode, "omit": omit}, "xref": xref}
+    if not revision:
+        run_pandoc(out / "manuscript.docx", runtime, csl, refdoc, ns, lang)
+    else:
+        import revision as R  # local import: only revision builds need git and the base tag
+        state = R.load_state(revision)
+        clean = rev.get("clean_name", "manuscript-clean.docx")
+        run_pandoc(out / clean, runtime, csl, refdoc, ns, lang)
+        marking = rev.get("marking", "tracked")
+        if marking != "none":
+            old = R.base_ast(state)
+            marked, stats_m = revdiff.annotate(doc, old, marking, rev.get("deleted", "strike"),
+                                               rev.get("author") or "Authors",
+                                               dt.datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ"),
+                                               superscript='vertical-align="sup"' in Path(csl).read_text(encoding="utf-8"))
+            run_pandoc(out / rev.get("marked_name", "manuscript-marked.docx"), runtime, csl, refdoc, ns, lang,
+                       ast_input=marked)
+            stats["revision"] = {"base": state["base_tag"], "marking": marking,
+                                 "inserted_words": stats_m.inserted_words, "deleted_words": stats_m.deleted_words,
+                                 "changed_sections": sorted(stats_m.changed_sections)}
+            print(f"  marked ({marking}): +{stats_m.inserted_words} / -{stats_m.deleted_words} words in "
+                  + ", ".join(sorted(stats_m.changed_sections)))
+        letter_rep = R.check_letter(revision, doc)
+        for item in prof.get("revision_checks", []):
+            letter_rep.human("journal", item)
+        (out / "letter-check.txt").write_text(letter_rep.text() + "\n", encoding="utf-8")
+        print(f"  response letter: {letter_rep.count('ERROR')} error(s), {letter_rep.count('WARN')} warning(s)")
+        R.build_letter(revision, out / rev.get("letter_name", "response-letter.docx"), refdoc, lang, meta, headings)
 
     # Figures as separate files, renamed by their number.
     nums = C.float_numbers(doc)
@@ -177,10 +251,11 @@ def main():
     ap.add_argument("--article-type")
     ap.add_argument("--all", action="store_true")
     ap.add_argument("--force", action="store_true", help="build even with validation errors (draft)")
+    ap.add_argument("--revision", type=int, help="revision round: clean + marked files and response letter")
     a = ap.parse_args()
     meta = C.metadata(C.ast())
     names = C.list_profiles() if a.all else [a.journal or meta.get("journal") or "generic-icmje"]
-    ok = [build(n, a.article_type, a.force) for n in names]
+    ok = [build(n, a.article_type, a.force, a.revision) for n in names]
     sys.exit(0 if all(ok) else 1)
 
 

@@ -2,7 +2,23 @@
 
 All notable changes to the **Medical Manuscript Writing** skill are documented here. Format follows Keep a Changelog (https://keepachangelog.com/) using semantic-style versioning by content scope rather than strict semver.
 
-## [1.6.1] — 2026
+## [1.7.0] — 2026-09-23
+
+### Added
+
+- **Revision rounds in the build kit** (`templates/build-kit/scripts/revision.py`, `revdiff.py`). `start`/`import` compare the .docx the journal returns with what was submitted (a rebuild of the submission tag, or the exact uploaded file) and list tracked changes, comments, and edits made without tracking; `reconcile` shows journal edits still missing from the source; `base` tags the reconciled base; `check` verifies the response letter (every comment answered, every `Changed:` section really changed, every changed section explained); `build.py --revision N` writes the clean manuscript, the marked manuscript in the journal's style (red text, highlight, or real Word tracked changes, compared on the pandoc AST so both files have identical reference and figure numbers), and the response letter from `revision/round-N/responses.md`. 7 new tests, including a full round trip in a temporary git repository.
+- **Jornal Vascular Brasileiro profile** (`journals/jvb.json`), the kit's default: all article types, limits, bilingual title/abstract/keywords, declarations on the title page, double-blind files, tables after references, legends at the end, superscript Vancouver, revision marked in red, and human checks (Parecer Consubstanciado, CONEP 166/2018, ReBEC, EQUATOR checklist with pages). Every rule annotated with the page it was read on (2026-09-23). `csl/jornal-vascular-brasileiro.csl`: NLM superscript with first three authors + et al. above six, as the journal requires.
+- Kit support for **two languages** (`title-alt`, `keywords-alt`, `lang-alt`, `{#abstract-alt}`; headings per language; keywords printed after each abstract), **title-page sections** (declarations moved to the title page and out of the blinded file), **no abbreviations in title/abstract**, **author limit with justification**, **italic subheadings** and bold headings in the generated Word styles, optional parts in structured abstracts, and localized title-page labels (pt, en, es).
+- `references/responding-to-reviewers.md` and `references/docx-build.md`: how to handle a journal-edited file and mark changes as the journal asks.
+
+### Fixed
+
+- `references/responding-to-reviewers.md`: removed the claim that a significant result proves the sample was large enough and the advice to run post-hoc power analysis (observed power is a function of the P value; Hoenig and Heisey, Am Stat 2001). Replaced with prespecified sample size, CI width, clinical plausibility, and effect inflation in small studies.
+- Factual corrections: SPIRIT participant timeline (item 13 in 2013, 18 in 2025); Naranjo scoring (-4 to +13; three items score +2); updated RUCAM range and RECAM; National Guideline Clearinghouse (closed) and BMJ Clinical Evidence (discontinued) replaced; STROBE flow diagram recommended, not mandatory; en-dash example and range rule aligned with §3.1; EU trials via CTIS, ReBEC listed once, Declaration of Helsinki 2024; broken `experiments.md` link; "ICMJE Uniform Requirements" renamed Recommendations; unsourced search-yield numbers in `systematic-review.md` removed or sourced; glossary count.
+- Build kit: an omitted level-1 section reappeared from its first non-omitted subsection; pandoc's internal citation counters made unchanged paragraphs look changed after a citation was removed.
+- Packaging: `dist/publish-to-github.sh` reads the version and uses the current branch; `dist/sync-to-installed.sh` excludes `.claude/`, `__pycache__/` and kit build output; README states that zips are built, not versioned; `agents/openai.yaml` documented.
+
+## [1.6.1] — 2026-09-23
 
 Responds to an external review of 1.6.0.
 
@@ -24,7 +40,7 @@ Responds to an external review of 1.6.0.
 - `refs.py add-manual` and `refs.py confirm` for real sources without DOI or PMID (guidelines, software documentation, books, reports): official URL or ISBN, metadata from the source, who checked and what was compared; stored as `manual`, expiring like automatic checks. `[CITATION NEEDED]` is kept for statements with no source at all.
 - `templates/build-kit/scripts/tests/test_refs.py`: 11 tests with simulated Crossref/PubMed answers (wrong year/author with PMID only, network failure, one source unreachable, retraction, one-year gap, expiry, manual references, validator levels).
 
-## [1.6.0] — 2026
+## [1.6.0] — 2026-09-23
 
 ### Added
 

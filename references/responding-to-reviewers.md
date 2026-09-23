@@ -56,6 +56,15 @@ Most journals expect three documents at resubmission:
 
 Some journals also require an updated reporting checklist (CONSORT, STROBE, PRISMA, STARD, CARE). Update it.
 
+### How the edits are marked, and the journal's own edits
+
+Follow the journal's rule for marking changes: Word tracked changes, highlighting, or coloured text (J Vasc Bras: "in red font preferably"). Two traps:
+
+1. **The journal may return an edited file.** Copy-editors and reviewers sometimes change the manuscript itself, with or without tracked changes. Find those edits first and decide on each one before revising; otherwise the marked version shows their edits as yours, or your revision silently undoes them. Compare the returned file with what you submitted, not only its tracked changes: untracked edits are the ones nobody sees.
+2. **The marked and clean versions must say the same thing.** Same reference numbers, same figure and table numbers; a deleted sentence that carried a citation must not shift the numbering in one version only.
+
+When the manuscript is kept as source files, the build kit does all of this procedurally: `revision.py` lists the journal's tracked changes, comments and untracked edits, tags the reconciled base, and `build.py --revision N` produces the clean file, the marked file in the journal's style, and the response letter, and checks that every comment is answered and every changed section is explained (`templates/build-kit/README.md`, "Revision rounds"; `references/docx-build.md`). When working on the author's Word file, do the same by hand: compare the returned file with the submitted one (Word *Compare Documents*) before accepting anything.
+
 ## Three Formats for the Response Document
 
 Three layouts are common; pick one before starting and stick with it.
@@ -320,18 +329,27 @@ Two complaints recur in almost every set of reviewer comments. Have prepared res
 
 ### Criticism 1 — "The sample size is too small"
 
-This complaint is only relevant if your paper reports a **non-significant** finding. If you report a statistically significant result, the sample size **must** have been sufficient — point this out directly:
+Take it seriously whatever the p value. A statistically significant result does **not** show that the sample was large enough: small studies that reach significance tend to overestimate the effect (Button KS, Ioannidis JPA, Mokrysz C, et al. Nat Rev Neurosci 2013;14(5):365-76, doi:10.1038/nrn3475). And do **not** answer with a post hoc ("observed") power calculation: observed power is a direct function of the p value, so it adds nothing to it and cannot show that a non-significant result was adequately powered (Hoenig JM, Heisey DM. The abuse of power: the pervasive fallacy of power calculations for data analysis. Am Stat 2001;55(1):19-24, doi:10.1198/000313001300339897).
+
+Answer with what does carry information:
+
+1. **The prespecified sample-size calculation**: assumed effect, event rate or SD, alpha, power, and the source of the assumptions (protocol, registration, pilot data). If there was none, say so and treat the study as exploratory.
+2. **The confidence interval**: which effects it includes and which it excludes. A narrow interval around a small effect is informative; a wide one that includes clinically important benefit and harm is inconclusive, and the text should say so.
+3. **Clinical plausibility** of the estimate compared with prior trials or meta-analyses; flag an implausibly large effect from a small study as likely inflated.
+4. **A limitation, when warranted**: add or strengthen it in the Discussion instead of arguing it away.
 
 ```
-Response: We thank the reviewer for raising this point. The primary outcome reached
-statistical significance (HR 0.78; 95% CI 0.66 to 0.92; p = 0.003), which
-indicates that the sample size was sufficient to detect the effect of interest.
-The sample size was prespecified at 1,250 per arm based on [assumptions; cite
-protocol]; we have added the assumed effect size and source explicitly to
-Methods (page 7, lines 142–148).
+Response: We thank the reviewer for raising this point. The sample size was
+prespecified at 1,250 per arm to detect [effect] with [power] at [alpha], based
+on [source; cite protocol]; we have added these assumptions to Methods
+(page 7, lines 142 to 148). The primary outcome was HR 0.78 (95% CI 0.66 to
+0.92). The interval excludes no effect and effects larger than a 34% relative
+reduction, and is consistent with [prior trials, cite]. We agree that
+[subgroup / secondary outcome] analyses had limited precision and now state
+this in the Limitations (page 15, lines 310 to 314).
 ```
 
-If you report a **non-significant** finding and the reviewer is concerned about underpowering, perform a post-hoc power analysis to demonstrate adequate power and report the result. Do **not** dismiss the concern.
+For a non-significant result, report the interval and what it cannot exclude ("the data are compatible with a relative reduction of up to 30% and an increase of up to 12%"), avoid "no effect" wording, and present the study as inconclusive rather than negative when the interval is wide.
 
 ### Criticism 2 — "The Discussion strays beyond the reported work"
 

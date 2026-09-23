@@ -1,6 +1,6 @@
 # Writing Process and Order (Medical Research)
 
-This file complements the section guides. It covers the parts of the workflow that are not section-specific: when to write what, in what order, and what to verify before submission. The tips are drawn from Mateu Arrom et al. (Actas Urol Esp 2018) "How to write an original article", McCarthy & Reilly (Fam Med 2000) for case reports, and current ICMJE Uniform Requirements.
+This file complements the section guides. It covers the parts of the workflow that are not section-specific: when to write what, in what order, and what to verify before submission. The tips are drawn from Mateu Arrom et al. (Actas Urol Esp 2018) "How to write an original article", McCarthy & Reilly (Fam Med 2000) for case reports, and the current ICMJE Recommendations (Recommendations for the Conduct, Reporting, Editing, and Publication of Scholarly Work in Medical Journals).
 
 ## 1. Before Writing — Four Self-Criticism Questions
 

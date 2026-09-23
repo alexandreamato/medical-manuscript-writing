@@ -37,6 +37,7 @@ Find your situation and follow the suggested reading order:
 | **Choosing a citation style and formatting references** | `manuscript-conventions.md` → `citation-styles.md` (Vancouver default) |
 | **Building a flow diagram (CONSORT, STROBE, PRISMA, STARD)** | `diagrams.md` → `reporting-standards.md` |
 | **Just received reviewer comments — preparing the response** | `responding-to-reviewers.md` → `paper-review.md` (re-audit) → `writing-process.md` (Three-pass self-review) |
+| **Revision with the build kit (journal returned an edited .docx; changes must be marked, e.g. in red for J Vasc Bras)** | `docx-build.md` (Revision round) → `templates/build-kit/README.md` (Revision rounds) → `responding-to-reviewers.md` |
 | **Setting up a manuscript as source files and building the .docx** | `docx-build.md` → `templates/build-kit/README.md` → `templates/build-kit/journals/README.md` (journal profile) |
 | **Changing target journal after a rejection** | `docx-build.md` (new profile, `validate.py --compare`) → `paper-review.md` |
 | **Pre-submission final pass** | `paper-review.md` → `manuscript-conventions.md` → `reporting-standards.md` (adherence statement) → `ethics-and-integrity.md` |
@@ -165,7 +166,7 @@ Load only the file you need. The references are organized in five groups:
 - Common mistakes — pre-submission speed audit (consolidated cheatsheet of desk-rejection patterns and fixes): `references/common-mistakes.md`
 - Adversarial paper review (rejection-dimension matrix, end-of-draft checklist): `references/paper-review.md`
 - Responding to reviewers (point-by-point letter, tracked changes, disagreeing respectfully): `references/responding-to-reviewers.md`
-- Glossary of statistical, methodological, and reporting terms (~60 entries): `references/glossary.md`
+- Glossary of statistical, methodological, and reporting terms (~90 entries): `references/glossary.md`
 - Example bank index (worked abstracts, introductions, and methods): `references/examples/index.md`
 - Manuscript starter templates (RCT, observational study, case report, systematic review) and the build kit (`templates/build-kit/`): `templates/`
 

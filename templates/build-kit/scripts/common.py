@@ -11,22 +11,29 @@ from __future__ import annotations
 import copy
 import hashlib
 import json
+import os
 import re
 import shutil
 import subprocess
 import sys
 from pathlib import Path
 
-KIT = Path(__file__).resolve().parent.parent
+# TOOLS: scripts, filters, styles, journal profiles (always the current ones).
+# KIT: the manuscript content. Normally the same folder; revision.py points it
+# at an old git tag (MANUSCRIPT_CONTENT_ROOT) to rebuild what was submitted
+# with today's tools.
+TOOLS = Path(__file__).resolve().parent.parent
+KIT = Path(os.environ.get("MANUSCRIPT_CONTENT_ROOT") or TOOLS).resolve()
 MANUSCRIPT_DIR = KIT / "manuscript"
 METADATA = MANUSCRIPT_DIR / "metadata.yaml"
 REFERENCES = KIT / "references.json"
 VERIFIED = KIT / "references.verified.json"
-JOURNALS = KIT / "journals"
-CSL_DIR = KIT / "csl"
-FILTERS = KIT / "filters"
+JOURNALS = TOOLS / "journals"
+CSL_DIR = TOOLS / "csl"
+FILTERS = TOOLS / "filters"
 OUTPUTS = KIT / "outputs"
 BUILD = KIT / "build"
+REVISION_DIR = TOOLS / "revision"
 
 # Prefixes that belong to the cross-reference filter, not to the bibliography.
 XREF_PREFIXES = ("fig", "tbl", "sfig", "stbl")
@@ -123,10 +130,12 @@ def list_profiles() -> list[str]:
 
 # ---------------------------------------------------------------- AST
 
-def ast() -> dict:
-    """Pandoc JSON AST of metadata + all manuscript files."""
-    cmd = [require_pandoc(), "--metadata-file", str(METADATA), "-f", "markdown", "-t", "json",
-           *map(str, section_files())]
+def ast(root: Path | None = None) -> dict:
+    """Pandoc JSON AST of metadata + all manuscript files (of `root`, default KIT)."""
+    mdir = (root / "manuscript") if root else MANUSCRIPT_DIR
+    files = sorted(p for p in mdir.glob("*.md") if not p.name.startswith("_")) if root else section_files()
+    cmd = [require_pandoc(), "--metadata-file", str(mdir / "metadata.yaml"), "-f", "markdown", "-t", "json",
+           *map(str, files)]
     res = subprocess.run(cmd, capture_output=True, text=True)
     if res.returncode != 0:
         die(f"pandoc could not parse the manuscript:\n{res.stderr}")

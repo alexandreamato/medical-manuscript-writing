@@ -12,6 +12,9 @@
 set -euo pipefail
 
 REPO_NAME="${1:-medical-manuscript-writing}"
+# Version comes from the first "## [x.y.z]" heading of CHANGELOG.md (same rule as build-zips.sh).
+VERSION="$(grep -m1 -oE '^## \[[0-9]+\.[0-9]+\.[0-9]+\]' CHANGELOG.md | tr -d '#[] ')"
+[ -n "$VERSION" ] || { echo "ERROR: no version heading in CHANGELOG.md"; exit 1; }
 
 # 0. Pre-flight checks
 command -v gh >/dev/null 2>&1 || {
@@ -34,13 +37,16 @@ if [ ! -d .git ]; then
 else
   echo "Repo already initialized — using existing .git."
 fi
+# Push whatever branch is checked out (e.g. main or release/x.y.z), never assume main.
+BRANCH="$(git branch --show-current)"
+[ -n "$BRANCH" ] || { echo "ERROR: detached HEAD; check out a branch first."; exit 1; }
 
 # 2. Stage and commit everything except .gitignore'd files
 git add -A
 if git diff --cached --quiet; then
   echo "Nothing new to commit."
 else
-  git commit -m "Initial commit: medical-manuscript-writing skill v1.5.0
+  git commit -m "medical-manuscript-writing skill v${VERSION}
 
 Author: Alexandre Campos Moraes Amato
 License: CC BY 4.0
@@ -55,14 +61,14 @@ GH_USER="$(gh api user --jq .login)"
 if gh repo view "${GH_USER}/${REPO_NAME}" >/dev/null 2>&1; then
   echo "Repo ${GH_USER}/${REPO_NAME} already exists — pushing to it."
   git remote add origin "https://github.com/${GH_USER}/${REPO_NAME}.git" 2>/dev/null || true
-  git push -u origin main
+  git push -u origin "$BRANCH"
 else
   gh repo create "${REPO_NAME}" \
     --private \
     --source=. \
     --remote=origin \
     --push \
-    --description "Medical and biomedical manuscript writing skill — IMRaD, CONSORT, STROBE, PRISMA 2020, STARD, CARE; Vancouver default."
+    --description "Medical and biomedical manuscript writing skill: IMRaD, CONSORT 2025, STROBE, PRISMA 2020, STARD, CARE; Vancouver default."
 fi
 
 echo

@@ -14,7 +14,7 @@ For each mistake: the **pattern**, **why it fails**, the **fix**, and the **deep
 | Conclusion goes beyond what the design supports (e.g., cost claims with no economic analysis) | Reviewers reject for overinterpretation | Restrict Conclusion to outcomes actually measured; add explicit limitation | `discussion.md`, `paper-review.md` |
 | Sample size "justified" by what was available | Reviewers ask "what was the prespecified power calculation?" | Either provide a real prespecified calculation or label as exploratory | `method.md`, `statistical-reporting.md` |
 | Multiple "primary" outcomes | Multiplicity inflates false-positive risk | Pick one primary; demote others to secondary; or apply gatekeeping with prespecified rule | `statistical-reporting.md` |
-| Subgroup analyses presented as confirmatory | Major rejection trigger | Mark explicitly as "prespecified" or "exploratory"; report interaction p value | `experiments.md` (results), `paper-review.md` |
+| Subgroup analyses presented as confirmatory | Major rejection trigger | Mark explicitly as "prespecified" or "exploratory"; report interaction p value | `results.md`, `statistical-reporting.md`, `paper-review.md` |
 | Conclusion changes the population studied (e.g., results from elderly extrapolated to "all patients") | Reviewer flags external validity | Restrict the Conclusion to the population studied | `discussion.md`, `study-types.md` |
 
 ## Reporting-standard-level
@@ -62,7 +62,7 @@ For each mistake: the **pattern**, **why it fails**, the **fix**, and the **deep
 
 | Pattern | Why it fails | Fix | See |
 | --- | --- | --- | --- |
-| Em-dash (`—`) inside body sentences | Most medical journals discourage; copy-editor will flag | Replace with comma, semicolon, parenthesis, or full stop. For ranges: `12 to 18` not `12—18` | `manuscript-conventions.md`, `scientific-writing-principles.md` |
+| Em-dash (`—`) inside body sentences, or ranges written inconsistently | House default of this skill, not a universal journal rule: AMA and Chicago style use the em-dash, and many journals print ranges with an en-dash. What every journal flags is inconsistency | Default: comma, semicolon, parenthesis, or full stop; ranges as `12 to 18`. If the target journal uses dashes, follow it throughout (`SKILL.md`, Submission Convention 3) | `manuscript-conventions.md`, `scientific-writing-principles.md` |
 | `p = 0.000` | Mathematically impossible | Write `p < 0.001` | `statistical-reporting.md`, `scientific-writing-principles.md` |
 | Anthropomorphism: "the study wanted to ...", "the data tell us ..." | Reviewers find it unscientific | "We aimed to ...", "The data indicate that ..." | `scientific-writing-principles.md` |
 | `This was unexpected` (pronoun without antecedent) | Reader stops to figure out "this" | Pair `this` with a noun: `this finding`, `this association` | `scientific-writing-principles.md` |

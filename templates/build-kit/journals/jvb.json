@@ -1,0 +1,451 @@
+{
+  "_comment": "Jornal Vascular Brasileiro (J Vasc Bras). Every rule below was read in the journal's own instructions on 2026-09-23. [A] = https://www.jvascbras.org/instructions (current, most complete); [B] = https://jvascbras.org/page/report-guidelines; [C] = SciELO instructions (older; used only where [A] is silent, marked). Re-read [A] before each submission: the page shows no last-updated date.",
+  "extends": "generic-icmje",
+  "name": "Jornal Vascular Brasileiro (J Vasc Bras)",
+  "generic": false,
+  "source_url": "https://www.jvascbras.org/instructions",
+  "verified_at": "2026-09-23",
+  "reverify_after_days": 180,
+  "csl": "jornal-vascular-brasileiro",
+  "_csl": "[A] Vancouver, superscript numbers in order of first citation; more than six authors: first three + et al. Local style csl/jornal-vascular-brasileiro.csl (NLM superscript with et-al-use-first=3).",
+  "reference_docx": {
+    "font": "Times New Roman",
+    "size_pt": 12,
+    "line_spacing": 2.0,
+    "margins_cm": 2.5,
+    "line_numbers": true,
+    "page_numbers": true,
+    "subheadings": "italic",
+    "_comment": "[A] A4, double-spaced, 2.5-cm margins, Times New Roman 12, left-aligned, bold section headings, italic subheadings. Line numbers: not stated in [A]; kept on (harmless, helps reviewers). Page numbers: [C] 'Numere todas as páginas'."
+  },
+  "title": {
+    "max_chars": null,
+    "running_title_max_chars": 50,
+    "_comment": "[A] short title max 50 characters with spaces, no abbreviations, in the manuscript's language. Title length not stated. Titles in Portuguese AND English."
+  },
+  "keywords": {
+    "min": 3,
+    "max": null,
+    "after_abstract": true,
+    "_comment": "[A] keywords in Portuguese and English, compliant with DeCS; printed after each abstract (main document order: title PT, title EN, abstract PT, keywords PT, abstract EN, keywords EN). Minimum 3 only in the older [C]; [A] gives no number."
+  },
+  "authors": {
+    "require_orcid": "all",
+    "max": null,
+    "max_without_justification": 8,
+    "_comment": "[A] ORCID for all authors; 8 authors, more only with a statement justifying each one."
+  },
+  "abstract": {
+    "required": true,
+    "bilingual": true,
+    "title": {
+      "en": "Abstract",
+      "pt": "Resumo"
+    },
+    "limit": {
+      "unit": "words",
+      "max": 250
+    },
+    "structure": [
+      {
+        "id": "background",
+        "heading": {
+          "en": "Background",
+          "pt": "Contexto"
+        }
+      },
+      {
+        "id": "objectives",
+        "heading": {
+          "en": "Objectives",
+          "pt": "Objetivos"
+        }
+      },
+      {
+        "id": "methods",
+        "heading": {
+          "en": "Methods",
+          "pt": "Métodos"
+        }
+      },
+      {
+        "id": "results",
+        "heading": {
+          "en": "Results",
+          "pt": "Resultados"
+        }
+      },
+      {
+        "id": "conclusions",
+        "heading": {
+          "en": "Conclusions",
+          "pt": "Conclusões"
+        }
+      }
+    ],
+    "_comment": "[A] primary original research: structured abstract, max 250 words, in Portuguese and English with identical content ([C]); no abbreviations in title or abstract; trial registration number and registry in the last line of the abstract."
+  },
+  "main_text": {
+    "sections": [
+      {
+        "id": "introduction",
+        "heading": {
+          "en": "Introduction",
+          "pt": "Introdução"
+        }
+      },
+      {
+        "id": "methods",
+        "heading": {
+          "en": "Methods",
+          "pt": "Métodos"
+        }
+      },
+      {
+        "id": "results",
+        "heading": {
+          "en": "Results",
+          "pt": "Resultados"
+        }
+      },
+      {
+        "id": "discussion",
+        "heading": {
+          "en": "Discussion",
+          "pt": "Discussão"
+        }
+      },
+      {
+        "id": "conclusions",
+        "heading": {
+          "en": "Conclusions",
+          "pt": "Conclusões"
+        },
+        "required": false
+      }
+    ],
+    "limit": {
+      "unit": "words",
+      "max": 3500,
+      "count_sections": [
+        "introduction",
+        "methods",
+        "results",
+        "discussion",
+        "conclusions"
+      ],
+      "include_floats": false
+    },
+    "_comment": "[A] 'Electronic word count should start at Introduction and end at Conclusions', excluding title page, abstracts, tables, figures and references. Sections: 'Introduction, Methods, Results, Discussion, or equivalent'."
+  },
+  "references": {
+    "max": 45,
+    "require_identifier": false,
+    "reverify_after_days": 90,
+    "_comment": "[A] 45 for primary original research. No personal communications; avoid theses and congress abstracts; prefer the past 5 years; cite Brazilian and Latin American authors (LILACS, SciELO, J Vasc Bras)."
+  },
+  "figures": {
+    "max": null,
+    "placement": "legends-at-end",
+    "_comment": "[A] legends listed together at the end of the manuscript; figures as separate JPEG/GIF/TIFF files, 300 dpi minimum. No maximum stated."
+  },
+  "tables": {
+    "max": null,
+    "placement": "end",
+    "_comment": "[A] tables in the main document after the references, one per page; Word table tool, horizontal lines only. No maximum stated."
+  },
+  "required_declarations": [
+    "ethics",
+    "conflicts",
+    "funding",
+    "data-availability",
+    "author-contributions"
+  ],
+  "_required_declarations": "[A] ethics approval number (Parecer Consubstanciado, not only the CAAE), COI, funding, data availability statement and author contributions go on the title page. AI use: declare only if used beyond language editing or translation (Methods or final note), so it is not required here but listed in human_checks.",
+  "submission": {
+    "separate_title_page": true,
+    "blinded": true,
+    "number_sections": false,
+    "title_page_sections": [
+      "ethics",
+      "conflicts",
+      "funding",
+      "data-availability",
+      "author-contributions"
+    ],
+    "omit_in_blinded": [
+      "acknowledgments"
+    ],
+    "_comment": "[A] double-blind review; separate title page file (template linked from [A]); author and institution names removed from the main document ([C])."
+  },
+  "style": {
+    "allow_em_dash": false,
+    "allow_en_dash_ranges": false,
+    "p_value": null,
+    "no_abbreviations_in_title_abstract": true
+  },
+  "reporting_guideline": null,
+  "revision": {
+    "marking": "color",
+    "color": "FF0000",
+    "deleted": "strike",
+    "clean_name": "manuscript-clean.docx",
+    "marked_name": "manuscript-marked-red.docx",
+    "letter_name": "response-to-reviewers.docx",
+    "author": "Authors",
+    "_comment": "[A] 'Revised manuscripts should clearly indicate changes made to the text, in red font preferably' (PT: 'de preferência em vermelho'). Tracked changes are not mentioned. Deleted text struck through in red so removals are also visible; set \"deleted\": \"omit\" to drop it."
+  },
+  "human_checks": [
+    "Title includes the study design (e.g. prospective cohort, cross-sectional study) [A].",
+    "Title and abstract have no abbreviations; the short title (max 50 characters) has none either [A].",
+    "Ethics: approval number from the Consolidated Opinion (Parecer Consubstanciado), not only the CAAE, in the text and on the title page [A].",
+    "Informed consent stated in the article [A]; case reports and therapeutic challenges follow CONEP Carta Circular 166/2018 [A].",
+    "Randomized trial: registry and number (ReBEC UTN for Brazil) in the last line of the abstract and on the title page [A].",
+    "Preregistration: state in the acknowledgments whether the research was preregistered [A].",
+    "AI: declare any use beyond language editing or translation (tool, version or access date, purpose), in Methods or as a final note [A].",
+    "EQUATOR checklist uploaded with the manuscript page for each item [A][B]; Society for Vascular Surgery reporting standards if applicable [B].",
+    "ICMJE conflict-of-interest form completed by every author; Publication Agreement and Copyright License signed [A].",
+    "Author contributions use the journal's categories (Conception and design; Analysis and interpretation; Data collection; Writing the article; Critical revision; Final approval; Statistical analysis; Overall responsibility) [A, title-page template].",
+    "References: no personal communications; Brazilian and Latin American literature considered; mostly past 5 years [A]."
+  ],
+  "revision_checks": [
+    "Deadline: revised version within 1 month; ask jvascbras@organizasecretaria.com.br for an extension [A].",
+    "Submit as a revision of the same manuscript in ScholarOne, never as a new submission [A].",
+    "Justify every disagreement with a reviewer comment [A]."
+  ],
+  "article_types": {
+    "original": {
+      "_comment": "[A] primary original research: defaults above."
+    },
+    "secondary": {
+      "_comment": "[A] guidelines, consensus, systematic/integrative review, meta-analysis. Abstract 'Structured or not' in the English table ('Não estruturado' in the Portuguese table): structure kept optional here. Title must include the design (narrative review, systematic review, scoping review). Chronological literature descriptions are not accepted.",
+      "abstract": {
+        "structure": []
+      },
+      "main_text": {
+        "sections": [
+          {
+            "id": "introduction",
+            "heading": {
+              "en": "Introduction",
+              "pt": "Introdução"
+            }
+          }
+        ],
+        "limit": {
+          "max": 7000,
+          "count_sections": [
+            "introduction",
+            "methods",
+            "results",
+            "discussion",
+            "conclusions",
+            "body"
+          ]
+        }
+      },
+      "references": {
+        "max": 75
+      }
+    },
+    "innovation": {
+      "abstract": {
+        "limit": {
+          "max": 150
+        },
+        "structure": []
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "max": 3000,
+          "count_sections": [
+            "introduction",
+            "methods",
+            "results",
+            "discussion",
+            "conclusions",
+            "body"
+          ]
+        }
+      },
+      "references": {
+        "max": 30
+      },
+      "_comment": "[A] innovation: unstructured abstract 150, text 3,000, 30 references."
+    },
+    "brief-communication": {
+      "abstract": {
+        "limit": {
+          "max": 150
+        },
+        "structure": []
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "max": 1500,
+          "count_sections": [
+            "introduction",
+            "methods",
+            "results",
+            "discussion",
+            "conclusions",
+            "body"
+          ]
+        }
+      },
+      "references": {
+        "max": 25
+      },
+      "_comment": "[A] brief communication (Nota Prévia): 150 / 1,500 / 25."
+    },
+    "protocol": {
+      "abstract": {
+        "limit": {
+          "max": 150
+        },
+        "structure": []
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "max": 3000,
+          "count_sections": [
+            "introduction",
+            "methods",
+            "discussion",
+            "body"
+          ]
+        }
+      },
+      "references": {
+        "max": 50
+      },
+      "reporting_guideline": "SPIRIT",
+      "_comment": "[A] study protocol: 150 / 3,000 / 50; PRISMA-P or SPIRIT [B]."
+    },
+    "case-report": {
+      "abstract": {
+        "limit": {
+          "max": 150
+        },
+        "structure": []
+      },
+      "main_text": {
+        "sections": [
+          {
+            "id": "introduction",
+            "heading": {
+              "en": "Introduction",
+              "pt": "Introdução"
+            }
+          },
+          {
+            "id": "case",
+            "heading": {
+              "en": "Case description",
+              "pt": "Descrição do caso"
+            }
+          },
+          {
+            "id": "discussion",
+            "heading": {
+              "en": "Discussion",
+              "pt": "Discussão"
+            }
+          }
+        ],
+        "limit": {
+          "max": 1500,
+          "count_sections": [
+            "introduction",
+            "case",
+            "discussion",
+            "conclusions"
+          ]
+        }
+      },
+      "references": {
+        "max": 25
+      },
+      "reporting_guideline": "CARE",
+      "_comment": "[A] case report or series: unstructured abstract 150, text 1,500, 25 references; sections Introduction, Case Description, Discussion; only rare entities, pioneering or innovative treatments, or unexpected diagnostically documented results."
+    },
+    "therapeutic-challenge": {
+      "abstract": {
+        "limit": {
+          "max": 150
+        },
+        "structure": []
+      },
+      "main_text": {
+        "sections": [
+          {
+            "id": "introduction",
+            "heading": {
+              "en": "Introduction",
+              "pt": "Introdução"
+            }
+          },
+          {
+            "id": "clinical-situation",
+            "heading": {
+              "en": "Part I – Clinical situation",
+              "pt": "Parte I – Situação clínica"
+            }
+          },
+          {
+            "id": "what-was-done",
+            "heading": {
+              "en": "Part II – What was done",
+              "pt": "Parte II – O que foi feito"
+            }
+          },
+          {
+            "id": "discussion",
+            "heading": {
+              "en": "Discussion",
+              "pt": "Discussão"
+            }
+          }
+        ],
+        "limit": {
+          "max": 1500,
+          "count_sections": [
+            "introduction",
+            "clinical-situation",
+            "what-was-done",
+            "discussion"
+          ]
+        }
+      },
+      "references": {
+        "max": 25
+      },
+      "_comment": "[A] therapeutic challenge: 150 / 1,500 / 25; four parts. PT headings are this kit's translation, check the journal's template."
+    },
+    "letter": {
+      "abstract": {
+        "required": false,
+        "bilingual": false
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "max": 350,
+          "count_sections": [
+            "body"
+          ]
+        }
+      },
+      "references": {
+        "max": null
+      },
+      "required_declarations": [
+        "conflicts"
+      ],
+      "_comment": "[A] letter to the editor: 350 words, references optional; must address recently published articles of the same issue."
+    }
+  }
+}

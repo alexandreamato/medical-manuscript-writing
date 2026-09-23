@@ -29,6 +29,11 @@
         "heading": "Importance"
       },
       {
+        "id": "objectives",
+        "heading": "Objective",
+        "required": false
+      },
+      {
         "id": "methods",
         "heading": "Design, Setting, and Participants"
       },

@@ -6,7 +6,8 @@ this module then applies the manuscript conventions most journals ask for:
 
     "reference_docx": {
         "font": "Times New Roman", "size_pt": 12, "line_spacing": 2.0,
-        "line_numbers": true, "margins_cm": 2.5, "page_numbers": true
+        "line_numbers": true, "margins_cm": 2.5, "page_numbers": true,
+        "subheadings": "bold" | "italic"
     }
 
 If the journal supplies its own template, set "reference_docx": {"file":
@@ -25,7 +26,7 @@ from pathlib import Path
 import common as C
 
 DEFAULTS = {"font": "Times New Roman", "size_pt": 12, "line_spacing": 2.0, "line_numbers": True,
-            "margins_cm": 2.5, "page_numbers": True}
+            "margins_cm": 2.5, "page_numbers": True, "subheadings": "bold"}
 
 
 def _twips(cm: float) -> int:
@@ -54,6 +55,11 @@ def _styles(xml: str, s: dict) -> str:
                       ("Title", half_pts + 8)):
         xml = re.sub(rf'(w:styleId="{sid}">.*?<w:sz w:val=")\d+', rf"\g<1>{size}", xml, count=1, flags=re.S)
         xml = re.sub(rf'(w:styleId="{sid}">.*?<w:szCs w:val=")\d+', rf"\g<1>{size}", xml, count=1, flags=re.S)
+    # Section headings bold (the common journal default); subheadings bold, or
+    # italic when the journal asks for it ("subheadings": "italic").
+    sub = '<w:i />' if s.get("subheadings") == "italic" else '<w:b />'
+    for sid, mark in (("Heading1", '<w:b />'), ("Heading2", sub), ("Heading3", '<w:i />')):
+        xml = re.sub(rf'(w:styleId="{sid}">.*?<w:rPr>)', rf"\g<1>{mark}", xml, count=1, flags=re.S)
     return xml
 
 
@@ -75,9 +81,23 @@ FOOTER = ('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
           '<w:r><w:fldChar w:fldCharType="end" /></w:r></w:p></w:ftr>')
 
 
-def ensure(profile_id: str, settings: dict) -> Path:
+def _revision_styles(rev: dict) -> str:
+    """Character styles used by revdiff.py for the marked manuscript."""
+    color = rev.get("color", "FF0000")
+    ins = f'<w:color w:val="{color}" />'
+    if rev.get("marking") == "highlight":
+        ins = f'<w:highlight w:val="{rev.get("highlight", "yellow")}" />'
+    dele = f'<w:strike /><w:color w:val="{color}" />'
+    return (f'<w:style w:type="character" w:customStyle="1" w:styleId="RevisionInserted">'
+            f'<w:name w:val="Revision Inserted" /><w:rPr>{ins}</w:rPr></w:style>'
+            f'<w:style w:type="character" w:customStyle="1" w:styleId="RevisionDeleted">'
+            f'<w:name w:val="Revision Deleted" /><w:rPr>{dele}</w:rPr></w:style>')
+
+
+def ensure(profile_id: str, settings: dict, revision: dict | None = None) -> Path:
     s = {**DEFAULTS, **{k: v for k, v in (settings or {}).items() if not k.startswith("_")}}
-    digest = hashlib.sha1(json.dumps(s, sort_keys=True).encode()).hexdigest()[:8]
+    rev = {k: v for k, v in (revision or {}).items() if not k.startswith("_")}
+    digest = hashlib.sha1(json.dumps([s, rev], sort_keys=True).encode()).hexdigest()[:8]
     C.BUILD.mkdir(exist_ok=True)
     out = C.BUILD / f"reference-{profile_id}-{digest}.docx"
     if out.exists():
@@ -91,7 +111,10 @@ def ensure(profile_id: str, settings: dict) -> Path:
         for item in zin.infolist():
             data = zin.read(item.filename)
             if item.filename == "word/styles.xml":
-                data = _styles(data.decode("utf-8"), s).encode("utf-8")
+                xml = _styles(data.decode("utf-8"), s)
+                if rev.get("marking") in ("color", "highlight"):
+                    xml = xml.replace("</w:styles>", _revision_styles(rev) + "</w:styles>")
+                data = xml.encode("utf-8")
             elif item.filename == "word/document.xml":
                 xml = data.decode("utf-8")
                 xml = re.sub(r"<w:sectPr.*?</w:sectPr>", "", xml, flags=re.S)

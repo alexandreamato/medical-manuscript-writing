@@ -48,7 +48,7 @@ For author-date styles (APA, Harvard, Chicago Author-Date, Cell, some specialty 
 
 ### 2.3 Forest plots and flow diagrams
 
-1. The participant-flow diagram is mandatory under CONSORT, STROBE, PRISMA, and STARD.
+1. The participant-flow diagram is required by CONSORT, PRISMA, and STARD, and recommended by STROBE (item 13c: "consider use of a flow diagram").
 2. Forest plots in meta-analyses must report the model (fixed / random effects), the heterogeneity statistic, and the test for overall effect.
 
 ## 3. Punctuation and Style
