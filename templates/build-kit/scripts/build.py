@@ -112,9 +112,12 @@ def run_pandoc(out_file, runtime_meta, csl, refdoc, number_sections, lang, ast_i
     cmd = [C.require_pandoc(), "-f", fmt, "-t", "docx",
            "--metadata-file", str(C.METADATA), "--metadata-file", str(rt),
            "--resource-path", f"{C.KIT}:{C.MANUSCRIPT_DIR}",
+           # Order matters: cross-references, then citations, then the journal layer,
+           # which also strips every metadata field from the file (docProps/custom.xml
+           # would otherwise carry local paths and author data into blinded files).
            "--lua-filter", str(C.FILTERS / "crossref.lua"),
-           "--lua-filter", str(C.FILTERS / "journal.lua"),
            "--citeproc", "--csl", csl, "--bibliography", str(C.REFERENCES),
+           "--lua-filter", str(C.FILTERS / "journal.lua"),
            "--reference-doc", str(refdoc),
            "-M", f"lang={lang}", "-M", "link-citations=false",
            "-o", str(out_file), *inputs]

@@ -217,10 +217,12 @@ function Pandoc(doc)
     tp:extend(out)
     doc.blocks = tp
   end
-  -- The title page above replaces pandoc's own title/author block.
-  doc.meta.title = nil
-  doc.meta.author = nil
-  doc.meta.date = nil
-  doc.meta.subtitle = nil
+  -- The title page above replaces pandoc's own title/author block, and nothing
+  -- else from the metadata may reach the file: pandoc writes leftover fields to
+  -- docProps/custom.xml (local paths, affiliations, e-mails), which a blinded
+  -- manuscript must not carry. Only the language is kept.
+  local lang = doc.meta.lang
+  for k, _ in pairs(doc.meta) do doc.meta[k] = nil end
+  doc.meta.lang = lang
   return doc
 end

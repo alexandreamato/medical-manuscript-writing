@@ -96,7 +96,7 @@ Every file sent to a journal is named `<short-name>_<journal>[_rev<N>]_<part>.<e
 
 The source of truth is the Markdown. Send the generated .docx; co-authors comment or track changes; apply the accepted changes to the Markdown and rebuild. Do not convert an edited .docx back to Markdown after the initial conversion, because citations come back as static text. When co-authors must insert references themselves, have them name the reference in a comment (DOI or PMID) instead of inserting a citation.
 
-Tag each submission in git (`submission-1-<journal>`, `revision-1`). Each build writes `outputs/<journal>/_build-info.json` with the profile and its verification date, the CSL, the pandoc version and the commit, so any submitted file can be traced to its exact source. For the tracked-changes version required with a revision, compare the two tagged builds with Word's *Compare Documents*.
+Tag each submission in git (`submission-1-<journal>`, `revision-1`). Each build writes `outputs/<journal>/_build-info.json` with the profile and its verification date, the CSL, the pandoc version and the commit, so any submitted file can be traced to its exact source. For the marked version required with a revision, use the revision round (`build.py --revision N`): it separates the journal's edits from yours and marks yours as the journal asks (red text, highlight or tracked changes), with the same numbering as the clean file. Word's *Compare Documents* remains the tool when the manuscript lives in Word rather than in the kit, or to double-check a marked file against the submitted one; it cannot tell the journal's edits from yours.
 
 ## Limits of the kit
 

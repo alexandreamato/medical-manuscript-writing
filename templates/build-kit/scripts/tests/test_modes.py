@@ -72,8 +72,17 @@ class SubmissionGateTest(unittest.TestCase):
         self.assertEqual(re.findall(r"^ERROR.*$", out, re.M), [
             next(l for l in out.splitlines() if l.startswith("ERROR  example"))])
 
+        # Removing the flag changes the content: the sign-off no longer vouches for it.
         md = self.kit / "manuscript" / "metadata.yaml"
         md.write_text(re.sub(r"^example: true.*\n", "", md.read_text(), flags=re.M))
+        code, out = self.validate("--submission")
+        self.assertNotEqual(code, 0)
+        self.assertIn("content changed since the sign-off (manuscript/metadata.yaml)", out)
+        self.assertNotIn("- [x]", so.read_text())  # every tick cleared
+
+        # Review again, sign again: now it passes.
+        so.write_text(so.read_text().replace("- [ ] ", "- [x] ").replace("[name], [YYYY-MM-DD]",
+                                                                         "A. Author, 2026-09-24"))
         code, out = self.validate("--submission")
         self.assertEqual(code, 0, out)
 

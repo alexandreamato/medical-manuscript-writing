@@ -9,8 +9,12 @@ For every .docx to upload it writes, in <outputs>/_preview/:
     <name>-sheet.png    all pages side by side: open it and look at every page
 and _preview/_inspection.txt with checks that only the finished file allows:
 
-    ERROR  an author's name or e-mail in a blinded manuscript
+    ERROR  an author's name or e-mail, or a local file path, anywhere in a blinded
+           manuscript: body, headers, footers, footnotes, comments and the
+           document properties (docProps), which Word shows under File > Info
     ERROR  a revision "marked" file with no marked text at all
+    ERROR  a renderer that is installed but failed (the inspection is incomplete)
+    WARN   a renderer that is not installed (no PDF or page images)
     WARN   line numbers missing when the profile wants them; figure files and
            legends that do not match; placeholder text in the rendered file
     INFO   pages, tables, images, fonts
@@ -36,33 +40,87 @@ import validate as V
 
 
 def docx_text(path: Path) -> str:
+    """Text of the main document only (for legends and placeholders)."""
     xml = zipfile.ZipFile(path).read("word/document.xml").decode("utf-8")
     return " ".join(re.findall(r"<w:t[^>]*>([^<]*)</w:t>", xml))
 
 
-def render(docx: Path, outdir: Path) -> tuple[Path | None, list[Path]]:
+def docx_all_text(path: Path) -> dict[str, str]:
+    """Every part a reader or Word can show: body, headers, footers, footnotes,
+    endnotes, comments, and document properties (creator, custom fields)."""
+    parts = {}
+    with zipfile.ZipFile(path) as z:
+        for name in z.namelist():
+            if not name.endswith(".xml"):
+                continue
+            if name.startswith("docProps/"):
+                xml = z.read(name).decode("utf-8", "replace")
+                parts[name] = " ".join(re.findall(r">([^<>]+)<", xml))
+            elif re.match(r"word/(document|header\d*|footer[^/]*|footnotes|endnotes|comments[^/]*)\.xml$", name):
+                xml = z.read(name).decode("utf-8", "replace")
+                parts[name] = " ".join(re.findall(r"<w:t[^>]*>([^<]*)</w:t>", xml))
+    return parts
+
+
+LOCAL_PATH = re.compile(r"(/Users/[^\s<]+|/home/[^\s<]+|[A-Za-z]:\\[^\s<]+)")
+
+
+def render(docx: Path, outdir: Path, rep, label: str) -> Path | None:
+    """PDF, page images and contact sheet. Each step reports its own outcome:
+    a missing tool is a WARN (known gap), a tool that ran and failed an ERROR."""
+    def run(cmd, what):
+        try:
+            r = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
+        except subprocess.TimeoutExpired:
+            rep.error(label, f"{what} timed out")
+            return False
+        if r.returncode != 0:
+            rep.error(label, f"{what} failed (exit {r.returncode}): {(r.stderr or r.stdout).strip()[:200]}")
+            return False
+        return True
+
     soffice = shutil.which("soffice") or shutil.which("libreoffice")
     if not soffice:
-        return None, []
-    subprocess.run([soffice, "--headless", "--convert-to", "pdf", "--outdir", str(outdir), str(docx)],
-                   capture_output=True, text=True, timeout=180)
+        rep.warn(label, "LibreOffice not installed: no PDF rendered, open the file in Word and look")
+        return None
     pdf = outdir / (docx.stem + ".pdf")
+    ok = run([soffice, "--headless", "--convert-to", "pdf", "--outdir", str(outdir), str(docx)], "LibreOffice")
+    if ok and not pdf.exists():
+        rep.error(label, "LibreOffice reported success but wrote no PDF")
     if not pdf.exists():
-        return None, []
-    pages: list[Path] = []
-    if shutil.which("pdftoppm"):
-        prefix = outdir / f"{docx.stem}-page"
-        subprocess.run(["pdftoppm", "-r", "60", "-png", str(pdf), str(prefix)], capture_output=True)
-        pages = sorted(outdir.glob(f"{docx.stem}-page*.png"),
-                       key=lambda p: int(re.search(r"(\d+)\.png$", p.name).group(1)))
-        magick = shutil.which("magick") or shutil.which("montage")
-        if pages and magick:
-            cmd = [magick, "montage"] if magick.endswith("magick") else [magick]
-            subprocess.run(cmd + [*map(str, pages), "-tile", "4x", "-geometry", "+6+6", "-background", "#888888",
-                                  str(outdir / f"{docx.stem}-sheet.png")], capture_output=True)
-            for p in pages:
-                p.unlink()
-    return pdf, pages
+        return None
+    if not shutil.which("pdftoppm"):
+        rep.warn(label, "poppler (pdftoppm) not installed: PDF only, no page images")
+        return pdf
+    prefix = outdir / f"{docx.stem}-page"
+    if not run(["pdftoppm", "-r", "60", "-png", str(pdf), str(prefix)], "pdftoppm"):
+        return pdf
+    pages = sorted(outdir.glob(f"{docx.stem}-page*.png"),
+                   key=lambda p: int(re.search(r"(\d+)\.png$", p.name).group(1)))
+    if not pages:
+        rep.error(label, "pdftoppm wrote no page images")
+        return pdf
+    magick = shutil.which("magick") or shutil.which("montage")
+    if not magick:
+        rep.warn(label, "ImageMagick not installed: page images kept, no contact sheet")
+        return pdf
+    sheet = outdir / f"{docx.stem}-sheet.png"
+    cmd = [magick, "montage"] if magick.endswith("magick") else [magick]
+    # montage looks up a label font even with no labels; give it one that exists.
+    font = next((f for f in ("/System/Library/Fonts/Supplemental/Arial.ttf", "/Library/Fonts/Arial.ttf",
+                             "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf") if Path(f).exists()), None)
+    r = subprocess.run(cmd + (["-font", font] if font else []) +
+                       [*map(str, pages), "-tile", "4x", "-geometry", "+6+6", "-background", "#888888", str(sheet)],
+                       capture_output=True, text=True, timeout=300)
+    if sheet.exists():
+        if r.returncode != 0:
+            rep.warn(label, f"contact sheet written, but ImageMagick reported: {r.stderr.strip()[:150]}")
+        for p in pages:
+            p.unlink()
+    else:
+        rep.error(label, f"contact sheet not written (exit {r.returncode}: {r.stderr.strip()[:150]}); "
+                         "page images kept")
+    return pdf
 
 
 def pdf_pages(pdf: Path) -> int | None:
@@ -109,15 +167,18 @@ def main():
         part = f.stem.split("_")[-1]
         xml = zipfile.ZipFile(f).read("word/document.xml").decode("utf-8")
         text = docx_text(f)
-        pdf, _ = render(f, prev)
+        pdf = render(f, prev, rep, f.name)
         rendered |= pdf is not None
         pages = pdf_pages(pdf) if pdf else None
         rep.add("INFO", f.name, f"{pages if pages is not None else '?'} page(s), "
                                f"{xml.count('<w:tbl>')} table(s), {xml.count('<pic:pic')} image(s)")
         if part.startswith("manuscript") and blinded:
-            leaked = sorted(n for n in names if re.search(rf"\b{re.escape(n)}\b", text))
-            if leaked:
-                rep.error(f.name, "blinded manuscript contains author identity: " + ", ".join(leaked))
+            for where, ptext in docx_all_text(f).items():
+                leaked = sorted(n for n in names if re.search(rf"\b{re.escape(n)}\b", ptext))
+                if leaked:
+                    rep.error(f.name, f"blinded manuscript contains author identity in {where}: " + ", ".join(leaked))
+                for m in LOCAL_PATH.finditer(ptext):
+                    rep.error(f.name, f"blinded manuscript contains a local file path in {where}: {m.group(0)[:80]}")
         if part.startswith("manuscript") and want_ln and "<w:lnNumType" not in xml:
             rep.warn(f.name, "no line numbers, but the profile asks for them")
         if part == "manuscript-marked":

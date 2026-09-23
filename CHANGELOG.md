@@ -2,6 +2,26 @@
 
 All notable changes to the **Medical Manuscript Writing** skill are documented here. Format follows Keep a Changelog (https://keepachangelog.com/) using semantic-style versioning by content scope rather than strict semver.
 
+## [1.8.1] — 2026-09-23
+
+Responds to an external review of 1.8.0: no check may pass silently.
+
+### Fixed
+
+- **Blinded files leaked the author's identity.** pandoc wrote every metadata field into `docProps/custom.xml`, including the absolute path of the CSL file (`/Users/<name>/...`). The journal filter now runs after citeproc and strips all metadata except the language.
+- **Sign-off tied to one version.** `signoff/<journal>.md` records a fingerprint of the manuscript, metadata, references and figures; any change clears every tick and names the changed files.
+- **Estimate/CI divergence blocks submission.** In `--submission` it is an error unless fixed or resolved in the sign-off with a reason (`| because: ...`).
+- **Intervals are extracted, then validated.** Integer estimates (`HR 2, 95% CI 1 to 3`) are recognised; inverted limits and estimates outside their interval are reported as suspicious instead of being dropped. Values are compared numerically (`0.720` = `0,72`).
+- **Comparison sources.** Abstract estimates are matched only against the Results and tables, not the Introduction or Discussion.
+- **Anonymity scan covers the whole file** (body, headers, footers, footnotes, endnotes, comments, document properties) and flags local file paths.
+- **Rendering outcomes are checked.** LibreOffice, pdftoppm and ImageMagick results are reported per file: a missing tool is a WARN, a failure an ERROR. ImageMagick's label-font failure fixed by passing a font.
+
+### Changed
+
+- `SKILL.md` Output Contract: for a section revision, the outline, role labels and claim–evidence map are included only when they earn their place.
+- `references/docx-build.md`: when to use the revision round and when Word's *Compare Documents*.
+- 11 regression tests (33 in total).
+
 ## [1.8.0] — 2026-09-23
 
 Responds to two external reviews of 1.6.1 and 1.7.0.

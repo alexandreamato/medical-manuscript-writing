@@ -44,24 +44,50 @@ PLACEHOLDER_RE = re.compile(
 
 
 NUM = r"-?\d+(?:[.,]\d+)?"
+_SEP = r"(?:to|a|–|-|,\s)"
+_LABEL = (r"(?:95\s*%\s*)?(?:CI|confidence interval|IC|intervalo de confian[cç]a(?:\s+de\s+95\s*%)?|"
+          r"intervalo de confianza(?:\s+del?\s+95\s*%)?)")
+# Labelled ("HR 2, 95% CI 1 to 3", "0,72, intervalo de confiança de 95% 0,55 a 0,94")
+# or parenthesised ("0.72 (0.55 to 0.94)", a table cell). A bare "2018 to 2020" is neither.
 CI_RE = re.compile(
-    rf"({NUM})\s*[,;(]?\s*(?:\(?\s*(?:95\s*%\s*)?(?:CI|confidence interval|IC|intervalo de confian[cç]a"
-    rf"(?:\s+de\s+95\s*%)?|intervalo de confianza(?:\s+del?\s+95\s*%)?)\s*[,:]?\s*)?\(?\s*({NUM})\s*"
-    rf"(?:to|a|–|-|,)\s*({NUM})\s*\)?", re.I)
+    rf"(?P<est>{NUM})\s*[,;(]?\s*\(?\s*{_LABEL}\s*[,:]?\s*\(?\s*(?P<lo>{NUM})\s*{_SEP}\s*(?P<hi>{NUM})\s*\)?"
+    rf"|(?P<est2>{NUM})\s*\(\s*(?P<lo2>{NUM})\s*{_SEP}\s*(?P<hi2>{NUM})\s*\)", re.I)
+
+
+def _num(x: str) -> str:
+    """'0,720' -> '0.72', '2.0' -> '2': equal values compare equal."""
+    from decimal import Decimal, InvalidOperation
+    try:
+        d = Decimal(x.replace(",", "."))
+    except InvalidOperation:
+        return x
+    t = format(d.normalize(), "f")
+    return "0" if t in ("-0", "") else t
+
+
+def ci_extract(text: str) -> list[dict]:
+    """Every estimate with an interval, kept even when it looks wrong: extraction
+    and validation are separate so a suspicious interval is reported, not lost."""
+    out = []
+    for m in CI_RE.finditer(text):
+        est, lo, hi = (m.group("est"), m.group("lo"), m.group("hi")) if m.group("est") else \
+                      (m.group("est2"), m.group("lo2"), m.group("hi2"))
+        e, l, h = _num(est), _num(lo), _num(hi)
+        issue = None
+        try:
+            fe, fl, fh = float(e), float(l), float(h)
+            if fl > fh:
+                issue = "lower limit above upper limit"
+            elif not fl <= fe <= fh:
+                issue = "estimate outside its interval"
+        except ValueError:
+            issue = "not a number"
+        out.append({"triple": (e, l, h), "raw": m.group(0).strip(), "issue": issue})
+    return out
 
 
 def ci_triples(text: str) -> set[tuple[str, str, str]]:
-    """(estimate, lower, upper) with decimal commas normalised: '0,72 ... 0,55 a 0,94'
-    and 'HR 0.72, 95% CI 0.55 to 0.94' and a table cell '0.72 (0.55 to 0.94)' match."""
-    out = set()
-    for m in CI_RE.finditer(text):
-        est, lo, hi = (x.replace(",", ".") for x in m.groups())
-        try:
-            if float(lo) <= float(est) <= float(hi) and "." in est:
-                out.add((est, lo, hi))
-        except ValueError:
-            pass
-    return out
+    return {x["triple"] for x in ci_extract(text)}
 
 
 class Report:
@@ -121,27 +147,86 @@ def validate(prof: dict, doc: dict, mode: str = "draft") -> tuple[Report, dict]:
     return rep, stats
 
 
-# Warnings that must be resolved (not merely known) before upload.
+# Warnings that must be fixed before upload (a sign-off cannot waive them).
 GATED = ("references", "profile", "short-name", "authors", "language", "title", "keywords")
+# Warnings that block upload unless fixed or explicitly resolved, with a reason, in the sign-off.
+RESOLVABLE = ("abstract", "abstract-alt", "results")
+
+
+def resolvable(where: str, msg: str) -> bool:
+    return where in RESOLVABLE and ("estimate" in msg or "interval" in msg)
 
 
 def signoff_path(journal: str):
     return C.KIT / "signoff" / f"{journal}.md"
 
 
-def write_signoff(rep: Report, journal: str) -> str:
-    """Skeleton of signoff/<journal>.md with one checkbox per HUMAN item."""
+def content_files() -> list:
+    """What a sign-off vouches for: the text, metadata, references and figures."""
+    files = sorted(C.MANUSCRIPT_DIR.glob("*.md")) + [C.METADATA, C.REFERENCES]
+    fig = C.KIT / "figures"
+    if fig.exists():
+        files += sorted(p for p in fig.rglob("*") if p.is_file())
+    return [p for p in files if p.exists()]
+
+
+def fingerprints() -> dict[str, str]:
+    import hashlib
+    return {str(p.relative_to(C.KIT)): hashlib.sha256(p.read_bytes()).hexdigest()[:12] for p in content_files()}
+
+
+def combined(fps: dict) -> str:
+    import hashlib
+    return hashlib.sha256(json.dumps(fps, sort_keys=True).encode()).hexdigest()[:16]
+
+
+def read_signoff(journal: str) -> dict:
+    p = signoff_path(journal)
+    text = p.read_text(encoding="utf-8") if p.exists() else ""
+    fp = re.search(r"^Content fingerprint:\s*([0-9a-f]{16})", text, re.M)
+    files = re.search(r"<!-- files: (.*?) -->", text, re.S)
+    checked, reasons = set(), {}
+    for l in text.splitlines():
+        if l.lower().startswith("- [x] "):
+            item, _, why = l[6:].partition(" | because:")
+            checked.add(item.strip())
+            reasons[item.strip()] = why.strip()
+    return {"exists": p.exists(), "fingerprint": fp.group(1) if fp else None,
+            "files": dict(x.split("=") for x in files.group(1).split("; ") if "=" in x) if files else {},
+            "checked": checked, "reasons": reasons,
+            "signer": re.search(r"Signed off by:\s*(?!\[name\])(\S.*\d{4}-\d{2}-\d{2})", text)}
+
+
+def write_signoff(rep: Report, journal: str, warns: list | None = None) -> str:
+    """signoff/<journal>.md: one checkbox per HUMAN item and per resolvable warning.
+    Ticks survive only while the content they vouch for is unchanged."""
     p = signoff_path(journal)
     p.parent.mkdir(exist_ok=True)
-    old = p.read_text(encoding="utf-8") if p.exists() else ""
-    checked = {l[6:].strip() for l in old.splitlines() if l.lower().startswith("- [x] ")}
+    old = read_signoff(journal)
+    fps = fingerprints()
+    same = old["fingerprint"] == combined(fps)
+    checked = old["checked"] if same else set()
+    signer = old["signer"].group(1) if (same and old["signer"]) else "[name], [YYYY-MM-DD]"
     lines = [f"# Sign-off before submission: {journal}", "",
-             "Tick an item only after doing it. `validate.py --submission` refuses any unticked item.", "",
-             "Signed off by: [name], [YYYY-MM-DD]", ""]
+             "Tick an item only after doing it. `validate.py --submission` refuses any unticked item.",
+             "The fingerprint below is written by the kit: when the manuscript, metadata, references or",
+             "figures change, every tick is cleared and the review starts again.", "",
+             f"Signed off by: {signer}", f"Content fingerprint: {combined(fps)}",
+             "<!-- files: " + "; ".join(f"{k}={v}" for k, v in fps.items()) + " -->", "",
+             "## Human review", ""]
     for lv, where, msg in rep.items:
         if lv == "HUMAN":
             item = f"{where}: {msg}"
             lines.append(f"- [{'x' if item in checked else ' '}] {item}")
+    if warns is None:
+        warns = [f"{w}: {m}" for lv, w, m in rep.items if lv == "WARN" and resolvable(w, m)]
+    if warns:
+        lines += ["", "## Warnings to resolve", "",
+                  "Fix each one in the manuscript, or tick it and give the reason after `| because:`",
+                  "(e.g. the abstract reports the adjusted estimate and Table 2 the crude one).", ""]
+        for item in warns:
+            why = old["reasons"].get(item, "") if same else ""
+            lines.append(f"- [{'x' if item in checked else ' '}] {item} | because: {why}".rstrip())
     p.write_text("\n".join(lines) + "\n", encoding="utf-8")
     return str(p.relative_to(C.KIT))
 
@@ -153,22 +238,34 @@ def gate(rep: Report, prof: dict, meta: dict):
                              "(fictional authors, ethics approval, declarations). Replace it and remove the flag.")
     if prof.get("generic") or prof.get("illustrative"):
         rep.error("profile", "cannot submit against a generic or illustrative profile")
-    promoted = []
-    for i, (lv, where, msg) in enumerate(rep.items):
-        if lv == "WARN" and where in GATED:
-            promoted.append(i)
-    for i in promoted:
-        _, where, msg = rep.items[i]
-        rep.items[i] = ("ERROR", where, msg + " [blocks submission]")
-    p = signoff_path(prof["id"])
-    text = p.read_text(encoding="utf-8") if p.exists() else ""
-    checked = {l[6:].strip() for l in text.splitlines() if l.lower().startswith("- [x] ")}
-    signer = re.search(r"Signed off by:\s*(?!\[name\])(\S.*\d{4}-\d{2}-\d{2})", text)
-    pending = [f"{w}: {m}" for lv, w, m in rep.items if lv == "HUMAN" and f"{w}: {m}" not in checked]
-    if pending:
-        rel = write_signoff(rep, prof["id"])
-        rep.error("sign-off", f"{len(pending)} human-review item(s) not ticked in {rel}")
-    elif not signer:
+    so = read_signoff(prof["id"])
+    fps = fingerprints()
+    stale = so["exists"] and so["fingerprint"] != combined(fps)
+    if stale:
+        changed = sorted(k for k in set(fps) | set(so["files"]) if fps.get(k) != so["files"].get(k))
+        rep.error("sign-off", "content changed since the sign-off (" + (", ".join(changed[:6]) or "unknown")
+                  + (", ..." if len(changed) > 6 else "") + "): every tick was cleared, review again")
+        so = {**so, "checked": set(), "reasons": {}, "signer": None}
+    # Captured before promotion: the sign-off lists them as warnings to resolve.
+    to_resolve = [f"{w}: {m}" for lv, w, m in rep.items if lv == "WARN" and resolvable(w, m)]
+    for i, (lv, where, msg) in enumerate(list(rep.items)):
+        if lv != "WARN":
+            continue
+        item = f"{where}: {msg}"
+        if where in GATED:
+            rep.items[i] = ("ERROR", where, msg + " [blocks submission]")
+        elif resolvable(where, msg):
+            if item in so["checked"] and so["reasons"].get(item):
+                rep.items[i] = ("WARN", where, msg + f" [resolved in sign-off: {so['reasons'][item]}]")
+            else:
+                rep.items[i] = ("ERROR", where, msg + " [fix it, or resolve it with a reason in the sign-off]")
+    pending = [f"{w}: {m}" for lv, w, m in rep.items if lv == "HUMAN" and f"{w}: {m}" not in so["checked"]]
+    unresolved = [1 for lv, w, m in rep.items if lv == "ERROR" and "resolve it with a reason" in m]
+    if pending or unresolved or stale or not so["exists"]:
+        rel = write_signoff(rep, prof["id"], to_resolve)
+        if pending:
+            rep.error("sign-off", f"{len(pending)} human-review item(s) not ticked in {rel}")
+    elif not so["signer"]:
         rep.error("sign-off", f"{signoff_path(prof['id']).relative_to(C.KIT)}: fill 'Signed off by: name, YYYY-MM-DD'")
 
 
@@ -454,12 +551,19 @@ def _validate(prof: dict, doc: dict) -> tuple[Report, dict]:
                 rep.warn(scope, f"'{ab_}' first used without definition, e.g. 'hazard ratio (HR)'")
 
     # Estimates with confidence intervals: the same (estimate, lower, upper)
-    # triple must appear in the Results or tables, and in both abstracts.
+    # triple must appear in the Results or in a table, and in both abstracts.
     # Structured, but still a screen: it cannot tell which outcome, group or
     # time point a triple belongs to (that is the claim-evidence map's job).
     if "abstract" in full:
-        rest = " ".join(v for k_, v in full.items() if k_ not in ("abstract", "abstract-alt"))
-        body_triples = ci_triples(rest)
+        tables = " ".join(C.text_of_blocks([b for s_ in secs.values() for b in s_["blocks"] if C.is_float(b)],
+                                           include_floats=True))
+        sources = full.get("results", "") + " " + tables
+        body_triples = ci_triples(sources)
+        for where_, txt in (("abstract", full["abstract"]), ("abstract-alt", full.get("abstract-alt", "")),
+                            ("results", sources)):
+            for x in ci_extract(txt):
+                if x["issue"]:
+                    rep.warn(where_, f"suspicious interval '{x['raw']}': {x['issue']}")
         main_triples = ci_triples(full["abstract"])
         for tr in sorted(main_triples):
             if tr not in body_triples:
@@ -471,6 +575,7 @@ def _validate(prof: dict, doc: dict) -> tuple[Report, dict]:
                 side = "abstract-alt" if tr in alt else "abstract"
                 rep.warn("abstract-alt", f"estimate {tr[0]} ({tr[1]} to {tr[2]}) is only in `{side}`: "
                                          "the two abstracts must report the same results")
+        rest = " ".join(v for k_, v in full.items() if k_ not in ("abstract", "abstract-alt"))
         # Screening for other numbers (counts, percentages): present somewhere else at all?
         norm = lambda x: x.replace(",", "")
         rest_nums = set(re.findall(r"\d+(?:\.\d+)?", norm(rest)))

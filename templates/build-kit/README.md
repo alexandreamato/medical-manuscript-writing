@@ -80,15 +80,18 @@ A clean `validate.py` means **valid draft**, not ready to submit. Before upload:
    - references not verified, incomplete, expired or flagged `check`;
    - generic, illustrative or unverified journal profiles;
    - every human-review item not ticked in `signoff/<journal>.md`. The file is written for you with one checkbox per item, and needs "Signed off by: name, date".
+   - an estimate whose 95% CI in the abstract differs from the Results or tables, or between the two abstracts, unless you fix it or tick it in the sign-off with the reason (`| because: the abstract gives the adjusted estimate`).
+
+   The sign-off records a fingerprint of the manuscript, metadata, references and figures. When any of them changes, every tick is cleared and the review starts again: a sign-off vouches for one version only.
 
    `--force` is refused in this mode.
 2. **Look at the product.** `preview.py` renders every file to PDF and a contact sheet of all pages (`outputs/<journal>/_preview/`, with LibreOffice and poppler). It checks what only the finished file shows:
-   - an author's name or e-mail left in the blinded manuscript (ERROR);
+   - an author's name or e-mail, or a local file path, anywhere in the blinded manuscript: body, headers, footers, footnotes, comments and document properties (ERROR). The build already writes no metadata into the files;
    - a revision "marked" file with nothing marked;
    - missing line numbers;
    - figure files that do not match the legends.
 
-   Then open the contact sheet and look at every page.
+   Each rendering step reports its outcome: a missing tool is a warning, a tool that ran and failed is an error, so an incomplete inspection never looks complete. Then open the contact sheet and look at every page.
 
 ## Revision rounds
 
@@ -141,7 +144,7 @@ In `responses.md`, one `##` per comment, the comment quoted with `>`, the answer
 ## What the validator checks
 
 - **ERROR (build stops):** word/character limits per scope, required sections and abstract parts, missing declarations, citation keys absent from `references.json`, duplicate DOIs, retracted, mismatched or not-found references, a source with neither identifier nor manual verification when the journal requires identifiers, figures/tables cited but not defined or defined but never cited, figure/table/reference caps, keyword count, ORCID presence and format, corresponding author, placeholders left in text (`[CITATION NEEDED]`, `TODO`, `[N]`, `[exposure]`).
-- **WARN:** unverified, incomplete, expired (> 90 days) or to-check references, references without identifier or manual verification, references never cited, abbreviations used before definition, an estimate with its 95% CI in the abstract that does not appear with the same interval in the Results or tables, results that differ between the two abstracts, other abstract numbers that appear nowhere else (a screen: it cannot tell outcome, group or time point apart), em-dashes and en-dash ranges (unless the profile allows them), P-value style, source order of figures/tables, profile not verified or out of date.
+- **WARN:** unverified, incomplete, expired (> 90 days) or to-check references, references without identifier or manual verification, references never cited, abbreviations used before definition, an estimate with its 95% CI in the abstract that does not appear with the same interval in the Results or tables (only those count, not the Introduction or Discussion), a suspicious interval (lower limit above upper, estimate outside its interval), results that differ between the two abstracts, other abstract numbers that appear nowhere else (a screen: it cannot tell outcome, group or time point apart), em-dashes and en-dash ranges (unless the profile allows them), P-value style, source order of figures/tables, profile not verified or out of date.
 - **HUMAN:** the reporting checklist for the study design (CONSORT 2025, STROBE, PRISMA 2020, …), the claim–evidence map, and whether each citation supports its sentence. Code cannot judge these; the report lists them so nobody forgets.
 
 ## Co-authors

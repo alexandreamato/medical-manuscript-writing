@@ -4,7 +4,7 @@ description: Write and revise medical and biomedical manuscripts (RCTs, cohort, 
 license: CC-BY-4.0
 metadata:
   author: Alexandre Campos Moraes Amato
-  version: 1.8.0
+  version: 1.8.1
 ---
 # Medical Manuscript Writing
 
@@ -56,7 +56,7 @@ Writing fixes writing, not a design limitation or a missing analysis. Stop when 
 ## Output Contract
 
 - **Point edit:** revised text and at most a few lines of notes. No outline, labels or checklist.
-- **Section revision:** a 3 to 7 bullet outline mapped to the guideline items; the revised section (paragraph role labels only if asked or if structure was the problem); open issues; a claim–evidence map for changed or doubtful claims: `Claim | Type: prior knowledge / own finding / interpretation | Evidence | Status: supported / needs evidence / overstated`.
+- **Section revision:** the revised section and its open issues. Add, only when they earn their place: an outline (3 to 7 bullets mapped to the guideline items) when the structure changed or the section is long; paragraph role labels when asked or when structure was the problem; a claim–evidence map (`Claim | Type: prior knowledge / own finding / interpretation | Evidence | Status: supported / needs evidence / overstated`) when claims were added, changed or are doubtful. A light copy-edit of a section needs none of them.
 - **Submission preparation:** the manuscript, and a separate audit: claim–evidence map of major claims, guideline mapping, remaining problems grouped as in the Stopping Rule.
 
 ## Where to Look
