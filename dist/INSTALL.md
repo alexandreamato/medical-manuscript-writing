@@ -1,12 +1,12 @@
-# Medical Manuscript Writing — Installation guide
+# Medical Manuscript Writing: Installation guide
 
 Three install formats are provided in this folder. Pick the one that matches where you want the skill to run.
 
 | File | Where it installs | Size |
 | --- | --- | --- |
-| `medical-manuscript-writing-claudeai.zip` | Claude.ai web/desktop (uploaded skill) | ~330 KB |
-| `medical-manuscript-writing-local.zip` | Claude Code or Cowork (local skills folder) | ~330 KB |
-| `medical-manuscript-writing-plugin.zip` | Claude Code plugin (with `.claude-plugin/plugin.json`) for marketplace or shared distribution | ~330 KB |
+| `medical-manuscript-writing-claudeai.zip` | Claude.ai web/desktop (uploaded skill) | ~410 KB |
+| `medical-manuscript-writing-local.zip` | Claude Code or Cowork (local skills folder) | ~410 KB |
+| `medical-manuscript-writing-plugin.zip` | Claude Code plugin (with `.claude-plugin/plugin.json`) for marketplace or shared distribution | ~410 KB |
 
 All three contain the same skill content. Only the wrapping differs.
 
@@ -23,11 +23,11 @@ Requires Claude Pro, Max, Team, or Enterprise.
 
 To invoke it in a chat, ask Claude something like: "Use the medical manuscript writing skill to draft the Methods section of my RCT."
 
-To update later, upload the same zip again — Claude.ai replaces the existing skill.
+To update later, upload the same zip again: Claude.ai replaces the existing skill.
 
 ---
 
-## 2. Claude Code or Cowork — local skills folder
+## 2. Claude Code or Cowork: local skills folder
 
 For personal use on your Mac (or Linux/Windows). The skill lives in your home folder and is automatically discovered.
 
@@ -45,7 +45,7 @@ ls ~/.claude/skills/medical-manuscript-writing/SKILL.md
 
 Restart Claude Code (or open a new Cowork conversation). Confirm it loaded:
 
-- In Claude Code: run `/skills` — the skill should appear in the list.
+- In Claude Code: run `/skills`: the skill should appear in the list.
 - In Cowork: it appears under `<available_skills>` in any new session.
 
 Updating later: delete the folder and re-extract, or `rsync -a --delete medical-manuscript-writing/ ~/.claude/skills/medical-manuscript-writing/`.
@@ -75,13 +75,7 @@ medical-manuscript-writing-plugin/
 
 Install options:
 
-A. Drop into a personal marketplace folder (simplest):
-
-```
-unzip medical-manuscript-writing-plugin.zip -d ~/my-claude-marketplace/
-```
-
-Then in Claude Code: `/plugin marketplace add ~/my-claude-marketplace` followed by `/plugin install medical-manuscript-writing`.
+A. A personal marketplace folder: unzip into it (`unzip medical-manuscript-writing-plugin.zip -d ~/my-claude-marketplace/plugins/`) and add a `.claude-plugin/marketplace.json` at the folder's top level listing the plugin (a marketplace needs that file; see Anthropic's plugin docs at https://docs.claude.com). Then in Claude Code: `/plugin marketplace add ~/my-claude-marketplace` and `/plugin install medical-manuscript-writing`.
 
 B. Publish through GitHub for shared use:
 
@@ -104,13 +98,13 @@ unzip medical-manuscript-writing-plugin.zip
 
 After install in any of the three formats, ask Claude:
 
-> List the section guides in the medical-manuscript-writing skill.
+> What does the medical-manuscript-writing skill cover?
 
-A correctly loaded skill returns the five Section Guide groups from `SKILL.md` (A. Section guides, B. Article types, C. Cross-cutting standards, D. Form/format/presentation, E. Writing quality and process). If it does not, the skill is not loaded — check the install path and restart the client.
+A correctly loaded skill answers from `SKILL.md`: the three working modes (point edit, section revision, submission preparation), the integrity rules and the "Where to Look" map. If it does not, the skill is not loaded: check the install path and restart the client.
 
 ## Updating
 
-The version is recorded in two places: `CHANGELOG.md` (current: `1.8.0` — 2026-09-23) and (plugin format only) `.claude-plugin/plugin.json`. `dist/build-zips.sh` reads the version from `CHANGELOG.md` and writes it into `plugin.json`, so bump only the changelog, then run `bash dist/build-zips.sh`.
+The version is recorded in `CHANGELOG.md` (current: `1.8.0`, 2026-09-23), in `SKILL.md` (`metadata.version`) and (plugin format only) `.claude-plugin/plugin.json`. `dist/build-zips.sh` reads the version from `CHANGELOG.md` and writes it into `plugin.json`, so bump only the changelog, then run `bash dist/build-zips.sh`.
 
 ## License
 

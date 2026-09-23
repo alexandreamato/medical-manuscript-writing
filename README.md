@@ -1,9 +1,10 @@
 # Medical Manuscript Writing: Skill
 
-A Claude skill for writing and revising medical and biomedical manuscripts of any type (original research, systematic review, meta-analysis, narrative or evidence-based clinical review, case report, brief report).
+A Claude skill for writing and revising medical and biomedical manuscripts of any type (original research, systematic review, meta-analysis, narrative or evidence-based clinical review, case report, brief report), from title to response to reviewers.
 
-**Author:** Alexandre Campos Moraes Amato
-**License:** see LICENSE file in this repository
+**Author:** Alexandre Campos Moraes Amato (ORCID [0000-0003-4008-4029](https://orcid.org/0000-0003-4008-4029))
+**Version:** 1.8.0 (see [`CHANGELOG.md`](CHANGELOG.md))
+**License:** CC BY 4.0 ([`LICENSE`](LICENSE))
 
 ## Installation
 
@@ -15,7 +16,7 @@ Three install formats are available. Pick the one that matches your environment.
 | **Local skill** | Claude Code or Cowork: personal Mac/Linux/Windows |
 | **Plugin** | Claude Code plugin for team or marketplace distribution |
 
-All three contain the same skill content; only the packaging differs. The zips are not stored in git (`.gitignore` excludes `dist/*.zip`): build them with `bash dist/build-zips.sh`, which writes them to [`dist/`](dist/) and takes the version from `CHANGELOG.md`, or download them from the repository's GitHub Releases when published there.
+All three contain the same skill content; only the packaging differs. Download the zips from the repository's [GitHub Releases](https://github.com/alexandreamato/medical-manuscript-writing/releases), or build them yourself with `bash dist/build-zips.sh` (they are not stored in git; the version comes from `CHANGELOG.md`).
 
 `agents/openai.yaml` is optional interface metadata for OpenAI Codex / ChatGPT skills (display name, short description, default prompt; see https://developers.openai.com/codex/skills). Claude ignores it; it lets the same folder be installed as a Codex skill.
 
@@ -23,7 +24,7 @@ All three contain the same skill content; only the packaging differs. The zips a
 
 1. Open Claude.ai → click your initials → **Settings** → **Capabilities** → **Skills**.
 2. Click **Upload skill**.
-3. Upload `dist/medical-manuscript-writing-claudeai.zip`.
+3. Upload `medical-manuscript-writing-claudeai.zip` (from Releases, or `dist/` after building).
 
 To invoke it, ask Claude: *"Use the medical manuscript writing skill to draft the Methods section of my RCT."*
 
@@ -49,30 +50,29 @@ rsync -a --delete medical-manuscript-writing/ ~/.claude/skills/medical-manuscrip
 ### 3. Claude Code plugin (team / marketplace)
 
 ```bash
-unzip dist/medical-manuscript-writing-plugin.zip
+unzip medical-manuscript-writing-plugin.zip
 /plugin install ./medical-manuscript-writing-plugin
 ```
 
-Or install directly from this repository:
-
-```bash
-/plugin marketplace add alexandreamato/medical-manuscript-writing
-/plugin install medical-manuscript-writing
-```
+The repository itself is laid out as a skill, not as a plugin marketplace, so `/plugin marketplace add` does not apply to it.
 
 ### Verifying the install
 
-Ask Claude: *"List the section guides in the medical-manuscript-writing skill."*
-
-A correctly loaded skill returns the five Section Guide groups from `SKILL.md` (Section guides; Article types; Cross-cutting standards; Form, format, and presentation; Writing quality and process).
+Ask Claude: *"What does the medical-manuscript-writing skill cover?"* A correctly loaded skill answers from `SKILL.md`: the three working modes (point edit, section revision, submission preparation), the integrity rules, and the "Where to Look" map of reference files.
 
 ---
 
 ## What this skill does
 
-The skill guides authors through every stage of manuscript writing (from drafting through critical self-reading, formal pre-submission review, and responding to reviewers) aligned with the relevant reporting standard for the study type (CONSORT, STROBE, PRISMA, STARD, CARE, TRIPOD, ARRIVE, SPIRIT).
+The skill guides authors through every stage of manuscript writing, from drafting through critical self-reading, formal pre-submission review, and responding to reviewers, aligned with the reporting standard for the study type (CONSORT 2025, SPIRIT 2025, STROBE, PRISMA 2020 and its extensions, STARD 2015, CARE, TRIPOD+AI, ARRIVE 2.0, and others).
 
-Entry point: [`SKILL.md`](SKILL.md). All section guides are in [`references/`](references/).
+How it works:
+
+- **The work matches the request.** A paragraph edit returns the paragraph and only the notes the author needs; a section revision adds an outline, open issues and a claim–evidence map; submission preparation adds a full audit, delivered separately from the manuscript.
+- **Integrity rules come first.** No fabricated references, data or results; every claim is checked against the evidence its type needs (prior knowledge: a citation; the study's own findings: the Results; interpretation: both); scientific changes are proposed to the authors, never made silently. Journal-specific conventions (reference style, dashes, file format) are defaults that the journal's instructions override.
+- **It knows when to stop.** Writing fixes writing; design limitations and missing analyses are listed for the authors instead of being argued around in prose.
+
+Entry point: [`SKILL.md`](SKILL.md). All guides are in [`references/`](references/).
 
 ## Companion tools
 
@@ -81,12 +81,13 @@ Browser-based diagram generators are integrated as the preferred options for the
 - **CONSORT Flow Diagram Generator**: https://enciclopedia.med.br/consort2010 (parallel-2/3, crossover, cluster, factorial; same box structure as the CONSORT 2025 diagram, relabel follow-up/analysis boxes "for primary outcome")
 - **PRISMA 2020 Flow Diagram Generator**: https://enciclopedia.med.br/prisma2020 (new and updated reviews; English and Portuguese)
 - **STROBE Flow Diagram Generator**: https://enciclopedia.med.br/strobe (cohort, case-control, cross-sectional; count-consistency check; JSON save/load)
+- **CARE Timeline Generator**: https://enciclopedia.med.br/care-timeline (case-report timelines by section, date or both)
 
 All released under CC BY 4.0.
 
 ## Reference files
 
-The skill comprises 34 reference files organized in five thematic groups (Section guides; Article types; Cross-cutting standards; Form, format, and presentation; Writing quality and process). See `SKILL.md` for the full map and the Quick Start by Scenario.
+The skill comprises 34 reference files: section guides (title, abstract, introduction, methods, results, discussion), article types (case report, systematic review, narrative review), standards (reporting guidelines, study types, statistical reporting, ethics), presentation (conventions, citation styles, figures and tables, diagrams, statistical figures, the build kit), and process (writing process, flow, self-reading, pre-submission review, responses to reviewers, cover letter, journal selection, non-native authors, glossary), plus a bank of fictional worked examples for abstracts, introductions, methods, results and discussions. `SKILL.md` ends with the full map ("Where to Look").
 
 ## Manuscript starter templates
 
@@ -103,7 +104,18 @@ Each template contains the standard section structure, placeholder text, and inl
 
 ## Procedural .docx build
 
-[`templates/build-kit/`](templates/build-kit/) keeps the manuscript as Markdown sections under git, references as CSL-JSON cited by key, and each journal's rules as a JSON profile, then generates the submission files with pandoc. Reference and figure/table numbering are recomputed on every build; changing journal is choosing another profile. A standard-library Python validator checks limits, required sections and declarations, citations, and placeholders; `refs.py` adds references by DOI or PMID and verifies them against Crossref and PubMed, including retractions. Workflow and agent rules: [`references/docx-build.md`](references/docx-build.md). Requires pandoc ≥ 3.1.
+[`templates/build-kit/`](templates/build-kit/) is optional: use it for new manuscripts, or when a manuscript will go through many revisions or several journals. Existing Word files are revised in Word as usual. The kit keeps the manuscript as Markdown sections under git, references as CSL-JSON cited by key, and each journal's rules as a JSON profile, then generates the submission files with pandoc.
+
+- **Numbering by construction.** References and figures/tables are renumbered by first mention on every build; changing journal is choosing another profile (style, headings, limits, title page, blinding).
+- **Journal profiles.** The default is the **Jornal Vascular Brasileiro** (bilingual title, abstract and keywords; declarations on the title page; double-blind files; superscript Vancouver), with every rule annotated with the page it was read on. Also included: a generic ICMJE profile for drafting and an illustrative second profile.
+- **References.** `refs.py` adds them by DOI or PMID (never typed by hand), verifies title, year and first author against Crossref and PubMed, flags retractions and corrections, and re-checks after 90 days. Sources without DOI/PMID are recorded with who checked them and how.
+- **Validation.** Word limits with their counting scope, required sections, abstract structure in both languages, declarations, citations, estimate/CI consistency between abstract and results, placeholders, ORCIDs.
+- **Draft is not ready.** `--submission` blocks example content, unverified references, generic profiles and any human-review item not signed off.
+- **Preview.** `preview.py` renders every file to PDF and a contact sheet of all pages, and catches author names left in a blinded file.
+- **Revision rounds.** The .docx the journal sends back is compared with what was submitted (tracked changes, comments and untracked edits); accepted edits go into the source first. Then the clean file, the file with your changes marked as the journal asks (red text for J Vasc Bras, or Word tracked changes) and the response letter are generated, with identical numbering.
+- **File names.** One rule for every upload: `<short-name>_<journal>[_rev<N>]_<part>.<ext>`.
+
+Python standard library only, plus pandoc ≥ 3.1 (LibreOffice and poppler for the preview). 22 tests: `cd templates/build-kit && python3 -m unittest discover -s scripts/tests`. Workflow and agent rules: [`references/docx-build.md`](references/docx-build.md); commands: [`templates/build-kit/README.md`](templates/build-kit/README.md).
 
 ## Quick reference files
 
@@ -112,6 +124,10 @@ Each template contains the standard section structure, placeholder text, and inl
 - [`references/research-apis.md`](references/research-apis.md): ten open APIs for programmatic literature work (Crossref, OpenAlex, Semantic Scholar, DataCite, NCBI E-utilities, Europe PMC, CORE, arXiv, ORCID, OpenCitations) with authentication, rate-limit guidance, and "best API by goal" mapping.
 - [`references/citation-styles.md`](references/citation-styles.md): Vancouver (default), comparison table, reference-manager workflow, hard rules. Paired with [`references/citation-styles-detail.md`](references/citation-styles-detail.md) for AMA, APA 7, Harvard, Chicago 18, and CSE detail.
 - [`references/paragraph-flow.md`](references/paragraph-flow.md): paragraph-, section-, and manuscript-level flow rules; reverse-outlining workflow; transitions by function; symptom → fix table.
+- [`references/title.md`](references/title.md): titles, running titles and keywords (MeSH, DeCS), in one or two languages.
+- [`references/cover-letter.md`](references/cover-letter.md): the cover letter for initial submission.
+- [`references/journal-selection.md`](references/journal-selection.md): choosing a journal, spotting predatory journals, preprints and the ICMJE policy.
+- [`references/non-native-authors.md`](references/non-native-authors.md): writing in English as a Portuguese-speaking author.
 
 ## Versioning and license
 
@@ -135,8 +151,16 @@ The skill synthesizes guidance from peer-reviewed methodological papers, officia
 - Bossuyt PM, Reitsma JB, Bruns DE, Gatsonis CA, Glasziou PP, Irwig L, et al. STARD 2015: an updated list of essential items for reporting diagnostic accuracy studies. *BMJ* 2015;351:h5527.
 - Cohen JF, Korevaar DA, Altman DG, Bruns DE, Gatsonis CA, Hooft L, et al. STARD 2015 guidelines for reporting diagnostic accuracy studies: explanation and elaboration. *BMJ Open* 2016;6:e012799. doi:10.1136/bmjopen-2016-012799
 - Gagnier JJ, Kienle G, Altman DG, Moher D, Sox H, Riley D; CARE Group. The CARE guidelines: consensus-based clinical case reporting guideline development. *J Med Case Reports* 2013;7:223. https://www.care-statement.org
-- Collins GS, Reitsma JB, Altman DG, Moons KGM. Transparent Reporting of a multivariable prediction model for Individual Prognosis Or Diagnosis (TRIPOD): the TRIPOD Statement. *BMJ* 2015;350:g7594.
-- Collins GS, Moons KGM, Dhiman P, Riley RD, Beam AL, Van Calster B, et al. TRIPOD+AI statement: updated guidance for reporting clinical prediction models that use regression or machine learning methods. *BMJ* 2024;385:e078378.
+- Collins GS, Moons KGM, Dhiman P, Riley RD, Beam AL, Van Calster B, et al. TRIPOD+AI statement: updated guidance for reporting clinical prediction models that use regression or machine learning methods. *BMJ* 2024;385:e078378. doi:10.1136/bmj-2023-078378
+- Collins GS, Reitsma JB, Altman DG, Moons KGM. Transparent Reporting of a multivariable prediction model for Individual Prognosis Or Diagnosis (TRIPOD): the TRIPOD Statement. *BMJ* 2015;350:g7594. (superseded by TRIPOD+AI)
+- Gallifant J, et al. The TRIPOD-LLM reporting guideline for studies using large language models. *Nat Med* 2025;31(1):60-69. doi:10.1038/s41591-024-03425-5
+- Rethlefsen ML, et al. PRISMA-S: an extension to the PRISMA statement for reporting literature searches in systematic reviews. *Syst Rev* 2021;10(1):39. doi:10.1186/s13643-020-01542-z
+- McInnes MDF, et al. Preferred Reporting Items for a Systematic Review and Meta-analysis of Diagnostic Test Accuracy Studies: the PRISMA-DTA statement. *JAMA* 2018;319(4):388-396. doi:10.1001/jama.2017.19163
+- Campbell M, et al. Synthesis without meta-analysis (SWiM) in systematic reviews: reporting guideline. *BMJ* 2020;368:l6890. doi:10.1136/bmj.l6890
+- Kottner J, et al. Guidelines for Reporting Reliability and Agreement Studies (GRRAS) were proposed. *J Clin Epidemiol* 2011;64(1):96-106. doi:10.1016/j.jclinepi.2010.03.002
+- Lang TA, Altman DG. Basic statistical reporting for articles published in biomedical journals: the SAMPL Guidelines. *Int J Nurs Stud* 2015;52(1):5-9. doi:10.1016/j.ijnurstu.2014.09.006
+- Heidari S, et al. Sex and Gender Equity in Research: rationale for the SAGER guidelines and recommended use. *Res Integr Peer Rev* 2016;1:2. doi:10.1186/s41073-016-0007-6
+- Piaggio G, et al. Reporting of noninferiority and equivalence randomized trials: extension of the CONSORT 2010 statement. *JAMA* 2012;308(24):2594-2604. doi:10.1001/jama.2012.87802
 - Percie du Sert N, Hurst V, Ahluwalia A, Alam S, Avey MT, Baker M, et al. The ARRIVE guidelines 2.0: Updated guidelines for reporting animal research. *PLoS Biol* 2020;18(7):e3000410.
 - Chan AW, Boutron I, Hopewell S, Moher D, Schulz KF, Collins GS, et al. SPIRIT 2025 statement: updated guideline for protocols of randomised trials. *BMJ* 2025;389:e081477. doi:10.1136/bmj-2024-081477
 - Hróbjartsson A, Boutron I, Hopewell S, Moher D, Schulz KF, Collins GS, et al. SPIRIT 2025 explanation and elaboration: updated guideline for protocols of randomised trials. *BMJ* 2025;389:e081660. doi:10.1136/bmj-2024-081660
@@ -220,6 +244,8 @@ The skill synthesizes guidance from peer-reviewed methodological papers, officia
 - Whiting PF, Rutjes AWS, Westwood ME, Mallett S, Reitsma JB, Leeflang MMG, et al. QUADAS-2: a revised tool for the quality assessment of diagnostic accuracy studies. *Ann Intern Med* 2011;155(8):529-536.
 - Guyatt GH, Oxman AD, Vist GE, Kunz R, Falck-Ytter Y, Alonso-Coello P, et al. GRADE: an emerging consensus on rating quality of evidence and strengths of recommendations. *BMJ* 2008;336:924-926.
 - VanderWeele TJ, Ding P. Sensitivity Analysis in Observational Research: Introducing the E-Value. *Ann Intern Med* 2017;167(4):268-274.
+- Hoenig JM, Heisey DM. The abuse of power: the pervasive fallacy of power calculations for data analysis. *Am Stat* 2001;55(1):19-24. doi:10.1198/000313001300339897
+- Button KS, et al. Power failure: why small sample size undermines the reliability of neuroscience. *Nat Rev Neurosci* 2013;14(5):365-376. doi:10.1038/nrn3475
 
 ## Citation styles and reference management
 
@@ -238,6 +264,7 @@ The skill synthesizes guidance from peer-reviewed methodological papers, officia
 - Amato ACM. PRISMA 2020 Flow Diagram Generator [Internet]. São Paulo: enciclopedia.med.br; 2025. Available from: https://enciclopedia.med.br/prisma2020
 - Amato ACM. CONSORT 2010 Flow Diagram Generator [Internet]. São Paulo: enciclopedia.med.br; 2025. Available from: https://enciclopedia.med.br/consort2010
 - Amato ACM. STROBE Flow Diagram Generator [Internet]. São Paulo: enciclopedia.med.br; 2026. Available from: https://enciclopedia.med.br/strobe
+- Jornal Vascular Brasileiro. Instructions to authors [Internet]. Available from: https://www.jvascbras.org/instructions (read 2026-09-23; basis of the kit's `jvb` profile)
 - Textor J, van der Zander B, Gilthorpe MS, Liśkiewicz M, Ellison GTH. Robust causal inference using directed acyclic graphs: the R package "dagitty". *Int J Epidemiol* 2016;45(6):1887-1894. https://www.dagitty.net
 - Mermaid: text-to-diagram syntax. https://mermaid.js.org
 
@@ -253,7 +280,8 @@ The skill synthesizes guidance from peer-reviewed methodological papers, officia
 - International Committee of Medical Journal Editors (ICMJE). Defining the Role of Authors and Contributors. https://www.icmje.org/recommendations/browse/roles-and-responsibilities/defining-the-role-of-authors-and-contributors.html
 - Committee on Publication Ethics (COPE). Core Practices. https://publicationethics.org/core-practices
 - Naranjo CA, Busto U, Sellers EM, Sandor P, Ruiz I, Roberts EA, et al. A method for estimating the probability of adverse drug reactions. *Clin Pharmacol Ther* 1981;30(2):239-245.
-- Declaration of Helsinki: World Medical Association Declaration of Helsinki: Ethical Principles for Medical Research Involving Human Subjects. https://www.wma.net/policies-post/wma-declaration-of-helsinki-ethical-principles-for-medical-research-involving-human-subjects/
+- World Medical Association. World Medical Association Declaration of Helsinki: ethical principles for medical research involving human participants (2024 revision). *JAMA* 2025;333(1):71-74. doi:10.1001/jama.2024.21972
+- Grudniewicz A, Moher D, Cobey KD, et al. Predatory journals: no definition, no defence. *Nature* 2019;576(7786):210-212. doi:10.1038/d41586-019-03759-y
 
 ## PubMed and literature searching
 
@@ -274,7 +302,8 @@ The skill synthesizes guidance from peer-reviewed methodological papers, officia
 
 - Greenhalgh T (cited above) for the read-as-reader framework.
 - BibTeX/BibLaTeX, Zotero, EndNote, Mendeley, Paperpile: reference managers referenced in `references/citation-styles.md`.
-- Crossref Citation Style Language (CSL) Style Repository. https://www.zotero.org/styles
+- Citation Style Language (CSL) styles repository. https://github.com/citation-style-language/styles (browse at https://www.zotero.org/styles)
+- MacFarlane J, et al. Pandoc: a universal document converter. https://pandoc.org
 - DOI International Foundation: DOI Handbook. https://www.doi.org/the-identifier/resources/handbook/
 
 ---
@@ -283,7 +312,7 @@ The skill synthesizes guidance from peer-reviewed methodological papers, officia
 
 If you use this skill in producing a manuscript, please consider citing it:
 
-> Amato ACM. Medical Manuscript Writing: Claude Skill [Internet]. 2026. Available from: [repository URL]
+> Amato ACM. Medical Manuscript Writing: Claude Skill [Internet]. Version 1.8.0. 2026. Available from: https://github.com/alexandreamato/medical-manuscript-writing
 
 ## Updates and contributions
 
