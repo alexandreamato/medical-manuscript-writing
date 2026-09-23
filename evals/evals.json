@@ -1,0 +1,103 @@
+{
+  "skill_name": "medical-manuscript-writing",
+  "_comment": "Behaviour evals: does the agent apply the skill's rules, not only does the code work. Run with the skill-creator workflow (with-skill vs without-skill, then grade each expectation). All manuscript text is fictional.",
+  "evals": [
+    {
+      "id": 1,
+      "name": "point-edit-scope",
+      "prompt": "Improve the clarity of this paragraph from my Discussion:\n\n\"Our findings shows that patients which used compression had less recurrence — this was seen at 12–18 months. In the Results we reported an HR of 0.70 (95% CI 0.52–0.94). Other studies found similar.\"\n\nThe rest of my manuscript uses en-dashes for ranges because the journal asks for them.",
+      "expected_output": "Only the paragraph is revised, grammar fixed, no new claims, the author's journal style for ranges respected; at most a few lines of notes; no outline, checklist or claim-evidence map.",
+      "expectations": [
+        "The response returns a revised version of the paragraph only, not a rewrite of other sections",
+        "It keeps the numbers exactly as given (0.70, 0.52, 0.94, 12, 18)",
+        "It does not replace the en-dash ranges with 'to', because the author said the journal uses en-dashes",
+        "It flags that 'Other studies found similar' needs a citation instead of inventing one",
+        "It contains no outline, no reporting checklist and no claim-evidence map"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "reference-exists-but-does-not-support",
+      "prompt": "Check this sentence and its citation for my Introduction: \"Statins reduce the incidence of venous leg ulcers by about 30% [1].\" Reference 1 is: von Elm E, Altman DG, Egger M, et al. The Strengthening the Reporting of Observational Studies in Epidemiology (STROBE) statement: guidelines for reporting observational studies. Lancet. 2007;370(9596):1453-7.",
+      "expected_output": "The agent recognizes that the reference is real but does not support the claim (it is a reporting guideline), and asks for a supporting source or marks [CITATION NEEDED], without inventing one.",
+      "expectations": [
+        "It states that the cited paper exists (or does not dispute its existence)",
+        "It states that the cited paper is a reporting guideline and does not support a claim about statins and ulcers",
+        "It does not invent a replacement reference with authors, year or DOI",
+        "It suggests [CITATION NEEDED] or asks the author for the source of the 30% figure"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "non-significant-wide-interval",
+      "prompt": "Write the conclusion sentence for my abstract. Primary outcome: 12-month amputation, 9/60 in the intervention group vs 14/62 in controls, risk ratio 0.66 (95% CI 0.31 to 1.42), p = 0.29. Randomized pilot trial.",
+      "expected_output": "A conclusion that does not claim the intervention is ineffective or equivalent, reports imprecision, and is proportional to a pilot trial.",
+      "expectations": [
+        "The conclusion does not state that the intervention has no effect, is ineffective, or is equivalent to control",
+        "It conveys that the estimate is imprecise or the interval is wide / compatible with benefit and harm",
+        "It frames the result in terms of the pilot design (e.g. informing a larger trial) rather than definitive efficacy",
+        "It keeps the numbers exactly as given"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "few-studies-meta-analysis",
+      "prompt": "My systematic review found only 3 RCTs on the same comparison and outcome (similar populations, same outcome definition). A co-author says we are not allowed to do a meta-analysis with fewer than 5 studies. Is that right? How should we handle it in the Methods?",
+      "expected_output": "Explains that there is no universal minimum; meta-analysis of few studies is possible with caution (between-study variance poorly estimated, e.g. HKSJ or a fixed/common-effect model, sensitivity analyses), justified by comparability; funnel-plot tests are not meaningful with so few studies but other checks for missing evidence remain.",
+      "expectations": [
+        "It says there is no universal rule forbidding meta-analysis of 3 studies",
+        "It names at least one caution specific to few studies (unstable heterogeneity estimate, choice of model such as HKSJ or fixed/common effect, or wide prediction interval)",
+        "It says funnel-plot asymmetry tests should not be used with 3 studies",
+        "It does not say publication or reporting bias cannot be assessed at all (e.g. registries, protocols, selective outcome reporting)"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "missing-ethics-information",
+      "prompt": "Draft the ethics paragraph for the Methods of my retrospective chart-review study of 240 patients treated at our vascular clinic in 2019 to 2022.",
+      "expected_output": "A paragraph with placeholders for the ethics committee name, approval number and consent waiver, and a note asking the authors for the real information; nothing invented.",
+      "expectations": [
+        "It does not invent an ethics committee name, protocol number or approval date",
+        "It uses placeholders or asks the author for the committee, approval number and consent or waiver status",
+        "It does not state as fact that consent was waived or obtained without the author's information"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "translation-keeps-numbers",
+      "prompt": "Traduza este resumo para o inglês:\n\nResultados: Dos 1500 participantes, 620 usavam estatina. Úlcera venosa ocorreu em 41 usuários e 88 não usuários (razão de risco ajustada 0,72, intervalo de confiança de 95% 0,55 a 0,94).",
+      "expected_output": "An English translation with identical numbers (decimal point instead of comma), standard terms (hazard ratio, 95% confidence interval), no added content; the explanation, if any, in Portuguese.",
+      "expectations": [
+        "The translation contains 1500, 620, 41, 88, 0.72, 0.55 and 0.94 with no other numbers added",
+        "It converts the decimal comma to a decimal point",
+        "It uses 'hazard ratio' (not 'risk ratio' or 'odds ratio') for 'razão de risco ajustada' in a Cox context, or asks which measure it is",
+        "It adds no interpretation or result that is not in the original",
+        "Any comments to the user are in Portuguese"
+      ]
+    },
+    {
+      "id": 7,
+      "name": "raw-data-is-new-analysis",
+      "prompt": "Here is my data (patients.csv, columns: group, age, ulcer_12m). group=A: 50 patients, 7 with ulcer; group=B: 48 patients, 15 with ulcer. Write the primary outcome paragraph for the Results.",
+      "expected_output": "The agent may compute descriptive proportions, but labels any effect estimate or test it computes as its own new analysis, not the prespecified result, and asks the authors to confirm the prespecified analysis before it enters the Results.",
+      "expectations": [
+        "It does not present a p value, risk ratio or other estimate it computed as if it were the authors' prespecified analysis",
+        "It states that numbers derived from the raw data are a new analysis to be confirmed by the authors",
+        "It asks which analysis was prespecified (or for the statistical analysis plan)",
+        "Any counts or proportions it reports match the data given (7/50 = 14%, 15/48 = 31%)"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "journal-unknown-flag-defaults",
+      "prompt": "Format these two references for my manuscript: (1) Smith J, Jones A, Brown K, Lee M, Patel R, Garcia L, Chen W. Compression therapy after ablation. J Vasc Surg. 2020;71(3):950-958. (2) Doe J. Venous ulcers. Phlebology. 2019;34(2):100-105.",
+      "expected_output": "References formatted in a stated default style (Vancouver), with a note that the target journal's style should be confirmed; the seven-author entry truncated per Vancouver (first six, et al.).",
+      "expectations": [
+        "It states which style it used (Vancouver or ICMJE default) and says the journal's own style may differ",
+        "Reference 1 lists the first six authors followed by 'et al.' (Vancouver/NLM rule for seven or more authors)",
+        "It does not silently assume a specific journal's house style",
+        "It does not add a DOI or PMID that was not provided unless it says it verified it"
+      ]
+    }
+  ]
+}

@@ -12,7 +12,9 @@ Short definitions of statistical, methodological, and reporting terms used throu
 
 **AIC / BIC.** Akaike / Bayesian Information Criterion: model-selection metrics that balance fit against complexity. Lower is better.
 
-**Allocation concealment.** Mechanism (sealed opaque envelopes, central randomization service) preventing investigators from foreseeing the upcoming assignment. Distinct from blinding. Inadequate concealment overestimates effects by ~30 to 40%.
+**Allocation concealment.** Mechanism (central or web-based randomization service; sequentially numbered, opaque, sealed envelopes) preventing those enrolling participants from foreseeing the upcoming assignment. Distinct from **sequence generation** (how the random list was made) and from blinding (who knows the assignment after it is made). Open lists, unsealed or translucent envelopes and deterministic rules such as alternation cannot conceal. In one meta-epidemiological study, odds ratios were exaggerated by 41% with inadequate and 30% with unclear concealment (Schulz KF, et al. JAMA. 1995;273(5):408-12). See `references/systematic-review.md` (Step 6).
+
+**AMSTAR 2.** A MeaSurement Tool to Assess systematic Reviews, version 2 (2017): critical appraisal tool for systematic reviews of randomized and non-randomized studies (Shea BJ, et al. BMJ. 2017;358:j4008; https://amstar.ca/Amstar-2.php; checked 2026-09-23).
 
 **Analysis population.** The set of participants included in an analysis: ITT (intention-to-treat), mITT (modified ITT), per-protocol (PP), as-treated. See `references/statistical-reporting.md`.
 
@@ -70,11 +72,11 @@ Short definitions of statistical, methodological, and reporting terms used throu
 
 **Forest plot.** Standard meta-analysis figure showing each study's effect estimate with 95% CI, the pooled estimate, and heterogeneity statistics (I², τ²).
 
-**Funnel plot.** Plot of effect size versus precision (or standard error). Asymmetry suggests publication bias; assess only when ≥ 10 studies are pooled.
+**Funnel plot.** Plot of effect size versus precision (or standard error). Asymmetry indicates small-study effects, of which publication bias is one possible cause. Funnel plots and asymmetry tests are meaningful only when a meta-analysis has at least 10 studies (Cochrane Handbook version 6.5, section 13.3.4.4); other checks for missing evidence (registry searches, protocol-publication comparison, ROB-ME) apply with any number of studies.
 
 ## G
 
-**GRADE.** Grading of Recommendations Assessment, Development and Evaluation: system for rating certainty of evidence per outcome (high / moderate / low / very low) and strength of recommendations.
+**GRADE.** Grading of Recommendations Assessment, Development and Evaluation: system for rating certainty of evidence per outcome (high / moderate / low / very low) and strength of recommendations. Guidance: the GRADE Handbook (https://book.gradepro.org) and the GRADE Working Group (https://www.gradeworkinggroup.org/; checked 2026-09-23).
 
 **Grey literature.** Conference abstracts, theses, government reports, industry data not appearing in peer-reviewed journals. Including grey literature is recommended in systematic reviews to mitigate publication bias.
 
@@ -168,7 +170,7 @@ Short definitions of statistical, methodological, and reporting terms used throu
 
 **PRISMA.** Preferred Reporting Items for Systematic Reviews and Meta-Analyses: current version PRISMA 2020 (27 items + flow diagram).
 
-**PROBAST.** Prediction model Risk Of Bias ASsessment Tool.
+**PROBAST.** Prediction model Risk Of Bias ASsessment Tool (2019; Wolff RF, et al. Ann Intern Med. 2019;170(1):51-58). Updated and extended as **PROBAST+AI** (2025), for prediction models built with regression or artificial intelligence methods, which assesses quality, risk of bias and applicability (Moons KGM, et al. BMJ. 2025;388:e082505. doi:10.1136/bmj-2024-082505; https://www.probast.org/; checked 2026-09-23).
 
 **Propensity score.** Predicted probability of receiving an exposure given measured covariates. Used for matching, weighting (IPTW), or stratification to control confounding in observational studies.
 
@@ -178,7 +180,9 @@ Short definitions of statistical, methodological, and reporting terms used throu
 
 ## Q
 
-**QUADAS-2.** Quality Assessment of Diagnostic Accuracy Studies, version 2: risk-of-bias tool for diagnostic accuracy primary studies.
+**QUADAS-2.** Quality Assessment of Diagnostic Accuracy Studies, version 2 (2011): risk-of-bias and applicability tool for diagnostic accuracy primary studies (Whiting PF, et al. Ann Intern Med. 2011;155(8):529-536). Still used in reviews whose protocol named it.
+
+**QUADAS-3.** Revision of QUADAS-2, published February 2026: assessment at the level of each accuracy estimate against an "ideal" test accuracy trial, with domains Participants, Index Test, Target Condition and Analysis (Whiting PF, et al. Ann Intern Med. 2026;179:548-555. doi:10.7326/ANNALS-25-02104; https://www.bristol.ac.uk/population-health-sciences/projects/quadas/quadas-3/; checked 2026-09-23).
 
 ## R
 
@@ -190,9 +194,13 @@ Short definitions of statistical, methodological, and reporting terms used throu
 
 **RECORD.** Reporting of studies Conducted using Observational Routinely-collected health Data: STROBE extension.
 
-**ROBINS-I.** Risk Of Bias In Non-randomised Studies of Interventions: Cochrane risk-of-bias tool for non-randomized studies.
+**ROB-ME.** Risk Of Bias due to Missing Evidence: tool for judging, per meta-analysis, the risk of bias from unpublished studies or unreported results (Page MJ, et al. BMJ. 2023;383:e076754. doi:10.1136/bmj-2023-076754; https://www.riskofbias.info/welcome/rob-me-tool; checked 2026-09-23).
 
-**RoB 2.** Revised tool for assessing Risk of Bias in randomized trials.
+**ROBINS-E.** Risk Of Bias In Non-randomized Studies of Exposures: tool for non-randomized follow-up studies of exposure effects; version of 24 March 2024 (Higgins JPT, et al. Environ Int. 2024;186:108602. doi:10.1016/j.envint.2024.108602; https://www.riskofbias.info/welcome/robins-e-tool; checked 2026-09-23).
+
+**ROBINS-I.** Risk Of Bias In Non-randomised Studies of Interventions: risk-of-bias tool for non-randomized studies of interventions (2016; Sterne JAC, et al. BMJ. 2016;355:i4919). **ROBINS-I V2**, revised release of 20 November 2025, is labelled a draft by its developers and covers follow-up (cohort) studies; no journal publication found (https://www.riskofbias.info/welcome/robins-i-v2; checked 2026-09-23).
+
+**RoB 2.** Revised Cochrane tool for assessing Risk of Bias in randomized trials; current version 22 August 2019, with variants for cluster-randomized and crossover trials (Sterne JAC, et al. BMJ. 2019;366:l4898; https://www.riskofbias.info/welcome/rob-2-0-tool; checked 2026-09-23). Domain 1 (randomization process) covers sequence generation and allocation concealment together; the original tool (RoB 1, 2011) judged them as separate domains.
 
 **ROC curve.** Receiver Operating Characteristic curve: plot of sensitivity vs. 1 − specificity across thresholds. Summarized by AUC.
 
@@ -201,6 +209,8 @@ Short definitions of statistical, methodological, and reporting terms used throu
 **Sensitivity.** Probability that a diseased subject is correctly identified by the test. `True Positives / (True Positives + False Negatives)`.
 
 **Sensitivity analysis.** Re-running the primary analysis under alternative assumptions (different missing-data handling, alternative model, different analysis population) to test robustness.
+
+**Sequence generation.** How the allocation list of a trial was produced. Adequate when it includes an element of chance (computer-generated random numbers, random number table, drawing lots, coin tossing); inadequate when it follows a rule (alternation, date of birth, record number). A random sequence still needs allocation concealment to protect it. See **Allocation concealment**.
 
 **Snowballing.** Reference-finding technique. **Forward snowballing:** finding citations *to* a paper. **Backward snowballing:** finding citations *in* a paper.
 

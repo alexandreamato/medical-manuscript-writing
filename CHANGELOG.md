@@ -2,6 +2,34 @@
 
 All notable changes to the **Medical Manuscript Writing** skill are documented here. Format follows Keep a Changelog (https://keepachangelog.com/) using semantic-style versioning by content scope rather than strict semver.
 
+## [1.12.0] — 2026-09-23
+
+Responds to an external review of 1.11.1: methodological guidance made precise and conditional.
+
+### Fixed
+
+- **Sequence generation vs allocation concealment** (`systematic-review.md`, `glossary.md`). The "adequate concealment" table listed computer-generated random numbers and random number tables, which describe sequence generation. Now two separate items with correct examples (RoB 2 guidance, Cochrane Handbook v6.5 chapter 8); RoB 2 judges both in domain 1, RoB 1 had separate domains.
+- **Pooling is a judgement, not a prohibition.** "Do not pool if I² > 75% or fewer than 3 to 5 studies" became conditions requiring caution and justification (Handbook chapter 10): comparability and question first; I² bands are rough and overlapping; with few studies τ² is poorly estimated (HKSJ, fixed or common-effect with caveats, sensitivity analyses); high risk of bias handled by sensitivity analysis and GRADE.
+- **Reporting bias with fewer than 10 studies.** The 10-study rule applies to funnel plots and asymmetry tests only; registries, protocols versus publications, grey literature and ROB-ME apply with any number of studies.
+- **Reporting vs prescribing analyses** (`statistical-reporting.md` §0 and several guides): report the method actually used; a limitation is stated and an analysis proposed to the authors (`needs new analysis`), never made a universal requirement or added silently. Items labelled REQUIRED / RECOMMENDED / OPTIONAL: multiplicity adjustment required only for several confirmatory claims (exploratory labelling accepted, FDA 2022); the E-value is one optional approach to unmeasured confounding.
+
+### Changed
+
+- **Risk-of-bias tools with version, source and check date:** RoB 2, ROBINS-I V2 (draft), ROBINS-E, QUADAS-3 (published 2026) and QUADAS-2, PROBAST+AI (2025) and PROBAST, ROB-ME, AMSTAR 2, SYRCLE, Newcastle-Ottawa, GRADE. A review under way keeps the tool named in its protocol or reports the change (PRISMA 2020 item 24c).
+- **Neutral defaults.** Outside a chosen journal, `SKILL.md` applies ICMJE conventions and the kit's `generic-icmje` profile; a specific journal's rules (J Vasc Bras, the example's target) apply only when chosen. Two-language title and abstract only when the journal's instructions require them. The dash rule is presented as house style that the journal or the author may override.
+
+### Added
+
+- **Behaviour evals** (`evals/evals.json`, skill-creator schema, 8 cases). They check whether an agent applies the rules, not whether the code runs:
+  - point-edit scope;
+  - a real reference that does not support the claim;
+  - a non-significant result with a wide interval;
+  - meta-analysis of three studies;
+  - missing ethics information;
+  - translation keeping numbers;
+  - raw data as new analysis;
+  - formatting references with no journal chosen.
+
 ## [1.11.1] — 2026-09-23
 
 Responds to an external review of 1.11.0.

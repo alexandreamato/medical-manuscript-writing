@@ -132,7 +132,7 @@ After running this technique on dozens of manuscripts, certain patterns recur. K
 1. **Mismatched design and conclusion.** Cross-sectional study with causal language in Discussion. Cohort study claiming an "intervention effect".
 2. **Underspecified primary outcome.** "Quality of life" without naming the instrument; "improved cognition" without the score and timepoint.
 3. **Unjustified sample size.** Effect-size assumption appears from nowhere. Common in retrospective studies that "use what was available".
-4. **Unhandled confounding.** Adjusted analyses listed but the rationale for variable selection is not stated; no DAG; no E-value sensitivity.
+4. **Unhandled confounding.** Adjusted analyses listed but the rationale for variable selection is not stated; no DAG; unmeasured confounding neither analysed (E-value, negative controls, bias analysis) nor acknowledged as a limitation.
 5. **Multiplicity ignored.** Multiple "primary" outcomes, or many subgroup analyses, with no adjustment or labelling.
 
 ### Patterns Persona 2 (Busy Clinician) finds

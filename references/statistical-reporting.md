@@ -2,11 +2,27 @@
 
 This is a focused checklist to keep statistical reporting calibrated. Apply it to the Methods and Results of any quantitative study. It follows the SAMPL guidelines for basic statistical reporting (`references/reporting-standards.md`, Guidelines That Complement the Design Checklist), which apply alongside the design checklist (CONSORT, STROBE, and so on).
 
+## 0. Report What Was Done; Propose, Do Not Prescribe
+
+This checklist is about **reporting** the analyses the authors actually ran, not about adding analyses to the manuscript.
+
+1. **Report the method actually used**, as prespecified in the protocol or statistical analysis plan, or labelled as not prespecified.
+2. **When a limitation exists, state it.** If there was no sensitivity analysis for unmeasured confounding, or no multiplicity adjustment, say so in the Methods or Limitations, and propose to the authors that they consider an analysis. The proposal goes to the authors, separately from the manuscript, under the Stopping Rule status `needs new analysis` (SKILL.md, Stopping Rule; the same statuses are in `paper-review.md`).
+3. **Never turn an optional analysis into a universal requirement**, and never add an analysis, a number or a result to the manuscript without the authors. That would break SKILL.md Integrity Rule 3 (stay faithful to the data and the protocol).
+
+Items that could be read as asking for an analysis carry one of three labels; unlabelled items describe how to report what was done (SAMPL):
+
+- **REQUIRED**: asked for by the reporting guideline that applies (the item is cited). "Required" means the manuscript must *report* it; where the guideline item is conditional ("if done", "if applicable"), reporting that it was not done satisfies it.
+- **RECOMMENDED**: a common expectation of methodologists, editors or regulators, with its source; its absence is a limitation to state, not an error to fix silently.
+- **OPTIONAL**: context-dependent; one of several acceptable approaches.
+
+Item numbers are CONSORT 2025, STROBE and PRISMA 2020 as listed in `references/reporting-standards.md`.
+
 ## 1. Effect Estimates and Uncertainty
 
-1. Report a point estimate **with** its 95% confidence interval for every primary and secondary outcome. Do not report a p value alone.
+1. REQUIRED (CONSORT 2025 item 26; STROBE item 16a): report a point estimate **with** its precision (usually the 95% confidence interval) for every primary and secondary outcome. Do not report a p value alone.
 2. Match the precision of the CI to the point estimate.
-3. For risk-difference type outcomes, report both **absolute** (risk difference, NNT) and **relative** (risk ratio, hazard ratio, odds ratio) measures when appropriate.
+3. For binary outcomes, report both **absolute** (risk difference, NNT) and **relative** (risk ratio, hazard ratio, odds ratio) measures: REQUIRED in trials (CONSORT 2025 item 26); RECOMMENDED in observational studies (STROBE item 16c, translating relative risk into absolute risk "if relevant").
 4. Specify the direction: is the higher value better or worse?
 
 Examples:
@@ -19,7 +35,10 @@ Examples:
 2. Report p values to two significant figures, except very small (`p < 0.001`) or borderline (`p = 0.054`).
 3. Do not report `p = 0.000`. Use `p < 0.001`.
 4. Do not interpret a non-significant p value as evidence of no effect; report the CI.
-5. Adjust for multiplicity when multiple primary or secondary outcomes are tested. State the adjustment method.
+5. **Multiplicity.** Report what was done, and label it:
+   - REQUIRED only when the protocol makes several **confirmatory** claims (several primary outcomes, each able to establish efficacy on its own, or secondary outcomes intended to support claims): report the prespecified method that controls the type I error (for example a hierarchical or gatekeeping procedure, Holm, Hochberg) as part of the statistical methods (CONSORT 2025 item 21a). Controlling the type I error for such claims is the regulatory expectation (FDA. Multiple Endpoints in Clinical Trials: Guidance for Industry. October 2022, section III.A; https://www.fda.gov/media/162416/download).
+   - Accepted alternative for secondary and exploratory outcomes: report them as exploratory, without adjustment, and interpret them as hypothesis-generating. The same FDA guidance states that exploratory endpoints do not need multiplicity adjustment because they are generally not used to support conclusions (section III.A.2).
+   - If several outcomes were tested with no adjustment and no exploratory label, state this among the limitations (CONSORT 2025 item 30: limitations, including multiplicity of analyses, if relevant) and propose a correction or relabelling to the authors; do not apply an adjustment yourself.
 
 ## 3. Sample Size Justification
 
@@ -58,7 +77,9 @@ State for each model:
 1. Report the amount of missing data per variable.
 2. State the assumed missingness mechanism (MCAR, MAR, MNAR) with justification.
 3. State the handling: complete-case analysis, multiple imputation (number of imputations, predictors, software), inverse probability weighting.
-4. Compare results across handling methods as a sensitivity analysis.
+4. RECOMMENDED: a sensitivity analysis under different plausible missing-data assumptions (in trials, ICH E9(R1) addendum on estimands and sensitivity analysis, 2019, section A.5.2.2: "the need for sensitivity analysis in respect of missing data is established"; https://database.ich.org/sites/default/files/E9-R1_Step4_Guideline_2019_1203.pdf). If not done, state it as a limitation.
+
+Items 1 and 3 are REQUIRED in trials (CONSORT 2025 item 21c, how missing data were handled) and in observational studies (STROBE item 12c).
 
 ## 8. Heterogeneity (Meta-Analysis)
 
@@ -68,8 +89,8 @@ State for each model:
 
 ## 9. Reporting Bias
 
-1. Visual assessment with funnel plot (when ≥10 studies).
-2. Statistical test (Egger, Peters) when appropriate.
+1. REQUIRED (PRISMA 2020 item 14): describe the methods used to assess risk of bias due to missing results. With any number of studies this includes registry searches, comparison of protocols and registry entries with publications, and a structured judgment such as ROB-ME (Page MJ, et al. BMJ. 2023;383:e076754. doi:10.1136/bmj-2023-076754).
+2. Funnel plot (visual) and asymmetry tests (Egger, Peters, Harbord): only when a meta-analysis has at least 10 studies (Cochrane Handbook version 6.5, section 13.3.4.4). With fewer studies, say why they were not done.
 3. Discuss small-study effects and selective outcome reporting in the discussion.
 
 ## 10. Diagnostic Accuracy
@@ -96,20 +117,20 @@ For STARD-compliant reporting:
 1. Prespecified subgroups listed in protocol.
 2. Test of interaction (interaction p value), not just within-subgroup p values.
 3. Forest plot showing effects across subgroups.
-4. Adjustment for multiplicity if many subgroups.
+4. Multiplicity: most subgroup analyses are exploratory. Label them as such (REQUIRED: CONSORT 2025 item 21d and item 28, distinguishing prespecified from post hoc), and interpret them with caution; formal adjustment is needed only when a subgroup claim is confirmatory and prespecified (see §2, item 5).
 5. Mark exploratory subgroups explicitly.
 
 ## 13. Confounding (Observational)
 
-1. Identify potential confounders a priori from a directed acyclic graph (DAG).
+1. State how confounders were chosen (REQUIRED to report the methods used to control confounding: STROBE item 12a). Choosing them a priori from a directed acyclic graph (DAG) is RECOMMENDED practice; if selection was data-driven, say so.
 2. State the adjustment strategy: regression adjustment, matching, propensity score (matching, weighting, stratification), instrumental variable.
-3. Provide a covariate balance metric (standardized mean difference for matching/weighting).
-4. Report unadjusted and adjusted estimates.
-5. Estimate residual confounding (E-value) for the primary observational result.
+3. When matching or weighting was used, report covariate balance (standardized mean differences) after matching or weighting (RECOMMENDED).
+4. REQUIRED (STROBE item 16a): report unadjusted and, if applicable, confounder-adjusted estimates with their precision, and which confounders were adjusted for and why.
+5. RECOMMENDED: address unmeasured (residual) confounding, at least in the Discussion; a quantitative sensitivity analysis is OPTIONAL and context-dependent. The E-value (VanderWeele TJ, Ding P. Ann Intern Med. 2017;167(4):268-274. doi:10.7326/M16-2607) is one option among several: negative-control outcomes or exposures, quantitative bias analysis with plausible confounder parameters, active-comparator or instrumental-variable designs. If none was done, state the limitation and propose one to the authors; STROBE item 12e asks only that sensitivity analyses be described if they were done.
 
 ## 14. Sensitivity Analyses
 
-State and report sensitivity to:
+REQUIRED to describe the sensitivity analyses that were done (CONSORT 2025 item 21d; STROBE item 12e; PRISMA 2020 item 13f). Which ones to run is RECOMMENDED or OPTIONAL by context; common targets:
 
 1. Missing-data assumption.
 2. Analysis population (ITT vs. PP).

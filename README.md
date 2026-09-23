@@ -3,7 +3,7 @@
 A Claude skill for writing and revising medical and biomedical manuscripts of any type (original research, systematic review, meta-analysis, narrative or evidence-based clinical review, case report, brief report), from title to response to reviewers.
 
 **Author:** Alexandre Campos Moraes Amato (ORCID [0000-0003-4008-4029](https://orcid.org/0000-0003-4008-4029))
-**Version:** 1.11.1 (see [`CHANGELOG.md`](CHANGELOG.md))
+**Version:** 1.12.0 (see [`CHANGELOG.md`](CHANGELOG.md))
 **License:** CC BY 4.0 ([`LICENSE`](LICENSE))
 
 ## Installation
@@ -128,6 +128,10 @@ Python standard library only, plus pandoc ≥ 3.1 (LibreOffice and poppler for t
 - [`references/cover-letter.md`](references/cover-letter.md): the cover letter for initial submission.
 - [`references/journal-selection.md`](references/journal-selection.md): choosing a journal, spotting predatory journals, preprints and the ICMJE policy.
 - [`references/non-native-authors.md`](references/non-native-authors.md): writing in English as a Portuguese-speaking author.
+
+## Behaviour evals
+
+[`evals/`](evals/) holds eight cases, in the skill-creator format, that check whether an agent using the skill follows its rules (scope of a point edit, unsupported citations, non-significant results, few-study meta-analysis, missing ethics information, translation, raw data, unknown journal). The kit's unit tests check the code; these check the behaviour.
 
 ## Versioning and license
 
@@ -312,7 +316,7 @@ The skill synthesizes guidance from peer-reviewed methodological papers, officia
 
 If you use this skill in producing a manuscript, please consider citing it:
 
-> Amato ACM. Medical Manuscript Writing: Claude Skill [Internet]. Version 1.11.1. 2026. Available from: https://github.com/alexandreamato/medical-manuscript-writing
+> Amato ACM. Medical Manuscript Writing: Claude Skill [Internet]. Version 1.12.0. 2026. Available from: https://github.com/alexandreamato/medical-manuscript-writing
 
 ## Updates and contributions
 

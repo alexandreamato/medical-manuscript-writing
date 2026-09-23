@@ -91,7 +91,7 @@ Sentence skeleton:
 ## Secondary Outcomes and Subgroups
 
 1. Report secondary outcomes in the prespecified order, with point estimates and CIs.
-2. Subgroup analyses: report effect within subgroups, plus the interaction p value. Adjust for multiplicity if prespecified.
+2. Subgroup analyses: report effect within subgroups, plus the interaction p value. Report a multiplicity adjustment only if one was prespecified and done; otherwise label the subgroups as exploratory (`references/statistical-reporting.md` §12).
 3. Mark every post-hoc analysis explicitly: `These analyses were exploratory and not prespecified.`
 
 ## Sensitivity Analyses

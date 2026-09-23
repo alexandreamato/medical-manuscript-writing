@@ -158,7 +158,7 @@ When the paper is a systematic review or meta-analysis, the formal section to co
 1. Follow the PRISMA 2020 checklist.
 2. Register the protocol prospectively in PROSPERO (or equivalent).
 3. Report the search strategy in full in the supplement.
-4. Use a recognized risk-of-bias tool (RoB 2, ROBINS-I, QUADAS-2, Newcastle-Ottawa).
+4. Use a recognized risk-of-bias tool and name its version (RoB 2, ROBINS-I, QUADAS-2 or QUADAS-3, PROBAST+AI, Newcastle-Ottawa; see `references/systematic-review.md`, Step 6).
 5. Use GRADE for certainty of evidence ratings on each outcome.
 6. State prespecified subgroup and sensitivity analyses; mark post-hoc analyses as exploratory.
 7. Provide a PRISMA flow diagram.

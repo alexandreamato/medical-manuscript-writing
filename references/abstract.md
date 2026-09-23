@@ -117,7 +117,7 @@ For cohort, case-control, and cross-sectional studies, target trial emulations, 
 1. Clinical question and the specific limitation of prior evidence (for example, confounding by indication, immortal time bias, small cohorts, crude exposure measurement).
 2. Design, data source, setting, population, exposure and comparator, outcome, and follow-up.
 3. The strategy that addresses the main bias: confounders adjusted for and how, the target trial specification, or the genetic instruments.
-4. Adjusted association with 95% CI, and at least one sensitivity analysis for residual confounding (for example, an E-value or a negative-control outcome).
+4. Adjusted association with 95% CI, and the main sensitivity analysis for residual confounding if one was done (for example, an E-value or a negative-control outcome); do not add one that the study did not run.
 5. Conclusion stated as an association, with scope and the appropriate next step.
 
 ### Expert Notes

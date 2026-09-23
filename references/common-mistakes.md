@@ -11,7 +11,7 @@ A fast table of desk-rejection patterns and reviewer-comment triggers. Each row 
 | Title overpromises ("X prevents Y" from a single trial) | Triggers desk reviewer skepticism; first thing the editor reads | Match Title strength to evidence; use the same verb as the Conclusion | `title.md`, `read-as-reader.md` (Persona 2) |
 | Conclusion goes beyond what the design supports (e.g., cost claims with no economic analysis) | Reviewers reject for overinterpretation | Restrict Conclusion to outcomes actually measured; add explicit limitation | `discussion.md`, `paper-review.md` |
 | Sample size "justified" by what was available | Reviewers ask "what was the prespecified power calculation?" | Either provide a real prespecified calculation or label as exploratory | `method.md`, `statistical-reporting.md` |
-| Multiple "primary" outcomes | Multiplicity inflates false-positive risk | Pick one primary; demote others to secondary; or apply gatekeeping with prespecified rule | `statistical-reporting.md` |
+| Multiple "primary" outcomes | Multiplicity inflates false-positive risk | Pick one primary; demote others to secondary (reported as exploratory, or tested with a prespecified gatekeeping rule); never add an adjustment the protocol did not specify without the authors | `statistical-reporting.md` |
 | Subgroup analyses presented as confirmatory | Major rejection trigger | Mark explicitly as "prespecified" or "exploratory"; report interaction p value | `results.md`, `statistical-reporting.md`, `paper-review.md` |
 | Conclusion changes the population studied (e.g., results from elderly extrapolated to "all patients") | Reviewer flags external validity | Restrict the Conclusion to the population studied | `discussion.md`, `study-types.md` |
 

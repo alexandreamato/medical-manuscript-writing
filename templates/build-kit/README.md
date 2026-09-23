@@ -25,13 +25,13 @@ cp -R ~/.claude/skills/medical-manuscript-writing/templates/build-kit ~/path/my-
 cd ~/path/my-article && git init
 ```
 
-The kit ships with a **fictional** cohort example, written for the default profile (`jvb`), where it validates without errors. Against the other profiles, `build.py` refuses it until those gaps are fixed (or builds a draft with `--force`), and `validate.py --compare` lists what each journal would still need (JVS asks for a 250-word abstract and Article Highlights, Cureus for five keywords, JCM for an informed-consent statement, and so on): that list is the point of the comparison. Replace the example text, metadata and figure; keep the structure.
+The kit ships with a **fictional** cohort example, written for `jvb` (set in `metadata.yaml` as `journal: jvb`), where it validates without errors. For a new manuscript, set `journal:` to the real target, or to `generic-icmje` while no journal is chosen (also what `build.py` uses when `journal:` is missing). Against the other profiles, `build.py` refuses it until those gaps are fixed (or builds a draft with `--force`), and `validate.py --compare` lists what each journal would still need (JVS asks for a 250-word abstract and Article Highlights, Cureus for five keywords, JCM for an informed-consent statement, and so on): that list is the point of the comparison. Replace the example text, metadata and figure; keep the structure.
 
 Profiles included:
 
 | Profile | Journal | Revision marking | Notable rules |
 | --- | --- | --- | --- |
-| `jvb` (default) | Jornal Vascular Brasileiro | red text | bilingual PT/EN title, abstract and keywords; declarations on the title page; double-blind; superscript Vancouver |
+| `jvb` (the example's target) | Jornal Vascular Brasileiro | red text | bilingual PT/EN title, abstract and keywords; declarations on the title page; double-blind; superscript Vancouver |
 | `obesity` | Obesity (Silver Spring), Wiley / The Obesity Society | tracked changes | Study Importance box (3 questions, up to 2 bullets each); title page inside the manuscript; line and page numbers off; person-first language |
 | `obesity-facts` | Obesity Facts, Karger | tracked changes (not stated) | word counts are guidance only (soft limits); statements block before the references; person-first language |
 | `clinical-obesity` | Clinical Obesity, Wiley / World Obesity | highlight (not stated) | "What is already known" and "What this study adds" boxes (up to 3 bullets); person-first language |

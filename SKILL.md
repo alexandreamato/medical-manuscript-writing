@@ -4,7 +4,7 @@ description: Write, revise and translate medical manuscripts (RCTs, observationa
 license: CC-BY-4.0
 metadata:
   author: Alexandre Campos Moraes Amato
-  version: 1.11.1
+  version: 1.12.0
 ---
 # Medical Manuscript Writing
 
@@ -23,8 +23,8 @@ When unclear, use the smaller mode and offer the larger. What each mode delivers
 ## When Information Is Missing
 
 - **Design:** infer it from the text and state the inference ("read as a retrospective cohort").
-- **Target journal:** ask only in submission preparation, where it changes the deliverable. In the other modes apply the defaults (Vancouver; J Vasc Bras in the build kit) and flag them. Never assume either silently.
-- **Language:** answer in the user's language; write the manuscript in the journal's language (English when no journal is known; keep the language of a draft the user is revising); for a bilingual journal, title, abstract and keywords in both. Translation requests: `non-native-authors.md` §6.
+- **Target journal:** ask only in submission preparation, where it changes the deliverable. In the other modes apply neutral defaults (ICMJE conventions, Vancouver; in the build kit, the `generic-icmje` profile) and flag them. A specific journal's rules (e.g. J Vasc Bras, the kit example's target) apply only when that journal is chosen. Never assume a journal silently.
+- **Language:** answer in the user's language; write the manuscript in the journal's language (English when no journal is known; keep the language of a draft the user is revising); when the journal's instructions require two languages (J Vasc Bras does), title, abstract and keywords in both; otherwise one. Translation requests: `non-native-authors.md` §6.
 
 ## Integrity Rules (obligatory)
 
@@ -44,7 +44,7 @@ No journal, deadline or preference overrides these.
 ## Submission Conventions (defaults; the journal's instructions override)
 
 1. Tables and figures cited in numerical order; references in the journal's style, Vancouver when none is chosen (`manuscript-conventions.md` §1.2, §2.1; `citation-styles.md`).
-2. No em-dash or en-dash in sentences, table cells, figure captions or the abstract; ranges as `12 to 18`. Journal exceptions: `manuscript-conventions.md` §3.1.
+2. House style, not a universal rule: no em-dash or en-dash in sentences, table cells, figure captions or the abstract; ranges as `12 to 18`. The journal's style, or the author's stated preference, wins (`manuscript-conventions.md` §3.1).
 3. Deliver what the author works in: revised text for pasted text; stay in an existing Word file. For a new manuscript, many revisions or several journals, offer the build kit (`docx-build.md`; journal profiles in `templates/build-kit/journals/`).
 4. Within the text you were asked to change, apply these conventions; outside it, change nothing and list any violations you notice in the notes. A point edit on one paragraph never rewrites the rest of the manuscript.
 

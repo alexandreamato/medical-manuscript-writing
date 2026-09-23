@@ -94,7 +94,7 @@ Answer each item before submission in a separate audit document (never appended 
 4. Is the analysis prespecified (registered protocol, statistical analysis plan)?
 5. Are subgroup and sensitivity analyses prespecified or labeled exploratory?
 6. Is missing data handled with a stated assumption?
-7. Is multiplicity addressed?
+7. Is multiplicity addressed: adjusted for confirmatory claims, or secondary and exploratory outcomes labelled as such? (An unadjusted exploratory outcome is acceptable when labelled; see `references/statistical-reporting.md` §2.)
 
 ### 4. Reporting completeness
 
@@ -138,7 +138,7 @@ Answer each item before submission in a separate audit document (never appended 
 
 Top biomedical journals accept fewer than 25% of submitted manuscripts. Rejection does not necessarily mean the manuscript is poor; it often means the reviewers did not give it a high enough priority for the journal. The most common specific failures are:
 
-1. **Inappropriate or incomplete statistics.** Wrong test for the design; missing 95% CIs; missing handling of missing data; missing multiplicity adjustment.
+1. **Inappropriate or incomplete statistics.** Wrong test for the design; missing 95% CIs; missing handling of missing data; multiplicity neither controlled for confirmatory claims nor acknowledged by labelling outcomes as exploratory.
 2. **Over-interpretation of results.** Conclusions that outrun the design.
 3. **Inappropriate or sub-optimal instrumentation.** Unvalidated measurement; obsolete assay; inappropriate outcome scale for the population.
 4. **Sample too small or biased.** Underpowered, single-center, or convenience sample with unstated selection mechanism.

@@ -18,7 +18,7 @@ The EQUATOR Network maintains the canonical list at https://www.equator-network.
 | Pharmacoepidemiology | RECORD-PE | Treatment definition, exposure misclassification. |
 | Systematic review and meta-analysis | PRISMA 2020 | Search, selection, risk of bias, synthesis, certainty. |
 | Search strategy of any systematic review | PRISMA-S (with PRISMA 2020) | Every database, platform, date, limit and full search string, so the search can be rerun. |
-| Systematic review of diagnostic test accuracy | PRISMA-DTA | Index test, reference standard, 2 × 2 data, accuracy synthesis, QUADAS-2 risk of bias. |
+| Systematic review of diagnostic test accuracy | PRISMA-DTA | Index test, reference standard, 2 × 2 data, accuracy synthesis, QUADAS-3 (or QUADAS-2, if the protocol named it) risk of bias. |
 | Systematic review synthesised without meta-analysis | SWiM (with PRISMA 2020) | How studies were grouped, the standardised metric, the synthesis method, and its limits. |
 | Scoping review | PRISMA-ScR (PRISMA extension, 2018) | Rationale for a scoping rather than a systematic review, protocol, sources and search, selection, charting of data, synthesis; appraisal of included studies is optional. |
 | Systematic review protocol | PRISMA-P | Protocol items prior to the review. |
@@ -179,10 +179,10 @@ The 27-item checklist plus the abstract checklist. Highest-value items:
 4. Search strategy: full strategy in supplement.
 5. Selection process: number of reviewers, blinding, software (e.g., Rayyan, Covidence).
 6. Data collection: items collected.
-7. Risk-of-bias assessment: tool (RoB 2 / ROBINS-I / QUADAS-2 / Newcastle-Ottawa).
+7. Risk-of-bias assessment: tool and version (for example RoB 2, ROBINS-I or ROBINS-I V2, ROBINS-E, QUADAS-2 or QUADAS-3, PROBAST+AI), the same as in the protocol or with the change reported (item 24c). Versions, citations and official sources: `references/systematic-review.md` (Step 6).
 8. Effect measures.
 9. Synthesis methods: pooled estimates, model, heterogeneity (`I²`, `τ²`), subgroups, sensitivity.
-10. Reporting bias assessment: funnel plots, statistical tests for asymmetry.
+10. Reporting bias assessment (item 14): methods for risk of bias due to missing results, with any number of studies (registry searches, protocol-publication comparison, ROB-ME); funnel plots and asymmetry tests only for meta-analyses with 10 or more studies.
 11. Certainty of evidence: GRADE for each outcome.
 12. PRISMA flow diagram.
 
@@ -290,7 +290,7 @@ Use with PRISMA 2020 in every systematic review. Its 16 items make the search re
 
 ### PRISMA-DTA: systematic reviews of diagnostic test accuracy
 
-A stand-alone PRISMA extension for reviews whose question is how accurate a test is (the review-level counterpart of STARD). It adds items on the target condition, index test and reference standard, the 2 × 2 data extracted from each study, risk of bias and applicability (typically QUADAS-2), and the accuracy synthesis (e.g., bivariate or hierarchical models, summary sensitivity and specificity or summary ROC).
+A stand-alone PRISMA extension for reviews whose question is how accurate a test is (the review-level counterpart of STARD). It adds items on the target condition, index test and reference standard, the 2 × 2 data extracted from each study, risk of bias and applicability (QUADAS-2, or QUADAS-3 since its publication in February 2026; see `references/systematic-review.md`, Step 6), and the accuracy synthesis (e.g., bivariate or hierarchical models, summary sensitivity and specificity or summary ROC).
 
 > McInnes MDF, Moher D, Thombs BD, McGrath TA, Bossuyt PM; the PRISMA-DTA Group. Preferred Reporting Items for a Systematic Review and Meta-analysis of Diagnostic Test Accuracy Studies: the PRISMA-DTA statement. JAMA. 2018;319(4):388-96. doi:10.1001/jama.2017.19163
 

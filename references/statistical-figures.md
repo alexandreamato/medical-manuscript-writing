@@ -8,7 +8,7 @@ Statistical figures are generated from the data by code, never drawn by hand. Th
 | --- | --- | --- | --- |
 | Forest plot (meta-analysis) | PRISMA 2020 (recommended display for each meta-analysis) | R: `metafor`, `meta`, `forestplot`; or RevMan | [Forest plot](#forest-plot-meta-analysis) |
 | Kaplan-Meier survival | None (standard for time-to-event) | R: `survival` + `survminer` | [Kaplan-Meier](#kaplan-meier-survival-curve) |
-| Funnel plot | PRISMA when ≥ 10 studies | R: `metafor`, `meta` | [Funnel plot](#funnel-plot) |
+| Funnel plot | Meta-analyses with 10 or more studies (Cochrane Handbook 13.3.4.4) | R: `metafor`, `meta` | [Funnel plot](#funnel-plot) |
 | ROC curve | STARD (recommended) | R: `pROC`; Python: `scikit-learn` | [ROC curve](#roc-curve) |
 | Calibration plot | TRIPOD+AI (recommended) | R: `rms`, `CalibrationCurves` | [Calibration plot](#calibration-plot) |
 
@@ -42,7 +42,7 @@ A KM curve must show: survival probability over time per group, the at-risk tabl
 
 ## Funnel Plot
 
-For publication-bias assessment when ≥ 10 studies are pooled (PRISMA 2020).
+For small-study effects (of which publication bias is one cause) when a meta-analysis has 10 or more studies (Cochrane Handbook version 6.5, section 13.3.4.4). With fewer studies, assess missing evidence in other ways (registries, protocol-publication comparison, ROB-ME): `references/systematic-review.md` (7e).
 
 1. **R `metafor`**: `funnel(meta_analysis_object)`.
 2. **R `meta`**: `funnel(...)`.

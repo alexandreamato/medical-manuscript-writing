@@ -83,10 +83,10 @@ Methods
 % Search strategy (full strategy in supplement; example for one database in main text)
 % Selection process (number of reviewers, blinding, software)
 % Data collection process and items
-% Risk-of-bias assessment (tool used; e.g., RoB 2, ROBINS-I, QUADAS-2, Newcastle-Ottawa)
+% Risk-of-bias assessment (tool and version used, as named in the protocol; e.g., RoB 2, ROBINS-I, QUADAS-2 or QUADAS-3, PROBAST+AI)
 % Effect measures
 % Synthesis methods (qualitative summary, pooled estimate, model, heterogeneity, subgroup, sensitivity)
-% Reporting bias assessment (funnel plot, statistical tests)
+% Reporting bias assessment (registry searches, protocol-publication comparison, ROB-ME; funnel plot and asymmetry tests only with 10 or more studies)
 % Certainty of evidence (GRADE)
 ```
 
@@ -258,7 +258,7 @@ Writing structure:
 
 1. State the assumed effect size and source.
 2. State alpha (usually 0.05, two-sided) and power (usually 0.80 or 0.90).
-3. State the calculation method and any inflation for dropout / clustering / multiplicity.
+3. State the calculation method and any inflation for dropout / clustering / multiplicity, as done.
 
 Sentence skeleton:
 
@@ -284,7 +284,7 @@ Writing structure:
 1. State the analysis population (ITT, modified ITT, per-protocol).
 2. State the primary analysis (model, key covariates, effect measure, CI).
 3. State handling of missing data (mechanism assumed, imputation method).
-4. State multiplicity adjustment if applicable.
+4. State the multiplicity strategy actually used: the prespecified adjustment for confirmatory claims, or that secondary and exploratory outcomes were not adjusted and are interpreted as exploratory. If neither was done, state it as a limitation and raise it with the authors (`references/statistical-reporting.md` §0 and §2).
 5. State prespecified sensitivity analyses and subgroup analyses; mark exploratory analyses as such.
 6. State the software and version.
 
