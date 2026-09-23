@@ -1,0 +1,558 @@
+{
+  "_comment": "Journal of Vascular Surgery (J Vasc Surg), Elsevier / Society for Vascular Surgery. Every rule below was read on the journal's own pages on 2026-09-23. [A] = Guide for authors, https://www.sciencedirect.com/journal/journal-of-vascular-surgery/publish/guide-for-authors (403 to plain fetch; read through Firecrawl; no last-updated date shown; forms linked from it are dated 2026-04); [B] = Article Highlights and Table of Contents Summary template, https://vascular.org/sites/default/files/2026-04/Highlights_and_Summary_Template.docx; [C] = Document Formatting Guide (manuscript format + redline guide), https://vascular.org/sites/default/files/2026-04/Formatting_Guide.docx; [D] = Reviewer Response Form, https://vascular.org/sites/default/files/2026-04/Reviewer_Response_Form.docx; [E] = Application for Publication, https://vascular.org/sites/default/files/2026-04/Application_for_Publication.docx; [F] = Open access information, https://www.sciencedirect.com/journal/journal-of-vascular-surgery/publish/open-access-options. JVS: Venous and Lymphatic Disorders has its OWN guide (near-identical text but different article types and COI rule): do not reuse this profile for it.",
+  "extends": "generic-icmje",
+  "name": "Journal of Vascular Surgery (J Vasc Surg)",
+  "generic": false,
+  "source_url": "https://www.sciencedirect.com/journal/journal-of-vascular-surgery/publish/guide-for-authors",
+  "_source_urls": [
+    "https://www.sciencedirect.com/journal/journal-of-vascular-surgery/publish/guide-for-authors",
+    "https://vascular.org/sites/default/files/2026-04/Highlights_and_Summary_Template.docx",
+    "https://vascular.org/sites/default/files/2026-04/Formatting_Guide.docx",
+    "https://vascular.org/sites/default/files/2026-04/Reviewer_Response_Form.docx",
+    "https://vascular.org/sites/default/files/2026-04/Application_for_Publication.docx",
+    "https://www.sciencedirect.com/journal/journal-of-vascular-surgery/publish/open-access-options"
+  ],
+  "verified_at": "2026-09-23",
+  "reverify_after_days": 180,
+  "csl": "journal-of-vascular-surgery",
+  "_csl": "[A] 'References should be cited consecutively in the text by superscript Arabic numbers in the order in which they are first mentioned in the text, a table, or a figure'; format per ICMJE Recommendations; 'If there are six or fewer authors, list all; if seven or more, list only the first six, then et al.'; Index Medicus journal abbreviations. CSL repository: dependent/journal-of-vascular-surgery.csl (HTTP 200, ISSN 0741-5214, updated 2012), parent nlm-citation-sequence-superscript. The journal's example ('J Thorac Cardiovasc Surg 1986;91:598-603.') has no period after the journal title; the NLM parent prints one. Copy-editing absorbs it; not worth a local style.",
+  "reference_docx": {
+    "font": "Times New Roman",
+    "size_pt": 12,
+    "line_spacing": 2.0,
+    "margins_cm": 2.54,
+    "line_numbers": true,
+    "page_numbers": true,
+    "_comment": "[A] 'All text files must be prepared using: Microsoft Word, double spaced with Times New Roman 12-point font'; AMA Manual of Style 10th ed. [C] 'Align the text to the left. Double-space ... insert page numbers on the top right corner of each page. Finally, add line numbers to the left side of the text, restarting on each page. Paper size must be set to \"Letter\" (8.5 x 11) and the margins must be 1 inch on each side.' The kit prints A4, continuous line numbers and page numbers in the footer: fix page size, line-number restart and page-number position by hand (human_checks). Subheading style: not stated.",
+    "paper": "letter",
+    "line_numbers_restart": "page",
+    "_kit": "[C] US Letter paper and line numbers restarting on each page are applied by the kit. Page numbers top right: the kit puts them bottom right (see human_checks)."
+  },
+  "title": {
+    "max_chars": null,
+    "running_title_max_chars": null,
+    "_comment": "[A] title length: not stated. Running title: not stated (not listed among title-page items). Titles 'concise, informative, and accurate', not a question (except Editorials and Commentaries), no causal claims unless the design supports them; RCT, systematic review or meta-analysis named in the title or subtitle (human_checks)."
+  },
+  "keywords": {
+    "min": null,
+    "max": 5,
+    "after_abstract": false,
+    "_comment": "[A] Title page: 'Keywords. Authors may use any five terms they choose'; MeSH suggested, not required. Minimum: not stated (Research Letter: 3-6, see article_types). Placement: title page."
+  },
+  "authors": {
+    "require_orcid": "corresponding",
+    "max": null,
+    "max_without_justification": null,
+    "_comment": "[A] 'There is no specific authorship limit for most submissions'; all four ICMJE criteria. ORCID: not stated (generic default kept). Title page: 'Complete author names, degrees, corresponding institutions, departments, and divisions'; name, mailing address, phone and e-mail of the corresponding author AND of the post-publication corresponding author."
+  },
+  "abstract": {
+    "required": true,
+    "bilingual": false,
+    "title": "Abstract",
+    "limit": {
+      "unit": "words",
+      "min": 250,
+      "max": 400
+    },
+    "structure": [
+      {
+        "id": "objectives",
+        "heading": "Objective"
+      },
+      {
+        "id": "methods",
+        "heading": "Methods"
+      },
+      {
+        "id": "results",
+        "heading": "Results"
+      },
+      {
+        "id": "conclusions",
+        "heading": "Conclusions"
+      }
+    ],
+    "_comment": "[A] table: Clinical Research, structured, '250-400' words. 'A structured abstract will include combinations of the following headings that apply': Objective, Methods, Results, Conclusions (no Background). 'Tables, figures, reference citations, and trademarked names should not appear in the abstract'; numerical results required. An optional translated abstract in another language may be added (not modelled: bilingual stays false)."
+  },
+  "main_text": {
+    "sections": [
+      {
+        "id": "introduction",
+        "heading": "Introduction"
+      },
+      {
+        "id": "methods",
+        "heading": "Methods"
+      },
+      {
+        "id": "results",
+        "heading": "Results"
+      },
+      {
+        "id": "discussion",
+        "heading": "Discussion"
+      },
+      {
+        "id": "conclusions",
+        "heading": "Conclusion",
+        "required": false
+      }
+    ],
+    "limit": {
+      "unit": "words",
+      "max": 3500,
+      "count_sections": [
+        "introduction",
+        "methods",
+        "results",
+        "discussion",
+        "conclusions"
+      ],
+      "include_floats": false
+    },
+    "_comment": "[A] 'The usual sections for a clinical science manuscript include Introduction, Methods, Results, Discussion, and Conclusion' ('usual', so Conclusion is optional here). Table: Clinical Research 'BODY (WORDS)' 3500. What 'body' counts is not defined; read as Introduction to Conclusion, excluding title page, highlights, abstract, references, tables and legends (which are separate files)."
+  },
+  "section_limits": {
+    "highlights-key-findings": {
+      "unit": "characters_with_spaces",
+      "max": 300
+    },
+    "toc-summary": {
+      "unit": "sentences",
+      "max": 2
+    }
+  },
+  "_section_limits": "[B] 'KEY FINDINGS: (Limit to 300 Characters)'. Write the highlights as `# Article Highlights {#highlights}` with `## Type of Research {#highlights-type}`, `## Key Findings {#highlights-key-findings}`, `## Take home Message {#highlights-take-home}`, then `# Table of Contents Summary {#toc-summary}`, both before the abstract.",
+  "references": {
+    "max": 50,
+    "require_identifier": false,
+    "_comment": "[A] table: Clinical Research 50 references. Personal communications and unpublished data are not references (cite in the text with name, title, city, year, and append the source's approval). Articles in press: authors, title, journal, online date. Data references prefixed '[dataset]'. DOI/PMID: not required."
+  },
+  "figures": {
+    "max": null,
+    "placement": "legends-at-end",
+    "_comment": "[A] figures 'submitted electronically ... as separate TIFF, JPEG, or EPS files'; embedded or compiled figures are returned; 300 DPI at 3 inches wide; text at least 10 pt. 'FIGURE LEGENDS. Legends must be numbered, double spaced and uploaded as a separate Word document.' The kit lists legends at the end of the manuscript: move them to their own file (human_checks). Cap is combined with tables (figures_tables_max). No colour charge."
+  },
+  "tables": {
+    "max": null,
+    "placement": "end",
+    "_comment": "[A] 'Number your tables consecutively in Roman numerals'; 'Tables must be uploaded together in one Word document, with each table starting on a new page and including a legend for each table. Tables may not be embedded in manuscript document.' 12-pt Times New Roman. The kit places them after the references and numbers them in Arabic: split them into their own file and renumber (Table I, Table II) by hand.",
+    "numbering": "roman"
+  },
+  "figures_tables_max": 6,
+  "_figures_tables_max": "[A] table: Clinical Research 'FIGURES AND/OR TABLES' '6 print +4 Online Only'. The kit checks the 6 print items; online-only items (supplemental) are a human check. 'Supplemental tables are counted in the table limit for each article type.'",
+  "required_declarations": [
+    "highlights",
+    "toc-summary",
+    "funding"
+  ],
+  "_required_declarations": "highlights and toc-summary: [A] 'Authors of Clinical submissions are required to include article highlights and a summary for the table of contents in the manuscript file. It must appear just before the abstract and be formatted using this template or it will not be accepted for review.' funding: [A] 'The authors' university, institutional, and/or corporate affiliations must be acknowledged on the title page along with sources of funding' (on the title page, below). ethics: conditional (humans/animals), 'a statement in the Methods section' (write it as `### Ethics {#ethics}` inside Methods). NOT required in the manuscript: conflicts ([A] disclosed 'on the Application for Publication Form, and a disclosures statement is published with each article'); author-contributions ([A] 'submitted as part of the Application for Publication'); trial-registration ([A] registry number given 'on the Application for Publication form'); data-availability (not stated; [A] only suggests a footnote on willingness to share data); ai-use (only if generative AI was used in writing).",
+  "conditional_declarations": {
+    "ethics": [
+      "humans",
+      "animals"
+    ]
+  },
+  "_conditional_declarations": "[A] human studies: Declaration of Helsinki and 'a statement in the Methods section stating that the experimental protocol and informed consent were approved by their Institutional Review Board, and that all subjects gave informed consent' (or that IRB approval was waived); animal studies: IRB approval and the Guide for the Care and Use of Laboratory Animals. Reviews (`involves: []`) need neither.",
+  "headings": {
+    "highlights": "Article Highlights",
+    "highlights-type": "Type of Research",
+    "highlights-key-findings": "Key Findings",
+    "highlights-take-home": "Take home Message",
+    "toc-summary": "Table of Contents Summary",
+    "ai-use": "Declaration of Generative AI and AI-assisted technologies in the writing process",
+    "acknowledgments": "Acknowledgments"
+  },
+  "_headings": "[B] template labels 'ARTICLE HIGHLIGHTS', 'Type of Research', 'Key Findings', 'Take home Message', 'Table of Contents Summary'. [A] AI: 'placed in a new section entitled ‘Declaration of Generative AI and AI-assisted technologies in the writing process’', 'at the end of their manuscript ... before the References list'. Funding, ethics and acknowledgment headings: not named (acknowledgment = 'the final paragraph of the manuscript').",
+  "submission": {
+    "separate_title_page": false,
+    "blinded": false,
+    "number_sections": false,
+    "title_page_sections": [
+      "funding"
+    ],
+    "omit_in_blinded": [],
+    "_comment": "[A] 'The Journal operates a single-anonymous peer review process ... reviewers can see the author names, affiliations, and conflicts of interest'. 'A complete title page is required for all submissions and must appear at the beginning of the manuscript file': title, authors with degrees and institutions/departments/divisions, corresponding and post-publication corresponding authors' contacts, presentation information (if applicable), keywords; funding with the affiliations; preprint link if preprinted. Section numbering: not stated."
+  },
+  "style": {
+    "allow_em_dash": false,
+    "allow_en_dash_ranges": false,
+    "p_value": null,
+    "no_abbreviations_in_title_abstract": true,
+    "_comment": "[A] 'Abbreviations should not be used in the title or abstract'; any abbreviation defined at first use; 'Please do not include abbreviations in your article highlights or table of contents summary' (human check: the kit's switch covers title and abstract only). AMA Manual of Style 10th ed.; generic drug names (USAN), proprietary in parentheses; manufacturer with city, state and country; metric height and weight. P-value case and dashes: not stated (kit defaults; AMA style uses capital italic P).",
+    "banned_terms": [
+      {
+        "_comment": "[A] 'Please do not include statements that claim that this is the first time a procedure has been performed, reported, etc.'",
+        "term": "\\b(?:for the first time|first(?:-ever)? (?:report|reported|description|described|case|series|study|use|experience)|never (?:before|previously) (?:been )?(?:reported|described|performed))\\b",
+        "regex": true,
+        "use": "drop the priority claim; describe what was done"
+      },
+      {
+        "_comment": "[A] race and ethnicity table: 'should not be used as a virgule'.",
+        "term": "race/ethnicity",
+        "use": "'race and ethnicity'"
+      },
+      {
+        "term": "\\bnon-?white\\b",
+        "regex": true,
+        "use": "name the specific racial or ethnic groups compared [A]"
+      },
+      {
+        "term": "mixed race",
+        "use": "'multiracial' or 'multiethnic', defined in the Methods [A]"
+      },
+      {
+        "term": "\\b(?:Whites|Blacks|Asians)\\b",
+        "regex": true,
+        "use": "adjective form: 'White patients', 'Black individuals', 'Asian populations' [A]"
+      },
+      {
+        "term": "African-American",
+        "use": "'African American' (no hyphen), and only if accurate [A]"
+      },
+      {
+        "term": "gender differences",
+        "use": "'sex differences' for males vs females (biological); 'gender' only for identity or sociocultural factors [A]"
+      }
+    ]
+  },
+  "reporting_guideline": null,
+  "_reporting_guideline": "[A] Research Formats: 'Authors should use the appropriate guidelines ... The following guidelines are endorsed': CONSORT (RCTs), STROBE (observational), RECORD (administrative data, registries, databases), PRISMA (systematic reviews and meta-analyses). No checklist upload is stated. The kit picks the guideline from `study-design`; SVS reporting standards also apply (human_checks).",
+  "revision": {
+    "marking": "tracked",
+    "deleted": "strike",
+    "author": "Authors",
+    "_comment": "[A] Revised Submissions: 'The redline manuscript must be created using \"Track Changes\" in Microsoft Word and must show every change that has been made in the revision. Manually highlighting, underlining or otherwise indicating the changes made is not enough. Once all the changes are shown, the redline must be saved as a PDF.' [C] 'Additions should be underlined, and deletions should be crossed out.' Plus a clean manuscript 'without editing marks'."
+  },
+  "revision_checks": [
+    "Upload all the files of a new submission (clean manuscript 'without editing marks', figures, tables, forms) plus the redline manuscript and the completed Reviewer Response Form [A].",
+    "Redline: Word Track Changes (the kit's tracked .docx), including title page, highlights/TOC summary, abstract, body and references; page and line numbers present; saved as a PDF named 'Redline Manuscript'; no edits after saving the PDF. Required even if the text did not change [A][C].",
+    "Build the redline against the last submitted version (downloadable from 'Submissions Needing Revision' in Editorial Manager) [C]. Redline versions of changed tables are recommended [C].",
+    "Reviewer Response Form: paste the reviewer comments unaltered; for each, a response, the revised text, and the Redline PDF page and line numbers (not 'in the Methods section'); explain every disagreement; unanswered comments can get the revision returned [D].",
+    "Comments marked with an asterisk (*) must produce a change in the manuscript, not only a reply [D].",
+    "Update and re-date the Application for Publication for the revision [E]; the corresponding author re-confirms co-author approval, conflicts and contributions before each resubmission [A].",
+    "Optional Visual Abstract (journal PowerPoint template) is uploaded with the revised submission [A].",
+    "Do not post revised versions of a preprinted manuscript while under review [A].",
+    "Deadline for the revision: not stated in the guide ('revise the manuscript promptly'); read the decision letter [A]."
+  ],
+  "human_checks": [
+    "Title page at the start of the manuscript file: title; authors with degrees and institution/department/division; name, mailing address, phone and e-mail of the corresponding AND the post-publication corresponding author; presentation information if presented at a meeting; up to five keywords; funding with affiliations; preprint link if preprinted [A].",
+    "Article Highlights and Table of Contents Summary just before the abstract, in the journal's template: Type of Research (design only, e.g. 'Single-center retrospective cohort study', registry abbreviation allowed), Key Findings (max 300 characters, with numbers), Take home Message; TOC summary in two sentences (design + main finding; main conclusion). No abbreviations in either [A][B].",
+    "Abstract: numerical results; no tables, figures, citations or trademarked names; no abbreviations [A].",
+    "Title: not a question (except Editorials/Commentaries); no causal wording unless the design supports it; name RCT, systematic review or meta-analysis in the title or subtitle [A].",
+    "Ethics in Methods: IRB approval of protocol and consent and that all subjects consented (or waiver); observational studies state retrospective or prospective, study dates, number of patients, and whether identifiable private information was reviewed or how it was deidentified [A].",
+    "Clinical trials: registered in a WHO ICTRP primary registry or ClinicalTrials.gov at or before first enrollment; number given on the Application for Publication [A].",
+    "Application for Publication (all submissions except Invited Commentaries and Editorials): contributions table (initials; Research, Manuscript Development, Approval, Accountability), overall responsibility, conflicts for EACH author ('The authors have no competing interests' if none), role of sponsors, off-label drugs/devices; every author reviews it [A][E]. Statistical analysts named in Author Contributions [A].",
+    "Publication consent (journal form or institutional form) for identifiable patients; a consent statement in the text; archive the form, do NOT upload it [A].",
+    "Discussion places the work against the most recent relevant clinical practice guideline; SVS reporting standards followed where applicable (EVAR, aortic dissection, carotid, lower-extremity ischemia, dialysis access, TOS, device adverse events...) [A].",
+    "Race and ethnicity: define how collected (self-report, EHR...) in Methods; specific categories; list groups alphabetically; define 'Other' [A]. Sex and gender: results disaggregated by sex and/or gender; how sex was determined (SAGER) [A].",
+    "Survival curves: declining steps, truncated or dotted when SE >10%, n at risk along the x-axis, log-rank for comparisons [A].",
+    "Format: 1-inch margins, left-aligned, page numbers top right, line numbers on the left restarting each page [C]. The kit applies US Letter, the margins and the per-page line numbers; move the page number from the footer to a top-right header by hand.",
+    "Files: tables together in ONE Word document, Roman-numbered (Table I, II), each on a new page with its legend; figures as separate TIFF/JPEG/EPS (300 DPI at 3 in, text >=10 pt), cited in order incl. panels (Figure 1A); figure legends in a separate Word document; 'Supplemental Table I'/'Supplemental Figure 1' naming. The kit's single .docx must be split [A].",
+    "Online-only items: at most 4 (Clinical Research) or 5 (other types) beyond the print figures/tables; supplemental tables count toward the table limit [A].",
+    "No 'first time' priority claims [A] (also flagged by banned_terms).",
+    "Generative AI used in writing: statement 'During the preparation of this work the author(s) used [NAME TOOL / SERVICE] in order to [REASON]. After using this tool/service, the author(s) reviewed and edited the content as needed and take(s) full responsibility for the content of the publication.' in a section before the References; not for grammar/spelling/reference tools; AI never an author [A].",
+    "Previous presentation or abstract: give details and the abstract; major updates of a published cohort need >=50% more patients or >=2 years more mean follow-up, and copies of the prior papers [A][E].",
+    "Preprints: allowed on community servers unless indexed in MEDLINE/PubMed; link on the title page; link the preprint to the JVS DOI after acceptance [A].",
+    "Select 1-6 classification terms in Editorial Manager [A]. Collaborator group named after the authors on the title page, list at the end [A].",
+    "Resubmission of a rejected manuscript only with critical new data: identify the previous title and number in the cover letter [A].",
+    "Costs: hybrid journal; open access APC USD 4,010 (excl. taxes), 20% discount for SVS-member corresponding authors; no colour charge; subscription route free; self-archiving of the accepted manuscript after a 12-month embargo [A][F].",
+    "Optional: 5-minute video summary (Clinical and Review articles), MP4 up to 150 MB; 3D DICOM data (anonymized) [A]."
+  ],
+  "article_types": {
+    "original": {
+      "_comment": "[A] Clinical Research (RCTs and observational studies; 'must include 10 or more patients'): defaults above. Structured abstract 250-400; body 3500; 6 print + 4 online-only figures/tables; 50 references."
+    },
+    "review": {
+      "abstract": {
+        "structure": [
+          {
+            "id": "objectives",
+            "heading": "Objective"
+          },
+          {
+            "id": "methods",
+            "heading": "Methods",
+            "required": false
+          },
+          {
+            "id": "results",
+            "heading": "Results",
+            "required": false
+          },
+          {
+            "id": "conclusions",
+            "heading": "Conclusions"
+          }
+        ]
+      },
+      "main_text": {
+        "sections": [
+          {
+            "id": "introduction",
+            "heading": "Introduction"
+          }
+        ],
+        "limit": {
+          "max": 3500,
+          "count_sections": [
+            "introduction",
+            "methods",
+            "results",
+            "discussion",
+            "conclusions",
+            "body"
+          ]
+        }
+      },
+      "references": {
+        "max": 125,
+        "min": 75
+      },
+      "figures_tables_max": 5,
+      "required_declarations": [
+        "funding"
+      ],
+      "human_checks": [
+        "Review: type of review (narrative, systematic, meta-analysis) in the title, with no punctuation in the title; references '75-125' (the kit checks only the 125 maximum) [A].",
+        "Review: highlights/TOC summary are required for 'Clinical submissions' and the manuscript file 'for most submissions includes' them; confirm with the editorial office whether a review needs them [A]."
+      ],
+      "_comment": "[A] Review Article: structured abstract 250-400 ('combinations of the following headings that apply': Objective and Conclusions kept required, Methods and Results optional for a narrative review); body 3500; 5 print + 5 online-only; references '75-125'. Narrative Review: descriptive, no systematic search."
+    },
+    "systematic-review": {
+      "main_text": {
+        "sections": [
+          {
+            "id": "introduction",
+            "heading": "Introduction"
+          },
+          {
+            "id": "methods",
+            "heading": "Methods"
+          },
+          {
+            "id": "results",
+            "heading": "Results"
+          },
+          {
+            "id": "discussion",
+            "heading": "Discussion"
+          }
+        ]
+      },
+      "references": {
+        "max": 125,
+        "min": 75
+      },
+      "figures_tables_max": 5,
+      "required_declarations": [
+        "funding"
+      ],
+      "reporting_guideline": "PRISMA",
+      "human_checks": [
+        "Systematic review/meta-analysis: 'systematic review' or 'meta-analysis' in the title, with no punctuation in the title; references '75-125' (the kit checks only 125); a table of included studies goes online-only [A].",
+        "Systematic review: highlights/TOC summary required for 'Clinical submissions'; confirm whether a review needs them [A]."
+      ],
+      "_comment": "[A] Review Article limits (structured abstract 250-400 with Objective, Methods, Results, Conclusions; body 3500; 5 print + 5 online-only; 75-125 references). 'The PRISMA statement and checklist is recommended'; IOM standards for systematic reviews."
+    },
+    "evidence-summary": {
+      "abstract": {
+        "limit": {
+          "min": null,
+          "max": 150
+        },
+        "structure": []
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "max": 1500,
+          "count_sections": [
+            "introduction",
+            "methods",
+            "results",
+            "discussion",
+            "conclusions",
+            "body"
+          ]
+        }
+      },
+      "references": {
+        "max": 50
+      },
+      "figures_tables_max": 5,
+      "required_declarations": [
+        "funding"
+      ],
+      "_comment": "[A] Evidence Summary: unstructured abstract 150 (final sentence = outcome and 'take-away' lesson); 1500 words; 5 print + 5 online-only; 50 references; summarizes the evidence on a practice issue, often in tabular form."
+    },
+    "practice-management": {
+      "abstract": {
+        "limit": {
+          "min": 150,
+          "max": 200
+        },
+        "structure": []
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "max": 3000,
+          "count_sections": [
+            "introduction",
+            "methods",
+            "results",
+            "discussion",
+            "conclusions",
+            "body"
+          ]
+        }
+      },
+      "references": {
+        "max": 30
+      },
+      "figures_tables_max": 5,
+      "required_declarations": [
+        "funding"
+      ],
+      "_comment": "[A] Practice Management: unstructured abstract '150-200'; 3000 words; 5 print + 5 online-only; 30 references; office, vascular laboratory, sociopolitical, recruitment and reimbursement topics."
+    },
+    "research-letter": {
+      "abstract": {
+        "required": false
+      },
+      "keywords": {
+        "min": 3,
+        "max": 6,
+        "after_abstract": false
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "max": 800,
+          "count_sections": [
+            "introduction",
+            "methods",
+            "results",
+            "discussion",
+            "conclusions",
+            "body"
+          ]
+        }
+      },
+      "references": {
+        "max": 5
+      },
+      "figures_tables_max": 1,
+      "required_declarations": [
+        "conflicts",
+        "funding"
+      ],
+      "human_checks": [
+        "Research Letter: no subtitles or section headings in the text (write it as one `{#body}` section); one figure (max two panels, A and B top left) OR one table; no abstract, no supplemental material; must fit on 2 printed pages [A]."
+      ],
+      "_comment": "[A] Research Letter: 800 words, 5 references, 1 figure or table, 'Include 3-6 keywords and clearly state any conflict of interest or funding. No abstract and no supplemental material'. Published in Correspondence; peer reviewed."
+    },
+    "letter": {
+      "abstract": {
+        "required": false
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "max": 350,
+          "count_sections": [
+            "body"
+          ]
+        }
+      },
+      "references": {
+        "max": 10
+      },
+      "figures_tables_max": 1,
+      "required_declarations": [],
+      "human_checks": [
+        "Letter: about a recently published JVS article, cited as reference 1; addressed to the Editor, not the author; the title states the main question or opinion; no case reports in letter format [A]."
+      ],
+      "_comment": "[A] Letter to the Editor/Response: no abstract, 350 words, 10 references, 1 illustration or table. COI via the Application for Publication (required for letters: only Invited Commentaries and Editorials are exempt)."
+    },
+    "editorial": {
+      "abstract": {
+        "required": false
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "max": 1000,
+          "count_sections": [
+            "body"
+          ]
+        }
+      },
+      "references": {
+        "max": 10
+      },
+      "figures_tables_max": 0,
+      "required_declarations": [],
+      "_comment": "[A] Editorial (solicited): no abstract, 1000 words, 0 figures/tables, 10 references, an original title. Application for Publication not required."
+    },
+    "commentary": {
+      "abstract": {
+        "required": false
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "max": 500,
+          "count_sections": [
+            "body"
+          ]
+        }
+      },
+      "references": {
+        "max": 10
+      },
+      "figures_tables_max": 0,
+      "required_declarations": [],
+      "human_checks": [
+        "Invited Commentary: unique title; first reference is the article discussed; do not repeat its data [A]."
+      ],
+      "_comment": "[A] Invited Commentary (on request after acceptance of the article): no abstract, 500 words, 0 figures/tables, 10 references. Application for Publication not required."
+    },
+    "vascular-image": {
+      "abstract": {
+        "required": false
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "max": 350,
+          "count_sections": [
+            "introduction",
+            "case",
+            "discussion",
+            "conclusions",
+            "body"
+          ]
+        }
+      },
+      "references": {
+        "max": 5
+      },
+      "figures": {
+        "max": 4,
+        "placement": "legends-at-end"
+      },
+      "figures_tables_max": null,
+      "required_declarations": [],
+      "reporting_guideline": "CARE",
+      "human_checks": [
+        "Vascular Image: one printed page; four images or fewer (one cover image, three for the right-hand column); describe the images in the text because legends are not published; designate the cover image in its in-text citation; cover image without arrows or added text; not previously published [A].",
+        "Vascular Image: patient's publication consent obtained before submission, a consent statement in the text, form archived and NOT uploaded [A]."
+      ],
+      "_comment": "[A] Vascular Image: 'focused, case report format'; no abstract; 350 words; 4 illustrations; 5 references. CARE is the kit's choice for a case-report format, not named by the journal."
+    },
+    "case-report": null
+  },
+  "_article_types": "[A] no Case Report type is listed; case material goes as a Vascular Image, and 'authors may not submit case reports in letter format': the inherited generic case-report type is removed. Special Articles (no limits; set by the Editor), Presidential Addresses, SVS reporting standards/guidelines and obituaries are not modelled."
+}

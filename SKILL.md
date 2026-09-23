@@ -4,7 +4,7 @@ description: Write and revise medical and biomedical manuscripts (RCTs, cohort, 
 license: CC-BY-4.0
 metadata:
   author: Alexandre Campos Moraes Amato
-  version: 1.9.1
+  version: 1.10.0
 ---
 # Medical Manuscript Writing
 
@@ -39,7 +39,7 @@ No journal, deadline or preference overrides these.
 
 1. Tables and figures cited in numerical order; references in the journal's style, Vancouver when none is chosen (`manuscript-conventions.md` §1.2, §2.1; `citation-styles.md`).
 2. No em-dash or en-dash inside body sentences; ranges as `12 to 18`. If the journal prints dashes (`95% CI 0.55–0.94`), follow it consistently, never with a negative bound, never mixed (§3.1).
-3. Deliver what the author works in. Revising an existing Word file: stay in it. New manuscript, many revisions or several journals: offer the build kit (`docx-build.md`, `templates/build-kit/`), which generates the .docx per journal profile (J Vasc Bras by default; also Obesity, Obesity Facts, Clinical Obesity, Int J Obes, J Clin Med, Cureus), marks revisions as the journal asks and names files `<short-name>_<journal>[_rev<N>]_<part>`.
+3. Deliver what the author works in. Revising an existing Word file: stay in it. New manuscript, many revisions or several journals: offer the build kit (`docx-build.md`, `templates/build-kit/`), which generates the .docx per journal profile (J Vasc Bras by default; also J Vasc Surg, Phlebology, Obesity, Obesity Facts, Clinical Obesity, Int J Obes, J Clin Med, Cureus), marks revisions as the journal asks and names files `<short-name>_<journal>[_rev<N>]_<part>`.
 
 ## Core Workflow
 

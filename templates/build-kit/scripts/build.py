@@ -203,7 +203,8 @@ def build(name: str, atype: str | None, force: bool, revision: int | None = None
         "no-title-alt": not bilingual,
     }
     xref = {"tables": prof.get("tables", {}).get("placement", "inline"),
-            "figures": prof.get("figures", {}).get("placement", "inline")}
+            "figures": prof.get("figures", {}).get("placement", "inline"),
+            "table_numbering": prof.get("tables", {}).get("numbering", "arabic")}
     ns = sub.get("number_sections", False)
 
     if sub.get("separate_title_page"):

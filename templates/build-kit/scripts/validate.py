@@ -149,6 +149,8 @@ def measure(text: str, unit: str) -> int:
         return len(text)
     if unit == "characters_without_spaces":
         return len(re.sub(r"\s", "", text))
+    if unit == "sentences":
+        return len([x for x in re.split(r"(?<=[.!?])\s+(?=[A-Z0-9À-Ý])", text.strip()) if x.strip()])
     if unit == "items":
         C.die("unit 'items' is only valid in section_limits (it counts list items in a section)")
     C.die(f"unknown limit unit '{unit}' (words, characters_with_spaces, characters_without_spaces)")
@@ -516,6 +518,8 @@ def _validate(prof: dict, doc: dict) -> tuple[Report, dict]:
             rep.warn("references", f"{rid} is never cited (it will not appear in the list)")
     rcfg = prof.get("references", {})
     rmax = rcfg.get("max")
+    if rcfg.get("min") and len(uniq) < rcfg["min"]:
+        (rep.warn if rcfg.get("soft") else rep.error)("references", f"{len(uniq)} cited; minimum {rcfg['min']}")
     if rmax and len(uniq) > rmax:
         if rcfg.get("soft"):
             rep.warn("limits", f"{len(uniq)} references; above {rmax}: {rcfg.get('soft_note') or 'guidance only'}")

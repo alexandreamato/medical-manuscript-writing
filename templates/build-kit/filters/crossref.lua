@@ -52,8 +52,25 @@ local function page_break()
   return pandoc.RawBlock("openxml", '<w:p><w:r><w:br w:type="page"/></w:r></w:p>')
 end
 
+-- Tables numbered I, II, III when the journal asks for it (xref.table_numbering = "roman").
+local roman_tables = false
+local function roman(n)
+  local vals = {{1000,"M"},{900,"CM"},{500,"D"},{400,"CD"},{100,"C"},{90,"XC"},{50,"L"},{40,"XL"},
+                {10,"X"},{9,"IX"},{5,"V"},{4,"IV"},{1,"I"}}
+  local out = ""
+  for _, v in ipairs(vals) do while n >= v[1] do out = out .. v[2]; n = n - v[1] end end
+  return out
+end
+local function numtext(id)
+  local n = nums[id]
+  if not n then return "??" end
+  local k = kind(id)
+  if roman_tables and (k == "tbl" or k == "stbl") then return roman(n) end
+  return tostring(n)
+end
+
 local function label(id)
-  return NAMES[kind(id)][1] .. " " .. tostring(nums[id] or "??")
+  return NAMES[kind(id)][1] .. " " .. numtext(id)
 end
 
 -- Prefix "Figure 1." to a caption (list of blocks); returns new blocks.
@@ -107,6 +124,7 @@ function Pandoc(doc)
   local meta = doc.meta.xref or {}
   local tables_mode = pandoc.utils.stringify(meta.tables or "inline")
   local figures_mode = pandoc.utils.stringify(meta.figures or "inline")
+  roman_tables = pandoc.utils.stringify(meta.table_numbering or "") == "roman"
 
   -- Pass 1: first mentions, then floats never mentioned, in document order.
   doc:walk({traverse = "topdown", Cite = function(c)
@@ -128,7 +146,7 @@ function Pandoc(doc)
     end
     local k = kind(ids[1].id)
     local numbers = {}
-    for _, cit in ipairs(ids) do table.insert(numbers, tostring(nums[cit.id] or "??")) end
+    for _, cit in ipairs(ids) do table.insert(numbers, numtext(cit.id)) end
     local joined
     if #numbers == 1 then joined = numbers[1]
     elseif #numbers == 2 then joined = numbers[1] .. " and " .. numbers[2]

@@ -104,7 +104,7 @@ A correctly loaded skill answers from `SKILL.md`: the three working modes (point
 
 ## Updating
 
-The version is recorded in `CHANGELOG.md` (current: `1.9.1`, 2026-09-23), in `SKILL.md` (`metadata.version`) and (plugin format only) `.claude-plugin/plugin.json`. `dist/build-zips.sh` reads the version from `CHANGELOG.md` and writes it into `plugin.json`, so bump only the changelog, then run `bash dist/build-zips.sh`.
+The version is recorded in `CHANGELOG.md` (current: `1.10.0`, 2026-09-23), in `SKILL.md` (`metadata.version`) and (plugin format only) `.claude-plugin/plugin.json`. `dist/build-zips.sh` reads the version from `CHANGELOG.md` and writes it into `plugin.json`, so bump only the changelog, then run `bash dist/build-zips.sh`.
 
 ## License
 

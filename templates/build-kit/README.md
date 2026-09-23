@@ -37,6 +37,8 @@ Profiles included:
 | `clinical-obesity` | Clinical Obesity, Wiley / World Obesity | highlight (not stated) | "What is already known" and "What this study adds" boxes (up to 3 bullets); person-first language |
 | `ijo` | International Journal of Obesity, Springer Nature | highlight | structured abstract Background/Objectives, Subjects/Methods; competing interests on the title page and before the references; people-first language enforced |
 | `jcm` | Journal of Clinical Medicine, MDPI | tracked changes (not stated) | no running title; IRB and informed-consent statements when humans are studied; no length limits |
+| `jvs` | Journal of Vascular Surgery, Elsevier / SVS | tracked changes (redline saved as PDF) | Article Highlights and Table of Contents Summary; abstract 250 to 400 words; tables numbered I, II; US Letter, line numbers restart each page; no case reports |
+| `phlebology` | Phlebology, SAGE | highlight (SAGE policy) | fully anonymized manuscript, statements on the title page; abstract about 300 words; no case reports |
 | `cureus` | Cureus, Springer Nature | none (web editor keeps versions) | text pasted into a web form; free-publication limits on authors and references; abstract 3,500 characters |
 | `generic-icmje` | none (drafting defaults) | tracked changes | never submit against it |
 | `example-journal-b` | illustrative | tracked changes | never submit against it |

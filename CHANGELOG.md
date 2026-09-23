@@ -2,6 +2,23 @@
 
 All notable changes to the **Medical Manuscript Writing** skill are documented here. Format follows Keep a Changelog (https://keepachangelog.com/) using semantic-style versioning by content scope rather than strict semver.
 
+## [1.10.0] — 2026-09-23
+
+### Added
+
+- **Journal profiles `jvs` (Journal of Vascular Surgery, Elsevier/SVS) and `phlebology` (Phlebology, SAGE)**, every rule sourced (read 2026-09-23).
+  - JVS: Article Highlights (Key Findings at most 300 characters) and a two-sentence Table of Contents Summary; structured abstract of 250 to 400 words; ten article types; revisions as a Word tracked-changes redline saved as PDF.
+  - Phlebology: fully anonymized manuscript with the statements on the title page; revisions highlighted (SAGE policy).
+  - Neither journal takes case reports. JVS: Venous and Lymphatic Disorders has its own instructions and would need its own profile.
+- Kit features JVS needed:
+  - `reference_docx.paper: "letter"`;
+  - `line_numbers_restart: "page"`;
+  - `tables.numbering: "roman"` (Table I, II, in captions and citations);
+  - `unit: "sentences"` for section limits;
+  - `references.min`.
+- CSL styles `journal-of-vascular-surgery` (with its parent `nlm-citation-sequence-superscript`) and `sage-vancouver`, bundled in `csl/`.
+- 2 new tests (50 in total).
+
 ## [1.9.1] — 2026-09-23
 
 Responds to an external review of 1.9.0.

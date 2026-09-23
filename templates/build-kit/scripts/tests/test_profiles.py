@@ -148,6 +148,28 @@ class ProfileFeatureTests(unittest.TestCase):
                 B.resolve_csl("some-journal-not-bundled")
         self.assertIn("could not be downloaded (no route to host)", die.call_args[0][0])
 
+    def test_letter_paper_page_line_numbers_roman_tables(self):
+        name = self.profile({"reference_docx": {"paper": "letter", "line_numbers_restart": "page"},
+                             "tables": {"numbering": "roman"}})
+        code, out = self.run_py("scripts/build.py", "--journal", name, "--force")
+        self.assertEqual(code, 0, out)
+        import zipfile
+        ms = next((self.kit / "outputs" / name).glob("*_manuscript.docx"))
+        xml = zipfile.ZipFile(ms).read("word/document.xml").decode()
+        self.assertIn('w:w="12240"', xml)
+        self.assertIn('w:restart="newPage"', xml)
+        text = subprocess.run(["pandoc", str(ms), "-t", "plain"], capture_output=True, text=True).stdout
+        self.assertIn("Table I.", text)
+        self.assertIn("Table II", text)
+        self.assertNotIn("Table 1", text)
+
+    def test_sentence_limit_and_reference_minimum(self):
+        name = self.profile({"section_limits": {"discussion": {"unit": "sentences", "max": 2}},
+                             "references": {"min": 10}})
+        out = self.validate(name)
+        self.assertIn("section discussion: 4 sentences; limit 2", out)
+        self.assertIn("references: 3 cited; minimum 10", out)
+
     def test_every_profile_builds(self):
         for p in sorted((self.kit / "journals").glob("*.json")):
             if p.stem in ("t", "h"):

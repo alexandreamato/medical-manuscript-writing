@@ -26,7 +26,10 @@ from pathlib import Path
 import common as C
 
 DEFAULTS = {"font": "Times New Roman", "size_pt": 12, "line_spacing": 2.0, "line_numbers": True,
-            "margins_cm": 2.5, "page_numbers": True, "subheadings": "bold"}
+            "margins_cm": 2.5, "page_numbers": True, "subheadings": "bold", "paper": "a4",
+            "line_numbers_restart": "continuous"}
+# twentieths of a point
+PAPER = {"a4": (11906, 16838), "letter": (12240, 15840)}
 
 
 def _twips(cm: float) -> int:
@@ -65,9 +68,11 @@ def _styles(xml: str, s: dict) -> str:
 
 def _sectpr(s: dict) -> str:
     m = _twips(s["margins_cm"])
-    ln = '<w:lnNumType w:countBy="1" w:restart="continuous" />' if s["line_numbers"] else ""
+    restart = "newPage" if s.get("line_numbers_restart") == "page" else "continuous"
+    ln = f'<w:lnNumType w:countBy="1" w:restart="{restart}" />' if s["line_numbers"] else ""
     foot = '<w:footerReference w:type="default" r:id="rIdPageNum" />' if s["page_numbers"] else ""
-    return (f'<w:sectPr>{foot}<w:pgSz w:w="11906" w:h="16838" />'
+    w, h = PAPER.get(str(s.get("paper", "a4")).lower(), PAPER["a4"])
+    return (f'<w:sectPr>{foot}<w:pgSz w:w="{w}" w:h="{h}" />'
             f'<w:pgMar w:top="{m}" w:right="{m}" w:bottom="{m}" w:left="{m}" w:header="708" '
             f'w:footer="708" w:gutter="0" />{ln}</w:sectPr>')
 

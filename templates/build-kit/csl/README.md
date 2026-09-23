@@ -12,6 +12,8 @@ Every style used by a bundled journal profile is stored here, so the kit builds 
 | `international-journal-of-obesity.csl` → `nature-publishing-group-vancouver.csl` | `ijo` |
 | `journal-of-clinical-medicine.csl` → `multidisciplinary-digital-publishing-institute.csl` | `jcm` |
 | `cureus.csl` | `cureus` |
+| `journal-of-vascular-surgery.csl` → `nlm-citation-sequence-superscript.csl` | `jvs` (dependent style and its parent) |
+| `sage-vancouver.csl` | `phlebology` (Sage Vancouver; no journal-specific style exists) |
 
 A profile that names a style not stored here downloads it on first use (network needed once) and keeps it here. Journal styles are often *dependent* (a pointer to a parent); `build.py` resolves the parent. If the download fails, the error says whether the style does not exist (HTTP 404) or the network is unavailable.
 

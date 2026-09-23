@@ -1,0 +1,328 @@
+{
+  "_comment": "Phlebology: The Journal of Venous Disease (Sage; partners: American Vein and Lymphatic Society, Australasian College of Phlebology, European Venous Forum, Venous Forum of the Royal Society of Medicine, Benelux Society of Phlebology). Every rule below was read on 2026-09-23. [A] = journal Submission Guidelines, https://journals.sagepub.com/author-instructions/PHL (article types, formatting, title page, statements and declarations, references, files, peer review, preprints, fees); [V] = Sage Vancouver reference guide, https://www.sagepub.com/reference-style-sage-vancouver-msg (linked from [A]); [R] = Sage 'During peer review & production', https://www.sagepub.com/journals/information-for-authors/during-peer-review-production (revision and response-to-reviewers instructions; [A] has no revision section); [AI] = Sage Artificial intelligence policy, https://www.sagepub.com/journals/publication-ethics-policies/artificial-intelligence-policy (linked from [A]). [A] shows no last-updated date. Re-read [A] before each submission.",
+  "extends": "generic-icmje",
+  "name": "Phlebology (Sage)",
+  "generic": false,
+  "source_url": "https://journals.sagepub.com/author-instructions/PHL",
+  "_source_urls": [
+    "https://journals.sagepub.com/author-instructions/PHL",
+    "https://www.sagepub.com/reference-style-sage-vancouver-msg",
+    "https://www.sagepub.com/journals/information-for-authors/during-peer-review-production",
+    "https://www.sagepub.com/journals/publication-ethics-policies/artificial-intelligence-policy"
+  ],
+  "verified_at": "2026-09-23",
+  "reverify_after_days": 180,
+  "csl": "sage-vancouver",
+  "_csl": "[A] 'The journal follows the Sage Vancouver reference style.' [V] references numbered in order of appearance; superscript numerals after the punctuation (STM); 'Up to three authors may be listed. If more, then list the first three authors ... et al.'; et al. upright; Index Medicus journal abbreviations, e.g. 'Araki C, Black TL, Patberg FT, et al. ... J Vasc Surg 1994; 20: 872-879.' CSL repository: no Phlebology style (neither root nor dependent/); the root style sage-vancouver.csl ('SAGE - NLM/Vancouver', HTTP 200) matches: superscript, et-al-min 4 / use-first 3, italic journal names. Preprint citations are discouraged; update them to the peer-reviewed version [A].",
+  "reference_docx": {
+    "font": "Times New Roman",
+    "size_pt": 12,
+    "line_spacing": 2.0,
+    "margins_cm": 2.5,
+    "line_numbers": true,
+    "page_numbers": true,
+    "_comment": "[A] 'The preferred format for your manuscript is Word. You do not need to follow a template, but please ensure your heading levels are clear, and the sections clearly defined.' Font, size, spacing, margins, line and page numbering: not stated (kit defaults kept). LaTeX also accepted."
+  },
+  "title": {
+    "max_chars": null,
+    "running_title_max_chars": null,
+    "_comment": "[A] title 'concise, descriptive, unambiguous, accurate'; no length limit stated. Running title: not stated."
+  },
+  "keywords": {
+    "min": 1,
+    "max": 5,
+    "after_abstract": true,
+    "_comment": "[A] 'Please include between 1-5 keywords, listed after the abstract. Keywords should be as specific as possible to the research topic.' Vocabulary (MeSH) not stated."
+  },
+  "authors": {
+    "require_orcid": "corresponding",
+    "max": null,
+    "max_without_justification": null,
+    "_comment": "[A] 'ORCID ID of the submitting author' required; co-authors 'strongly encouraged' to link theirs before acceptance (cannot be added afterwards). The kit's 'corresponding' is the nearest setting (the submitting author is usually the corresponding author). Author limit: not stated."
+  },
+  "abstract": {
+    "required": true,
+    "bilingual": false,
+    "title": "Abstract",
+    "limit": {
+      "unit": "words",
+      "max": 300,
+      "soft": true
+    },
+    "structure": [
+      {
+        "id": "objectives",
+        "heading": "Objectives"
+      },
+      {
+        "id": "methods",
+        "heading": "Methods"
+      },
+      {
+        "id": "results",
+        "heading": "Results"
+      },
+      {
+        "id": "conclusions",
+        "heading": "Conclusions"
+      }
+    ],
+    "_comment": "[A] Original Articles 'should carry a structured abstract (of about 300 words), which states the main purposes of the study (Objectives), the basic procedures used (Methods), the findings (Results) and the most important conclusions drawn (Conclusions)'. Formatting section: 'a structured abstract of 300 words between the title and main body'. 'About' makes 300 guidance (soft). No Background heading. Clinical trials: registry name, URL and number at the end of the abstract, or the submission is not considered (human check)."
+  },
+  "main_text": {
+    "sections": [
+      {
+        "id": "introduction",
+        "heading": "Introduction"
+      },
+      {
+        "id": "methods",
+        "heading": "Methods"
+      },
+      {
+        "id": "results",
+        "heading": "Results"
+      },
+      {
+        "id": "discussion",
+        "heading": "Discussion"
+      }
+    ],
+    "limit": {
+      "unit": "words",
+      "min": 2000,
+      "max": 3000,
+      "count_sections": [
+        "introduction",
+        "methods",
+        "results",
+        "discussion",
+        "conclusions"
+      ],
+      "include_floats": false
+    },
+    "_comment": "[A] 'Original articles should be 2,000-3,000 words'; 'structured in conventional style: Introduction, Methods, Results, Discussion, Acknowledgements and References.' What the count includes is not stated: counted here as the main text (Introduction to Discussion), excluding abstract, declarations, references, tables and figures. The number of words, figures and tables is entered at submission [A]."
+  },
+  "references": {
+    "max": null,
+    "require_identifier": false,
+    "_comment": "[A] no reference limit for Original Articles, Reviews or Letters; Editorials up to 10, Short Reports no more than 5. DOI/PMID: not required. 'Every in-text citation must have a corresponding citation in the reference list and vice versa.'"
+  },
+  "figures": {
+    "max": null,
+    "placement": "legends-at-end",
+    "_comment": "[A] Files: 'Figures and images' uploaded as their own files, 'numbered consecutively in the order in which they appear in the text'; 300 dpi; Sage artwork guidelines. No maximum stated. Legend placement not stated: the kit ships figures as separate files with legends at the end."
+  },
+  "tables": {
+    "max": null,
+    "placement": "inline",
+    "_comment": "Tables: placement and maximum not stated in [A] (kit default, inline, kept)."
+  },
+  "figures_tables_max": null,
+  "required_declarations": [
+    "ethics",
+    "informed-consent",
+    "consent-publication",
+    "conflicts",
+    "funding",
+    "data-availability",
+    "author-contributions"
+  ],
+  "_required_declarations": "[A] 'Please include a section with the heading 'Statements and Declarations' at the end of your submitted article, after the Acknowledgements section [and Author Contributions section if applicable] including each of the sub-headings listed below. If a declaration is not applicable to your submission, you must still include the heading and state 'Not applicable' underneath.' Sub-headings: Ethical considerations (state explicitly if approval was not required), Consent to participate, Consent for publication, Declaration of conflicting interest, Funding statement ('All articles need to include a funding statement, under a separate heading, even if you did not receive funding'), Data availability. All are therefore always required (write 'Not applicable' where so), not conditional on `involves`. Author Contributions: 'include the Author Contributions heading within your submission after the Acknowledgements section'. AI: no separate section; generative use is disclosed 'within the methods or acknowledgements' [AI] (human check). Trial registration: at the end of the abstract (human check).",
+  "headings": {
+    "declarations": "Statements and Declarations",
+    "ethics": "Ethical considerations",
+    "informed-consent": "Consent to participate",
+    "consent-publication": "Consent for publication",
+    "conflicts": "Declaration of conflicting interest",
+    "funding": "Funding statement",
+    "data-availability": "Data availability",
+    "author-contributions": "Author contributions",
+    "acknowledgments": "Acknowledgments",
+    "_comment": "[A] headings as written in 'Statements and declarations' (sub-headings) and 'Author contributions' ('the Author Contributions heading'). [A] spells both 'Acknowledgments' (section heading) and 'Acknowledgements' (article types). Write the consent statements as `## Consent to participate {#informed-consent}` and `## Consent for publication {#consent-publication}` in 05-declarations.md."
+  },
+  "submission": {
+    "separate_title_page": true,
+    "blinded": true,
+    "number_sections": false,
+    "title_page_sections": [
+      "acknowledgments",
+      "conflicts",
+      "funding",
+      "ethics",
+      "informed-consent",
+      "consent-publication",
+      "data-availability"
+    ],
+    "omit_in_blinded": [
+      "acknowledgments"
+    ],
+    "_comment": "[A] Title page: 'To ensure fair and anonymous peer review, your manuscript must be fully anonymized. Please ensure any identifying information is removed from the main manuscript document and included on the Title Page instead ... The Title Page will not be sent to peer reviewers.' It lists: title; all authors with names and affiliations; corresponding author's name, institutional address, phone, email; Acknowledgments section; Declaration of conflicting interest; Funding statement; Ethical approval and informed consent statements; Data availability statement; any other identifying information. Hence those declarations are printed on the title page and left out of the blinded manuscript. Author contributions stay in the text (entered at submission, heading required in the submission) and are identified by initials. Note: [A] 'Key information' and 'Peer review policy' say 'Identity transparency: Single anonymized', which conflicts with the fully-anonymized instruction; the stricter one is followed."
+  },
+  "style": {
+    "allow_em_dash": false,
+    "allow_en_dash_ranges": false,
+    "p_value": null,
+    "no_abbreviations_in_title_abstract": false,
+    "_comment": "p-value case, dashes, abbreviations and units: not stated in [A] (kit defaults). [A] links Sage's Accessibility Guidelines."
+  },
+  "reporting_guideline": null,
+  "_reporting_guideline": "[A] 'Your manuscript must follow the relevant EQUATOR Network reporting guidelines, depending on the type of study ... You will need to upload the appropriate checklist with your submission.' Animal research: confirm adherence to ARRIVE. No guideline is fixed per article type, so the kit picks it from `study-design`.",
+  "revision": {
+    "marking": "highlight",
+    "author": "Authors",
+    "_comment": "[A] gives no revision instructions. [R] (Sage, for all its journals): 'Highlight the changes made in a copy of your revised manuscript'; 'Add page numbers to the highlighted version of your revised manuscript'; 'Upload two copies of your revised manuscript under the File Upload step: One clean copy, using the file designation 'Main Document'; One copy with changes highlighted, using the file designation 'Main Document''. Tracked changes are not mentioned."
+  },
+  "revision_checks": [
+    "Response to reviewers: use Sage's template (https://www.sagepub.com/docs/default-source/rp-pages/info-for-authors/response_to_review_form.docx), one row per comment, what was changed and the page number of each change; if a comment cannot be addressed, state why; upload it under 'View and Respond to Decision Letter' [R].",
+    "Upload two copies of the revised manuscript as 'Main Document': a clean copy and a copy with changes highlighted, with page numbers [R].",
+    "Keep the revised manuscript anonymized (no author names in the file name, headers or footers; identifying information on the Title Page only) [A]; remove personal information with Document Inspector [R].",
+    "Deadline: not stated in [A] or [R]; read the decision letter ('Submit your revision on time' [R]).",
+    "Do not post an updated version on a preprint server while the manuscript is under review [A]."
+  ],
+  "human_checks": [
+    "Scope: out-of-scope manuscripts are rejected before peer review; read the Aims and Scope (https://journals.sagepub.com/aims-scope/PHL) [A].",
+    "Case reports are NOT accepted (suggested alternative: Sage Open Medical Case Reports) [A].",
+    "Anonymization: no identifying information in the main manuscript, file name, headers or footers; everything identifying (authors, affiliations, corresponding author's institutional address, phone and e-mail, acknowledgments, declarations, funders, approving committees) on the separate Title Page [A].",
+    "Statements and Declarations at the end of the article, each sub-heading present even if 'Not applicable': Ethical considerations, Consent to participate (written or verbal; waiver stated), Consent for publication, Declaration of conflicting interest, Funding statement, Data availability. You may be asked to justify 'Not applicable' [A]. Because the manuscript is anonymized, the kit prints these on the Title Page: confirm with the editorial office if they want them in the manuscript too.",
+    "Ethics: committee or IRB full name and institution plus approval number (or waiver), also in Methods if applicable [A].",
+    "Conflicts: if none, 'The author(s) declared no potential conflicts of interest with respect to the research, authorship, and/or publication of this article' [A].",
+    "Consent for publication: do not upload the patient's signed consent; confirm in writing that written consent was obtained (a confirmatory letter may be uploaded separately) [A].",
+    "Declarations file (older list in [A], still under 'Files'): Competing interests, Funding, Ethical approval, Guarantor (initials of the person taking full responsibility for the article), Contributorship (initials), Acknowledgements, uploaded under the file type 'Declarations'. Prepare it, including the Guarantor, which the kit does not generate [A].",
+    "Clinical trials: registered in a WHO-approved registry at or before first enrollment; registry name, URL and registration number at the end of the abstract, or the submission is not considered [A].",
+    "EQUATOR checklist uploaded with the submission; animal studies confirm ARRIVE [A].",
+    "Writing or editing assistance from a third party stated in the Acknowledgements and the cover letter; submissions made by a non-author third party stated likewise [A].",
+    "AI: assistive use (language, grammar, structure) needs no disclosure; generative use affecting content (literature search, translation, code, data visualization, illustrations, reference compilation) must be disclosed at submission and in the Methods or Acknowledgements; AI cannot be an author; verify every AI output and cite original sources, not the AI tool [A][AI].",
+    "Cover letter: why the manuscript suits the journal; justify fast-track publication if requested [A].",
+    "Submission data: number of figures, tables and words; funder name and grant number; ORCID of the submitting author (co-authors strongly encouraged); author details identical to the title page; COI may be re-entered in the system [A]. No suggested reviewers: Sage does not permit author-recommended reviewers [A].",
+    "Figures: separate files, numbered in order of appearance, 300 dpi, Sage artwork guidelines; permissions for reproduced material; colour free online, print colour charged on request [A].",
+    "Visual/video abstracts and plain language summaries are available (optional; Sage guidance) [A].",
+    "Preprints: accepted; enter the preprint DOI at submission and inform the editorial office; no updates to the preprint during review; link the preprint to the published version after acceptance [A].",
+    "Fees: no submission or publication fees; optional open access via Sage Choice for a fee (amount not stated in [A]) or institutional Open Access agreements based on the corresponding author's affiliation at acceptance [A].",
+    "Short Reports and Reviews: word ranges are also minimums (500-800 and 4,000-6,000 words) [A]."
+  ],
+  "article_types": {
+    "original": {
+      "_comment": "[A] Original Article: 2,000-3,000 words; structured abstract of about 300 words (Objectives, Methods, Results, Conclusions); Introduction, Methods, Results, Discussion, Acknowledgements, References. Defaults above."
+    },
+    "short-report": {
+      "abstract": {
+        "structure": []
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "min": 500,
+          "max": 800,
+          "count_sections": [
+            "introduction",
+            "methods",
+            "results",
+            "discussion",
+            "conclusions",
+            "body"
+          ]
+        }
+      },
+      "references": {
+        "max": 5
+      },
+      "_comment": "[A] 'Short reports should be 500-800 words, and should include an abstract and no more than five references.' The Abstract section says 'Structured abstracts must accompany all Original Articles, Research Articles and Short Reports', but no headings are given for Short Reports: structure left free here (use the Original Article headings if structured); abstract length not stated separately (300, guidance, kept). Sections not prescribed."
+    },
+    "review": {
+      "abstract": {
+        "structure": []
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "min": 4000,
+          "max": 6000,
+          "count_sections": [
+            "introduction",
+            "methods",
+            "results",
+            "discussion",
+            "conclusions",
+            "body"
+          ]
+        }
+      },
+      "_comment": "[A] 'Review articles should be 4,000-6,000 words and also require an abstract, indicating the scope of the review, the methods used to retrieve the relevant literature, the principal findings and conclusions drawn. Subheadings should be used within the article to highlight the content of different sections.' Abstract headings and length not stated for reviews (unstructured; 300 guidance kept). References: no limit stated. Systematic reviews use this type with `study-design` set so PRISMA is checked."
+    },
+    "systematic-review": {
+      "abstract": {
+        "structure": []
+      },
+      "main_text": {
+        "sections": [
+          {
+            "id": "introduction",
+            "heading": "Introduction"
+          },
+          {
+            "id": "methods",
+            "heading": "Methods"
+          },
+          {
+            "id": "results",
+            "heading": "Results"
+          },
+          {
+            "id": "discussion",
+            "heading": "Discussion"
+          }
+        ],
+        "limit": {
+          "min": 4000,
+          "max": 6000
+        }
+      },
+      "reporting_guideline": "PRISMA",
+      "_comment": "[A] no separate systematic-review type: Review Article rules (4,000-6,000 words; abstract with scope, retrieval methods, findings, conclusions). IMRaD sections and PRISMA are the kit's mapping (EQUATOR checklist required by [A])."
+    },
+    "editorial": {
+      "abstract": {
+        "required": false
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "max": 1000,
+          "count_sections": [
+            "body"
+          ]
+        }
+      },
+      "references": {
+        "max": 10
+      },
+      "required_declarations": [
+        "conflicts",
+        "funding"
+      ],
+      "_comment": "[A] 'Short pieces on topical subjects, usually commissioned by the Editor, of no more than 1,000 words plus up to 10 references.' Abstract: not stated (not required here). Conflict and funding statements apply to all articles [A]."
+    },
+    "letter": {
+      "abstract": {
+        "required": false
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "max": null,
+          "count_sections": [
+            "body"
+          ]
+        }
+      },
+      "required_declarations": [
+        "conflicts",
+        "funding"
+      ],
+      "_comment": "[A] Letters: 'Comments on articles previously published in the journal, or communication on topics that are newsworthy but not appropriate for consideration as a paper.' No word, reference or figure limits stated; abstract not stated (not required here)."
+    },
+    "case-report": null,
+    "_case-report": "[A] 'Please note that Case Reports will not be accepted by Phlebology'; removed from the inherited types."
+  }
+}
