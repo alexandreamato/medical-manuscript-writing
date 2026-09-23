@@ -36,6 +36,7 @@ import re
 import shutil
 import subprocess
 import sys
+import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -57,16 +58,23 @@ def resolve_csl(name: str) -> str:
         return str(C.KIT / name)
     path = C.CSL_DIR / f"{name}.csl"
     if not path.exists():
+        network_error = None
         for sub in ("", "dependent/"):
             try:
                 with urllib.request.urlopen(CSL_REPO + sub + name + ".csl", timeout=30) as r:
                     path.write_bytes(r.read())
                 print(f"  fetched CSL style {sub}{name}")
                 break
-            except Exception:
-                continue
+            except urllib.error.HTTPError as e:
+                if e.code != 404:
+                    network_error = f"HTTP {e.code}"
+            except (urllib.error.URLError, TimeoutError, OSError) as e:
+                network_error = str(getattr(e, "reason", e))
         else:
-            C.die(f"CSL style '{name}' not found locally or in the CSL repository "
+            if network_error:
+                C.die(f"CSL style '{name}' is not in csl/ and could not be downloaded ({network_error}). "
+                      "Connect to the network once, or copy the .csl into csl/.")
+            C.die(f"CSL style '{name}' does not exist in the CSL repository "
                   "(browse https://www.zotero.org/styles for the exact file name)")
     xml = path.read_text(encoding="utf-8")
     m = re.search(r'<link href="https?://www\.zotero\.org/styles/([^"]+)" rel="independent-parent"', xml)

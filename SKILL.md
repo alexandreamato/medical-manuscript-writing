@@ -4,7 +4,7 @@ description: Write and revise medical and biomedical manuscripts (RCTs, cohort, 
 license: CC-BY-4.0
 metadata:
   author: Alexandre Campos Moraes Amato
-  version: 1.9.0
+  version: 1.9.1
 ---
 # Medical Manuscript Writing
 

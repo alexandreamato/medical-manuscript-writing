@@ -2,6 +2,21 @@
 
 All notable changes to the **Medical Manuscript Writing** skill are documented here. Format follows Keep a Changelog (https://keepachangelog.com/) using semantic-style versioning by content scope rather than strict semver.
 
+## [1.9.1] — 2026-09-23
+
+Responds to an external review of 1.9.0.
+
+### Fixed
+
+- **Cureus thresholds are commercial, not editorial.** Its author and reference counts only decide whether the paid Preferred Editing service becomes mandatory; the profile had them as a blocking reference limit and as an authorship justification that `--submission` refused. New `references.soft` and `authors.max_soft` (with `soft_note`) report them as WARN under `limits`, which never blocks.
+- **Bilingual abstracts compare the confidence level.** Same estimate and limits with 95% in one abstract and 90% in the other is now reported.
+- **CSL download errors say what happened**: HTTP 404 (the style does not exist) versus no network.
+
+### Changed
+
+- **Every bundled profile's CSL style is stored in `templates/build-kit/csl/`** (11 files, including the parents of dependent styles). The kit builds and the whole test suite runs offline, and reference formatting cannot change because an upstream style was edited.
+- 3 new tests (48 in total).
+
 ## [1.9.0] — 2026-09-23
 
 ### Added

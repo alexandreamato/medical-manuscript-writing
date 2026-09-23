@@ -32,8 +32,9 @@
   "authors": {
     "require_orcid": false,
     "max": null,
-    "max_without_justification": 10,
-    "_comment": "ORCID: not stated anywhere in the Author Guide. No hard author cap; [F] 'Original articles: 10 authors and 30 references' for free publication, more authors make Preferred Editing mandatory (modelled as the WARN threshold). All authors must meet ICMJE criteria; authors cannot be added after submission [S]."
+    "_comment": "ORCID: not stated anywhere in the Author Guide. No hard author cap; [F] 'Original articles: 10 authors and 30 references' for free publication, more authors make Preferred Editing mandatory (modelled as the WARN threshold). All authors must meet ICMJE criteria; authors cannot be added after submission [S].",
+    "max_soft": 10,
+    "soft_note": "free-publication threshold: above it Cureus requires its paid Preferred Editing service; not a rejection [F]. Decide before submitting."
   },
   "abstract": {
     "required": true,
@@ -108,7 +109,9 @@
   "references": {
     "max": 30,
     "require_identifier": false,
-    "_comment": "[R]/[F] free-publication threshold: original 30, case report 20, technical report 20, editorial 5; exceeding it is not a rejection but makes Preferred Editing (paid) mandatory. DOI required 'when available', else the article URL [R]; 'All references must include a DOI or URL unless neither exist' (URL is accepted, so the kit's DOI/PMID requirement is left off; see human_checks)."
+    "_comment": "[R]/[F] free-publication threshold: original 30, case report 20, technical report 20, editorial 5; exceeding it is not a rejection but makes Preferred Editing (paid) mandatory. DOI required 'when available', else the article URL [R]; 'All references must include a DOI or URL unless neither exist' (URL is accepted, so the kit's DOI/PMID requirement is left off; see human_checks).",
+    "soft": true,
+    "soft_note": "free-publication threshold: above it Cureus requires its paid Preferred Editing service; not a rejection [F]. Decide before submitting."
   },
   "figures": {
     "max": null,
@@ -226,7 +229,7 @@
         }
       },
       "authors": {
-        "max_without_justification": null
+        "max_soft": null
       },
       "references": {
         "max": null
@@ -267,10 +270,13 @@
         }
       },
       "authors": {
-        "max_without_justification": 5
+        "max_soft": 5,
+        "soft_note": "free-publication threshold: above it Cureus requires its paid Preferred Editing service; not a rejection [F]. Decide before submitting."
       },
       "references": {
-        "max": 20
+        "max": 20,
+        "soft": true,
+        "soft_note": "free-publication threshold: above it Cureus requires its paid Preferred Editing service; not a rejection [F]. Decide before submitting."
       },
       "reporting_guideline": null
     },
@@ -309,10 +315,13 @@
         }
       },
       "authors": {
-        "max_without_justification": 5
+        "max_soft": 5,
+        "soft_note": "free-publication threshold: above it Cureus requires its paid Preferred Editing service; not a rejection [F]. Decide before submitting."
       },
       "references": {
-        "max": 20
+        "max": 20,
+        "soft": true,
+        "soft_note": "free-publication threshold: above it Cureus requires its paid Preferred Editing service; not a rejection [F]. Decide before submitting."
       }
     },
     "editorial": {
@@ -335,15 +344,19 @@
         }
       },
       "authors": {
-        "max_without_justification": 5
+        "max_soft": 5,
+        "soft_note": "free-publication threshold: above it Cureus requires its paid Preferred Editing service; not a rejection [F]. Decide before submitting."
       },
       "references": {
-        "max": 5
+        "max": 5,
+        "soft": true,
+        "soft_note": "free-publication threshold: above it Cureus requires its paid Preferred Editing service; not a rejection [F]. Decide before submitting."
       },
       "required_declarations": [
         "conflicts",
         "funding"
       ]
     }
-  }
+  },
+  "_limits": "[F] author and reference counts are free-publication thresholds, not editorial limits: exceeding them makes the paid Preferred Editing service mandatory. Modelled as soft (WARN under 'limits'), which --submission does not block."
 }

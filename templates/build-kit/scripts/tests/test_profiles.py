@@ -1,4 +1,5 @@
-"""Profile features added for the obesity journals, JCM and Cureus, and a build of every profile.
+"""Profile features added for the obesity journals, JCM and Cureus, and a build of every profile
+(offline: every bundled profile's CSL style is stored in csl/).
 
     python3 -m unittest discover -s scripts/tests -v
 """
@@ -11,6 +12,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+import unittest.mock
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
@@ -113,6 +115,38 @@ class ProfileFeatureTests(unittest.TestCase):
         self.assertNotIn("Funding", body)   # moved
         self.assertIn("Ethics", head)
         self.assertIn("Ethics", body)       # copied
+
+    def test_bilingual_abstracts_compare_confidence_level(self):
+        # Same numbers in both abstracts, but the Portuguese one now says 90%.
+        self.edit("00b-abstract-alt.md", "intervalo de confiança de 95%", "intervalo de confiança de 90%")
+        out = self.validate("jvb")
+        self.assertIn("is a 95% CI in `abstract` but 90% in `abstract-alt`", out)
+
+    def test_commercial_thresholds_never_block_submission(self):
+        name = self.profile({"references": {"max": 1, "soft": True, "soft_note": "paid editing above it"},
+                             "authors": {"max_soft": 1, "soft_note": "paid editing above it"}})
+        out = self.validate(name, "--submission")
+        self.assertIn("WARN   limits: 3 references; above 1: paid editing above it", out)
+        self.assertIn("WARN   limits: 2 authors; above 1", out)
+        self.assertNotIn("ERROR  limits", out)
+        hard = self.validate(self.profile({"references": {"max": 1}}, "h"))
+        self.assertIn("ERROR  references: 3 cited; limit 1", hard)
+
+    def test_missing_style_offline_says_network(self):
+        import urllib.error
+        sys.path.insert(0, str(self.kit / "scripts"))
+        import importlib
+        import build as B
+        importlib.reload(B)
+        B.C.CSL_DIR = self.kit / "csl"
+
+        def offline(*a, **k):
+            raise urllib.error.URLError("no route to host")
+        with unittest.mock.patch.object(B.urllib.request, "urlopen", offline), \
+                unittest.mock.patch.object(B.C, "die", side_effect=SystemExit) as die:
+            with self.assertRaises(SystemExit):
+                B.resolve_csl("some-journal-not-bundled")
+        self.assertIn("could not be downloaded (no route to host)", die.call_args[0][0])
 
     def test_every_profile_builds(self):
         for p in sorted((self.kit / "journals").glob("*.json")):

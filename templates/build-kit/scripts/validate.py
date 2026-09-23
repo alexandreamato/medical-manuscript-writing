@@ -401,6 +401,11 @@ def _validate(prof: dict, doc: dict) -> tuple[Report, dict]:
     amax = prof.get("authors", {}).get("max")
     if amax and len(authors) > amax:
         rep.error("authors", f"{len(authors)} authors; this journal/article type allows {amax}")
+    # A commercial threshold (e.g. Cureus: above it the paid editing service becomes
+    # mandatory) is the author's decision, never a blocking error: WARN under "limits".
+    au = prof.get("authors", {})
+    if au.get("max_soft") and len(authors) > au["max_soft"]:
+        rep.warn("limits", f"{len(authors)} authors; above {au['max_soft']}: {au.get('soft_note') or 'see the journal'}")
     soft = prof.get("authors", {}).get("max_without_justification")
     if soft and len(authors) > soft:
         rep.warn("authors", f"{len(authors)} authors; above {soft} the journal requires a statement "
@@ -509,9 +514,13 @@ def _validate(prof: dict, doc: dict) -> tuple[Report, dict]:
     for rid in refs:
         if rid not in uniq:
             rep.warn("references", f"{rid} is never cited (it will not appear in the list)")
-    rmax = prof.get("references", {}).get("max")
+    rcfg = prof.get("references", {})
+    rmax = rcfg.get("max")
     if rmax and len(uniq) > rmax:
-        rep.error("references", f"{len(uniq)} cited; limit {rmax}")
+        if rcfg.get("soft"):
+            rep.warn("limits", f"{len(uniq)} references; above {rmax}: {rcfg.get('soft_note') or 'guidance only'}")
+        else:
+            rep.error("references", f"{len(uniq)} cited; limit {rmax}")
     seen_doi: dict[str, str] = {}
     verified = C.load_verified()
     max_age = prof.get("references", {}).get("reverify_after_days", 90)
@@ -673,11 +682,18 @@ def _validate(prof: dict, doc: dict) -> tuple[Report, dict]:
                 rep.warn("abstract", f"estimate {tr[0]} ({tr[1]} to {tr[2]}) is a {x['level']}% CI in the "
                                      f"abstract but a {body_levels[tr]}% CI in the Results")
         if "abstract-alt" in full:
-            alt = ci_triples(full["abstract-alt"])
+            alt_items = {x["triple"]: x for x in ci_extract(full["abstract-alt"]) if x["kind"] != "spread"}
+            alt = set(alt_items)
             for tr in sorted(main_triples ^ alt):
                 side = "abstract-alt" if tr in alt else "abstract"
                 rep.warn("abstract-alt", f"estimate {tr[0]} ({tr[1]} to {tr[2]}) is only in `{side}`: "
                                          "the two abstracts must report the same results")
+            for tr in sorted(main_triples & alt):
+                a_lvl, b_lvl = main_items[tr]["level"], alt_items[tr]["level"]
+                if a_lvl != b_lvl and (a_lvl or b_lvl):
+                    rep.warn("abstract-alt", f"estimate {tr[0]} ({tr[1]} to {tr[2]}) is a "
+                                             f"{a_lvl or 'unlabelled'}% CI in `abstract` but "
+                                             f"{b_lvl or 'unlabelled'}% in `abstract-alt`".replace("unlabelled%", "unlabelled"))
         rest = " ".join(v for k_, v in full.items() if k_ not in ("abstract", "abstract-alt"))
         # Screening for other numbers (counts, percentages): present somewhere else at all?
         norm = lambda x: x.replace(",", "")
