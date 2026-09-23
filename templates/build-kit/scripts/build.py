@@ -112,12 +112,14 @@ def run_pandoc(out_file, runtime_meta, csl, refdoc, number_sections, lang, ast_i
     cmd = [C.require_pandoc(), "-f", fmt, "-t", "docx",
            "--metadata-file", str(C.METADATA), "--metadata-file", str(rt),
            "--resource-path", f"{C.KIT}:{C.MANUSCRIPT_DIR}",
-           # Order matters: cross-references, then citations, then the journal layer,
-           # which also strips every metadata field from the file (docProps/custom.xml
-           # would otherwise carry local paths and author data into blinded files).
+           # Order matters: cross-references; the journal layer chooses the content
+           # (omitted sections, title page); citeproc numbers only the citations that
+           # remain; scrub.lua then strips the metadata (docProps/custom.xml would
+           # otherwise carry local paths and author data into blinded files).
            "--lua-filter", str(C.FILTERS / "crossref.lua"),
-           "--citeproc", "--csl", csl, "--bibliography", str(C.REFERENCES),
            "--lua-filter", str(C.FILTERS / "journal.lua"),
+           "--citeproc", "--csl", csl, "--bibliography", str(C.REFERENCES),
+           "--lua-filter", str(C.FILTERS / "scrub.lua"),
            "--reference-doc", str(refdoc),
            "-M", f"lang={lang}", "-M", "link-citations=false",
            "-o", str(out_file), *inputs]
@@ -188,18 +190,25 @@ def build(name: str, atype: str | None, force: bool, revision: int | None = None
         "keywords-label": pick(kw_labels, lang),
         "keywords-label-alt": pick(kw_labels, lang_alt) if lang_alt else "",
         "titlepage-sections": sub.get("title_page_sections", []),
+        "titlepage-copies": sub.get("title_page_copies", []),
+        "no-running-title": prof.get("title", {}).get("running_title_allowed") is False,
+        "no-title-alt": not bilingual,
     }
     xref = {"tables": prof.get("tables", {}).get("placement", "inline"),
             "figures": prof.get("figures", {}).get("placement", "inline")}
     ns = sub.get("number_sections", False)
 
     if sub.get("separate_title_page"):
-        run_pandoc(out / fname("title-page", ".docx"), {"journal-build": {**base, "mode": "titlepage"}, "xref": xref},
+        run_pandoc(out / fname("title-page", ".docx"), {"journal-build": {**base, "mode": "titlepage",
+                                                                         "omit": [] if bilingual else ["abstract-alt"]},
+                                                        "xref": xref},
                    csl, refdoc, False, lang)
         mode = "blinded" if sub.get("blinded") else "full"
     else:
         mode = "blinded" if sub.get("blinded") else "full"
     omit = sub.get("omit_in_blinded", []) if mode == "blinded" else []
+    if not bilingual:
+        omit = omit + ["abstract-alt"]  # a second-language abstract only goes to journals that ask for it
     if sub.get("separate_title_page"):
         # What the journal wants on the title page is not repeated in the manuscript.
         omit = list(dict.fromkeys(omit + sub.get("title_page_sections", [])))

@@ -1,0 +1,500 @@
+{
+  "_comment": "Obesity Facts (Karger; official journal of the European Association for the Study of Obesity). Every rule below was read on 2026-09-23. [A] = https://karger.com/ofa/pages/guidelines (Guidelines for Authors, current; no last-updated date shown); [T] = the article templates linked from [A] (https://karger.com/DocumentLibrary/<type>.docx: research-article, review-article, systematic-review, brief-report, case-report, method-article, method-article-for-study-protocol, guidelines, letter, perspectives-ofa); [E] = https://karger.com/pages/publication-ethics (Karger-wide: AI, preprints, trial registration); [TI] = https://karger.com/pages/technical-instructions-to-publish-a-paper. IMPORTANT: every word and table/figure count in [A] is guidance only ('These word count values are for guidance purposes only'); the only hard limits are those of Perspectives. The journal states no abstract word limit.",
+  "extends": "generic-icmje",
+  "name": "Obesity Facts (Obes Facts)",
+  "generic": false,
+  "source_url": "https://karger.com/ofa/pages/guidelines",
+  "verified_at": "2026-09-23",
+  "reverify_after_days": 180,
+  "csl": "obesity-facts",
+  "_csl": "[A] 'References in the text should be identified sequentially using Arabic numerals [in square brackets]... we recommend using the Vancouver referencing style'; 'A maximum of 6 authors should be listed (followed by \"et al.\" if there are more than 6 authors)'. CSL repository: dependent/obesity-facts.csl (HTTP 200), parent karger-journals.csl (bracketed numbers, et-al-min 7 / use-first 6), which matches [A].",
+  "reference_docx": {
+    "font": "Times New Roman",
+    "size_pt": 12,
+    "line_spacing": 2.0,
+    "margins_cm": 2.5,
+    "line_numbers": true,
+    "page_numbers": true,
+    "_comment": "[A] 'Page and line numbering should be activated, and the level of subheadings should be indicated clearly... using a consistent pattern with bold, italic, and font sizing. A numbered structure for titles and subheadings should be avoided.' [TI] 'Use the automatic line numbering and page numbering functions', flush left, 'Do not justify text', no header/footer functions, no indentation. Font, size, spacing and margins: not stated; generic defaults kept."
+  },
+  "title": {
+    "max_chars": null,
+    "running_title_max_chars": 80,
+    "_comment": "[A] 'The first page should contain a short and concise title plus a running head of no more than 80 characters. Abbreviations should be avoided in the title.' The 80-character cap is read as applying to the running head (template [T]: 'Short Title: to be used as running head'); title length: not stated beyond 'short and concise'."
+  },
+  "keywords": {
+    "min": 3,
+    "max": 5,
+    "after_abstract": false,
+    "_comment": "[A] '3-5 keywords relevant to the article should be listed below the corresponding author information. Please avoid abbreviations.' On the title page (first page), not after the abstract. [T] letters and perspectives also carry keywords."
+  },
+  "authors": {
+    "require_orcid": false,
+    "max": null,
+    "_comment": "[A] ORCID optional: 'authors can add their ORCID number to their account'. No author limit stated. Up to three corresponding authors ('usually limited to three')."
+  },
+  "abstract": {
+    "required": true,
+    "bilingual": false,
+    "title": "Abstract",
+    "limit": {
+      "unit": "words",
+      "max": null
+    },
+    "structure": [
+      {
+        "id": "background",
+        "heading": "Introduction"
+      },
+      {
+        "id": "methods",
+        "heading": "Methods"
+      },
+      {
+        "id": "results",
+        "heading": "Results"
+      },
+      {
+        "id": "conclusions",
+        "heading": "Conclusion"
+      }
+    ],
+    "_comment": "[T research-article] 'A short Abstract... structured using the following subheadings: Introduction, Methods, Results, and Conclusion. Abbreviations used in the main text may be introduced and used. Use neither bibliographic references nor references to figures or tables in the Abstract.' Word limit: not stated in [A] or [T]. English only ([A] 'Only papers written in English are considered')."
+  },
+  "main_text": {
+    "sections": [
+      {
+        "id": "introduction",
+        "heading": "Introduction"
+      },
+      {
+        "id": "methods",
+        "heading": "Methods"
+      },
+      {
+        "id": "results",
+        "heading": "Results"
+      },
+      {
+        "id": "discussion",
+        "heading": "Discussion"
+      }
+    ],
+    "limit": {
+      "unit": "words",
+      "max": 5000,
+      "count_sections": [
+        "introduction",
+        "methods",
+        "results",
+        "discussion"
+      ],
+      "include_floats": false,
+      "soft": true
+    },
+    "_comment": "[T] sections Introduction, Methods, Results, Discussion ('A final conclusion may be added' within the Discussion; no separate Conclusions heading). [A] 'a Research Article is typically 5000 words in length with 4 to 8 Tables and Figures' and 'These word count values are for guidance purposes only': no hard limit, so max is null and the guidance is in human_checks. What the count includes: not stated.",
+    "_limit": "[A] 'These word count values are for guidance purposes only': typical length checked as a soft limit (WARN)."
+  },
+  "section_limits": {
+    "plain-language-summary": {
+      "unit": "words",
+      "max": 250,
+      "_comment": "[A] optional Plain Language Summary: 'The summary should not exceed 250 words'. Checked only when a {#plain-language-summary} section exists."
+    }
+  },
+  "references": {
+    "max": null,
+    "require_identifier": false,
+    "_comment": "[A] no maximum for any type except Perspectives (25). Only cited publications, numbered in order of citation; unpublished data not in the list; preprints, datasets and code with a DOI may be listed; journal names abbreviated per Index Medicus."
+  },
+  "figures": {
+    "max": null,
+    "placement": "legends-at-end",
+    "_comment": "[A] 'Figure legends should be placed at the end of the article, after the reference list. The figure legends should not be part of the figure file.' Figures as separate files, one per figure with all panels, 300 dpi minimum, 25 MB maximum, 57-180 mm wide, max 223 mm high, RGB."
+  },
+  "tables": {
+    "max": null,
+    "placement": "end",
+    "_comment": "[A] 'Tables must be prepared in MS Word... They should be separate files, and not integrated into the main text.' The kit has no 'separate file' placement: 'end' is the nearest; split them into their own Word file(s) before upload (human_checks)."
+  },
+  "figures_tables_max": null,
+  "_figures_tables_max": "[A] Research Article 'typically... 4 to 8 Tables and Figures' (guidance only, so not enforced).",
+  "required_declarations": [
+    "ethics",
+    "conflicts",
+    "funding",
+    "author-contributions",
+    "data-availability"
+  ],
+  "_required_declarations": "[A] 'All submitted manuscripts must contain a statements section after the main body of the text, but before the reference list': Acknowledgement (optional), Statement of Ethics, Conflict of Interest Statement, Funding Sources, Author Contributions, Data Availability Statement ([T] order). AI use is declared in Methods (or Acknowledgements when there is no Methods section) [E], not in its own statement, so `ai-use` is not required; see human_checks. Trial registration: number 'clearly stated in the manuscript' [E], no dedicated section; see human_checks.",
+  "headings": {
+    "declarations": "Statements",
+    "acknowledgments": "Acknowledgement",
+    "ethics": "Statement of Ethics",
+    "conflicts": "Conflict of Interest Statement",
+    "funding": "Funding Sources",
+    "author-contributions": "Author Contributions",
+    "data-availability": "Data Availability Statement",
+    "plain-language-summary": "Plain Language Summary"
+  },
+  "submission": {
+    "separate_title_page": false,
+    "blinded": false,
+    "number_sections": false,
+    "omit_in_blinded": [],
+    "title_page_sections": [],
+    "_comment": "[A] 'Obesity Facts uses a single-anonymous peer review system where reviewers know the names of the authors'. Title page is the first page of the manuscript file ([A] 'The first page should contain...'; [T]): title, authors, affiliations, short title (running head), corresponding author name and e-mail, keywords. Statements go after the main text, before the references, not on the title page. [A] 'A numbered structure for titles and subheadings should be avoided.'"
+  },
+  "style": {
+    "allow_em_dash": false,
+    "allow_en_dash_ranges": true,
+    "p_value": null,
+    "no_abbreviations_in_title_abstract": "title",
+    "_comment": "[TI] 'dash: e.g. 2011–2013, the incident – as responses showed – was perceived': en dash for ranges and spaced en dash as a parenthetical dash; em dash not used. Abbreviations: avoided in the title [A], allowed in the abstract if explained at first use ([A] item 3; [T]), so the kit's combined title+abstract flag stays off and the title rule is a human check. p-value format: not stated.",
+    "banned_terms": [
+      {
+        "_comment": "[A] person-first, non-stigmatizing language is mandatory ('participants with obesity', never 'obese participants').",
+        "term": "\\bobese (?:patients?|individuals?|people|persons?|subjects?|adults?|children|adolescents?|youths?|women|men|girls|boys|participants?|population|pregnant women|mothers)\\b",
+        "regex": true,
+        "use": "'<people> with obesity' (e.g. 'patients with obesity')"
+      },
+      {
+        "term": "\\bthe obese\\b",
+        "regex": true,
+        "use": "'people with obesity'"
+      },
+      {
+        "term": "morbidly obese",
+        "use": "'with class III (severe) obesity'"
+      },
+      {
+        "term": "morbid obesity",
+        "use": "'class III obesity' or 'severe obesity'"
+      }
+    ]
+  },
+  "reporting_guideline": null,
+  "_reporting_guideline": "[A] Research Articles: 'follow the EQUATOR Network'; CONSORT checklist required for RCTs, STROBE for observational studies ('Submissions without the required elements will be returned to the author as incomplete'). Picked from `study-design`; per-type guidelines below. [E] non-randomized trials: TREND.",
+  "revision": {
+    "marking": "tracked",
+    "deleted": "strike",
+    "author": "Authors",
+    "_comment": "NOT STATED: neither [A], [E], [TI] nor the Karger peer-review page (https://karger.com/pages/peer-review) says how changes in a revised manuscript must be marked. Kit default (tracked changes) kept; follow the decision letter if it asks for something else."
+  },
+  "revision_checks": [
+    "Revision marking, response-letter format and deadline are not stated in the public guidelines [A]: follow the decision letter and the submission system's instructions.",
+    "The submitting author handles 'the revision(s) and re-submission(s) of the manuscript until acceptance' [A].",
+    "Resubmit supplementary files 'with the original manuscript and with all subsequent submissions' [A].",
+    "Keep text, each table and each figure as separate files, and update figure alt text if figures changed [A]."
+  ],
+  "human_checks": [
+    "Length is guidance only [A]: Research Article, Review Article, Systematic Review ~5000 words and 4-8 tables+figures; Brief Report and Methods Article ~3000 words, up to 3; Case Report ~2500, up to 3; Guidelines ~5000, up to 3; Letter ~1000, up to 3. Editors may ask to move non-essential material to supplementary files.",
+    "Title: short, concise, no abbreviations; running head (short title) max 80 characters [A].",
+    "Title page (first page): author names, affiliations (department, institution, city, state/province, country; where the work was done), short title, corresponding author first and last name and e-mail at the bottom, then 3-5 keywords without abbreviations [A][T]. Author list identical to the submission system [A].",
+    "Person-first, non-stigmatizing language and images are mandatory (e.g. 'participants with obesity', never 'obese participants') [A].",
+    "Tables: editable MS Word, separate file(s), not in the main text; heading above or below each table; avoid shading/colour or explain it in a footnote [A]. Figures: separate files, one per figure with all panels (bold lowercase a, b, c), legends after the reference list [A].",
+    "Alt text for every figure, entered at submission; it is peer reviewed [A].",
+    "Graphical abstract [A]: 'should summarize the main findings of any article type which requires an abstract' and 'must be submitted together with the manuscript'; single jpg, max 32 x 14 cm (4800 x 2100 px) at 300 dpi, Arial 9-12 pt, no legend, no citations. Check with the editorial office whether it is compulsory.",
+    "Plain Language Summary: optional, max 250 words, plain English, distinct from the abstract, no references or figure/table citations; does not count toward length [A].",
+    "Statement of Ethics: committee name and affiliation plus decision reference number; consent to participate (or the exemption and who granted it); consent to publish identifiable information [A][T]. Karger Ethics Statement Assistant available [A].",
+    "Conflict of Interest: all support and financial involvement in the previous three years, regardless of relevance, plus nonfinancial relationships; otherwise 'The authors have no conflicts of interest to declare.' [A][T].",
+    "Funding Sources: sponsor names in full, grant numbers in brackets, funder role; or 'This study was not supported by any sponsor or funder.' [T].",
+    "Author Contributions: initials of each author and contribution; CRediT suggested [A][T]. Non-authors in the Acknowledgement.",
+    "Generative AI [E]: declare use in Methods (or Acknowledgements if no Methods), explain how the accuracy of AI output was verified, cite the software in the references; AI cannot be an author; prompts and outputs encouraged as supplementary material.",
+    "Clinical trials [E]: prospectively registered in a WHO/ICMJE registry, number clearly stated in the manuscript (for protocols, also in the abstract [T]); retrospective registration only with an explanation.",
+    "Reporting checklist (CONSORT, STROBE, PRISMA, CARE, SPIRIT/PRISMA-P, AGREE/RIGHT) uploaded as supplementary material and referred to in the manuscript [A]. Submissions without it are returned as incomplete [A].",
+    "Preprints may be shared without restriction; declare the preprint in the Acknowledgement and cite it in the reference list [E].",
+    "Open access, CC BY-NC 4.0 (CC BY for Plan S) [A]. APC on acceptance: USD 4,450 (Research Article, Review Article, Systematic Review, Guidelines) or USD 2,660 (Brief Report, Methods Article, Letter, Case Report); waivers for low- and middle-income countries, discretionary waivers requested before acceptance [A].",
+    "Cover letter: knowledge gap, significance, fit with the journal's scope, unique contribution; name the special issue and who invited it if applicable [A].",
+    "Drugs by generic name (lowercase); trade names capitalised with ® or ™ at first mention; SI units; avoid footnotes [A].",
+    "Figure citations in text: 'Figure 1' in running text, '(Fig. 1)' in brackets, 'Fig. 1.' in legends [T]."
+  ],
+  "article_types": {
+    "original": {
+      "_comment": "[A] Research Article: defaults above. Brief Reports 'should follow the same structure as full-length research articles' (see brief-report)."
+    },
+    "brief-report": {
+      "_comment": "[A][T brief-report] same abstract (Introduction, Methods, Results, Conclusion) and sections as a Research Article; 'typically 3000 words in length and up to 3 Tables and Figures' (guidance only). APC USD 2,660.",
+      "main_text": {
+        "limit": {
+          "max": 3000,
+          "soft": true
+        }
+      }
+    },
+    "review": {
+      "abstract": {
+        "structure": [
+          {
+            "id": "background",
+            "heading": "Background"
+          },
+          {
+            "id": "summary",
+            "heading": "Summary"
+          },
+          {
+            "id": "key-messages",
+            "heading": "Key Messages"
+          }
+        ]
+      },
+      "main_text": {
+        "sections": [
+          {
+            "id": "introduction",
+            "heading": "Introduction"
+          },
+          {
+            "id": "body",
+            "heading": "Main Text"
+          },
+          {
+            "id": "conclusions",
+            "heading": "Conclusion"
+          }
+        ],
+        "limit": {
+          "count_sections": [
+            "introduction",
+            "body",
+            "conclusions"
+          ],
+          "max": 5000,
+          "soft": true
+        }
+      },
+      "required_declarations": [
+        "conflicts",
+        "funding",
+        "author-contributions"
+      ],
+      "_comment": "[T review-article] abstract 'structured using the following subheadings: Background, Summary, and Key Messages'; sections Introduction, Main Text, Conclusion; statements Acknowledgement (optional), Conflict of Interest, Funding Sources, Author Contributions (no Statement of Ethics or Data Availability in the template). [A] ~5000 words, 4-8 tables and figures (guidance). 'Main Text' is a placeholder: use topical headings under it."
+    },
+    "systematic-review": {
+      "reporting_guideline": "PRISMA 2020",
+      "_comment": "[A] 'Systematic Reviews should be presented in the Introduction, Methods, Results, Discussion format'; 'We require that authors provide a completed PRISMA checklist'. [T systematic-review] same abstract headings as a Research Article and all five statements; protocol and registration number in Methods; flow chart in the text or supplementary material. ~5000 words, 4-8 tables and figures (guidance).",
+      "main_text": {
+        "limit": {
+          "max": 5000,
+          "soft": true
+        }
+      }
+    },
+    "case-report": {
+      "abstract": {
+        "limit": {
+          "unit": "words",
+          "max": null
+        },
+        "structure": [
+          {
+            "id": "background",
+            "heading": "Introduction"
+          },
+          {
+            "id": "case",
+            "heading": "Case Presentation"
+          },
+          {
+            "id": "conclusions",
+            "heading": "Conclusion"
+          }
+        ]
+      },
+      "main_text": {
+        "sections": [
+          {
+            "id": "introduction",
+            "heading": "Introduction"
+          },
+          {
+            "id": "case",
+            "heading": "Case Presentation"
+          },
+          {
+            "id": "discussion",
+            "heading": "Discussion"
+          }
+        ],
+        "limit": {
+          "max": 2500,
+          "count_sections": [
+            "introduction",
+            "case",
+            "discussion"
+          ],
+          "soft": true
+        }
+      },
+      "reporting_guideline": "CARE",
+      "_comment": "[T case-report] abstract subheadings 'Introduction, Case Presentation(s) and Conclusion'; sections Introduction, 'Case Report/Case Presentation', Discussion; Statement of Ethics includes a consent-to-publish statement. [A] CARE checklist required; written informed consent for publication stated and from whom (next of kin if deceased, guardian if minor/vulnerable); substantive literature review of previous cases; single case or case series; ~2500 words, up to 3 tables and figures (guidance). Use 'Case Presentations' for a series."
+    },
+    "methods-article": {
+      "abstract": {
+        "structure": [
+          {
+            "id": "background",
+            "heading": "Introduction"
+          },
+          {
+            "id": "methods",
+            "heading": "Methods"
+          },
+          {
+            "id": "conclusions",
+            "heading": "Conclusion"
+          }
+        ]
+      },
+      "main_text": {
+        "sections": [
+          {
+            "id": "introduction",
+            "heading": "Introduction"
+          },
+          {
+            "id": "methods",
+            "heading": "Methods"
+          },
+          {
+            "id": "discussion",
+            "heading": "Discussion"
+          }
+        ],
+        "limit": {
+          "count_sections": [
+            "introduction",
+            "methods",
+            "discussion"
+          ],
+          "max": 3000,
+          "soft": true
+        }
+      },
+      "_comment": "[A] Methods Articles 'should not report research results'; ~3000 words, up to 3 tables and figures (guidance). [T method-article] abstract 'Introduction, Methods and Conclusion'; sections Introduction, Methods, Discussion; all five statements."
+    },
+    "protocol": {
+      "abstract": {
+        "structure": [
+          {
+            "id": "background",
+            "heading": "Introduction"
+          },
+          {
+            "id": "methods",
+            "heading": "Methods"
+          },
+          {
+            "id": "conclusions",
+            "heading": "Conclusion"
+          }
+        ]
+      },
+      "main_text": {
+        "sections": [
+          {
+            "id": "introduction",
+            "heading": "Introduction"
+          },
+          {
+            "id": "methods",
+            "heading": "Methods"
+          },
+          {
+            "id": "discussion",
+            "heading": "Discussion"
+          }
+        ],
+        "limit": {
+          "count_sections": [
+            "introduction",
+            "methods",
+            "discussion"
+          ],
+          "max": 3000,
+          "soft": true
+        }
+      },
+      "reporting_guideline": "SPIRIT",
+      "_comment": "[A] Methods Article for a Study Protocol: only protocols with ethical approval; pre-registered where expected, registration number in the manuscript; SPIRIT, PRISMA-P or other EQUATOR guideline. [T method-article-for-study-protocol] abstract 'Introduction, Methods and Conclusion', registration number in the abstract; sections Introduction, Methods, Discussion (dissemination plan and limitations). ~3000 words, up to 3 tables and figures (guidance)."
+    },
+    "guideline": {
+      "abstract": {
+        "structure": []
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "count_sections": [
+            "introduction",
+            "methods",
+            "results",
+            "discussion",
+            "conclusions",
+            "body"
+          ],
+          "max": 5000,
+          "soft": true
+        }
+      },
+      "reporting_guideline": "AGREE / RIGHT",
+      "_comment": "[T guidelines] abstract 'unstructured, set in 1 paragraph'; body under 'Text'. [A] AGREE, RIGHT or other EQUATOR framework; ~5000 words, up to 3 tables and figures (guidance). Statements required as in the defaults (not re-checked against the template beyond the headings)."
+    },
+    "letter": {
+      "abstract": {
+        "required": false,
+        "structure": []
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "max": 1000,
+          "count_sections": [
+            "body"
+          ],
+          "soft": true
+        }
+      },
+      "required_declarations": [
+        "conflicts",
+        "funding",
+        "author-contributions"
+      ],
+      "_comment": "[T letter] no abstract; body under 'Text'; keywords 3-5; statements Acknowledgement (optional), Conflict of Interest, Funding Sources, Author Contributions. [A] 'Letters should not include original data'; ~1000 words, up to 3 tables and figures (guidance); letters about a published article are shared with its authors for reply."
+    },
+    "perspectives": {
+      "abstract": {
+        "required": false,
+        "structure": []
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "unit": "words",
+          "max": 3000,
+          "count_sections": [
+            "body",
+            "introduction",
+            "methods",
+            "results",
+            "discussion",
+            "conclusions"
+          ],
+          "include_floats": false
+        }
+      },
+      "references": {
+        "max": 25
+      },
+      "figures_tables_max": 2,
+      "required_declarations": [
+        "conflicts",
+        "funding",
+        "author-contributions"
+      ],
+      "_comment": "[A] 'Perspectives should have a maximum length of 3,000 words, excluding references (25 references maximum). A maximum of 2 tables and figures are allowed. Perspectives should not include original data.' The only hard limits in [A]. Whether the abstract or legends count: not stated (no abstract in [T perspectives]; legends excluded here). [T] statements as for a Letter."
+    }
+  },
+  "_headings": "[A][T] exact statement headings."
+}

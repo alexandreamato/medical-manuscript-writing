@@ -1,0 +1,405 @@
+{
+  "_comment": "International Journal of Obesity (Int J Obes), Springer Nature. Every rule below was read on the journal's own pages on 2026-09-23. [A] = Guide to authors, https://www.nature.com/ijo/authors-and-referees/gta (article types, house style, title page, abstract, references, figures, tables); [B] = Editorial Policies, https://www.nature.com/ijo/authors-and-referees/policies; [C] = Editorial Process, https://www.nature.com/ijo/authors-and-referees/editorial-process (peer review, revision, APC); [D] = Data Availability and Policy, https://www.nature.com/ijo/authors-and-referees/data-availability-and-policy; [E] = Open Access & Self Archiving, https://www.nature.com/ijo/authors-and-referees/open-access-self-archiving. The old URL nature.com/ijo/for-authors/... returns 404. None of the pages shows a last-updated date.",
+  "extends": "generic-icmje",
+  "name": "International Journal of Obesity (Int J Obes)",
+  "generic": false,
+  "source_url": "https://www.nature.com/ijo/authors-and-referees/gta",
+  "verified_at": "2026-09-23",
+  "reverify_after_days": 180,
+  "csl": "international-journal-of-obesity",
+  "_csl": "[A] 'References should follow the Vancouver format. In the text they should appear as numbers starting at one ... listed (double-spaced) in numerical order corresponding to the order of citation'; 'All authors should be listed for papers with up to six authors; for papers with more than six authors, the first six only should be listed, followed by et al.' CSL repository: dependent/international-journal-of-obesity.csl (HTTP 200), parent nature-publishing-group-vancouver (et-al-min 7, et-al-use-first 6, matches [A]). The parent prints superscript numbers; [A] only says 'numbers', so superscript is acceptable. [A] also asks for '(ref. X)' next to a number, equation or acronym: a human check.",
+  "reference_docx": {
+    "font": "Times New Roman",
+    "size_pt": 12,
+    "line_spacing": 2.0,
+    "margins_cm": 2.5,
+    "line_numbers": true,
+    "page_numbers": true,
+    "_comment": "[A] 'Text should be double spaced with a wide margin.' 'All pages and lines are to be numbered.' Font, size and margin width not stated: kit defaults kept."
+  },
+  "title": {
+    "max_chars": 150,
+    "running_title_max_chars": null,
+    "_comment": "[A] title 'brief, informative, of 150 characters or less and should not make a statement or conclusion. Should have no mention of tradenames/products.' Running title: not stated."
+  },
+  "keywords": {
+    "min": null,
+    "max": null,
+    "_comment": "Keywords: not stated in [A]. Instead, 'Upon submission authors will be asked to select ... at least one, and up to four unique subject terms' from the Springer Nature subject ontology, in the submission system (human check)."
+  },
+  "authors": {
+    "require_orcid": false,
+    "max": null,
+    "max_without_justification": null,
+    "_comment": "[A][B] no author limit and no ORCID requirement stated. [B] authorship follows ICMJE; all four criteria must be met. Title page: 'Full names of all the authors and their affiliations, together with the name, full postal address, telephone number and e-mail address of the corresponding author' [A]."
+  },
+  "abstract": {
+    "required": true,
+    "title": "Abstract",
+    "limit": {
+      "unit": "words",
+      "max": 300
+    },
+    "structure": [
+      {
+        "id": "background",
+        "heading": "Background/Objectives"
+      },
+      {
+        "id": "methods",
+        "heading": "Subjects/Methods"
+      },
+      {
+        "id": "results",
+        "heading": "Results"
+      },
+      {
+        "id": "conclusions",
+        "heading": "Conclusions"
+      }
+    ],
+    "_comment": "[A] Article: 'Structured abstract max. 300 words'; 'Articles must be prepared with a structured abstract ... under the following headings: Background/Objectives ... Subjects/Methods ... Results: Indicate 95% confidence intervals and exact P value for effects. Conclusions'. Interventions/methods and their duration go under Subjects/Methods. No separate Objectives heading: merge objectives into Background/Objectives."
+  },
+  "main_text": {
+    "sections": [
+      {
+        "id": "introduction",
+        "heading": "Introduction"
+      },
+      {
+        "id": "methods",
+        "heading": "Materials and Methods"
+      },
+      {
+        "id": "results",
+        "heading": "Results"
+      },
+      {
+        "id": "discussion",
+        "heading": "Discussion"
+      }
+    ],
+    "limit": {
+      "unit": "words",
+      "max": 4000,
+      "count_sections": [
+        "introduction",
+        "methods",
+        "results",
+        "discussion"
+      ],
+      "include_floats": false
+    },
+    "_comment": "[A] Article: 'Main body of text (excluding abstract, tables/figures, and references) not to exceed 4,000 words'. Sections [A]: Introduction, 'Materials/Subjects and Methods', Results, Discussion (final paragraph = main conclusion(s) and future research; no separate Conclusions section described). Heading shown as 'Materials and Methods'; use 'Subjects and Methods' for human studies (rename in `headings` if preferred). Declarations are excluded from the count here; [A] does not say whether they count."
+  },
+  "references": {
+    "max": 60,
+    "require_identifier": false,
+    "_comment": "[A] Article: 'Max 60 references'. 'Only papers directly related to the article should be cited. Exhaustive lists should be avoided.' First and last page numbers required; papers in press allowed; personal communications allowed with permission. DOI not required."
+  },
+  "figures": {
+    "max": null,
+    "placement": "legends-at-end",
+    "_comment": "[A] 'Figures should not be embedded within the text but rather uploaded as separate files.' Legends 'should be brief, specific and appear on a separate manuscript page after the References section.' Limit is combined with tables (figures_tables_max)."
+  },
+  "tables": {
+    "max": null,
+    "placement": "end",
+    "_comment": "[A] 'All tables must be editable, ideally presented in Excel. Each must be uploaded as a separate workbook with a title or caption' (.xls/.xlsx/.ods/.doc/.docx, flat file, no macros or formulas). The kit places tables after the references; exporting each table as its own workbook is a human check."
+  },
+  "figures_tables_max": 6,
+  "_figures_tables_max": "[A] Article: 'Max 6 tables or figures (Note: composite figures containing more than three individual figures will count as two figures)'. The composite-figure rule is a human check.",
+  "required_declarations": [
+    "ethics",
+    "funding",
+    "conflicts",
+    "data-availability",
+    "author-contributions"
+  ],
+  "_required_declarations": "[A] Author Contributions 'must include a statement about the contribution of each author ... referred to by their initials'. [A][B] Competing Interests must be declared 'on the title page of the manuscript, as well as within the article before the References section listed under 'Competing Interests''. [A][D] 'a Data Availability Statement ... must be included as part of your manuscript' (Springer Nature Data Policy Type 3). [B] human research: Declaration of Helsinki, ethics committee name and reference number, informed consent statement 'must appear in all manuscripts reporting such research'. Funding: [A] 'Authors should disclose the sources of any support for the work received in the form of grants and/or equipment and drugs' (title page) and Acknowledgements 'should include sources of support'; no separate Funding heading is named. AI: [A] LLM use 'should be properly documented in the Methods section', not in a separate declaration, so ai-use is not required (human check). Trial registration: required for clinical trials only [B] (human check).",
+  "headings": {
+    "conflicts": "Competing Interests",
+    "author-contributions": "Author Contributions",
+    "data-availability": "Data Availability Statement",
+    "acknowledgments": "Acknowledgements"
+  },
+  "_headings": "[A] headings as written in the Guide to authors. Ethics and Funding headings are not named by the journal: kit defaults kept.",
+  "submission": {
+    "separate_title_page": false,
+    "blinded": false,
+    "number_sections": false,
+    "omit_in_blinded": [],
+    "title_page_sections": [],
+    "_comment": "[A] title page (title, all authors and affiliations, corresponding author's postal address, telephone and e-mail, Competing Interests statement, sources of support) is part of the manuscript; a separate title-page file is not asked for. Blinding: not stated as single or double; [C] 'By policy, referees are not identified to the authors' and authors are named on the title page, i.e. single-blind in practice. Competing Interests appear on the title page AND before the References [B], so they are not moved out of the manuscript (the kit prints title_page_sections only on the title page): the title-page copy is a human check.",
+    "title_page_copies": [
+      "conflicts"
+    ],
+    "_title_page_copies": "[A][B] Competing Interests on the title page AND before the References: printed in both places."
+  },
+  "style": {
+    "allow_em_dash": false,
+    "allow_en_dash_ranges": false,
+    "p_value": "P",
+    "no_abbreviations_in_title_abstract": false,
+    "_comment": "[A] writes 'exact P value' and 'calculation of P only' (capital P). Dashes: not stated (kit default). Abbreviations: 'On first using an abbreviation place it in parentheses after the full item ... Terms used less than four times should not be abbreviated' (human check); no ban on abbreviations in the title or abstract is stated.",
+    "banned_terms": [
+      {
+        "_comment": "[A] people-first language mandatory; 'never obese, morbidly obese or morbid obesity, also in animal studies'; non-conforming submissions are returned.",
+        "term": "\\bobese (?:patients?|individuals?|people|persons?|subjects?|adults?|children|adolescents?|youths?|women|men|girls|boys|participants?|population|pregnant women|mothers)\\b",
+        "regex": true,
+        "use": "'<people> with obesity' (e.g. 'patients with obesity')"
+      },
+      {
+        "term": "\\bthe obese\\b",
+        "regex": true,
+        "use": "'people with obesity'"
+      },
+      {
+        "term": "morbidly obese",
+        "use": "'with class III (severe) obesity'"
+      },
+      {
+        "term": "morbid obesity",
+        "use": "'class III obesity' or 'severe obesity'"
+      },
+      {
+        "term": "\\bobese (?:mice|rats|animals|dogs|cats|models?)\\b",
+        "regex": true,
+        "use": "'mice/animals with obesity' ([A] applies the rule to animal studies)"
+      }
+    ]
+  },
+  "reporting_guideline": null,
+  "_reporting_guideline": "[B] 'Randomised Controlled Trials (RCTs) must adhere to the CONSORT statement ... submissions must be accompanied by a completed CONSORT checklist (uploaded as a related manuscript file)'; ARRIVE recommended for animal studies. No other guideline (STROBE, PRISMA, STARD) is named: the kit's study-design mapping applies.",
+  "revision": {
+    "marking": "highlight",
+    "author": "Authors",
+    "_comment": "[C] 'When submitting a revision authors are asked to upload (1) A rebuttal letter, indicating point-by-point how the comments raised by the reviewers have been addressed. If you disagree with any of the points raised, please provide adequate justification in your letter. (2) A marked-up version of the manuscript that highlights changes made in response to the reviewers' comments in order to aid the Editors and reviewers. (3) A 'clean' (non-highlighted) version of the manuscript.' Tracked changes are not required; the kit's highlight output plus the clean version match."
+  },
+  "revision_checks": [
+    "Upload three files: point-by-point rebuttal letter, marked-up (highlighted) manuscript, and clean (non-highlighted) manuscript [C].",
+    "Justify every disagreement with a reviewer point in the rebuttal letter [C].",
+    "Deadline: set in the decision letter; revisions are requested when concerns can be addressed 'in six months or less' [C]. Upload through the link in the decision letter [C].",
+    "Reject with option to resubmit: submit online as a NEW manuscript, with a cover letter containing a point-by-point response and an explanation of the changes [C].",
+    "On resubmission, confirm the reproducibility checklist (experimental and analytical design elements) [B].",
+    "Any change to the author list after initial submission needs written agreement from all authors; no changes after acceptance [B]."
+  ],
+  "human_checks": [
+    "People-first language is mandatory: 'people with obesity', 'people with overweight', 'people with diabetes'; never 'obese', 'morbidly obese' or 'morbid obesity', also in animal studies. Non-conforming submissions are returned [A].",
+    "Sex vs gender: use 'sex' for biological studies and all pediatric studies; 'gender' only when self-ascribed, reported as 'self-reported gender' [A].",
+    "Title: 150 characters or less, must not state a conclusion, no trade names or products [A].",
+    "Title page (inside the manuscript): full names and affiliations of all authors; corresponding author's full postal address, telephone and e-mail; Competing Interests statement; sources of support (grants, equipment, drugs). Equal contribution marked with an asterisk and 'These authors contributed equally to this work' under the address list [A].",
+    "Competing Interests: on the title page AND before the References under the heading 'Competing Interests'; explicit for every author, e.g. 'The authors declare no competing financial interests' [A][B].",
+    "Data Availability Statement uses one of the Springer Nature forms; community repositories are mandatory for sequences, polymorphisms, genotype-phenotype, structures, microarray data; give persistent identifiers [D].",
+    "Human research: Declaration of Helsinki, ethics committee name and reference number, informed-consent statement; consent for identifiable images (no black bars over the eyes) [B].",
+    "Clinical trials: registered in an ICMJE-compliant public registry before submission; registry number in the manuscript and on submission; RCTs upload a completed CONSORT checklist [B]. Weight-loss trials: diet/lifestyle usually at least 1 year; shorter trials normally go as Brief/Short Communications [A].",
+    "Surgical studies reporting weight change: give weight loss and % change in body weight or BMI (% excess BMI/weight change optional) [B].",
+    "Animal studies: approving committee statement, sex of animals, housing and husbandry; ARRIVE recommended [B].",
+    "LLM use documented in the Methods section (or a suitable alternative place); LLMs cannot be authors [A].",
+    "House style: spaces, not commas, for thousands; SI units, energy in kJ/MJ with kcal in parentheses; '%' throughout; mean (SD) for normal data; relative risks as odds ratios with 95% CI; Bland-Altman for method comparison; manufacturer's town (state if USA) and country at first mention [A].",
+    "Abbreviations: define at first use; do not abbreviate terms used fewer than four times; unit abbreviations g, l, mg, kg, kJ, MJ, wt, s, min, h, no plural 's' [A].",
+    "References: '(ref. X)' instead of a number next to an equation, formula or acronym; journal abbreviations as in Index Medicus; first and last pages; abstracts and letters identified as such [A].",
+    "Figures: separate files per the Artwork Guidelines (https://www.nature.com/documents/aj-artworkguidelines.pdf); composite figures with more than three panels count as two figures; rules not thinner than 1 pt; hatching instead of shading; plot individual data points when N<10; axes to zero except log; N stated in the legend; no 3D histograms. Colour in print is charged unless open access [A].",
+    "Tables: each as a separate editable, flat workbook (Excel preferred; .xls/.xlsx/.ods/.doc/.docx), titled and cited in order [A].",
+    "Graphical abstract optional: uploaded as a 'Figure' labelled 'Graphical abstract', 9 cm x 5 cm at 300 dpi, white background. Video abstract optional [A].",
+    "Supplementary information: figures, small tables and text in one combined PDF; a 50-word summary per file; not copy-edited [A].",
+    "Cover letter: corresponding author's affiliation and contacts, importance and fit, originality and no concurrent submission; previous reviewer comments if considered by another journal; novelty argument if the study is in a low-priority area [A]; preprint server and accession number, and any prior meeting abstract [B].",
+    "Subject ontology: select 1 to 4 subject terms in the submission system [A].",
+    "Preprints: submitted version may be posted on a preprint server at any time, not later pre-acceptance versions; accepted manuscript of subscription articles only 6 months after publication [B][E].",
+    "Open access is optional (hybrid): APC £2,980 / $4,390 / €3,490 plus VAT, determined at acceptance; CC BY or CC BY-NC-ND [C][E]. Standard route: Licence to Publish; institutional OA waivers where applicable [C].",
+    "Low-priority topics (single-country prevalence, replication, co-morbidities without obesity-specific components, null genotype associations, audits, case reports without a critical finding, trials under 1 year): justify novelty in the cover letter and Introduction [A]."
+  ],
+  "article_types": {
+    "original": {
+      "_comment": "[A] Article: defaults above (structured abstract 300; text 4,000 excluding abstract, tables/figures and references; 6 tables or figures; 60 references)."
+    },
+    "review": {
+      "abstract": {
+        "structure": []
+      },
+      "main_text": {
+        "sections": [
+          {
+            "id": "methods",
+            "heading": "Methods"
+          }
+        ],
+        "limit": {
+          "max": 6000,
+          "count_sections": [
+            "introduction",
+            "methods",
+            "results",
+            "discussion",
+            "conclusions",
+            "body"
+          ]
+        }
+      },
+      "references": {
+        "max": 120
+      },
+      "figures_tables_max": 8,
+      "_comment": "[A] Review Article: 'Unstructured abstract max. 300 words; Main body of text (excluding abstract, tables/figures, and references) not to exceed 6,000 words; Max 8 tables or figures ...; Max 120 references'. 'All reviews should include search criteria and selection criteria in a Methods Section, along with the total number of articles identified and the total number selected' (hence Methods required). Literature of the past 5-10 years, authors' opinion and future directions."
+    },
+    "systematic-review": {
+      "main_text": {
+        "sections": [
+          {
+            "id": "introduction",
+            "heading": "Introduction"
+          },
+          {
+            "id": "methods",
+            "heading": "Methods"
+          },
+          {
+            "id": "results",
+            "heading": "Results"
+          },
+          {
+            "id": "discussion",
+            "heading": "Discussion"
+          }
+        ],
+        "limit": {
+          "max": 6000
+        }
+      },
+      "references": {
+        "max": 120
+      },
+      "figures_tables_max": 8,
+      "reporting_guideline": "PRISMA",
+      "_comment": "[A] Systematic Review Article (with or without Meta-Analysis): 'Structured abstract max. 300 words; ... 6,000 words; Max 8 tables or figures ...; Max 120 references'. Abstract headings for this type are not given separately: the Article headings are kept. Weight-loss/maintenance reviews should usually include studies of at least 6 months, preferably 1 year [A]. PRISMA is not named by the journal; set here from the kit's study-design mapping."
+    },
+    "technical-report": {
+      "main_text": {
+        "limit": {
+          "max": 2500
+        }
+      },
+      "references": {
+        "max": 25
+      },
+      "figures_tables_max": 4,
+      "_comment": "[A] Technical Report: 'Structured abstract max. 300 words; ... 2,500 words; Max 4 tables or figures ...; Max 25 references'. Same scientific rigour as an Article."
+    },
+    "brief-communication": {
+      "abstract": {
+        "limit": {
+          "max": 200
+        },
+        "structure": []
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "max": 1500,
+          "count_sections": [
+            "introduction",
+            "methods",
+            "results",
+            "discussion",
+            "conclusions",
+            "body"
+          ]
+        }
+      },
+      "references": {
+        "max": 20
+      },
+      "figures_tables_max": 2,
+      "_comment": "[A] Brief Communication: 'Unstructured abstract max. 200 words; Main body of text (excluding tables/figures, and references) not to exceed 1,500 words; Max 2 tables or figures ...; Max 20 references'. 'Apart from including an abstract, there is no obligation to divide the text into sections'. Also called Short Communication elsewhere in [A]."
+    },
+    "letter": {
+      "abstract": {
+        "required": false
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "max": 500,
+          "count_sections": [
+            "body"
+          ]
+        }
+      },
+      "references": {
+        "max": 10
+      },
+      "figures_tables_max": 2,
+      "required_declarations": [
+        "conflicts"
+      ],
+      "_comment": "[A] Correspondence: comment on papers published in a previous issue; 'must reference the original source but can use an arbitrary title'. 'No abstract required; Main body of text (excluding tables/figures, and references) not to exceed 500 words; Max 2 tables or figures ...; Max 10 references'. Competing Interests kept required ([B] applies to every paper)."
+    },
+    "perspective": {
+      "abstract": {
+        "required": false
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "max": 1000,
+          "count_sections": [
+            "body"
+          ]
+        }
+      },
+      "references": {
+        "max": 10
+      },
+      "figures_tables_max": 2,
+      "required_declarations": [
+        "conflicts"
+      ],
+      "_comment": "[A] Perspective: 'No abstract required; Main body of text (excluding tables/figures, and references) not to exceed 1,000 words; Max 2 tables or figures; Max 10 references'."
+    },
+    "comment": {
+      "abstract": {
+        "required": false
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "max": 750,
+          "count_sections": [
+            "body"
+          ]
+        }
+      },
+      "references": {
+        "max": 10
+      },
+      "figures_tables_max": 2,
+      "required_declarations": [
+        "conflicts"
+      ],
+      "_comment": "[A] Comment: 'No abstrcat [sic] required; Main body of text (excluding tables/figures, and references) not to exceed 750 words; Max 2 tables or figures ...; Max 10 references'."
+    },
+    "editorial": {
+      "abstract": {
+        "required": false
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "max": 1000,
+          "count_sections": [
+            "body"
+          ]
+        }
+      },
+      "references": {
+        "max": 10
+      },
+      "figures_tables_max": 2,
+      "required_declarations": [
+        "conflicts"
+      ],
+      "_comment": "[A] Editorial (by Editor invitation only; contact the office first): 'No abstract required; ... 1,000 words; Max 2 tables or figures ...; Max 10 references'."
+    }
+  },
+  "_article_types": "Case reports: no case-report article type is listed in [A]; 'Case reports that do not describe a critical finding or major addition to the literature' are low priority. No case-report profile is given: ask the editorial office, or submit as a Brief Communication. Clinical trials are Articles (or Brief Communications if short) with the duration rules in [A]."
+}

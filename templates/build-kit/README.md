@@ -27,7 +27,23 @@ cd ~/path/my-article && git init
 
 The kit ships with a **fictional** cohort example that builds cleanly against every profile. Replace the example text, metadata and figure; keep the structure.
 
-Profiles included: `jvb` (**Jornal Vascular Brasileiro**, the default in `metadata.yaml`; rules read in the journal's instructions on 2026-09-23, every rule annotated with its source), `generic-icmje` (drafting defaults before a journal is chosen) and `example-journal-b` (illustrative, never submit against it).
+Profiles included:
+
+| Profile | Journal | Revision marking | Notable rules |
+| --- | --- | --- | --- |
+| `jvb` (default) | Jornal Vascular Brasileiro | red text | bilingual PT/EN title, abstract and keywords; declarations on the title page; double-blind; superscript Vancouver |
+| `obesity` | Obesity (Silver Spring), Wiley / The Obesity Society | tracked changes | Study Importance box (3 questions, up to 2 bullets each); title page inside the manuscript; line and page numbers off; person-first language |
+| `obesity-facts` | Obesity Facts, Karger | tracked changes (not stated) | word counts are guidance only (soft limits); statements block before the references; person-first language |
+| `clinical-obesity` | Clinical Obesity, Wiley / World Obesity | highlight (not stated) | "What is already known" and "What this study adds" boxes (up to 3 bullets); person-first language |
+| `ijo` | International Journal of Obesity, Springer Nature | highlight | structured abstract Background/Objectives, Subjects/Methods; competing interests on the title page and before the references; people-first language enforced |
+| `jcm` | Journal of Clinical Medicine, MDPI | tracked changes (not stated) | no running title; IRB and informed-consent statements when humans are studied; no length limits |
+| `cureus` | Cureus, Springer Nature | none (web editor keeps versions) | text pasted into a web form; free-publication limits on authors and references; abstract 3,500 characters |
+| `generic-icmje` | none (drafting defaults) | tracked changes | never submit against it |
+| `example-journal-b` | illustrative | tracked changes | never submit against it |
+
+Every rule in a real profile carries a `_comment` with the page it was read on (2026-09-23). "Not stated" marks a choice the kit made where the journal is silent. Re-read the journal's instructions before submitting.
+
+`python3 scripts/validate.py --compare` shows, for the same manuscript, what each journal would still need.
 
 **Two languages.** Journals such as J Vasc Bras want title, abstract and keywords in Portuguese and English. Put the second title and keywords in `metadata.yaml` (`title-alt`, `keywords-alt`, `lang-alt`) and the second abstract in a section `# Resumo {#abstract-alt}` with parts `{#abstract-alt-background}`, etc. The profile names the headings in each language.
 

@@ -2,6 +2,34 @@
 
 All notable changes to the **Medical Manuscript Writing** skill are documented here. Format follows Keep a Changelog (https://keepachangelog.com/) using semantic-style versioning by content scope rather than strict semver.
 
+## [1.9.0] — 2026-09-23
+
+### Added
+
+- **Six journal profiles**, each rule annotated with its source (read 2026-09-23): `obesity` (Obesity, Silver Spring), `obesity-facts` (Karger), `clinical-obesity` (Wiley), `ijo` (International Journal of Obesity), `jcm` (Journal of Clinical Medicine, MDPI), `cureus`. Summary table in the kit README.
+- Profile features the new journals needed:
+  - `section_limits` with `unit: "items"` (bullet boxes such as Study Importance or Key Points), `min`, and level-2 sections;
+  - `soft: true` limits for journals whose word counts are guidance only (WARN, not ERROR);
+  - `main_text.required_any` ("Discussion and/or Conclusion");
+  - `style.banned_terms` (person-first language: "obese patients", "morbid obesity"), which blocks submission unless resolved with a reason;
+  - `title_page_sections` also for a title page inside the manuscript, and `title_page_copies` for statements required on the title page and in the text;
+  - `conditional_declarations` driven by `involves:` in `metadata.yaml` (IRB and consent only when humans or animals are studied);
+  - `title.running_title_allowed: false`;
+  - `no_abbreviations_in_title_abstract: "title"` or `"abstract"`;
+  - `"<type>": null` removes an inherited article type.
+- `human_checks` and `revision_checks` now accumulate across `extends` and article types. `_comment` keys are ignored at any depth.
+
+### Fixed
+
+- **Bibliography of omitted sections.** Since 1.8.1, citeproc ran before sections were removed, so a reference cited only in an omitted section (e.g. acknowledgments in a blinded file) stayed in the list and shifted the numbering. The journal layer now selects the content first; citeproc numbers what remains; a new last filter, `scrub.lua`, strips the metadata.
+- **Confidence levels and spreads.** 90%, 95% and 99% CIs are recognised and reported with their level (a level mismatch between abstract and Results is flagged); an unlabelled "median 12 (8 to 18)" or IQR is a spread, not an estimate.
+- **Resolving a divergence needs a location.** In the sign-off, the reason must say where the checked value is (section, paragraph, table, figure, page); "checked, it is fine" is refused.
+- The second-language abstract is left out of files for journals that are not bilingual.
+
+### Changed
+
+- 12 new tests (45 in total), including a build of every profile.
+
 ## [1.8.1] — 2026-09-23
 
 Responds to an external review of 1.8.0: no check may pass silently.

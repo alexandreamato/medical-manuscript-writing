@@ -1,0 +1,425 @@
+{
+  "_comment": "Obesity (Silver Spring), Wiley / The Obesity Society. Every rule below was read in the journal's own pages on 2026-09-23. [A] = Author Guidelines PDF 'Obesity-Author-Guidelines-February-2024' (linked as 'full Author Guidelines' from [W]; the only source with manuscript-preparation rules); [W] = https://onlinelibrary.wiley.com/page/journal/1930739x/homepage/forauthors.html (web page, newer: submission now via Wiley Research Exchange, authors.wiley.com/journal/OBY, instead of ScholarOne; open-access fee); [C] = Submission Checklist PDF (October 2019). Where [A] and [C] differ, [A] (newer) wins and the difference is noted. Re-read [W] and [A] before each submission.",
+  "extends": "generic-icmje",
+  "name": "Obesity (Silver Spring)",
+  "generic": false,
+  "source_url": "https://onlinelibrary.wiley.com/page/journal/1930739x/homepage/forauthors.html",
+  "_source_urls": [
+    "https://onlinelibrary.wiley.com/page/journal/1930739x/homepage/forauthors.html",
+    "https://onlinelibrary.wiley.com/pb-assets/assets/1930739X/ag/Obesity-Author-Guidelines-February-2024-1757317374427.pdf",
+    "https://onlinelibrary.wiley.com/pb-assets/assets/1930739X/Obesity%20submission%20checklist%20October%202019-1570544480840.pdf",
+    "https://onlinelibrary.wiley.com/pb-assets/assets/1930739X/Obesity%20Ethical%20Policies%20June%202018-1530554556207.pdf"
+  ],
+  "verified_at": "2026-09-23",
+  "reverify_after_days": 180,
+  "csl": "obesity",
+  "_csl": "Official CSL repository has an independent style `obesity.csl` (title 'Obesity', eISSN 1930-739X; updated 2014, built 'according to current articles'). [A] 'References should be cited numerically in the order they appear in the text ... Arabic numerals in parentheses or as superscripts'; 'names of all authors, unless there are more than 6 authors, in which case, please list only the first 3 authors, followed by et al.'; NLM journal abbreviations; examples are AMA-like ('Compr Psychiatry. 2009;50(5):391-399.'). obesity.csl matches: numbers in parentheses, et-al-min 7 / use-first 3. It italicizes 'et al', which the examples do not; american-medical-association is the alternative if the editor objects.",
+  "reference_docx": {
+    "font": "Times New Roman",
+    "size_pt": 12,
+    "line_spacing": 2.0,
+    "margins_cm": 2.54,
+    "line_numbers": false,
+    "page_numbers": false,
+    "_comment": "[A] General Formatting: 'Set margins that are 0.75 to 1 inch on all sides. Double-space your main text.' 'Turn OFF line numbering and page numbering in Word. The ScholarOne submission site will create a PDF with automatic numbering.' Font and size: not stated (generic default kept)."
+  },
+  "title": {
+    "max_chars": 125,
+    "running_title_max_chars": 50,
+    "_comment": "[A] Step 4: 'TITLE: ... no more than 125 characters, including spaces between words'; 'RUNNING TITLE: ... no more than 50 characters including spaces'."
+  },
+  "keywords": {
+    "min": 3,
+    "max": 5,
+    "after_abstract": false,
+    "_comment": "[A] Step 4, on the Title Page: 'KEYWORDS: Three to five keywords.' Vocabulary (MeSH) not stated."
+  },
+  "authors": {
+    "require_orcid": "corresponding",
+    "max": null,
+    "max_without_justification": null,
+    "_comment": "Author limit: not stated. ORCID: not stated in [A], [W] or [C] (generic default kept; the Wiley submission system may ask for it). [A] Title Page: first and last names of each author; affiliation with department, institution, city, state and country."
+  },
+  "abstract": {
+    "required": true,
+    "bilingual": false,
+    "title": "Abstract",
+    "limit": {
+      "unit": "words",
+      "max": 200
+    },
+    "structure": [
+      {
+        "id": "objectives",
+        "heading": "Objective"
+      },
+      {
+        "id": "methods",
+        "heading": "Methods"
+      },
+      {
+        "id": "results",
+        "heading": "Results"
+      },
+      {
+        "id": "conclusions",
+        "heading": "Conclusions"
+      }
+    ],
+    "_comment": "[A] Step 6: 'Create a structured abstract with these headings: Objective - Methods - Results - Conclusions - In all cases, there should be no text before the Objective heading. - Abstracts should be 200 words or less.' No Background part."
+  },
+  "main_text": {
+    "sections": [
+      {
+        "id": "introduction",
+        "heading": "Introduction"
+      },
+      {
+        "id": "methods",
+        "heading": "Methods"
+      },
+      {
+        "id": "results",
+        "heading": "Results"
+      },
+      {
+        "id": "discussion",
+        "heading": "Discussion"
+      },
+      {
+        "id": "conclusions",
+        "heading": "Conclusion",
+        "required": false
+      }
+    ],
+    "limit": {
+      "unit": "words",
+      "max": 4000,
+      "count_sections": [
+        "introduction",
+        "methods",
+        "results",
+        "discussion",
+        "conclusions",
+        "acknowledgments"
+      ],
+      "include_floats": false
+    },
+    "_comment": "[A] Step 3 headings (Original Article, Brief Cutting Edge Report): 'Introduction Methods Results Discussion Conclusion and/or Acknowledgments (if needed) References'. Word limit table: Original Article 4000, 'excluding cover page, abstract, references, tables, and figures'. Step 4 WORD COUNT: 'should include only your main text: Introduction, Methods, Results, Discussion/Conclusion, and/or Acknowledgments. It should NOT include the Title Page (including funding and disclosure information), study importance questions, abstract, references, or text from figures or tables.' Hence acknowledgments counted, study importance not."
+  },
+  "section_limits": {
+    "study-importance": {
+      "unit": "items",
+      "max": 6
+    }
+  },
+  "_section_limits": "[A] Study Importance: three questions, at most 2 short bullets each (6 in total; write each answer as a bullet list under its question).",
+  "references": {
+    "max": 45,
+    "require_identifier": false,
+    "_comment": "[A] table: Original Article max 45 references. Unpublished work not yet accepted: in the text only ('E Ravussin & DH Ryan, unpublished data'). Data sets cited in the reference list (FORCE11). DOI/PMID requirement: not stated."
+  },
+  "figures": {
+    "max": null,
+    "placement": "legends-at-end",
+    "_comment": "[A] Step 7: 'do not place the actual tables and figures within your article text'; 'Figures must be saved and uploaded as separate files'; 'Titles and captions for each figure should be typed on a separate page at the end of the Main Document.' Line art EPS/PDF 600 dpi min; images TIFF/PNG/EPS. Separate cap: none (combined cap below)."
+  },
+  "tables": {
+    "max": null,
+    "placement": "end",
+    "_comment": "[A] Step 7: 'Tables may be included at the end of your Main Document, or they may be uploaded as separate files. But choose one or the other'; editable (Word); 1 per page; title and footnotes on the same page as the table."
+  },
+  "figures_tables_max": 8,
+  "_figures_tables_max": "[A] table 'Max Number of Combined Figures/Tables': Original Article 8.",
+  "required_declarations": [
+    "study-importance",
+    "ethics",
+    "funding",
+    "conflicts"
+  ],
+  "_required_declarations": "study-importance: [A] Step 5, required for Original Articles, Brief Cutting Edge Reports and Reviews, placed 'following the Title Page' (write it as `# Study Importance {#study-importance}` before the abstract). ethics: [A] 'formal review and approval, or formal review and waiver ... should be described in the Methods section', with the complete name of the ethics committee and reference number (write it as a subsection `### Ethics {#ethics}` inside Methods). funding and conflicts: [A] Step 4, on the Title Page ('List all grant and funding information (if any) on the Title Page'; 'DISCLOSURE: List all potential conflicts of interest on the Title Page ... If none exist ... \"The authors declared no conflict of interest.\"'). NOT required: author-contributions ([A] 'If you wish to specify the contribution of each author ... list these on the Title Page'); data-availability ([A] 'Authors may provide a data availability statement'; but clinical trials MUST put a data sharing plan in Acknowledgments, see human_checks); ai-use (only if AI was used beyond spelling, grammar and editing, in Acknowledgments or Methods); trial-registration (clinical trials only, on the Title Page).",
+  "headings": {
+    "study-importance": "Study Importance",
+    "conflicts": "Disclosure",
+    "funding": "Funding",
+    "author-contributions": "Author Contributions",
+    "trial-registration": "Clinical Trial Registration",
+    "acknowledgments": "Acknowledgments"
+  },
+  "_headings": "[A] Step 4 Title Page labels: FUNDING, DISCLOSURE, AUTHOR CONTRIBUTIONS, CLINICAL TRIAL REGISTRATION; Step 3 'Acknowledgments'; Step 5 'Study Importance Questions' (the printed heading is not prescribed).",
+  "submission": {
+    "separate_title_page": false,
+    "blinded": false,
+    "number_sections": false,
+    "title_page_sections": [
+      "trial-registration",
+      "funding",
+      "conflicts",
+      "author-contributions"
+    ],
+    "omit_in_blinded": [],
+    "_comment": "[A] Step 4: 'Your Title Page should be included at the beginning of the Main Document file' with title, authors, affiliations, keywords, running title, corresponding author's full mailing and e-mail address, word count, clinical trial registration, funding, disclosure, author contributions. Blinding: not stated; a title page with author names inside the Main Document implies single-blind (not double-blind). title_page_sections is recorded for documentation: with the title page inside the main document the kit does not move these sections onto it (see human_checks)."
+  },
+  "style": {
+    "allow_em_dash": false,
+    "allow_en_dash_ranges": false,
+    "p_value": null,
+    "no_abbreviations_in_title_abstract": false,
+    "_comment": "p-value case: not stated. [A] 'Avoid abbreviations where possible'; define at first mention in the text and in each table and figure; standard units exempt; SI units; generic drug names (brand in parentheses). Dash rules: not stated (kit defaults).",
+    "banned_terms": [
+      {
+        "_comment": "[A][W][C] people-first language: never 'obese' as adjective or noun for people.",
+        "term": "\\bobese (?:patients?|individuals?|people|persons?|subjects?|adults?|children|adolescents?|youths?|women|men|girls|boys|participants?|population|pregnant women|mothers)\\b",
+        "regex": true,
+        "use": "'<people> with obesity' (e.g. 'patients with obesity')"
+      },
+      {
+        "term": "\\bthe obese\\b",
+        "regex": true,
+        "use": "'people with obesity'"
+      },
+      {
+        "term": "morbidly obese",
+        "use": "'with class III (severe) obesity'"
+      },
+      {
+        "term": "morbid obesity",
+        "use": "'class III obesity' or 'severe obesity'"
+      }
+    ]
+  },
+  "reporting_guideline": null,
+  "_reporting_guideline": "[A] Required Checklists: 'Depending on the design of the study, one of the health research reporting checklists referenced at the EQUATOR Network ... must accompany the first version of each manuscript as a \"supplementary file\"', with page or line numbers; no fixed guideline per article type, so the kit picks it from `study-design`.",
+  "revision": {
+    "marking": "tracked",
+    "deleted": "strike",
+    "author": "Authors",
+    "_comment": "[A] SUBMITTING REVISIONS: 'resubmit it in revised form (both \"tracked changes\" and \"clean\" versions)'; Step 3: 'If you are submitting a REVISION, provide 2 versions of your Main Document titled: LastNameofFirstAuthor-KeywordsFromTitle-DocType-TRACKED CHANGES / ...-CLEAN'."
+  },
+  "revision_checks": [
+    "Upload both a tracked-changes and a clean Main Document; clean versions of every edited table, figure or Supporting Information file 'as supplementary files not for review' [A].",
+    "Preferred file order: 1 Response to Reviewers, 2 tracked Main Document, 3 tracked tables/figures/SI, 4 clean Main Document, 5 clean tables/figures/SI [A].",
+    "Response letter: 'clear details of the changes made and any responses to the reviewer or editor comments', with each revision [A].",
+    "The journal's own file names: LastNameofFirstAuthor-KeywordsFromTitle-MainDocumentR1-TRACKEDCHANGES.doc / -CLEAN.doc; new figures e.g. -Figure1R1.tiff [A]. Rename the kit's outputs before upload if the editorial office insists.",
+    "Word count still within the limit after revision (manuscripts can be returned to be shortened even after acceptance); move extra text to online Supporting Information [A].",
+    "Update abstract, title and author data in the submission system; check all coauthors, names and affiliations; all authors agreed to the changes [A].",
+    "Deadline for the revision: not stated in the guidelines; read the decision letter."
+  ],
+  "human_checks": [
+    "Study Importance (after the Title Page): answer the 3 questions with no more than 2 short bullets each: 'What is already known about this subject?' (Reviews: what major reviews have already been published), 'What are the new findings in your manuscript?', 'How might your results change the direction of research or the focus of clinical practice?' [A].",
+    "Title Page at the start of the Main Document carries: title, authors, affiliations (department, institution, city, state, country), keywords, running title, corresponding author's full mailing and e-mail address, word count, clinical trial registration (registry name, number, URL), funding, disclosure, author contributions (optional) [A][W]. The kit prints the declarations where they sit in the manuscript: place them on the title page by hand.",
+    "Disclosure: every author completes the ICMJE COI form; the corresponding author compiles the statement on the Title Page and keeps the forms. Do NOT upload the forms [A][W]. If none: 'The authors declared no conflict of interest.' [A].",
+    "Ethics in Methods: full name of the ethics committee (and reference number), approval or waiver, Declaration of Helsinki; animal studies name the approving committee and animal welfare details [A].",
+    "Clinical trials: prospectively registered (ICMJE-accepted registry); CONSORT diagram and checklist; data sharing plan in the Acknowledgments (IPD availability and when, other documents, with whom and how) [A][C].",
+    "EQUATOR checklist uploaded as a supplementary file with page or line numbers; participant flowchart whenever possible (CONSORT, STROBE, PRISMA, ARRIVE). If none applies, explain why in the cover letter [A][W].",
+    "Cover letter: importance and why Obesity; originality; willingness to share protocol, statistical code and data set with the editors; preprint server and accession number if preprinted [A][W]. Reviews: justify the need for a new review and state the number of included studies [A].",
+    "AI: any AI tool used to develop any portion of the manuscript is described 'transparently and in detail' in the Acknowledgements (or Methods if part of the research design); spelling, grammar and general editing tools are excluded; AI cannot be an author [A][W].",
+    "People-first language: never 'obese' as adjective or noun for people ('people with obesity', not 'obese people'); no pejorative language or stereotyping images [A][W][C].",
+    "Energy expenditure: no ratios of metabolic rate or energy intake per unit body mass across groups of differing body size; use ANCOVA [A]. Modeling papers: assumptions listed, variables with units, model and code supplied [A].",
+    "Secondary analyses of shared data: attest compliance with data-use terms; cite the data source with its persistent identifier in the references [A].",
+    "Figures as separate files (EPS/PDF line art 600 dpi; TIFF/PNG/EPS images) with the figure number on the image; Main Document contains no figures; permissions for reproduced material [A][C].",
+    "Supporting Information labelled Figure S1, Table S1; headed by title, authors, addresses, contact; published as supplied [A][C].",
+    "Visual (graphical) abstract: encouraged, not required; separate file with 'visual abstract' in the name, 5x5 in at 300 dpi or 1500x1500 px [A][W].",
+    "Preprints: allowed on noncommercial servers, before or after submission; give server and accession number in the cover letter; link the preprint to the published article [A][W].",
+    "Costs: no submission fee; page charges USD 65 per page (first or corresponding author is a TOS member) or USD 95 (non-member); colour figures USD 595 each; open access (OnlineOpen) USD 5,230 / GBP 3,750 / EUR 4,430, which waives page charges; confirm funds in the submission [W][C].",
+    "Submission system: at least three preferred reviewers with e-mail, institution and reason [C]; submit via Wiley Research Exchange, authors.wiley.com/journal/OBY [W] (the February 2024 PDF still names ScholarOne).",
+    "Meeting Reports are listed in [A] but have no limits stated; ask the editorial office."
+  ],
+  "article_types": {
+    "original": {
+      "_comment": "[A] Original Article: 4000 words, 45 references, 8 figures/tables combined, structured abstract 200 words, study importance required. Defaults above."
+    },
+    "brief-report": {
+      "main_text": {
+        "limit": {
+          "max": 1500
+        }
+      },
+      "references": {
+        "max": 20
+      },
+      "figures_tables_max": 3,
+      "_comment": "[A] Brief Cutting Edge Report: 'short reports on \"hot\" research questions that present important novel results ... preliminary or pilot results should not be submitted in this category.' 1500 words, 20 references, 3 figures/tables combined; same headings and structured 200-word abstract as Original Articles; study importance required."
+    },
+    "review": {
+      "main_text": {
+        "sections": [
+          {
+            "id": "introduction",
+            "heading": "Introduction"
+          },
+          {
+            "id": "discussion",
+            "heading": "Discussion",
+            "required": false
+          },
+          {
+            "id": "conclusions",
+            "heading": "Conclusion",
+            "required": false
+          }
+        ],
+        "limit": {
+          "max": 6000,
+          "count_sections": [
+            "introduction",
+            "methods",
+            "results",
+            "discussion",
+            "conclusions",
+            "body",
+            "acknowledgments"
+          ]
+        }
+      },
+      "references": {
+        "max": 100
+      },
+      "figures_tables_max": 8,
+      "reporting_guideline": "PRISMA",
+      "_comment": "[A] Review, including Systematic Reviews and Meta-Analyses: 6000 words, 100 references, 8 figures/tables; headings 'Introduction / Text subdivided into titled sections / Discussion and/or Conclusion / Acknowledgments (if needed) / References' (at least one of Discussion or Conclusion: check by eye). Structured abstract (Objective, Methods, Results, Conclusions), 200 words; study importance required (first question: what major reviews have already been published). Optional Review Proposal first (cover letter, title page, study importance, abstract). Use `narrative-review` for an unstructured abstract."
+    },
+    "narrative-review": {
+      "abstract": {
+        "structure": []
+      },
+      "main_text": {
+        "sections": [
+          {
+            "id": "introduction",
+            "heading": "Introduction"
+          },
+          {
+            "id": "discussion",
+            "heading": "Discussion",
+            "required": false
+          },
+          {
+            "id": "conclusions",
+            "heading": "Conclusion",
+            "required": false
+          }
+        ],
+        "limit": {
+          "max": 6000,
+          "count_sections": [
+            "introduction",
+            "discussion",
+            "conclusions",
+            "body",
+            "acknowledgments"
+          ]
+        }
+      },
+      "references": {
+        "max": 100
+      },
+      "figures_tables_max": 8,
+      "reporting_guideline": null,
+      "_comment": "[A] 'Narrative reviews may include unstructured abstracts (no headings).' [C] 'unstructured abstracts are acceptable for narrative Reviews and Perspectives'. Other limits as Review: 200-word abstract, 6000 words, 100 references, 8 figures/tables; study importance required."
+    },
+    "perspective": {
+      "abstract": {
+        "required": false,
+        "limit": {
+          "max": 150
+        },
+        "structure": []
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "max": 1000,
+          "count_sections": [
+            "introduction",
+            "methods",
+            "results",
+            "discussion",
+            "conclusions",
+            "body",
+            "acknowledgments"
+          ]
+        }
+      },
+      "references": {
+        "max": 10
+      },
+      "figures_tables_max": 2,
+      "required_declarations": [
+        "funding",
+        "conflicts"
+      ],
+      "_comment": "[A] Perspective: 'new ideas on an old problem or commentary/opinion on a hot topic'; 1000 words, 10 references, 2 figures/tables; 'Perspectives may include a shorter structured or unstructured abstract (150 words or less) at the author's discretion (optional).' Study importance not required (Step 5 names only Original Articles, Brief Cutting Edge Reports and Reviews)."
+    },
+    "letter": {
+      "abstract": {
+        "required": false
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "max": 500,
+          "count_sections": [
+            "body"
+          ]
+        }
+      },
+      "references": {
+        "max": 5
+      },
+      "figures_tables_max": 1,
+      "required_declarations": [
+        "conflicts"
+      ],
+      "_comment": "[A] Letter to the Editor: 500 words, 5 references, 1 figure/table, no abstract; 'typically should address issues concerning recently published information in Obesity' and 'must reference the original source'. A response must cite the letter's title: 'Response to [title of letter]'. Funding/disclosure: Title Page rules apply to all manuscripts; only disclosure enforced here."
+    },
+    "commentary": {
+      "abstract": {
+        "required": false
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "max": 750,
+          "count_sections": [
+            "body"
+          ]
+        }
+      },
+      "references": {
+        "max": 5
+      },
+      "figures_tables_max": 1,
+      "required_declarations": [
+        "conflicts"
+      ],
+      "_comment": "[A] Commentary (only by invitation of Editor): highlights a paper published in Obesity; 750 words, 5 references, 1 figure/table, no abstract. [C] (2019) says 500 words: the February 2024 [A] table wins."
+    },
+    "editorial": {
+      "abstract": {
+        "required": false
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "max": 1600,
+          "count_sections": [
+            "body"
+          ],
+          "min": 800
+        }
+      },
+      "references": {
+        "max": 5
+      },
+      "figures_tables_max": 1,
+      "required_declarations": [
+        "conflicts"
+      ],
+      "_comment": "[A] Editorial (only by invitation of Editor): '800 to 1600' words (minimum 800 is not checked by the kit), 5 references, 1 figure/table, no abstract."
+    },
+    "case-report": null
+  },
+  "_article_types_case_report": "[A][W] case reports are not an accepted article type: the inherited generic type is removed.",
+  "_submission": "[A] title page at the start of the main document: the kit now prints trial registration, funding, disclosure and contributions there and leaves them out of the text."
+}

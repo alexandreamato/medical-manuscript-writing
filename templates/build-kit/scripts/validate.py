@@ -45,13 +45,17 @@ PLACEHOLDER_RE = re.compile(
 
 NUM = r"-?\d+(?:[.,]\d+)?"
 _SEP = r"(?:to|a|–|-|,\s)"
-_LABEL = (r"(?:95\s*%\s*)?(?:CI|confidence interval|IC|intervalo de confian[cç]a(?:\s+de\s+95\s*%)?|"
-          r"intervalo de confianza(?:\s+del?\s+95\s*%)?)")
-# Labelled ("HR 2, 95% CI 1 to 3", "0,72, intervalo de confiança de 95% 0,55 a 0,94")
-# or parenthesised ("0.72 (0.55 to 0.94)", a table cell). A bare "2018 to 2020" is neither.
+_LEVEL = r"(?:(?P<lvl>\d{2}(?:[.,]\d+)?)\s*%\s*)?"
+_LABEL = (r"(?:CI|confidence interval|IC|intervalo de confian[cç]a(?:\s+de\s+(?P<lvl2>\d{2}(?:[.,]\d+)?)\s*%)?|"
+          r"intervalo de confianza(?:\s+del?\s+(?P<lvl3>\d{2}(?:[.,]\d+)?)\s*%)?)")
+# Labelled ("HR 2, 95% CI 1 to 3", "0.72, 90% CI 0.55 to 0.94", "0,72, intervalo de
+# confiança de 95% 0,55 a 0,94") or parenthesised ("0.72 (0.55 to 0.94)", a table cell).
 CI_RE = re.compile(
-    rf"(?P<est>{NUM})\s*[,;(]?\s*\(?\s*{_LABEL}\s*[,:]?\s*\(?\s*(?P<lo>{NUM})\s*{_SEP}\s*(?P<hi>{NUM})\s*\)?"
+    rf"(?P<est>{NUM})\s*[,;(]?\s*\(?\s*{_LEVEL}{_LABEL}\s*[,:]?\s*\(?\s*(?P<lo>{NUM})\s*{_SEP}\s*(?P<hi>{NUM})\s*\)?"
     rf"|(?P<est2>{NUM})\s*\(\s*(?P<lo2>{NUM})\s*{_SEP}\s*(?P<hi2>{NUM})\s*\)", re.I)
+# An unlabelled "12 (8 to 18)" after these words is a spread, not a confidence interval.
+SPREAD_RE = re.compile(r"\b(median|IQR|interquartile|range|mediana|intervalo interquartil|amplitude|"
+                       r"min(?:imum)?[-–\s]*max(?:imum)?|p25|p75|percentil)", re.I)
 
 
 def _num(x: str) -> str:
@@ -67,27 +71,45 @@ def _num(x: str) -> str:
 
 def ci_extract(text: str) -> list[dict]:
     """Every estimate with an interval, kept even when it looks wrong: extraction
-    and validation are separate so a suspicious interval is reported, not lost."""
+    and validation are separate so a suspicious interval is reported, not lost.
+
+    kind: "ci" (labelled; `level` is its confidence level when stated), "interval"
+    (unlabelled, parenthesised: assumed to be a CI, e.g. a table cell), or
+    "spread" (unlabelled after median/IQR/range: not compared as an estimate)."""
     out = []
     for m in CI_RE.finditer(text):
-        est, lo, hi = (m.group("est"), m.group("lo"), m.group("hi")) if m.group("est") else \
-                      (m.group("est2"), m.group("lo2"), m.group("hi2"))
+        if m.group("est"):
+            est, lo, hi = m.group("est"), m.group("lo"), m.group("hi")
+            level = m.group("lvl") or m.group("lvl2") or m.group("lvl3")
+            kind = "ci"
+        else:
+            est, lo, hi = m.group("est2"), m.group("lo2"), m.group("hi2")
+            level = None
+            kind = "spread" if SPREAD_RE.search(text[max(0, m.start() - 60):m.start()]) else "interval"
         e, l, h = _num(est), _num(lo), _num(hi)
         issue = None
         try:
             fe, fl, fh = float(e), float(l), float(h)
             if fl > fh:
                 issue = "lower limit above upper limit"
-            elif not fl <= fe <= fh:
+            elif kind != "spread" and not fl <= fe <= fh:
                 issue = "estimate outside its interval"
         except ValueError:
             issue = "not a number"
-        out.append({"triple": (e, l, h), "raw": m.group(0).strip(), "issue": issue})
+        out.append({"triple": (e, l, h), "raw": m.group(0).strip(), "issue": issue, "kind": kind,
+                    "level": _num(level) if level else None})
     return out
 
 
+def interval_label(x: dict) -> str:
+    if x.get("level"):
+        return f"{x['level']}% CI"
+    return "interval" if x.get("kind") == "interval" else "CI"
+
+
 def ci_triples(text: str) -> set[tuple[str, str, str]]:
-    return {x["triple"] for x in ci_extract(text)}
+    """Estimates with confidence intervals (spreads such as median (IQR) excluded)."""
+    return {x["triple"] for x in ci_extract(text) if x["kind"] != "spread"}
 
 
 class Report:
@@ -127,16 +149,36 @@ def measure(text: str, unit: str) -> int:
         return len(text)
     if unit == "characters_without_spaces":
         return len(re.sub(r"\s", "", text))
+    if unit == "items":
+        C.die("unit 'items' is only valid in section_limits (it counts list items in a section)")
     C.die(f"unknown limit unit '{unit}' (words, characters_with_spaces, characters_without_spaces)")
 
 
+def count_items(blocks: list) -> int:
+    """List items (bullets or numbered) in a section: "up to three bullet points"."""
+    n = 0
+    for b in blocks:
+        if b.get("t") == "BulletList":
+            n += len(b["c"])
+        elif b.get("t") == "OrderedList":
+            n += len(b["c"][1])
+    return n
+
+
 def check_limit(rep, where, text, limit):
-    if not limit or limit.get("max") is None:
+    if not limit or (limit.get("max") is None and limit.get("min") is None):
         return None
+    if limit.get("max") is None:
+        limit = {**limit, "max": float("inf")}
     unit = limit.get("unit", "words")
     n = measure(text, unit)
+    # "soft": the journal gives the number as guidance only; exceeding it is a WARN.
+    flag = rep.warn if limit.get("soft") else rep.error
+    note = " (guidance only)" if limit.get("soft") else ""
+    if limit.get("min") is not None and n < limit["min"]:
+        flag(where, f"{n} {unit.replace('_', ' ')}; minimum {limit['min']}{note}")
     if n > limit["max"]:
-        rep.error(where, f"{n} {unit.replace('_', ' ')}; limit {limit['max']} (over by {n - limit['max']})")
+        flag(where, f"{n} {unit.replace('_', ' ')}; limit {limit['max']} (over by {n - limit['max']}){note}")
     return n
 
 
@@ -153,7 +195,14 @@ GATED = ("references", "profile", "short-name", "authors", "language", "title", 
 RESOLVABLE = ("abstract", "abstract-alt", "results")
 
 
+LOCATION_RE = re.compile(r"\b(results?|resultados|methods?|métodos|abstract|resumo|table|tabela|figure|figura|"
+                         r"paragraph|parágrafo|page|página|line|linha|section|seção|supplement\w*|appendix|"
+                         r"apêndice)\b|§", re.I)
+
+
 def resolvable(where: str, msg: str) -> bool:
+    if where == "wording":  # a banned term may be legitimate in a quotation or a title
+        return True
     return where in RESOLVABLE and ("estimate" in msg or "interval" in msg)
 
 
@@ -222,8 +271,10 @@ def write_signoff(rep: Report, journal: str, warns: list | None = None) -> str:
         warns = [f"{w}: {m}" for lv, w, m in rep.items if lv == "WARN" and resolvable(w, m)]
     if warns:
         lines += ["", "## Warnings to resolve", "",
-                  "Fix each one in the manuscript, or tick it and give the reason after `| because:`",
-                  "(e.g. the abstract reports the adjusted estimate and Table 2 the crude one).", ""]
+                  "Fix each one in the manuscript, or tick it and give the reason after `| because:`.",
+                  "The reason must say where the checked value is, so a reader can verify it, e.g.",
+                  "`| because: the adjusted HR is in Results, paragraph 3, and Table 3; Table 2 gives crude HRs only`.",
+                  "A reason without a location is not a resolution.", ""]
         for item in warns:
             why = old["reasons"].get(item, "") if same else ""
             lines.append(f"- [{'x' if item in checked else ' '}] {item} | because: {why}".rstrip())
@@ -255,7 +306,12 @@ def gate(rep: Report, prof: dict, meta: dict):
         if where in GATED:
             rep.items[i] = ("ERROR", where, msg + " [blocks submission]")
         elif resolvable(where, msg):
-            if item in so["checked"] and so["reasons"].get(item):
+            why = so["reasons"].get(item, "")
+            located = where == "wording" or LOCATION_RE.search(why)
+            if item in so["checked"] and why and not located:
+                rep.items[i] = ("ERROR", where, msg + " [the reason must say where the checked value is: "
+                                                      "section, paragraph, table, figure or page]")
+            elif item in so["checked"] and why:
                 rep.items[i] = ("WARN", where, msg + f" [resolved in sign-off: {so['reasons'][item]}]")
             else:
                 rep.items[i] = ("ERROR", where, msg + " [fix it, or resolve it with a reason in the sign-off]")
@@ -301,6 +357,8 @@ def _validate(prof: dict, doc: dict) -> tuple[Report, dict]:
     if t.get("max_chars") and len(title) > t["max_chars"]:
         rep.error("title", f"{len(title)} characters with spaces; limit {t['max_chars']}")
     rt = meta.get("running-title") or ""
+    if t.get("running_title_allowed") is False and rt:
+        rep.warn("running title", "the journal does not accept a running title; it is left out of the files")
     if t.get("running_title_max_chars"):
         if not rt:
             rep.error("running title", "required by the profile but missing (`running-title`)")
@@ -402,6 +460,9 @@ def _validate(prof: dict, doc: dict) -> tuple[Report, dict]:
     for sd in mt.get("sections", []):
         if sd.get("required", True) and sd["id"] not in secs:
             rep.error("sections", f"missing required section `{{#{sd['id']}}}`")
+    for group in mt.get("required_any", []):
+        if not any(g in secs for g in group):
+            rep.error("sections", "needs at least one of: " + ", ".join(f"`{{#{g}}}`" for g in group))
     lim = mt.get("limit") or {}
     count_ids = lim.get("count_sections") or [sd["id"] for sd in mt.get("sections", [])]
     body_txt = "\n".join(C.text_of_blocks(secs[i]["blocks"], include_floats=lim.get("include_floats", False))
@@ -410,12 +471,30 @@ def _validate(prof: dict, doc: dict) -> tuple[Report, dict]:
     n = check_limit(rep, "main text", body_txt, lim)
     if n is not None:
         stats["main_text_counted"] = f"{n} {lim.get('unit', 'words')} in " + ", ".join(count_ids)
+    all_subs = {ss["id"]: ss for s_ in secs.values() for ss in s_["subsections"]}
     for sid, slim in (prof.get("section_limits") or {}).items():
-        if sid in secs:
-            check_limit(rep, f"section {sid}", C.text_of_blocks(secs[sid]["blocks"]), slim)
+        sec = secs.get(sid) or all_subs.get(sid)
+        if not sec:
+            continue
+        if slim.get("unit") == "items":
+            n = count_items(sec["blocks"])
+            if slim.get("max") is not None and n > slim["max"]:
+                rep.error(f"section {sid}", f"{n} list items; limit {slim['max']}")
+            if slim.get("min") is not None and n < slim["min"]:
+                rep.error(f"section {sid}", f"{n} list items; minimum {slim['min']}")
+        else:
+            check_limit(rep, f"section {sid}", C.text_of_blocks(sec["blocks"]), slim)
 
-    # ---- declarations
-    for d in prof.get("required_declarations", []):
+    # ---- declarations: always required, plus those that depend on who was studied
+    # (metadata `involves: [humans]`, `[animals]`, or `[]` for reviews and method papers)
+    involves = set(meta.get("involves") or [])
+    conditional = prof.get("conditional_declarations", {})
+    if conditional and meta.get("involves") is None:
+        rep.warn("declarations", "set `involves:` in metadata.yaml ([humans], [animals] or []) so the "
+                                 "conditional statements (" + ", ".join(conditional) + ") can be checked")
+    required = list(prof.get("required_declarations", []))
+    required += [d for d, cond in conditional.items() if involves & set(cond) or meta.get("involves") is None]
+    for d in dict.fromkeys(required):
         if d not in secs and not any(d == ss["id"] for s in secs.values() for ss in s["subsections"]):
             rep.error("declarations", f"missing `{{#{d}}}` section")
 
@@ -526,11 +605,28 @@ def _validate(prof: dict, doc: dict) -> tuple[Report, dict]:
             for m in re.finditer(bad, txt):
                 rep.warn(f"section {sid}", f"P-value written '{m.group(0)}'; journal style is '{pv}'")
 
+    # terms the journal does not accept (e.g. person-first language: "obese patients")
+    for bt in style.get("banned_terms", []):
+        pat = bt["term"] if bt.get("regex") else r"\b" + re.escape(bt["term"]) + r"\b"
+        scopes = [("title", meta.get("title") or ""), ("title-alt", meta.get("title-alt") or "")] + \
+                 [(sid, txt) for sid, txt in full.items() if sid not in ("references", "_front")]
+        for sid, txt in scopes:
+            hits = re.findall(pat, txt, flags=re.I)
+            if hits:
+                use = f"; use: {bt['use']}" if bt.get("use") else ""
+                rep.warn("wording", f"'{hits[0]}' in {sid} ({len(hits)}x): not accepted by the journal{use}")
+
     # abbreviations the journal bans outright in the title and abstract
-    if style.get("no_abbreviations_in_title_abstract"):
+    # true = title and abstract; or "title" / "abstract" when the journal bans them in one place only
+    ban = style.get("no_abbreviations_in_title_abstract")
+    if ban:
         roman = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"}
-        for scope, txt in (("title", meta.get("title") or ""), ("title-alt", meta.get("title-alt") or ""),
-                           ("abstract", full.get("abstract", "")), ("abstract-alt", full.get("abstract-alt", ""))):
+        scopes = []
+        if ban in (True, "title"):
+            scopes += [("title", meta.get("title") or ""), ("title-alt", meta.get("title-alt") or "")]
+        if ban in (True, "abstract"):
+            scopes += [("abstract", full.get("abstract", "")), ("abstract-alt", full.get("abstract-alt", ""))]
+        for scope, txt in scopes:
             found = sorted({m.group(0) for m in re.finditer(r"\b[A-Z]{2}[A-Z0-9]{0,5}\b", txt)} - roman)
             if found:
                 rep.warn(scope, "journal does not allow abbreviations here: " + ", ".join(found))
@@ -558,17 +654,24 @@ def _validate(prof: dict, doc: dict) -> tuple[Report, dict]:
         tables = " ".join(C.text_of_blocks([b for s_ in secs.values() for b in s_["blocks"] if C.is_float(b)],
                                            include_floats=True))
         sources = full.get("results", "") + " " + tables
-        body_triples = ci_triples(sources)
+        body_items = [x for x in ci_extract(sources) if x["kind"] != "spread"]
+        body_triples = {x["triple"] for x in body_items}
+        body_levels = {x["triple"]: x["level"] for x in body_items if x["level"]}
         for where_, txt in (("abstract", full["abstract"]), ("abstract-alt", full.get("abstract-alt", "")),
                             ("results", sources)):
             for x in ci_extract(txt):
                 if x["issue"]:
                     rep.warn(where_, f"suspicious interval '{x['raw']}': {x['issue']}")
-        main_triples = ci_triples(full["abstract"])
+        main_items = {x["triple"]: x for x in ci_extract(full["abstract"]) if x["kind"] != "spread"}
+        main_triples = set(main_items)
         for tr in sorted(main_triples):
+            x = main_items[tr]
             if tr not in body_triples:
-                rep.warn("abstract", f"estimate {tr[0]} (95% CI {tr[1]} to {tr[2]}) not found with the same "
-                                     "interval in the Results or tables")
+                rep.warn("abstract", f"estimate {tr[0]} ({interval_label(x)} {tr[1]} to {tr[2]}) not found with "
+                                     "the same interval in the Results or tables")
+            elif x["level"] and body_levels.get(tr) and body_levels[tr] != x["level"]:
+                rep.warn("abstract", f"estimate {tr[0]} ({tr[1]} to {tr[2]}) is a {x['level']}% CI in the "
+                                     f"abstract but a {body_levels[tr]}% CI in the Results")
         if "abstract-alt" in full:
             alt = ci_triples(full["abstract-alt"])
             for tr in sorted(main_triples ^ alt):

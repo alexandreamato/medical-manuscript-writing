@@ -87,11 +87,27 @@ def section_files() -> list[Path]:
 
 # ---------------------------------------------------------------- profiles
 
+# Lists that accumulate across `extends` and article types instead of being replaced:
+# a case report keeps the journal's checks and adds its own.
+ADDITIVE_LISTS = ("human_checks", "revision_checks")
+
+
+def _strip_comments(v):
+    """Keys starting with "_" are comments at any depth (e.g. inside `headings`)."""
+    if isinstance(v, dict):
+        return {k: _strip_comments(x) for k, x in v.items() if not k.startswith("_")}
+    if isinstance(v, list):
+        return [_strip_comments(x) for x in v]
+    return v
+
+
 def _deep_merge(base: dict, over: dict) -> dict:
     out = copy.deepcopy(base)
     for k, v in over.items():
         if isinstance(v, dict) and isinstance(out.get(k), dict):
             out[k] = _deep_merge(out[k], v)
+        elif k in ADDITIVE_LISTS and isinstance(v, list) and isinstance(out.get(k), list):
+            out[k] = out[k] + [x for x in v if x not in out[k]]
         else:
             out[k] = copy.deepcopy(v)
     return out
@@ -110,14 +126,14 @@ def load_profile(name: str, article_type: str | None = None, _seen=None) -> dict
     if not path.exists():
         avail = ", ".join(p.stem for p in JOURNALS.glob("*.json") if not p.stem.startswith("_"))
         die(f"journal profile '{name}' not found. Available: {avail}")
-    raw = json.loads(path.read_text(encoding="utf-8"))
-    raw = {k: v for k, v in raw.items() if not k.startswith("_")}
+    raw = _strip_comments(json.loads(path.read_text(encoding="utf-8")))
     parent = raw.pop("extends", None)
     prof = _deep_merge(load_profile(parent, None, _seen), raw) if parent else raw
-    types = prof.pop("article_types", {}) or {}
+    # `"case-report": null` in a child profile removes a type inherited from its parent.
+    types = {k: v for k, v in (prof.pop("article_types", {}) or {}).items() if v is not None}
     if article_type:
         if article_type in types:
-            prof = _deep_merge(prof, {k: v for k, v in types[article_type].items() if not k.startswith("_")})
+            prof = _deep_merge(prof, types[article_type])
         prof["article_type"] = article_type
         prof["_article_type_known"] = article_type in types or not types
     prof["id"] = name

@@ -57,6 +57,9 @@ end
 
 local function title_page(meta)
   local L = labels(meta)
+  local jb0 = meta["journal-build"] or {}
+  if jb0["no-running-title"] == true then meta["running-title"] = nil end
+  if jb0["no-title-alt"] == true then meta["title-alt"] = nil end
   local blocks = pandoc.Blocks{}
   blocks:insert(pandoc.Para{pandoc.Strong(meta.title)})
   if meta["title-alt"] then blocks:insert(pandoc.Para{pandoc.Strong(meta["title-alt"])}) end
@@ -147,6 +150,8 @@ local function keywords_para(label, kws)
 end
 
 local function titles(meta)
+  local jb0 = meta["journal-build"] or {}
+  if jb0["no-title-alt"] == true then meta["title-alt"] = nil end
   local b = pandoc.Blocks{pandoc.Para{pandoc.Strong(meta.title)}}
   if meta["title-alt"] then b:insert(pandoc.Para{pandoc.Strong(meta["title-alt"])}) end
   return b
@@ -158,6 +163,14 @@ function Pandoc(doc)
   local headings = jb.headings or {}
   local omit = {}
   for _, id in ipairs(lst(jb.omit)) do omit[S(id)] = true end
+  -- On a title page inside the manuscript ("full" mode), title-page sections move
+  -- there from the text; `titlepage-copies` are printed on the title page AND kept.
+  if mode == "full" then
+    for _, id in ipairs(lst(jb["titlepage-sections"])) do omit[S(id)] = true end
+  end
+  local tp_ids = {}
+  for _, id in ipairs(lst(jb["titlepage-sections"])) do table.insert(tp_ids, S(id)) end
+  for _, id in ipairs(lst(jb["titlepage-copies"])) do table.insert(tp_ids, S(id)) end
   local unstructured = jb.unstructured == true
   local kw_after = jb["keywords-after-abstract"] == true
   local heading_of = function(id) return headings[id] and S(headings[id]) or nil end
@@ -197,18 +210,23 @@ function Pandoc(doc)
 
   if kw_after then doc.meta.keywords = nil end  -- printed after the abstracts, not on the title page
 
-  if mode == "titlepage" then
+  local function tp_with_sections()
     local tp = title_page(doc.meta)
-    for _, id in ipairs(lst(jb["titlepage-sections"])) do
-      local sec = section_blocks(doc.blocks, S(id))
+    for _, id in ipairs(tp_ids) do
+      local sec = section_blocks(doc.blocks, id)
       for _, b in ipairs(sec) do
         if b.t == "Header" and heading_of(b.identifier) then b.content = pandoc.Inlines(heading_of(b.identifier)) end
+        if b.t == "Header" then b.identifier = "" end
       end
       tp:extend(sec)
     end
-    doc.blocks = tp
+    return tp
+  end
+
+  if mode == "titlepage" then
+    doc.blocks = tp_with_sections()
   elseif mode == "full" then
-    local tp = title_page(doc.meta)
+    local tp = tp_with_sections()
     tp:insert(pandoc.RawBlock("openxml", '<w:p><w:r><w:br w:type="page"/></w:r></w:p>'))
     tp:extend(out)
     doc.blocks = tp
@@ -217,12 +235,16 @@ function Pandoc(doc)
     tp:extend(out)
     doc.blocks = tp
   end
-  -- The title page above replaces pandoc's own title/author block, and nothing
-  -- else from the metadata may reach the file: pandoc writes leftover fields to
-  -- docProps/custom.xml (local paths, affiliations, e-mails), which a blinded
-  -- manuscript must not carry. Only the language is kept.
-  local lang = doc.meta.lang
-  for k, _ in pairs(doc.meta) do doc.meta[k] = nil end
-  doc.meta.lang = lang
+  -- The title page above replaces pandoc's own title/author block. The rest of
+  -- the metadata is still needed by citeproc (csl, bibliography) and is removed
+  -- afterwards by scrub.lua.
+  doc.meta.title = nil
+  doc.meta.author = nil
+  doc.meta.date = nil
+  doc.meta.subtitle = nil
+  if mode == "titlepage" then
+    -- A title page never carries a reference list of its own.
+    doc.meta["suppress-bibliography"] = true
+  end
   return doc
 end

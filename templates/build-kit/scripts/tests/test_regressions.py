@@ -98,7 +98,14 @@ class EstimateConsistencyTests(KitCopy):
         so.write_text(text)
         code, out = self.run_py("scripts/validate.py", "--journal", "jvb", "--submission")
         self.assertRegex(out, r"ERROR  abstract: estimate 0\.72")
-        # ...a reason resolves it (the sign-off is rewritten each run: tick it again).
+        # ...a reason without a location is not enough either...
+        text = so.read_text()
+        text = re.sub(r"- \[[ x]\] (abstract: estimate 0\.72[^\n]*?\| because:)[^\n]*",
+                      r"- [x] \1 checked, it is fine", text)
+        so.write_text(text)
+        code, out = self.run_py("scripts/validate.py", "--journal", "jvb", "--submission")
+        self.assertIn("the reason must say where the checked value is", out)
+        # ...a located reason resolves it (the sign-off is rewritten each run: tick it again).
         text = so.read_text()
         text = re.sub(r"- \[[ x]\] (abstract: estimate 0\.72[^\n]*?\| because:)[^\n]*",
                       r"- [x] \1 abstract gives the adjusted estimate, Table 2 the crude one", text)
@@ -112,6 +119,34 @@ class EstimateConsistencyTests(KitCopy):
         code, out = self.run_py("scripts/validate.py", "--journal", "jvb")
         self.assertIn("suspicious interval", out)
         self.assertIn("lower limit above upper limit", out)
+
+
+class LevelAndSpreadTests(unittest.TestCase):
+    def test_confidence_levels_captured(self):
+        for lvl in ("90", "95", "99"):
+            x = V.ci_extract(f"HR 0.72, {lvl}% CI 0.55 to 0.94")
+            self.assertEqual((x[0]["triple"], x[0]["level"]), (("0.72", "0.55", "0.94"), lvl))
+
+    def test_median_iqr_is_not_an_estimate(self):
+        self.assertEqual(V.ci_triples("Median 12 (8 to 18)"), set())
+        self.assertEqual(V.ci_extract("age, median (IQR) 63 (55 to 70)")[0]["kind"], "spread")
+
+
+class BibliographyAfterOmissionTests(KitCopy):
+    def test_reference_cited_only_in_omitted_section_is_dropped(self):
+        # Vandenbroucke cited only in the acknowledgments, which the blinded JVB file omits.
+        self.edit("05-declarations.md", "We thank the clinic nurses.",
+                  "We thank the clinic nurses [@vandenbroucke2007strengthening].")
+        self.edit("01-introduction.md", "[@vonelm2007strengthening; @vandenbroucke2007strengthening]",
+                  "[@vonelm2007strengthening]")
+        code, out = self.run_py("scripts/build.py", "--journal", "jvb", "--force")
+        self.assertEqual(code, 0, out)
+        ms = next((self.kit / "outputs" / "jvb").glob("*_manuscript.docx"))
+        text = subprocess.run(["pandoc", str(ms), "-t", "plain", "--wrap=none"], capture_output=True, text=True).stdout
+        refs = [l for l in text.splitlines() if re.match(r"^\d+\. ", l)]
+        self.assertEqual(len(refs), 2, refs)
+        self.assertFalse(any("Vandenbroucke JP, von Elm E" in r for r in refs))
+        self.assertIn("statement¹", text.replace(" ", ""))  # first visible citation is number 1
 
 
 class AnonymityTests(KitCopy):

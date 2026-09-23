@@ -1,0 +1,316 @@
+{
+  "_comment": "Journal of Clinical Medicine (J. Clin. Med., MDPI). Every rule below was read on 2026-09-23 in MDPI's own pages. [A] = https://www.mdpi.com/journal/jcm/instructions (Instructions for Authors, main source); [B] = https://www.mdpi.com/about/article_types (MDPI article types, linked from [A] as the 'comprehensive list'); [C] = https://www.mdpi.com/authors (MDPI Information for Authors: revision decisions); [D] = https://www.mdpi.com/journal/jcm/apc; [E] = https://www.mdpi.com/journal/jcm/about. [A] shows no last-updated date: re-read it before each submission.",
+  "extends": "generic-icmje",
+  "name": "Journal of Clinical Medicine (J Clin Med, MDPI)",
+  "generic": false,
+  "source_url": "https://www.mdpi.com/journal/jcm/instructions",
+  "verified_at": "2026-09-23",
+  "reverify_after_days": 180,
+  "csl": "journal-of-clinical-medicine",
+  "_csl": "[A] 'References must be numbered in order of appearance in the text (including table captions and figure legends)'; numbers in square brackets before the punctuation, e.g. [1], [1–3] or [1,3]; list in MDPI/ACS format ('Author 1, A.B.; Author 2, C.D. Title of the article. Abbreviated Journal Name Year, Volume, page range.'). CSL: dependent style journal-of-clinical-medicine.csl (parent multidisciplinary-digital-publishing-institute.csl), both HTTP 200 in citation-style-language/styles on 2026-09-23.",
+  "reference_docx": {
+    "font": "Times New Roman",
+    "size_pt": 12,
+    "line_spacing": 2.0,
+    "line_numbers": true,
+    "margins_cm": 2.5,
+    "page_numbers": true,
+    "_comment": "Not stated: [A] gives no font, spacing, margin or line-number rule. It says authors 'are encouraged to use the Microsoft Word template' (https://mdpi-res.com/files/word-templates/jcm-template.dot) and accepts 'free format submission' ('We do not have strict formatting requirements'); formatting to the journal template is requested 'When your manuscript reaches the revision stage'. Generic defaults kept for the first submission; switch to {file: ...} with the JCM template for the revision if wanted."
+  },
+  "title": {
+    "max_chars": null,
+    "running_title_max_chars": null,
+    "_comment": "[A] title 'concise, specific and relevant. It should identify if the study reports (human or animal) trial data, or is a systematic review, meta-analysis or replication study.' No length limit stated. 'Please do not include abbreviated or short forms of the title, such as a running title or head. These will be removed by our Editorial Office.'",
+    "running_title_allowed": false
+  },
+  "keywords": {
+    "min": 3,
+    "max": 10,
+    "after_abstract": true,
+    "_comment": "[A] 'Three to ten pertinent keywords need to be added after the abstract.' No controlled vocabulary required (MeSH not mentioned)."
+  },
+  "authors": {
+    "require_orcid": false,
+    "max": null,
+    "max_without_justification": null,
+    "_comment": "[A] no author limit stated. ORCID not required: 'If a manuscript is accepted for publication, we will add an icon linking to your online ORCID profile'. Full first and last names; PubMed/MEDLINE affiliation format; at least one corresponding author; e-mails of all authors are published; equal contribution marked with a dagger and the statement 'These authors contributed equally to this work'. GenAI tools cannot be authors."
+  },
+  "abstract": {
+    "required": true,
+    "bilingual": false,
+    "title": "Abstract",
+    "limit": {
+      "unit": "words",
+      "max": 250,
+      "soft": true
+    },
+    "structure": [
+      {
+        "id": "background",
+        "heading": "Background/Objectives"
+      },
+      {
+        "id": "methods",
+        "heading": "Methods"
+      },
+      {
+        "id": "results",
+        "heading": "Results"
+      },
+      {
+        "id": "conclusions",
+        "heading": "Conclusions"
+      }
+    ],
+    "_comment": "[A] 'Original research articles and Systematic reviews should have a structured abstract of around 250 words and contain the following headings: Background/Objectives, Methods, Results, and Conclusions.' 'Around 250' is approximate: 250 used as the cap. One combined Background/Objectives part (id `background`); a separate {#abstract-objectives} part is flagged as extra. Clinical trial abstracts include the CONSORT for Abstracts items."
+  },
+  "main_text": {
+    "sections": [
+      {
+        "id": "introduction",
+        "heading": "Introduction"
+      },
+      {
+        "id": "methods",
+        "heading": "Materials and Methods"
+      },
+      {
+        "id": "results",
+        "heading": "Results"
+      },
+      {
+        "id": "discussion",
+        "heading": "Discussion"
+      },
+      {
+        "id": "conclusions",
+        "heading": "Conclusions",
+        "required": false
+      }
+    ],
+    "limit": {
+      "unit": "words",
+      "max": null,
+      "count_sections": [
+        "introduction",
+        "methods",
+        "results",
+        "discussion",
+        "conclusions"
+      ],
+      "include_floats": false
+    },
+    "_comment": "[A] 'JCM has no restrictions on the maximum length of manuscripts, provided that the text is concise and comprehensive.' Research manuscript sections: 'Introduction, Materials and Methods, Results, Discussion, Conclusions (optional)'. Discussion 'may be combined with Results'. Optional Patents section."
+  },
+  "section_limits": {},
+  "references": {
+    "max": null,
+    "require_identifier": false,
+    "_comment": "[A] no reference limit stated. DOI 'not mandatory but highly encouraged' (free format section). Websites: 'Title of Site. Available online: URL (accessed on Day Month Year).' Citations in supplementary files must also appear in the main reference list."
+  },
+  "figures": {
+    "max": null,
+    "placement": "inline",
+    "_comment": "[A] 'Please insert your graphics (schemes, figures, etc.) in the main text after the paragraph of its first citation.' 'All figures, schemes and tables should be inserted into the main text close to their first citation'. PNG, JPEG or TIFF, preferably no less than 600 dpi; RGB colour. No maximum stated."
+  },
+  "tables": {
+    "max": null,
+    "placement": "inline",
+    "_comment": "[A] tables inserted in the main text close to their first citation; Word 'Table' option; every column with an explanatory heading; font not smaller than 8 pt. No maximum stated."
+  },
+  "figures_tables_max": null,
+  "required_declarations": [
+    "author-contributions",
+    "funding",
+    "data-availability",
+    "conflicts"
+  ],
+  "_required_declarations": "[A] Back Matter: Author Contributions (CRediT statements); Funding ('This research received no external funding' or funder + grant number); Institutional Review Board Statement (studies involving humans or animals; 'Not applicable' otherwise); Informed Consent Statement ('Any research article describing a study involving humans should contain this statement'); Data Availability Statement ('mandatory ... except for ... Book Review, Editorial, Obituary, Correction, Retraction, Expression of Concern'); Conflicts of Interest (including the funder's role). Trial registration (registry, number, date) goes 'in the Institutional Review Board statement or in the Materials and Methods section', so no separate section. AI use goes in Methods and in Acknowledgments, not a separate section: human_checks.",
+  "headings": {
+    "ethics": "Institutional Review Board Statement",
+    "informed-consent": "Informed Consent Statement",
+    "data-availability": "Data Availability Statement",
+    "conflicts": "Conflicts of Interest",
+    "author-contributions": "Author Contributions",
+    "funding": "Funding",
+    "acknowledgments": "Acknowledgments",
+    "supplementary": "Supplementary Materials",
+    "_comment": "[A] exact MDPI back-matter headings. Back-matter order in [A]: Supplementary Materials, Author Contributions, Funding, (Institutional Review Board Statement, Informed Consent Statement), Data Availability Statement, Acknowledgments, Conflicts of Interest, References; keep that order in 05-declarations.md."
+  },
+  "submission": {
+    "separate_title_page": false,
+    "blinded": false,
+    "number_sections": false,
+    "omit_in_blinded": [],
+    "title_page_sections": [],
+    "_comment": "[A] 'The journal operates under a single-anonymized peer review system (also known as \"single-blind\"), meaning that reviewers are aware of the authors' identities.' Front matter (title, author list, affiliations, abstract, keywords) is in the manuscript itself; no separate title page. Section numbering: the MDPI template numbers sections, but [A] states no rule; kit default kept."
+  },
+  "style": {
+    "allow_em_dash": false,
+    "allow_en_dash_ranges": false,
+    "p_value": null,
+    "no_abbreviations_in_title_abstract": false,
+    "_comment": "[A] abbreviations 'should be defined the first time they appear in each of three sections: the abstract; the main text; the first figure or table' (allowed in the abstract). SI units. Figures: '- instead of —' and decimal points, not commas. P-value style not stated."
+  },
+  "reporting_guideline": null,
+  "_reporting_guideline": "[A] no single guideline for original articles: CONSORT 2025 checklist and flow diagram are 'a condition of submission' for randomized trials; 'MDPI follows standards and guidelines for certain types of research' (mdpi.com/editorial_process). The kit maps `study-design` to the guideline and lists it for review.",
+  "revision": {
+    "marking": "tracked",
+    "deleted": "strike",
+    "author": "Authors",
+    "_comment": "Not stated on the official author pages read ([A], [C], mdpi.com/editorial_process): they require a 'point-by-point response or rebuttal' [C] but say nothing about how changes are marked. 'tracked' follows MDPI practice (published MDPI review reports show authors submitting revisions 'using the Track Changes function' at the editorial office's request). Follow the decision e-mail in SuSy if it says otherwise."
+  },
+  "human_checks": [
+    "Cover letter: explain significance and fit to scope; acknowledge any prior submission to an MDPI journal (give the previous manuscript ID in SuSy); include the two statements 'We confirm that neither the manuscript nor any parts of its content are currently under consideration for publication with or published in another journal.' and 'All authors have approved the manuscript and agree with its submission to JCM.' [A].",
+    "Title identifies human/animal trial data, systematic review, meta-analysis or replication study where applicable [A].",
+    "Author Contributions in CRediT form: 'Conceptualization, X.X. and Y.Y.; Methodology, X.X.; ... Funding Acquisition, Y.Y.' [A].",
+    "Institutional Review Board Statement: Declaration of Helsinki, ethics committee name, protocol code and date of approval; or the waiver with justification [A].",
+    "Informed Consent Statement: consent for participation; written consent for publication for any identifiable patient, and a blank copy of the consent form uploaded [A].",
+    "Clinical trial: registry name, registration number and date of registration in the Institutional Review Board Statement or Materials and Methods; registered at or before first enrolment [A].",
+    "Randomized trial: completed CONSORT 2025 checklist and flow diagram uploaded (condition of submission) [A].",
+    "Preregistration: link to the preregistration provided in the manuscript where one exists [A].",
+    "GenAI: describe any use beyond superficial editing in Materials and Methods, and add in Acknowledgments 'During the preparation of this manuscript/study, the author(s) used [tool name, version information] for the purposes of [description of use]. The authors have reviewed and edited the output and take full responsibility for the content of this publication' [A].",
+    "Conflicts of Interest: declare any role of the funders; if none, 'The sponsors had no role in the design, execution, interpretation, or writing of the study'. JCM does not publish studies funded partially or fully by the tobacco industry [A].",
+    "Data Availability Statement uses one of MDPI's recommended wordings (mdpi.com/ethics) [A].",
+    "Graphical abstract (optional, shown online only): original artwork, PNG/JPEG/TIFF, minimum 560 x 1100 pixels (height x width), not identical to a figure, no 'Graphical Abstract' heading in the image [A].",
+    "Suggest three potential reviewers with full contact details, from other institutions, with no co-publication with any author in the last three years [A].",
+    "Original, uncropped images may be requested; cropped images need the full original scan as Supplementary Material [A].",
+    "Preprints: accepted if not peer reviewed; MDPI Preprints can be used after submission. The JCM Word/LaTeX templates must not be used for the preprint posted online [A].",
+    "Open access CC BY; APC CHF 2600 for papers accepted after peer review; extensive English editing is not included in the APC [D][A][E].",
+    "Free format submission accepted for the first round; at revision the manuscript must follow the journal template and guidelines [A]."
+  ],
+  "revision_checks": [
+    "Deadline: 'authors are given five days for minor revision and ten days for major revision. Extensions are granted on request.' [A][C].",
+    "Response to reviewers: point-by-point, answering each comment in the SuSy form, with a rebuttal where a change cannot be made [C].",
+    "Up to two rounds of major revision are usually allowed; reviewers asking for major revision or rejection always see the revised version [A].",
+    "At revision, format the manuscript to the JCM template (free-format submission applies only to the first round) [A].",
+    "Submit through SuSy as a revision of the same manuscript; a 'reject and encourage resubmission' gets a new manuscript ID linked to the original [A][C]."
+  ],
+  "article_types": {
+    "original": {
+      "_comment": "[A][B] Article: defaults above (structured abstract ~250 words; Introduction, Materials and Methods, Results, Discussion, Conclusions optional; no length limit)."
+    },
+    "review": {
+      "abstract": {
+        "limit": {
+          "max": 200
+        },
+        "structure": []
+      },
+      "main_text": {
+        "sections": [
+          {
+            "id": "introduction",
+            "heading": "Introduction"
+          }
+        ],
+        "limit": {
+          "max": null,
+          "count_sections": [
+            "introduction",
+            "body",
+            "discussion",
+            "conclusions"
+          ]
+        }
+      },
+      "required_declarations": [
+        "author-contributions",
+        "funding",
+        "data-availability",
+        "conflicts"
+      ],
+      "_comment": "[A] 'For other article types, such as Reviews, a 200-word unstructured abstract should be included.' [B] structure 'can include an Abstract, Keywords, Introduction, Relevant Sections, Discussion, Conclusions, and Future Directions'; no new unpublished data. Review back matter in [A]: Author Contributions, Acknowledgments, Conflicts of Interest; DAS still mandatory (not in the exempt list); funding disclosure applies to all studies. Scoping reviews are submitted as Reviews and must follow PRISMA-ScR (see human_checks).",
+      "human_checks": [
+        "Scoping review: follow PRISMA-ScR, upload the checklist as non-published material, include the flow diagram in the main text, state PRISMA compliance and registration (OSF, Inplasy) in Methods [B]."
+      ]
+    },
+    "systematic-review": {
+      "reporting_guideline": "PRISMA 2020",
+      "required_declarations": [
+        "author-contributions",
+        "funding",
+        "data-availability",
+        "conflicts"
+      ],
+      "_comment": "[A] 'Systematic reviews and meta-analyses should use the same structure as research articles' and structured abstract ~250 words (Background/Objectives, Methods, Results, Conclusions). [B] completed PRISMA checklist and flow diagram 'as part of the main text or supplementary materials'; protocol registration (PROSPERO, INPLASY, OSF...) strongly encouraged and reported in Methods.",
+      "human_checks": [
+        "PRISMA checklist and flow diagram included in the main text or supplementary materials; compliance and registration stated in Methods [B]."
+      ]
+    },
+    "brief-report": {
+      "abstract": {
+        "limit": {
+          "max": 200
+        },
+        "structure": []
+      },
+      "_comment": "[B] 'Brief reports are short, observational studies that report preliminary results or a short complete study or protocol ... usually contain two figures and/or a table ... The structure is similar to that of an article.' Abstract: [A] 200-word unstructured for 'other article types'. No word limit stated.",
+      "human_checks": [
+        "Brief report: usually two figures and/or a table; detailed Materials and Methods [B]."
+      ]
+    },
+    "communication": {
+      "abstract": {
+        "limit": {
+          "max": 200
+        },
+        "structure": []
+      },
+      "_comment": "[B] 'Communications are short articles that present groundbreaking preliminary results or significant findings ... The structure is similar to an article.' Listed by [E] among JCM's types. Abstract: [A] 200-word unstructured for other types. No word limit stated."
+    },
+    "case-report": {
+      "abstract": {
+        "limit": {
+          "max": 200
+        },
+        "structure": []
+      },
+      "main_text": {
+        "sections": [
+          {
+            "id": "introduction",
+            "heading": "Introduction"
+          },
+          {
+            "id": "case",
+            "heading": "Detailed Case Description"
+          },
+          {
+            "id": "discussion",
+            "heading": "Discussion"
+          },
+          {
+            "id": "conclusions",
+            "heading": "Conclusions"
+          }
+        ],
+        "limit": {
+          "max": null,
+          "count_sections": [
+            "introduction",
+            "case",
+            "discussion",
+            "conclusions"
+          ]
+        }
+      },
+      "reporting_guideline": null,
+      "_comment": "[B] structure 'Abstract, Keywords, Introduction, Detailed Case Description, Discussion, and Conclusions'; 'not all MDPI journals publish case reports' and [A] does not list case reports among JCM's main types: confirm the type is offered for JCM in SuSy before writing. Abstract: [A] 200-word unstructured for other types. CARE not named by [A] or [B]; the kit still lists it from `study-design`.",
+      "human_checks": [
+        "Case report: written informed consent for publication from the patient, blank consent form uploaded; patient details anonymized [A][B].",
+        "Case report: confirm JCM offers this article type in SuSy ([B]: not all MDPI journals publish case reports)."
+      ]
+    }
+  },
+  "conditional_declarations": {
+    "ethics": [
+      "humans",
+      "animals"
+    ],
+    "informed-consent": [
+      "humans"
+    ]
+  },
+  "_conditional_declarations": "[A] Institutional Review Board Statement and Informed Consent Statement are required for studies involving humans (IRB also animals); set `involves` in metadata.yaml."
+}

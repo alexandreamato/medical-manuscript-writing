@@ -1,0 +1,349 @@
+{
+  "_comment": "Cureus Journal of Medical Science (Springer Nature). Every rule below was read in the journal's own Author Guide on 2026-09-23. [A] = https://www.cureus.com/author_guide/overview/accepted-article-types; [S] = .../author_guide/author-instructions/submitting-an-article; [R] = .../author_guide/author-instructions/references; [F] = .../author_guide/overview/free-publication; [P] = .../author_guide/overview/step-by-step-overview; [M] = .../author_guide/author-instructions/managing-peer-review; [PR] = .../author_guide/policies-and-procedures/single-blinded-peer-review; [AI] = .../policies-and-procedures/artificial-intelligence; [COI] = .../policies-and-procedures/conflicts-of-interest; [H] = .../policies-and-procedures/human-and-animal-subjects; [D] = .../policies-and-procedures/data-citation-and-transparency; [DS] = .../policies-and-procedures/discipline-specific-standards; [PRE] = .../policies-and-procedures/preregistration; [B] = .../policies-and-procedures/business-model; [MG] = https://www.cureus.com/media_guide; [FAQ] = https://www.cureus.com/faq. Cureus has no Word submission: text is pasted section by section into a web form, which adds the section headings itself and generates the Ethics Statement and COI Disclosures from form answers. The .docx built here is a drafting copy. IMPORTANT: the author and reference limits are thresholds for FREE publication, not for acceptance; exceeding them makes the paid Preferred Editing service mandatory [F].",
+  "extends": "generic-icmje",
+  "name": "Cureus Journal of Medical Science (Cureus)",
+  "generic": false,
+  "source_url": "https://www.cureus.com/author_guide",
+  "verified_at": "2026-09-23",
+  "reverify_after_days": 180,
+  "csl": "cureus",
+  "_csl": "Independent style cureus.csl at the root of citation-style-language/styles (HTTP 200 on 2026-09-23). [R] numbered in order of citation, square brackets '[1-4], [1,3], [5,9-12]'; all authors up to seven, more than seven: first three + 'et al.'; Index Medicus abbreviations; volume only (no issue); DOI at the end without the 'DOI' label. Check the CSL output against the examples in [R].",
+  "reference_docx": {
+    "font": "Times New Roman",
+    "size_pt": 12,
+    "line_spacing": 2.0,
+    "margins_cm": 2.5,
+    "line_numbers": false,
+    "page_numbers": true,
+    "subheadings": "italic",
+    "_comment": "Font, spacing, margins and line numbers: not stated (the manuscript is pasted into a web form, not uploaded). Generic defaults kept; line numbers off since reviewers read the web version. [S] 'No paragraph indentations or bulleted lists', 'Only one line return after each paragraph'. Subheaders [S]: major in sentence case (form's subheader style), minor 'in title case and italicized'."
+  },
+  "title": {
+    "max_chars": null,
+    "running_title_max_chars": null,
+    "_comment": "[S] title: APA style, title case, one sentence, no all caps, no final period; 'Acronyms, initialisms or abbreviations are not permitted in the article title' (except common ones such as COVID-19, HIV, MRI); italics cannot be used in titles. No length limit stated. No running title requested (not stated)."
+  },
+  "keywords": {
+    "min": 5,
+    "max": 10,
+    "after_abstract": false,
+    "_comment": "[S] '5-10 keywords', each 'a maximum of 3-4 words'. Also 1-3 article categories (form field, see human_checks)."
+  },
+  "authors": {
+    "require_orcid": false,
+    "max": null,
+    "max_without_justification": 10,
+    "_comment": "ORCID: not stated anywhere in the Author Guide. No hard author cap; [F] 'Original articles: 10 authors and 30 references' for free publication, more authors make Preferred Editing mandatory (modelled as the WARN threshold). All authors must meet ICMJE criteria; authors cannot be added after submission [S]."
+  },
+  "abstract": {
+    "required": true,
+    "bilingual": false,
+    "title": "Abstract",
+    "limit": {
+      "unit": "characters_with_spaces",
+      "max": 3500
+    },
+    "structure": [
+      {
+        "id": "background",
+        "heading": "Introduction",
+        "required": false
+      },
+      {
+        "id": "methods",
+        "heading": "Materials and methods",
+        "required": false
+      },
+      {
+        "id": "results",
+        "heading": "Results",
+        "required": false
+      },
+      {
+        "id": "conclusions",
+        "heading": "Conclusions",
+        "required": false
+      }
+    ],
+    "_comment": "[S] 'Abstract 3500 characters limit'; whether spaces count is not stated (counted with spaces here, the stricter reading). [S]/[A] 'Abstract subheaders are permitted in original articles only': permitted, not required, and their exact names are NOT stated; the headings above mirror the main-text sections of [A] and are optional. No media in the abstract [MG]."
+  },
+  "main_text": {
+    "sections": [
+      {
+        "id": "introduction",
+        "heading": "Introduction"
+      },
+      {
+        "id": "methods",
+        "heading": "Materials and methods"
+      },
+      {
+        "id": "results",
+        "heading": "Results"
+      },
+      {
+        "id": "discussion",
+        "heading": "Discussion"
+      },
+      {
+        "id": "conclusions",
+        "heading": "Conclusions"
+      }
+    ],
+    "limit": {
+      "unit": "words",
+      "max": null,
+      "count_sections": [
+        "introduction",
+        "methods",
+        "results",
+        "discussion",
+        "conclusions"
+      ],
+      "include_floats": false
+    },
+    "_comment": "[A] original article SECTIONS: 'Abstract, Introduction, Materials and Methods, Results, Discussion, Conclusion, References' (the form adds these names itself, [S]). Word limit: [FAQ] 'there is no strict word limit for most article types'. Conclusions: 1-2 paragraphs, no data or citations [S] (human check)."
+  },
+  "section_limits": {},
+  "references": {
+    "max": 30,
+    "require_identifier": false,
+    "_comment": "[R]/[F] free-publication threshold: original 30, case report 20, technical report 20, editorial 5; exceeding it is not a rejection but makes Preferred Editing (paid) mandatory. DOI required 'when available', else the article URL [R]; 'All references must include a DOI or URL unless neither exist' (URL is accepted, so the kit's DOI/PMID requirement is left off; see human_checks)."
+  },
+  "figures": {
+    "max": null,
+    "placement": "inline",
+    "_comment": "[S]/[MG] media are inserted at the chosen place in the text with a title and optional legend; no citations in media titles (put them in the legend). Images created or modified by generative AI are not accepted [AI]."
+  },
+  "tables": {
+    "max": null,
+    "placement": "inline",
+    "_comment": "[S]/[MG] tables are pasted or created inline in the web form; tables submitted as figures, nested tables or multiple values in a cell cause deferral [P]."
+  },
+  "figures_tables_max": 25,
+  "_figures_tables_max": "[S]/[MG] '25 media items per article limit'; media = tables, figures, videos (and 3D models). The kit counts figures and tables only: subtract any videos by hand.",
+  "required_declarations": [
+    "ethics",
+    "conflicts",
+    "funding",
+    "author-contributions"
+  ],
+  "_required_declarations": "Entered in the submission form, from which Cureus generates the published Ethics Statement and COI Disclosures [S][COI]: IRB name and approval number (also in Materials & Methods [H]), informed consent obtained or waived [H], COI in four ICMJE-based sections [COI], third-party funding/payment disclosure [COI], contributions per author (ICMJE) [S]. Data availability is only 'encouraged' (in the acknowledgments) [D], so not required. AI: declare in Methods (or Acknowledgements when there is no Methods section) any use beyond 'AI-assisted copy editing', which need not be declared [AI]; listed in human_checks. Trial registration: required for trials (ICMJE) [DS], checked by the form's study-design questionnaire.",
+  "headings": {
+    "ethics": "Ethics statement",
+    "conflicts": "Conflicts of interest",
+    "funding": "Funding",
+    "author-contributions": "Author contributions",
+    "acknowledgments": "Acknowledgements",
+    "_comment": "[S] 'Ethics Statement and Conflict of Interest Disclosures' and 'Acknowledgements' (British spelling in [S])."
+  },
+  "submission": {
+    "separate_title_page": false,
+    "blinded": false,
+    "number_sections": false,
+    "omit_in_blinded": [],
+    "title_page_sections": [],
+    "_comment": "[PR] 'single-blind, pre-publication peer review' (reviewers see the authors). Authors, affiliations, disclosures and contributions are entered in form fields, not in a title page."
+  },
+  "style": {
+    "allow_em_dash": false,
+    "allow_en_dash_ranges": false,
+    "p_value": null,
+    "no_abbreviations_in_title_abstract": "title",
+    "_comment": "[S] no abbreviations in the TITLE (common exceptions allowed); the abstract is not covered by that rule, so the kit's title-and-abstract ban stays off and the title rule is a human check. Numbers 1-9 spelled out except measurements [S]. Dash and P-value style: not stated."
+  },
+  "reporting_guideline": null,
+  "_reporting_guideline": "[DS] depends on design: STROBE (cohort, case-control, cross-sectional) 'must adhere'; STARD for diagnostic accuracy; PRISMA with checklist and flow diagram for systematic reviews; trials registered (ICMJE, WHO definition); ARRIVE strongly encouraged for animal research [H]; EQUATOR suggested [D]. The kit picks the guideline from `study-design`.",
+  "revision": {
+    "marking": "none",
+    "author": "Authors",
+    "_comment": "Not stated: the Author Guide gives no instruction to mark changes (no tracked changes, colour or highlight). Revisions are made directly in the web editor, which saves every version ('all article versions are saved and available to the author and reviewers' [P]); the author responds to each reviewer comment and submits for Editor Approval 'while also providing an explanation of the revisions' [P]."
+  },
+  "revision_checks": [
+    "Revise in the Cureus web editor (My Documents dashboard); no separate revised file is uploaded [M][P].",
+    "The article unlocks for revision after two completed peer reviews; you may wait for more reviews before revising [P][PR].",
+    "Respond to each reviewer comment and give an explanation of the revisions when submitting for Editor Approval; the associate editor checks that all comments were 'acknowledged and addressed appropriately' [P].",
+    "Optional: one extra round of re-review from reviewers who gave a negative or undecided review; editor-initiated re-review locks the article until one re-review is completed or 10 days pass [M].",
+    "Ending peer review early expires outstanding reviews except those started in the prior 48 hours, which get up to 24 hours [M].",
+    "No revision deadline is stated in the Author Guide."
+  ],
+  "human_checks": [
+    "Article type chosen at submission cannot be changed later; original articles answer a study-design questionnaire that sets the IRB and trial-registration requirements [S].",
+    "Title: title case, one sentence, no final period, no all caps, no italics, no abbreviations except common ones (COVID-19, HIV, MRI) [S].",
+    "Keywords 5-10, each at most 3-4 words; choose 1-3 article categories [S].",
+    "Author affiliations formatted identically for authors of the same institution/department; no academic titles in affiliations; no seniority suffixes (Jr, II, III) [S]. Inconsistent affiliations force paid Preferred Editing [S].",
+    "Free-publication limits [F]: original 10 authors / 30 references; case report and technical report 5 / 20; editorial 5 / 5. All review articles require paid Preferred Editing regardless of limits [F][B].",
+    "No article processing charge (APC); open access under CC BY; paid Preferred Editing required for reviews, articles over the author/reference limits or with many formatting/language errors; severe language problems require third-party language editing (Grammarly-type DIY tools not accepted) [B][F].",
+    "No media (figures, tables, videos) in the abstract, introduction or conclusions (except the introduction of a review article); at most 25 media items including videos [S][MG]. Every media item introduced in the preceding paragraph [MG].",
+    "Case reports: at least one figure unless the authors have no access to imaging/photos AND imaging is not vital to the diagnosis [A].",
+    "Conclusions: 1-2 paragraphs, no data or citations; 1-2 sentence conclusions are not accepted [S].",
+    "Text formatting for the web form: no paragraph indentations or bulleted lists, one line return after each paragraph, one space between sentences; do not type section names (added automatically) [S].",
+    "Numbers one to nine spelled out except measurements; 10 and above as numerals [S]. Devices: manufacturer name and location in parentheses at first mention in the abstract and in the body [S].",
+    "Citations in square brackets before the period, [1-4], [1,3]; square brackets used nowhere else; no footnotes; no citations in media titles [S][R].",
+    "References: DOI when available (without 'DOI' label), else URL; website references with access date and name; volume only (no issue); unpublished data, posters and abstracts without DOI cited in the text, not in the list; in-press articles with '(IN PRESS)'; preprints with '[PREPRINT]' after the title [R].",
+    "Preprint: allowed if not pending publication elsewhere; state it at the end of the Introduction (e.g. 'This article was previously posted to the medRxiv preprint server on <date>.'). Prior presentation as abstract or poster also stated at the end of the Introduction [S].",
+    "Ethics: IRB/ethics committee name and approval number in Materials & Methods; upload the approval or exemption document; written informed consent for treatment and open-access publication obtained or waived (verbal consent explained and IRB-approved) [H]. No identifying patient information without written consent [H].",
+    "Conflicts of interest: complete the four ICMJE-based sections for all authors (36 months before publication) and disclose third-party payment or services for any aspect of the work [COI].",
+    "AI: document any use of LLMs/AI tools in Methods (or Acknowledgements if no Methods); AI-assisted copy editing need not be declared; no images or videos created or modified by generative AI (limited exceptions, labelled as AI) [AI].",
+    "Preregistration: state in the acknowledgments whether the study was preregistered (with or without an analysis plan); if so, link the timestamped registration and separate confirmatory from exploratory analyses [PRE].",
+    "Data, code and materials: encouraged to state availability in the acknowledgments and where they are; cite data sets and code with persistent identifiers [D].",
+    "Reporting guideline: STROBE for observational studies (must), STARD for diagnostic accuracy, PRISMA checklist and flow diagram for systematic reviews (state whether a protocol exists; registry number such as PROSPERO), trials registered in an approved registry (unregistered trials not considered) [DS].",
+    "Suggest at least five advisers (colleagues or mentors) at submission; they are not formal peer reviewers [S].",
+    "Upload for editor review, when relevant: written consent to publish identifying information, licences for copyrighted scales/questionnaires and reproduced figures/tables [S]. Previously published questionnaires and scales must be cited [S]."
+  ],
+  "article_types": {
+    "original": {
+      "_comment": "[A] original article: defaults above. A case series with six or more cases is a retrospective study and must be submitted as an original article [A]."
+    },
+    "review": {
+      "_comment": "[A] review article (narrative/literature review, systematic review with or without meta-analysis, bibliometric analysis). SECTIONS: Abstract, Introduction and Background, Review, Conclusions, References. Abstract subheaders only in original articles, so unstructured. Review protocols and 'brief/mini' reviews not accepted. No author or reference limit: Preferred Editing (paid) is always required [F]. Media allowed in the introduction of reviews [MG]. PRISMA for systematic reviews [DS].",
+      "abstract": {
+        "structure": []
+      },
+      "main_text": {
+        "sections": [
+          {
+            "id": "introduction",
+            "heading": "Introduction and background"
+          },
+          {
+            "id": "review",
+            "heading": "Review"
+          },
+          {
+            "id": "conclusions",
+            "heading": "Conclusions"
+          }
+        ],
+        "limit": {
+          "max": null,
+          "count_sections": [
+            "introduction",
+            "review",
+            "conclusions",
+            "body"
+          ]
+        }
+      },
+      "authors": {
+        "max_without_justification": null
+      },
+      "references": {
+        "max": null
+      }
+    },
+    "case-report": {
+      "_comment": "[A] medical case report (and case series of five or fewer cases, and case presentation plus literature review). SECTIONS: Abstract, Introduction, Case Presentation, Discussion, Conclusions, References. Unstructured abstract (subheaders only in originals), 3,500 characters [S]. Free publication: 5 authors, 20 references [A][F]. At least one figure unless no imaging is available and it is not vital [A]. Autobiographical case reports need a physician author [A]. Reporting guideline (CARE): not stated by Cureus.",
+      "abstract": {
+        "structure": []
+      },
+      "main_text": {
+        "sections": [
+          {
+            "id": "introduction",
+            "heading": "Introduction"
+          },
+          {
+            "id": "case",
+            "heading": "Case presentation"
+          },
+          {
+            "id": "discussion",
+            "heading": "Discussion"
+          },
+          {
+            "id": "conclusions",
+            "heading": "Conclusions"
+          }
+        ],
+        "limit": {
+          "max": null,
+          "count_sections": [
+            "introduction",
+            "case",
+            "discussion",
+            "conclusions"
+          ]
+        }
+      },
+      "authors": {
+        "max_without_justification": 5
+      },
+      "references": {
+        "max": 20
+      },
+      "reporting_guideline": null
+    },
+    "technical-report": {
+      "_comment": "[A] technical report. SECTIONS: Abstract, Introduction, Technical Report, Discussion, Conclusions, References. Free publication: 5 authors, 20 references.",
+      "abstract": {
+        "structure": []
+      },
+      "main_text": {
+        "sections": [
+          {
+            "id": "introduction",
+            "heading": "Introduction"
+          },
+          {
+            "id": "technical-report",
+            "heading": "Technical report"
+          },
+          {
+            "id": "discussion",
+            "heading": "Discussion"
+          },
+          {
+            "id": "conclusions",
+            "heading": "Conclusions"
+          }
+        ],
+        "limit": {
+          "max": null,
+          "count_sections": [
+            "introduction",
+            "technical-report",
+            "discussion",
+            "conclusions"
+          ]
+        }
+      },
+      "authors": {
+        "max_without_justification": 5
+      },
+      "references": {
+        "max": 20
+      }
+    },
+    "editorial": {
+      "_comment": "[A] medical editorial: opinion/perspective, accepted only from senior clinicians or researchers with an established Cureus publishing history. SECTIONS: Abstract, Editorial, References. Free publication: 5 authors, 5 references. Letters to the editor and commentaries are NOT accepted [A].",
+      "abstract": {
+        "structure": []
+      },
+      "main_text": {
+        "sections": [
+          {
+            "id": "body",
+            "heading": "Editorial"
+          }
+        ],
+        "limit": {
+          "max": null,
+          "count_sections": [
+            "body"
+          ]
+        }
+      },
+      "authors": {
+        "max_without_justification": 5
+      },
+      "references": {
+        "max": 5
+      },
+      "required_declarations": [
+        "conflicts",
+        "funding"
+      ]
+    }
+  }
+}

@@ -7,6 +7,7 @@ running-title: "Statins and venous leg ulcer"
 short-name: statins-ulcer          # names every output file: statins-ulcer_jvb_manuscript.docx (no author names)
 article-type: original          # must match an entry of `article_types` in the profile, or the default
 study-design: cohort            # picks the reporting guideline (scripts/common.py GUIDELINES)
+involves: [humans]              # [humans], [animals], [humans, animals] or [] (reviews): conditional statements
 journal: jvb                    # default profile for `build.py` without --journal
 lang: en-US                     # language of the manuscript
 lang-alt: pt-BR                 # second language, for journals that want two (J Vasc Bras)

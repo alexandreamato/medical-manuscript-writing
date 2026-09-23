@@ -1,0 +1,347 @@
+{
+  "_comment": "Clinical Obesity (Wiley / World Obesity Federation). Every rule below was read in the journal's own pages on 2026-09-23. [A] = Author Guidelines, https://onlinelibrary.wiley.com/page/journal/17588111/homepage/forauthors.html (single page: article types table, manuscript format, title page, main text, references, tables, figures, submission, review process); [B] = Open Access / APC page, https://onlinelibrary.wiley.com/page/journal/17588111/homepage/fundedaccess.html. [A] shows no last-updated date and parts of it are old (mentions Blackwell Publishing, LocatorPlus, both ScholarOne and Wiley Authors): re-read before each submission.",
+  "extends": "generic-icmje",
+  "name": "Clinical Obesity (Clin Obes)",
+  "generic": false,
+  "source_url": "https://onlinelibrary.wiley.com/page/journal/17588111/homepage/forauthors.html",
+  "verified_at": "2026-09-23",
+  "reverify_after_days": 180,
+  "csl": "american-medical-association",
+  "_csl": "[A] 'AMA Reference items are listed numerically in the order they are cited in the text. Please include up to 6 authors. For more than six, provide the names of the first three authors and then add et al.' No journal-specific style in the CSL repository (dependent/clinical-obesity.csl returns 404); american-medical-association.csl (200) already lists up to 6 authors and uses first 3 + et al. above 6, matching [A]. eLocators replace page numbers when citing Clinical Obesity articles [A].",
+  "reference_docx": {
+    "line_spacing": 2.0,
+    "page_numbers": true,
+    "line_numbers": true,
+    "_comment": "[A] 'Articles should be typed double-spaced'; 'All pages should be numbered.' Font, size, margins and line numbers: not stated (generic defaults kept; line numbers left on, harmless for reviewers)."
+  },
+  "title": {
+    "max_chars": null,
+    "running_title_max_chars": null,
+    "_comment": "[A] 'Provide a clear, concise and interesting title'; a running title is required on the title page. No length stated for either."
+  },
+  "keywords": {
+    "min": 3,
+    "max": 6,
+    "after_abstract": false,
+    "_comment": "[A] title page contains '(4) three to six keywords'."
+  },
+  "authors": {
+    "require_orcid": "corresponding",
+    "max": null,
+    "_comment": "[A] 'Clinical Obesity requires the submitting author (only) to provide an ORCID ID'. The kit has no 'submitting author' option; 'corresponding' is the nearest. No author limit stated."
+  },
+  "abstract": {
+    "required": true,
+    "bilingual": false,
+    "title": "Abstract",
+    "limit": {
+      "unit": "words",
+      "max": 200
+    },
+    "structure": [],
+    "_comment": "[A] original research and reviews: 'abstract (about 200 words)'. 'About' is not a hard cap; 200 is used as the check. Structure and headings: not stated, so modelled as unstructured (subheadings dropped on export); confirm against recent issues. 'Avoid abbreviations in the title and in the abstract' [A]."
+  },
+  "main_text": {
+    "sections": [
+      {
+        "id": "what-is-known",
+        "heading": "What is already known about this subject"
+      },
+      {
+        "id": "what-this-study-adds",
+        "heading": "What this study adds"
+      },
+      {
+        "id": "introduction",
+        "heading": "Introduction"
+      },
+      {
+        "id": "methods",
+        "heading": "Materials and methods"
+      },
+      {
+        "id": "results",
+        "heading": "Results"
+      },
+      {
+        "id": "discussion",
+        "heading": "Discussion"
+      }
+    ],
+    "limit": {
+      "unit": "words",
+      "max": 5000,
+      "count_sections": [
+        "introduction",
+        "methods",
+        "results",
+        "discussion",
+        "conclusions"
+      ],
+      "include_floats": false
+    },
+    "_comment": "[A] 'Original research papers should be divided into (1) ‘What is already known about this subject’ and ‘What this study adds’ (up to three short bullet points each), (2) abstract (about 200 words), (3) introduction, (4) materials and methods, (5) results, (6) discussion, (7) conflicts of interest statement, (8) acknowledgements (including author contributions), (9) references.' Word limit 5,000 'excluding cover page, abstract, references, tables, and figures' (text also says 'excluding abstract, references, figure or table legends'). The two bullet boxes are not in the exclusion list; they are left out of the count here (they precede the abstract): check if near the limit."
+  },
+  "section_limits": {
+    "what-is-known": {
+      "unit": "items",
+      "max": 3
+    },
+    "what-this-study-adds": {
+      "unit": "items",
+      "max": 3
+    }
+  },
+  "_section_limits": "[A] boxes 'What is already known about this subject' and 'What this study adds': up to three short bullet points each; checked as list items (write them as a bullet list).",
+  "references": {
+    "max": 50,
+    "require_identifier": false,
+    "_comment": "[A] original research: max 50 references. Abbreviated journal titles (NLM)."
+  },
+  "figures": {
+    "max": null,
+    "placement": "legends-at-end",
+    "_comment": "[A] 'Artwork must be supplied in electronic form, as separate files per figure' (EPS for vector, TIFF for bitmap); legends 'typed on a separate page following on from the main text'."
+  },
+  "tables": {
+    "max": null,
+    "placement": "end",
+    "_comment": "[A] 'Type each table on a separate page following on from the main text'; brief title and legend for each; Arabic numbers."
+  },
+  "figures_tables_max": 6,
+  "_figures_tables_max": "[A] 'Max number of figures/tables combined': Original Research 6.",
+  "required_declarations": [
+    "ethics",
+    "conflicts",
+    "funding",
+    "data-availability",
+    "author-contributions"
+  ],
+  "_required_declarations": "[A] Conflicts of Interest Statement 'must be included in the manuscript, in a section placed after the discussion and before the acknowledgements'; acknowledgements must outline each author's contribution and 'Financial and material support must always be acknowledged, with a clear statement defining all funding sources'; 'Authors should include a data accessibility statement, including a link to the repository'; work must have 'been conducted under internationally accepted ethical standards after relevant ethical review' (Ethical Policies document linked from [A]). AI use and trial registration: not stated in [A] (not required here; see human_checks).",
+  "headings": {
+    "conflicts": "Conflicts of interest statement",
+    "acknowledgments": "Acknowledgements",
+    "author-contributions": "Author contributions",
+    "data-availability": "Data accessibility statement",
+    "funding": "Funding"
+  },
+  "_headings": "[A] names: 'conflicts of interest statement', 'acknowledgements (including author contributions)', 'data accessibility statement'. Funding and ethics headings not named.",
+  "submission": {
+    "separate_title_page": false,
+    "blinded": false,
+    "number_sections": false,
+    "title_page_sections": [],
+    "omit_in_blinded": [],
+    "_comment": "[A] 'The title page should contain: (1) the title of the article, (2) the name of each author (first name and surname preferred), (3) the name of the department(s) and institution(s) to which the authors belong, (4) three to six keywords, (5) a running title, (6) full address including e-mail of the corresponding author.' Single- or double-blind review: not stated; the title page with author names is part of the manuscript, so treated as not blinded. A separate title-page file is not asked for."
+  },
+  "style": {
+    "allow_em_dash": false,
+    "allow_en_dash_ranges": false,
+    "p_value": null,
+    "no_abbreviations_in_title_abstract": true,
+    "_comment": "[A] 'Avoid abbreviations in the title and in the abstract'; SI units; generic drug names. P-value format not stated.",
+    "banned_terms": [
+      {
+        "_comment": "[A] person-first language: 'individuals with obesity', not 'obese individuals'. Warns in drafts, blocks --submission unless resolved with a reason (e.g. a quoted title).",
+        "term": "\\bobese (?:patients?|individuals?|people|persons?|subjects?|adults?|children|adolescents?|youths?|women|men|girls|boys|participants?|population|pregnant women|mothers)\\b",
+        "regex": true,
+        "use": "'<people> with obesity' (e.g. 'patients with obesity')"
+      },
+      {
+        "term": "\\bthe obese\\b",
+        "regex": true,
+        "use": "'people with obesity'"
+      },
+      {
+        "term": "morbidly obese",
+        "use": "'with class III (severe) obesity'"
+      },
+      {
+        "term": "morbid obesity",
+        "use": "'class III obesity' or 'severe obesity'"
+      }
+    ]
+  },
+  "reporting_guideline": null,
+  "_reporting_guideline": "[A] 'The guidelines listed below should be followed where appropriate': CONSORT (with the abstracts extension), COREQ, STARD, STROBE, PRISMA, PRISMA-P, MOOSE, SPIRIT, STREGA, CHEERS; checklists and flow diagrams uploaded with the submission. Chosen by study-design, so not fixed here.",
+  "revision": {
+    "marking": "highlight",
+    "deleted": "strike",
+    "author": "Authors",
+    "_comment": "[A] only says: 'The authors then edit the article and submit it in revised form, providing clear details of the changes made and any responses to the comments.' How changes are marked in the manuscript (tracked, highlight, colour) is NOT stated; highlight is this kit's choice so the changes are visible, not a journal rule. Follow the decision letter if it says otherwise."
+  },
+  "revision_checks": [
+    "Response letter: 'providing clear details of the changes made and any responses to the comments' [A]. Point-by-point format and file type not specified.",
+    "Marking of changes in the revised manuscript is not stated in [A]: follow the decision letter (the kit highlights changes by default).",
+    "Revision deadline: not stated in [A]; see the decision letter.",
+    "'Manuscripts exceeding this length are likely to be reduced during the revision process to less than 5,000 words' [A]: keep the revision within the limit.",
+    "Submit the revision in the same record of the submission system (Wiley Authors, https://authors.wiley.com/journal/COB; [A] also mentions ScholarOne for decision letters)."
+  ],
+  "human_checks": [
+    "Original research: 'What is already known about this subject' and 'What this study adds' boxes, up to three short bullet points each, before the abstract [A].",
+    "Person-first language throughout: 'individuals with obesity', not 'obese individuals' [A].",
+    "Title page: title, authors (first name and surname), departments and institutions, 3 to 6 keywords, running title, full address and e-mail of the corresponding author [A]. Corresponding author's contact details also in the covering letter [A].",
+    "Abbreviations: explained at the beginning of the manuscript and listed in order of appearance; avoided in title and abstract [A].",
+    "Acknowledgements include each author's contribution (example wording in [A]), non-author contributors, and all funding sources (grants, equipment, drugs, reagents, gifts) [A].",
+    "Conflicts of interest statement placed after the Discussion and before the Acknowledgements [A]; every author completes the ICMJE COI disclosure form, collected and uploaded by the submitting author [A].",
+    "Email address of every author supplied at submission [A].",
+    "ORCID for the submitting author in the submission system [A].",
+    "Reporting guideline checklist and flow diagram uploaded where applicable (CONSORT incl. abstracts extension, STROBE, STARD, PRISMA, PRISMA-P, MOOSE, SPIRIT, COREQ, STREGA, CHEERS) [A].",
+    "Ethics: comply with the journal's Ethical Policies document (linked from [A]) and complete any documentation it requires before submission [A].",
+    "Regional or local prevalence data are not accepted unless linked to new clinical findings [A].",
+    "Figures as separate files per figure (EPS vector, TIFF bitmap); explanations in the legends, not in the images [A]. Supporting Information as a single PDF headed by title and authors; Figure S1 / Table S1 labels [A].",
+    "Graphical abstract optional: separate TIFF/EPS file, 50 mm x 60 mm, 300 dpi minimum, 'graphical abstract' in the file name [A].",
+    "Previously published figures, tables or quoted text: written permission from the copyright holder uploaded with the manuscript [A].",
+    "Previously published abstract with the same data: acknowledge or cite it [A].",
+    "AI use: no policy stated in the journal's Author Guidelines [A]; disclose any use per Wiley's general guidance and ICMJE.",
+    "Trial registration: not stated in [A]; register and report per ICMJE/CONSORT if a trial.",
+    "Preprints: 'Clinical Obesity will consider for review articles previously available as preprints. Authors may also post the submitted version of a manuscript to a preprint server at any time'; update the preprint with a link to the published article [A].",
+    "Open access optional (hybrid): APC USD 3,400 / GBP 2,270 / EUR 2,870 if accepted and OA chosen; check Wiley Open Access Account coverage; CC BY, CC BY-NC or CC BY-NC-ND [B].",
+    "Covering letter uploaded with the submission [A].",
+    "Systematic review: 'What is already known about this subject' / 'What this study adds' boxes are required for original research papers; confirm whether they apply to systematic reviews and include them if in doubt [A].",
+    "PRISMA (or MOOSE) checklist and flow diagram uploaded [A].",
+    "Review: consider a pre-submission proposal to the editor (abstract or detailed summary, full outline, full author list with titles and affiliations) [A].",
+    "Review: author contributions as a separate section (6) after the conflicts of interest statement and before acknowledgements [A].",
+    "Review: 'Conclusion or discussion' section; tables, diagrams and figures particularly encouraged [A].",
+    "Letter: must relate to an article published in Clinical Obesity [A].",
+    "Case report: no abstract and no section headings, written as a Letter to the Editor [A]. Write the text in one `{#body}` section.",
+    "Case report: [A] gives 2,500 words / 10 references / 3 figures-tables in its table but says case reports follow the correspondence criteria (1,000 words / 5 references); aim for the stricter limits or ask the editorial office.",
+    "Case report: patient consent for publication (journal Ethical Policies) [A]; CARE checklist is good practice but not named by the journal."
+  ],
+  "article_types": {
+    "original": {
+      "_comment": "[A] Original Research: 5,000 words, 50 references, 6 figures/tables combined. Formal systematic reviews and meta-analyses are also submitted in this format (see systematic-review)."
+    },
+    "systematic-review": {
+      "reporting_guideline": "PRISMA 2020",
+      "main_text": {
+        "sections": [
+          {
+            "id": "introduction",
+            "heading": "Introduction"
+          },
+          {
+            "id": "methods",
+            "heading": "Materials and methods"
+          },
+          {
+            "id": "results",
+            "heading": "Results"
+          },
+          {
+            "id": "discussion",
+            "heading": "Discussion"
+          }
+        ]
+      },
+      "_comment": "[A] 'Formal systematic reviews and meta-analyses should be formatted and submitted as original research papers and follow reporting guidelines as appropriate' (PRISMA; MOOSE for observational meta-analyses). Limits as original research. Whether the 'What is already known / What this study adds' boxes apply is not stated: dropped from required sections here, listed as a human check."
+    },
+    "review": {
+      "abstract": {
+        "limit": {
+          "max": 200
+        },
+        "structure": []
+      },
+      "main_text": {
+        "sections": [
+          {
+            "id": "introduction",
+            "heading": "Introduction"
+          },
+          {
+            "id": "conclusions",
+            "heading": "Conclusion"
+          }
+        ],
+        "limit": {
+          "max": 6000,
+          "count_sections": [
+            "introduction",
+            "body",
+            "discussion",
+            "conclusions"
+          ]
+        }
+      },
+      "references": {
+        "max": 60
+      },
+      "figures_tables_max": 6,
+      "_comment": "[A] Review Article: 6,000 words, 60 references, 6 figures/tables combined; 'Reviews should be divided into: (1) abstract (about 200 words), (2) introduction, (3) text subdivided into paragraphs, (4) conclusion or discussion, (5) conflicts of interest statement, (6) author contributions, (7) acknowledgements, (8) references.' Unsolicited narrative reviews welcome; editor may relocate tables or figures to a Supplementary Appendix above these limits and/or 10 printed pages. 'Conclusion or discussion': conclusions required here; rename the section to Discussion if preferred."
+    },
+    "commentary": {
+      "abstract": {
+        "required": false
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "max": 2000,
+          "count_sections": [
+            "introduction",
+            "body",
+            "discussion",
+            "conclusions"
+          ]
+        }
+      },
+      "references": {
+        "max": 10
+      },
+      "figures_tables_max": 0,
+      "required_declarations": [
+        "conflicts"
+      ],
+      "_comment": "[A] Commentary/Editorial: 2,000 words, 10 references, 0 figures/tables; 'usually invited, although unsolicited commentaries may be considered'. Abstract and sections: not stated (abstract made optional). Declarations other than the COI statement not stated for this type."
+    },
+    "letter": {
+      "abstract": {
+        "required": false
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "max": 1000,
+          "count_sections": [
+            "body"
+          ]
+        }
+      },
+      "references": {
+        "max": 5
+      },
+      "figures_tables_max": 1,
+      "required_declarations": [
+        "conflicts"
+      ],
+      "_comment": "[A] Correspondence: 'Letters (maximum 1,000 words and 5 references) should relate to articles published in Clinical Obesity to raise errors of fact or important issues of disagreement.' 1 figure/table. The original lead author is invited to reply; both letters published."
+    },
+    "case-report": {
+      "abstract": {
+        "required": false,
+        "structure": []
+      },
+      "main_text": {
+        "sections": [],
+        "limit": {
+          "max": 2500,
+          "count_sections": [
+            "body",
+            "introduction",
+            "case",
+            "discussion",
+            "conclusions"
+          ]
+        }
+      },
+      "references": {
+        "max": 10
+      },
+      "figures_tables_max": 3,
+      "reporting_guideline": null,
+      "_comment": "[A] table: Case Reports 2,500 words, 10 references, 3 figures/tables. Text: 'Only case reports that are truly exceptional and provide new insights into obesity pathogenesis, complications, investigation or treatment will be accepted. They should be written in line with our correspondence criteria and in the style of a Letter to the Editor. Please do not include an abstract or section headings.' CONFLICT: 'correspondence criteria' are 1,000 words and 5 references; the table's 2,500 / 10 / 3 is used here. CARE is not named by the journal."
+    }
+  },
+  "_human_checks": "Article-type-specific items are prefixed with the type ('Review:', 'Case report:' ...) and kept in the top-level list, because an article type's human_checks would replace this list instead of adding to it."
+}
