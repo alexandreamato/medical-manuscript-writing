@@ -8,7 +8,7 @@ Write a strong Introduction in three steps:
 2. Apply a suitable template below.
 3. Revise the introduction repeatedly.
 
-Most biomedical Introductions are **short** — typically 3 to 5 paragraphs and under 600 words. Reviewers expect: clinical importance, current evidence base and gap, the specific question this study answers, and a clear statement of aim and hypothesis.
+Most biomedical Introductions are **short**: typically 3 to 5 paragraphs and under 600 words. Reviewers expect: clinical importance, current evidence base and gap, the specific question this study answers, and a clear statement of aim and hypothesis.
 
 ## Introduction Logic Map
 
@@ -75,7 +75,7 @@ Other Introduction-specific reminders:
 3. **Avoid mysterious sentences and word play.** The reader expects efficient information transfer; rhetorical riddles produce non-readers.
 4. **References should be recent and from high-impact sources** where possible; classics are fine for foundational claims.
 
-## Aim vs. Objective — Distinguish Them
+## Aim vs. Objective: Distinguish Them
 
 Many manuscripts use *aim* and *objective* interchangeably. They are not the same; reviewers and editors notice when they are conflated.
 
@@ -88,7 +88,7 @@ A study has typically **one aim** and **one or more objectives**. State the aim 
 
 ## The IaMRDC Acronym (Mondal et al. 2019)
 
-The conventional structure for an original article is **IMRaD** — Introduction, Methods, Results, Discussion. Mondal et al. propose the more granular acronym **IaMRDC**, which separates *aim* and *Conclusion* explicitly:
+The conventional structure for an original article is **IMRaD**: Introduction, Methods, Results, Discussion. Mondal et al. propose the more granular acronym **IaMRDC**, which separates *aim* and *Conclusion* explicitly:
 
 | Section | Question it answers | Suggestion |
 | --- | --- | --- |
@@ -117,7 +117,7 @@ Introduction
 
 ## Part A: Establish Clinical Importance and the Question
 
-### Version 1 — Niche condition: define the entity, then the burden
+### Version 1: Niche condition: define the entity, then the burden
 
 `Use when the condition, exposure, or population is unfamiliar to a general medical audience.`
 
@@ -135,7 +135,7 @@ Sentence skeletons:
 
 Local cite: `references/examples/introduction/opening-define-entity-then-burden.md`.
 
-### Version 2 — Familiar condition: lead with burden
+### Version 2: Familiar condition: lead with burden
 
 `Use when the condition (e.g., type 2 diabetes, ischaemic stroke, breast cancer) is well known to the audience.`
 
@@ -151,7 +151,7 @@ Sentence skeleton:
 
 Local cite: `references/examples/introduction/opening-lead-with-burden.md`.
 
-### Version 3 — General problem, then specific clinical setting
+### Version 3: General problem, then specific clinical setting
 
 `Use when the broad problem is well known but your study addresses a specific population or setting (e.g., elderly, low-resource, post-transplant).`
 
@@ -168,7 +168,7 @@ Sentence skeleton:
 
 Local cite: `references/examples/introduction/opening-general-to-specific-setting.md`.
 
-### Version 4 — Open with burden and immediately expose the gap
+### Version 4: Open with burden and immediately expose the gap
 
 `Use when the field is moving fast and the unresolved question can be stated alongside the burden in the opening paragraph.`
 
@@ -223,7 +223,7 @@ Name the type of gap before writing; each type needs different evidence in the p
 | Evidence from another population or setting | Who was excluded from the main evidence and a concrete reason the effect may differ there | Study in the excluded population; effect-modification analysis | `gap-evidence-from-other-population.md` |
 | Evidence of low certainty | The mechanism of uncertainty (confounding, imprecision, surrogate outcome, bias), ideally with a GRADE rating from a review or guideline | Randomization, adequate power, patient-important outcome, longer follow-up | `gap-low-certainty-evidence.md` |
 | New condition, test, or technology | Why the entity is new, what is known, and the obstacles a credible study must overcome (definition, comparator, follow-up) | Inception cohort, diagnostic accuracy study, early-phase trial | `gap-new-condition-test-or-technology.md` |
-| Existing tools perform poorly | Named scores or tests and the measurable way they fail (calibration, sensitivity, missing inputs) | Model development, updating, or external validation (TRIPOD); accuracy study (STARD) | `gap-existing-tools-inadequate.md` |
+| Existing tools perform poorly | Named scores or tests and the measurable way they fail (calibration, sensitivity, missing inputs) | Model development, updating, or external validation (TRIPOD+AI); accuracy study (STARD) | `gap-existing-tools-inadequate.md` |
 | Unexplained practice variation | Quantified variation, not explained by case mix, with guidelines silent for lack of evidence | Pragmatic, cluster, or registry-based randomized trial; comparative effectiveness cohort | `gap-practice-variation.md` |
 
 All files are in `references/examples/introduction/`.
@@ -246,7 +246,7 @@ Sentence skeletons:
 
 For a genuinely new condition, test, or technology, replace steps 1 to 3 with: what the entity is and why it matters now, what is known, and at most three obstacles a credible study must overcome (`First / Second / Finally`). Each obstacle must be answered by a specific choice in the Methods.
 
-## Part C: Aim, Hypothesis, and Design — How to Close the Introduction
+## Part C: Aim, Hypothesis, and Design: How to Close the Introduction
 
 Key questions before writing:
 

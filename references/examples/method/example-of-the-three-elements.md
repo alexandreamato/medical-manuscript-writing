@@ -1,8 +1,8 @@
-# Methods Subsection — Worked Three-Element Example (Rationale / Procedure / Safeguard)
+# Methods Subsection: Worked Three-Element Example (Rationale / Procedure / Safeguard)
 
 `Each Methods subsection makes three things explicit: (1) what was done (procedure), (2) why it was done that way (rationale), (3) why the result is credible (safeguard).`
 
-This file walks through one Methods subsection — Outcome ascertainment in a hypothetical RCT of an anticoagulant — annotated with the three roles.
+This file walks through one Methods subsection, Outcome ascertainment in a hypothetical RCT of an anticoagulant, annotated with the three roles.
 
 ```
 \subsection{2.4 Outcome ascertainment}

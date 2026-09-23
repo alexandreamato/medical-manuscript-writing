@@ -2,7 +2,7 @@
 
 This file is a structured technique to read your own draft from three reader perspectives, before running the formal pre-submission checklist. The framework adapts Trisha Greenhalgh's "How to Read a Paper" critical-appraisal questions (BMJ 1997 series; *How to Read a Paper: The Basics of Evidence-Based Medicine*, BMJ Publishing Group) to **self-review** of your own manuscript.
 
-The premise: reviewers and readers approach your paper with three very different mindsets. By simulating each, you find the weaknesses they would find — before they find them.
+The premise: reviewers and readers approach your paper with three very different mindsets. By simulating each, you find the weaknesses they would find, before they find them.
 
 ## Where this fits
 
@@ -15,13 +15,13 @@ The premise: reviewers and readers approach your paper with three very different
 | Formal pre-submission checklist | `references/paper-review.md` | 5-dimension rejection-risk audit |
 | Post-submission | `references/responding-to-reviewers.md` | Point-by-point response |
 
-This file is the layer **between** sentence-level revision and the formal pre-submission checklist. It catches problems that the checklist alone does not surface — the kind that emerge only when someone reads the draft cold.
+This file is the layer **between** sentence-level revision and the formal pre-submission checklist. It catches problems that the checklist alone does not surface: the kind that emerge only when someone reads the draft cold.
 
 ## The Three Reader Personas
 
 Different readers approach the same paper with different goals. Each is a real audience your paper must serve.
 
-### Persona 1 — The Skeptical Methodologist
+### Persona 1: The Skeptical Methodologist
 
 Reads Methods and Statistical Analysis **first**, before Results. Greenhalgh: "If you are deciding whether a paper is worth reading, you should do so on the design of the methods section and not on the interest of the hypothesis or the speculation in the discussion." If Methods does not stand up, this persona stops reading and rejects.
 
@@ -38,7 +38,7 @@ Diagnostic questions to ask of your own draft:
 
 Action when this persona finds something: edit Methods or Discussion to address the concern explicitly. If the design genuinely cannot answer the question, the manuscript may need redirection (e.g., reframe as hypothesis-generating; downgrade causal language; add a sensitivity analysis).
 
-### Persona 2 — The Busy Clinician
+### Persona 2: The Busy Clinician
 
 Reads only the **Title → Abstract → Conclusion of Discussion → Table 1 → primary outcome figure**. Total time: 3 to 5 minutes. After that, decides whether to read the full paper, file it for later, or ignore.
 
@@ -54,9 +54,9 @@ Diagnostic questions:
 
 Action when this persona finds something: edit Title, Abstract, and Conclusion paragraph of the Discussion to surface the answer explicitly. Most editing here is **promotion**: bringing a fact that exists deeper in the paper to a more prominent position.
 
-### Persona 3 — The Non-Specialist Reader
+### Persona 3: The Non-Specialist Reader
 
-Greenhalgh: many published papers are technically correct but "so badly written that they are incomprehensible". This persona is a colleague from a different specialty, a graduate student outside your field, or — for journals with broad readership — a clinician who has not worked on your topic. They catch language failures and structural confusion.
+Greenhalgh: many published papers are technically correct but "so badly written that they are incomprehensible". This persona is a colleague from a different specialty, a graduate student outside your field, or, for journals with broad readership, a clinician who has not worked on your topic. They catch language failures and structural confusion.
 
 Diagnostic questions:
 
@@ -69,29 +69,29 @@ Diagnostic questions:
 7. **Is causal language calibrated to the design** in a way a non-specialist would notice if it were wrong? Phrases like "X cures Y" should be replaced with carefully calibrated verbs.
 8. **Read aloud once.** Sentences that catch your tongue catch the reader's eye too.
 
-Action when this persona finds something: most edits are local — define abbreviations, add a clarifying clause, split a long sentence, move a forward reference. See `references/scientific-writing-principles.md` for the sentence-level rules.
+When this persona finds something, most edits are local: define abbreviations, add a clarifying clause, split a long sentence, move a forward reference. See `references/scientific-writing-principles.md` for the sentence-level rules.
 
 ## The Read-As-Reader Workflow
 
 Run the three passes in order, with cooling time between them when possible.
 
-### Pass A — Methodologist (60–90 minutes)
+### Pass A: Methodologist (60 to 90 minutes)
 
 1. Print or fullscreen the manuscript.
 2. Read **Methods** and **Statistical Analysis only** first. Skip Introduction, Results, Discussion.
 3. Answer the eight Persona 1 questions in writing.
 4. List concerns in an Action Items table (see template below).
 
-### Pass B — Busy Clinician (10 minutes)
+### Pass B: Busy Clinician (10 minutes)
 
 1. Reset (ideally next day, or after a coffee break).
 2. Read **only** Title → Abstract → Conclusion paragraph of the Discussion → Table 1 → primary outcome figure caption. Do not read the body.
 3. Answer the seven Persona 2 questions.
 4. List concerns. Most will be about visibility (information exists but is not surfaced).
 
-### Pass C — Non-Specialist (60 minutes)
+### Pass C: Non-Specialist (60 minutes)
 
-1. Reset (ideally 1 to 2 weeks later — see "cooled-manuscript pass" in `references/writing-process.md`). Or hand the draft to a real non-specialist colleague.
+1. Reset (ideally 1 to 2 weeks later: see "cooled-manuscript pass" in `references/writing-process.md`). Or hand the draft to a real non-specialist colleague.
 2. Read the manuscript front-to-back, slowly.
 3. Mark every place you stumble: undefined abbreviations, unclear sentences, forward references, missing transitions, confusing figures.
 4. Answer the eight Persona 3 questions.
@@ -117,9 +117,9 @@ Track findings in a single document:
 
 Severity scale:
 
-- **High** — would likely trigger a major-revision request or rejection if a reviewer found it.
-- **Medium** — would prompt a reviewer comment but probably not block acceptance.
-- **Low** — copy-editing level; fix in passing.
+- **High**: would likely trigger a major-revision request or rejection if a reviewer found it.
+- **Medium**: would prompt a reviewer comment but probably not block acceptance.
+- **Low**: copy-editing level; fix in passing.
 
 Address all High items first. Medium items often resolve as side-effects of High edits. Low items are fixed in the final polish pass.
 
@@ -138,7 +138,7 @@ After running this technique on dozens of manuscripts, certain patterns recur. K
 ### Patterns Persona 2 (Busy Clinician) finds
 
 1. **Effect size hidden.** The headline number is in the body but not in the abstract.
-2. **Population mismatch surfacing late.** Eligibility criteria so narrow that the result does not transport to general practice — this should be in the abstract conclusion, not paragraph 6 of the Discussion.
+2. **Population mismatch surfacing late.** Eligibility criteria so narrow that the result does not transport to general practice: this should be in the abstract conclusion, not paragraph 6 of the Discussion.
 3. **Take-home message vague.** Conclusion ends with "more research is needed" without saying what kind.
 4. **Title-Abstract-Conclusion mismatch.** Title says one thing; abstract says another; Discussion says a third. Fix by writing Conclusion → Title → Abstract in that order to align.
 5. **Over-promising Title.** Verbs like "prevents", "cures", "treats" when the design supports only "was associated with lower risk of".
@@ -148,7 +148,7 @@ After running this technique on dozens of manuscripts, certain patterns recur. K
 1. **Abbreviation explosion.** First mention in body text uses the abbreviation as if defined in abstract.
 2. **Methods bouncing.** Statistical analysis described before outcome ascertainment, even though Outcomes section depends on it.
 3. **Captions that don't stand alone.** Figure shows error bars but caption does not say SD vs. SEM vs. CI; Table 1 footnote missing abbreviations.
-4. **Pronouns without antecedents.** "This was unexpected" — what is "this"? Always pair "this" with a noun.
+4. **Pronouns without antecedents.** "This was unexpected": what is "this"? Always pair "this" with a noun.
 5. **Sentence length variance gone.** Multiple 30+ word sentences in a row, or every sentence chopped to 10 words. Mix lengths.
 
 ## Working with a Real Non-Specialist Reader
@@ -159,11 +159,11 @@ If a real colleague is available, this is more powerful than self-simulation. Br
 2. **Set the framing.** "I want you to tell me where you stumbled, not whether you agreed with the science."
 3. **Give them the eight Persona 3 questions** and ask them to mark up the draft as they read.
 4. **Do not defend in real time.** Write down their feedback; debate it later.
-5. **Give them a deadline** (typically 1 week) — open-ended requests rarely return.
+5. **Give them a deadline** (typically 1 week): open-ended requests rarely return.
 
 This is the "general internal reviewer" pattern from `references/writing-process.md`.
 
-## Combining the Three Passes — A Sequencing Guide
+## Combining the Three Passes: A Sequencing Guide
 
 Recommended sequence relative to the rest of the workflow:
 
@@ -171,12 +171,12 @@ Recommended sequence relative to the rest of the workflow:
 1. First draft complete                           (writing-process.md drafting order)
 2. Reverse outlining and paragraph flow           (paragraph-flow.md)
 3. Sentence-level revision                        (scientific-writing-principles.md)
-4. Pass A — Methodologist self-read              (this file)
+4. Pass A: Methodologist self-read              (this file)
 5. Address High items from Pass A                 (re-edit Methods, Discussion)
-6. Pass B — Busy Clinician self-read             (this file)
+6. Pass B: Busy Clinician self-read             (this file)
 7. Address High items from Pass B                 (re-edit Title, Abstract, Conclusion)
 8. Cool the manuscript for 1 to 2 weeks           (writing-process.md)
-9. Pass C — Non-Specialist read or hand to colleague (this file)
+9. Pass C: Non-Specialist read or hand to colleague (this file)
 10. Address all items from Pass C                 (final polish)
 11. Formal pre-submission checklist                (paper-review.md)
 12. Reporting checklist + adherence statement      (reporting-standards.md)

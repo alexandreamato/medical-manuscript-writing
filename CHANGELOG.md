@@ -2,6 +2,28 @@
 
 All notable changes to the **Medical Manuscript Writing** skill are documented here. Format follows Keep a Changelog (https://keepachangelog.com/) using semantic-style versioning by content scope rather than strict semver.
 
+## [1.8.0] — 2026-09-23
+
+Responds to two external reviews of 1.6.1 and 1.7.0.
+
+### Added
+
+- `references/title.md` (titles, running titles, keywords, bilingual titles), `references/cover-letter.md` (initial submission), `references/non-native-authors.md` (Portuguese-to-English interference, strategies, AI-editing disclosure), `references/journal-selection.md` (fit, indexing, fees, predatory journals, preprints and ICMJE policy).
+- Results and Discussion example banks (`references/examples/results/`, `references/examples/discussion/`, 7 files each, one fictional trial).
+- `references/statistical-figures.md`, split from `diagrams.md` (forest, Kaplan-Meier, funnel, ROC, calibration).
+- Reporting standards: PRISMA-S, PRISMA-DTA, SWiM, GRRAS, SAMPL, SAGER, TRIPOD-LLM, and the CONSORT noninferiority/equivalence extension; noninferiority section in `statistical-reporting.md` (margin, CI vs margin, assay sensitivity, ITT and per-protocol).
+- Build kit: **draft vs submission mode** (`--submission`): example content (`example: true`), unverified or doubtful references, generic or unverified profiles and every human-review item not ticked and signed in `signoff/<journal>.md` become errors; `--force` refused. **`preview.py`** renders each file to PDF and a contact sheet of all pages (LibreOffice, poppler) and checks the product: author identity left in a blinded manuscript, marked revision without marks, line numbers, figure files vs legends. **Estimate/CI consistency**: the same (estimate, lower, upper) must appear in the abstract and the Results or tables, and in both abstracts (decimal comma and Portuguese wording recognised). 4 new tests (22).
+
+### Changed
+
+- `SKILL.md` slimmed from 21 KB to 9 KB: mode selection, Integrity Rules (obligatory), Conditional Rules, Submission Conventions (defaults), minimal workflow, Stopping Rule, Output Contract and one map. Activation description shortened. Answer in the format asked for; Word only when delivering a manuscript file. Frontmatter: `license` added, `author` moved to `metadata` (the official skill validator rejected it).
+- CONSORT described as a minimum set of items (not "an upper bound"), with justification for non-applicable items. TRIPOD+AI is the default for all prediction models; TRIPOD 2015 kept as history.
+- References: "not verified", "inconsistent", "retracted or corrected" and "apparent fabrication" are distinct categories with proportional actions; only the last raises a misconduct concern (`paper-review.md`, `common-mistakes.md`, `citation-styles.md`).
+- `ethics-and-integrity.md` separates universal items from those conditional on design or journal.
+- One canonical place per rule: `paper-review.md` is the single full pre-submission checklist with the cross-section consistency checks; `common-mistakes.md` points to it; section guides keep only section-specific items. Four method example files that repeated `method.md` removed.
+- The skill's own prose follows its dash rule: 641 em-dashes reduced to 11 (those discussing the character itself); number ranges written with "to". Headings and anchors updated.
+- Build kit: footer paragraph excluded from line numbering (it showed a second page number in some renderers).
+
 ## [1.7.1] — 2026-09-23
 
 ### Added

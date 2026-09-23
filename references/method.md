@@ -15,7 +15,7 @@ Sequence:
 
 Before writing Methods, answer in plain language:
 
-1. **Design.** What is the study design (RCT — parallel / crossover / cluster / factorial; cohort — prospective / retrospective; case-control; cross-sectional; diagnostic accuracy; systematic review / meta-analysis), and was it preregistered?
+1. **Design.** What is the study design (RCT, parallel / crossover / cluster / factorial; cohort, prospective / retrospective; case-control; cross-sectional; diagnostic accuracy; systematic review / meta-analysis), and was it preregistered?
 2. **Setting.** Where, when, and over what dates were participants recruited or data collected?
 3. **Participants.** What are the eligibility criteria (inclusion + exclusion)? How were participants identified, recruited, and consented?
 4. **Intervention or exposure.** Exactly what was administered, by whom, in what dose / schedule, with what comparator?
@@ -99,7 +99,7 @@ The Methods section is where the **validity of the study is judged**. Reviewers,
 
 If either question is answered "no", the Methods section is incomplete.
 
-## Writing Style — Direct, Precise, Past Tense
+## Writing Style: Direct, Precise, Past Tense
 
 1. **Past tense throughout.** "We randomized ...", "Outcomes were ascertained ...". Methods describes what was done.
 2. **Direct sentences.** Avoid compound sentences and hedging.
@@ -108,7 +108,7 @@ If either question is answered "no", the Methods section is incomplete.
 5. **Subsections by topic when detail is dense.** Use named subsections (Participants, Intervention, Outcomes, Statistical Analysis) rather than running prose.
 6. **No unimportant detail.** "We measured serum sodium" is enough; do not specify the brand of the venipuncture needle.
 
-## Internal vs. External Validity — What Methods Defends
+## Internal vs. External Validity: What Methods Defends
 
 A clear Methods section addresses both:
 
@@ -182,7 +182,7 @@ Writing structure:
 4. State follow-up duration (cohorts, trials).
 5. State the relevant health-status or severity descriptors so external validity can be judged.
 
-For human studies, describe at minimum: age, sex, and (when relevant to the question) ethnicity. Add severity or health-status descriptors appropriate to the context — for example, NYHA class for heart failure, Glasgow Coma Scale for head injury, Charlson Comorbidity Index for general comorbidity, APACHE II or SAPS II for ICU populations, ECOG performance status for oncology, Sickness Impact Profile or SF-36 for rehabilitation studies, MMSE or MoCA for cognitive populations.
+For human studies, describe at minimum: age, sex, and (when relevant to the question) ethnicity. Add severity or health-status descriptors appropriate to the context, for example, NYHA class for heart failure, Glasgow Coma Scale for head injury, Charlson Comorbidity Index for general comorbidity, APACHE II or SAPS II for ICU populations, ECOG performance status for oncology, Sickness Impact Profile or SF-36 for rehabilitation studies, MMSE or MoCA for cognitive populations.
 
 For animal studies, describe: species, strain, sex, weight, age at start of study, and supplier.
 
@@ -211,7 +211,7 @@ Sentence skeletons:
 2. `The comparator group received [comparator] administered identically to maintain blinding.`
 3. `Adherence was monitored by [pill count / electronic dispensing / self-report] at [timepoints].`
 
-### Materials, Drugs, and Devices — Operational Specifics
+### Materials, Drugs, and Devices: Operational Specifics
 
 When the intervention involves a drug, gas, biologic, or device, the Methods section must contain enough detail that another laboratory or hospital could reproduce it. Required elements:
 
@@ -264,6 +264,10 @@ Sentence skeleton:
 
 1. `Assuming an event rate of [X]% in the control arm and a relative risk reduction of [Y]%, a two-sided alpha of 0.05, and 80% power, [N] participants per arm were required. We inflated this to [N+inflation] to allow for [Z]% loss to follow-up.`
 
+**Noninferiority or equivalence trials** size the trial on the margin, not on a hoped-for difference, and need their own analysis and wording rules (margin justification, one-sided alpha, ITT and per-protocol, assay sensitivity): `references/statistical-reporting.md` §17 and the CONSORT extension in `references/reporting-standards.md`.
+
+`Assuming a [X]% event rate in both arms, a noninferiority margin of [M] percentage points (justified in [source]), a one-sided alpha of 0.025, and 90% power, [N] participants per arm were required.`
+
 ### Randomization and Blinding (RCTs only)
 
 Writing structure:
@@ -307,7 +311,7 @@ Methods
 % Subsection 8: Ethics, registration, role of funder
 ```
 
-Local cite: `references/examples/method/section-skeleton.md`.
+Design-specific orders (CONSORT, STROBE, STARD, PRISMA): Methods Section Order, above.
 
 ## Methods Subsection Pattern
 
@@ -336,6 +340,15 @@ flowchart TB
 2. Sentence-to-sentence flow is clean (rationale → procedure → safeguard).
 3. Term consistency: do not switch between "exposure" and "treatment" mid-section unless the change is meaningful.
 
+### 4) Common issues after the first draft
+
+1. **Procedure-only writing.** The subsection says what was done but never why: open it with the rationale.
+2. **No safeguard.** Nothing says how bias was controlled: add blinding, prespecification, validation or a sensitivity analysis.
+3. **Vague statistics.** "We adjusted for confounders": name the variables, the model and the software with its version.
+4. **Missing data hand-waved.** State the assumed mechanism (MCAR, MAR, MNAR) and the method.
+5. **Undeclared subgroups.** Label every subgroup analysis prespecified or post hoc.
+6. **Missed checklist items.** Most often: sample-size justification, allocation concealment (trials), risk-of-bias assessment (reviews), handling of indeterminate results (diagnostic studies). Give each checklist item a paragraph or page number.
+
 ## Implementation Details
 
 For trials, append:
@@ -351,12 +364,9 @@ For observational studies, append:
 
 ## Example Bank
 
-1. `references/examples/method-examples.md`
-2. `references/examples/method/pre-writing-questions.md`
-3. `references/examples/method/three-element-pattern.md` — generic three-element pattern adapted for a clinical example
-4. `references/examples/method/detailed-procedure-description.md` — design + forward process pattern adapted for diagnostic accuracy
-5. `references/examples/method/rationale-patterns.md` — rationale-writing patterns
-6. `references/examples/method/section-skeleton.md`
-7. `references/examples/method/overview-template.md`
-8. `references/examples/method/example-of-the-three-elements.md`
-9. `references/examples/method/method-writing-common-issues-note.md`
+1. `references/examples/method-examples.md` (index)
+2. `references/examples/method/example-of-the-three-elements.md`: the three elements applied to one subsection
+3. `references/examples/method/methods-section-walkthrough.md`: annotated walk-through of a Methods section
+4. `references/examples/method/detailed-procedure-description.md`: design and forward process for a diagnostic accuracy study
+5. `references/examples/method/rationale-patterns.md`: rationale-writing patterns
+6. `references/examples/method/overview-template.md`: opening paragraph of Methods

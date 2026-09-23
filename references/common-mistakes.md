@@ -1,16 +1,14 @@
-# Common Mistakes — Pre-Submission Speed Audit
+# Common Mistakes: Pre-Submission Speed Audit
 
-A consolidated cheatsheet of the desk-rejection patterns and reviewer-comment triggers scattered across the rest of the skill. Use this as a 5-minute audit immediately before running the formal `references/paper-review.md` checklist.
-
-For each mistake: the **pattern**, **why it fails**, the **fix**, and the **deeper file** with full guidance.
+A fast table of desk-rejection patterns and reviewer-comment triggers. Each row names the pattern, why it fails and the short fix; the rule itself lives in the file in the last column. Use it as a five-minute audit before the full checklist in `references/paper-review.md`, which is the canonical one.
 
 ## Manuscript-level
 
 | Pattern | Why it fails | Fix | See |
 | --- | --- | --- | --- |
-| Numbers in Abstract do not match Results | Reviewers spot inconsistencies on minute one; signals carelessness | Verify every CI, point estimate, p value, n; reconcile | `paper-review.md`, `abstract.md` |
+| Numbers in Abstract do not match Results | Reviewers spot inconsistencies on minute one; signals carelessness | Reconcile every estimate, CI, P value and n | `paper-review.md` (Cross-Section Consistency Checks) |
 | Causal verb in observational study | Overreach; reviewer comment guaranteed | "X reduced Y" → "X was associated with lower Y" | `study-types.md`, `discussion.md` |
-| Title overpromises ("X prevents Y" from a single trial) | Triggers desk reviewer skepticism; first thing the editor reads | Match Title strength to evidence; use the same verb as the Conclusion | `read-as-reader.md` (Persona 2) |
+| Title overpromises ("X prevents Y" from a single trial) | Triggers desk reviewer skepticism; first thing the editor reads | Match Title strength to evidence; use the same verb as the Conclusion | `title.md`, `read-as-reader.md` (Persona 2) |
 | Conclusion goes beyond what the design supports (e.g., cost claims with no economic analysis) | Reviewers reject for overinterpretation | Restrict Conclusion to outcomes actually measured; add explicit limitation | `discussion.md`, `paper-review.md` |
 | Sample size "justified" by what was available | Reviewers ask "what was the prespecified power calculation?" | Either provide a real prespecified calculation or label as exploratory | `method.md`, `statistical-reporting.md` |
 | Multiple "primary" outcomes | Multiplicity inflates false-positive risk | Pick one primary; demote others to secondary; or apply gatekeeping with prespecified rule | `statistical-reporting.md` |
@@ -33,20 +31,20 @@ For each mistake: the **pattern**, **why it fails**, the **fix**, and the **deep
 
 | Pattern | Why it fails | Fix | See |
 | --- | --- | --- | --- |
-| Fabricated reference (the paper does not actually exist or DOI does not resolve) | Research misconduct; immediate retraction risk | Verify every citation against PubMed / DOI / publisher record | SKILL.md Hard Rule #1, `citation-styles.md` |
-| Citation [12] appears in the text before [8] | Vancouver/AMA require ascending order | Renumber after every revision; scan top-to-bottom | `manuscript-conventions.md` |
+| Reference that cannot be verified (DOI does not resolve, metadata do not match, no record found) | Unverified or inconsistent references erode trust; a reference with no record anywhere suggests fabrication and is a misconduct concern | Verify every citation against PubMed / DOI / publisher record; correct inconsistent metadata from the source; remove what cannot be found; classify as in `paper-review.md` (Reference problems: four categories) | SKILL.md Integrity Rule 1, `citation-styles.md` |
+| Citation [12] appears in the text before [8] | Numeric styles number by first appearance | Renumber after every revision | `manuscript-conventions.md` §1.2 |
 | In-text citation has no matching reference list entry (or vice versa) | Editorial check fails | Run a final cross-check or use a reference manager that tracks both | `citation-styles.md` |
 | Citing a review when a primary source exists | Reviewers prefer primary | Trace the original trial or cohort and cite that | `narrative-review.md`, `pubmed-essentials.md` |
 | Journal name spelled out in some refs and abbreviated in others | Inconsistency triggers copy-editor pushback | Use NLM-approved abbreviations consistently (verify at https://www.ncbi.nlm.nih.gov/nlmcatalog/journals) | `citation-styles.md`, `pubmed-essentials.md` |
 | URL in place of DOI when both exist | DOIs are permanent; URLs break | Replace URLs with `doi:10.xxxx/xxxxx` | `citation-styles.md` |
 | Cited the preprint when the peer-reviewed version is now available | Reviewers spot it | Update to the published version | `citation-styles.md` |
-| Reference to a retracted paper without acknowledging the retraction | Editorial integrity issue | Either cite as "retracted" with explanation or replace | `ethics-and-integrity.md` |
+| Reference to a retracted paper without acknowledging the retraction | Editorial integrity issue | Replace it, or cite the retraction notice and say why it is kept | `paper-review.md` (four categories) |
 
 ## Tables and figures
 
 | Pattern | Why it fails | Fix | See |
 | --- | --- | --- | --- |
-| Tables/figures not cited in order of appearance | Editorial copy-editing flag | Renumber by first text mention; scan top-to-bottom | `manuscript-conventions.md` |
+| Tables/figures not cited in order of appearance | Editorial copy-editing flag | Renumber by first text mention | `manuscript-conventions.md` §2.1 |
 | Figure not cited at all in the body | Editorial integrity flag | Add the in-text citation or remove the figure | `figures-and-tables.md` |
 | Bar chart y-axis not starting at zero | Distorts perception | Start at zero unless absolutely necessary; mark broken axis | `figures-and-tables.md` |
 | Error bars present but caption does not say SD vs. SEM vs. CI | Reviewer asks; ambiguous interpretation | State which in every caption | `figures-and-tables.md`, `statistical-reporting.md` |
@@ -56,13 +54,13 @@ For each mistake: the **pattern**, **why it fails**, the **fix**, and the **deep
 | No scale bar on histology / radiology images | Reviewer comment guaranteed | Add a scale bar; do not put magnification only in caption | `figures-and-tables.md` |
 | Color encoding only (no shape / pattern) | Inaccessible for color-blind readers | Add shape or texture; test in grayscale | `figures-and-tables.md` |
 | Same group plotted in different colors across figures (intervention green in Fig 1, red in Fig 2) | Forces the reader to re-learn the legend on every figure | Lock variable-to-color mapping once; reuse in every figure | `figures-and-tables.md` |
-| Inconsistent line style / symbol per group across figures | Same as above — visual disorientation | Lock symbol and line style alongside color | `figures-and-tables.md` |
+| Inconsistent line style / symbol per group across figures | Same as above: visual disorientation | Lock symbol and line style alongside color | `figures-and-tables.md` |
 
 ## Sentence-level
 
 | Pattern | Why it fails | Fix | See |
 | --- | --- | --- | --- |
-| Em-dash (`—`) inside body sentences, or ranges written inconsistently | House default of this skill, not a universal journal rule: AMA and Chicago style use the em-dash, and many journals print ranges with an en-dash. What every journal flags is inconsistency | Default: comma, semicolon, parenthesis, or full stop; ranges as `12 to 18`. If the target journal uses dashes, follow it throughout (`SKILL.md`, Submission Convention 3) | `manuscript-conventions.md`, `scientific-writing-principles.md` |
+| Em-dash (`—`) inside body sentences, or ranges written inconsistently | House default of this skill, not a universal journal rule: AMA and Chicago style use the em-dash, and many journals print ranges with an en-dash. What every journal flags is inconsistency | Follow the journal's style; without one, the house default | `manuscript-conventions.md` §3.1 |
 | `p = 0.000` | Mathematically impossible | Write `p < 0.001` | `statistical-reporting.md`, `scientific-writing-principles.md` |
 | Anthropomorphism: "the study wanted to ...", "the data tell us ..." | Reviewers find it unscientific | "We aimed to ...", "The data indicate that ..." | `scientific-writing-principles.md` |
 | `This was unexpected` (pronoun without antecedent) | Reader stops to figure out "this" | Pair `this` with a noun: `this finding`, `this association` | `scientific-writing-principles.md` |
@@ -71,7 +69,7 @@ For each mistake: the **pattern**, **why it fails**, the **fix**, and the **deep
 | Abbreviation used without definition at first mention in the body | Non-specialist readers stumble | Define at first use in the body, even if defined in the Abstract | `scientific-writing-principles.md` |
 | Abbreviation defined and never used again | Cognitive load with no payoff | Spell out and remove the abbreviation if used fewer than 3 times | `scientific-writing-principles.md` |
 | `due to the fact that` / `in order to` / `at the present time` | Wordy; signals lack of revision | `because` / `to` / `now` | `scientific-writing-principles.md` (full table) |
-| Sentence > 30 words consistently | Reader fatigue | Split or vary length; aim ≤ 25–30 words | `scientific-writing-principles.md` |
+| Sentence > 30 words consistently | Reader fatigue | Split or vary length; aim ≤ 25 to 30 words | `scientific-writing-principles.md` |
 | Numerals < 10 used with non-unit context | Style inconsistency | Spell out small numbers without units; numerals for measurements (`5 mg`) | `scientific-writing-principles.md` |
 | Number at start of sentence | Style violation | Spell out (`Five participants ...`) or restructure | `scientific-writing-principles.md` |
 
@@ -102,9 +100,9 @@ For each mistake: the **pattern**, **why it fails**, the **fix**, and the **deep
 
 | Pattern | Why it fails | Fix | See |
 | --- | --- | --- | --- |
-| Wrong journal scope | Mismatched audience triggers rejection | Read 3–5 recent papers from the target journal; verify scope | `writing-process.md` |
+| Wrong journal scope, or a predatory journal | Mismatched audience triggers rejection; a predatory venue wastes the paper | Read 3 to 5 recent papers from the target journal; check legitimacy | `journal-selection.md` |
 | Manuscript not in `.docx` when journal requires it | Editorial submission error | Default to .docx with line numbering, double-spaced | `manuscript-conventions.md` |
-| Cover letter empty or boilerplate | Lost opportunity | Summarize 3–5 key changes; mention reporting checklist; declare originality | `responding-to-reviewers.md` |
+| Cover letter empty or boilerplate | Lost opportunity | Initial submission: question, main finding, fit, required statements; resubmission: key changes | `cover-letter.md`, `responding-to-reviewers.md` |
 | Missing data-sharing statement | ICMJE compliance flag for trials | Add a statement: what, when, how, with whom | `ethics-and-integrity.md` |
 | Conflicts of interest not declared | Integrity flag | Use the ICMJE Disclosure Form; declare everything | `ethics-and-integrity.md` |
 | AI-tool use undisclosed | Most major journals now require disclosure | State tool, version, and how it was used in Methods or Acknowledgments | `ethics-and-integrity.md`, `citation-styles.md` |
@@ -118,17 +116,17 @@ For each mistake: the **pattern**, **why it fails**, the **fix**, and the **deep
 | Cross-referencing instead of duplicating | Reviewer reads only their own comments | Repeat the response in full under each instance | `responding-to-reviewers.md` |
 | Defensive vocabulary: "obviously", "the reviewer misunderstood", "as we already wrote" | Antagonizes editor and reviewer | "We may not have explained this clearly. We have ..." | `responding-to-reviewers.md` |
 | Skipping editorial author-instructions | Desk-rejection at resubmission | Address every editorial request under a separate heading | `responding-to-reviewers.md` |
-| Tracked changes not submitted | Reviewer cannot find changes | Submit both tracked and clean versions | `responding-to-reviewers.md` |
+| Changes not marked the way the journal asks | Reviewer cannot find changes | Submit a clean and a marked version (tracked changes, highlight or colour, per journal) | `responding-to-reviewers.md` |
 
 ## Five-minute speed audit (use this list)
 
 Run through these in order. Each takes < 30 seconds.
 
-1. Open Abstract; copy each numerical value; verify it appears identically in the Results and tables.
+1. Open the Abstract; check each estimate and interval against the Results and tables (`paper-review.md`, Cross-Section Consistency Checks).
 2. Read the Title; ask whether the verb matches the design strength (RCT can say "reduced"; observational says "was associated with").
-3. Scan the body top-to-bottom looking for `—` (em-dash); replace each occurrence.
+3. Check dash and range style against the journal (or the house default, `manuscript-conventions.md` §3.1).
 4. Scan numerical citations top-to-bottom; verify ascending order.
-5. Open the reference list; spot-check 5 random references against PubMed.
+5. Confirm every reference is verified (build kit: `refs.py verify`; otherwise spot-check against PubMed and classify problems as in `paper-review.md`).
 6. Verify the participant flow diagram exists and uses the correct reporting-standard format.
 7. Verify the registration number appears in the Abstract (trials, systematic reviews).
 8. Verify ethics approval, conflicts of interest, data-sharing, and AI-disclosure statements are all present.

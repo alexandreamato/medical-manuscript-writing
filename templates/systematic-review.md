@@ -28,7 +28,7 @@
 ---
 
 ## Abstract
-<!-- PRISMA 2 — see PRISMA for Abstracts checklist -->
+<!-- PRISMA 2: see PRISMA for Abstracts checklist -->
 <!-- See references/abstract.md (Template C: Multiple Contributions) -->
 
 **Background.** [Clinical importance and the unresolved question this synthesis addresses.]
@@ -47,11 +47,11 @@
 <!-- PRISMA 3 (rationale), 4 (objectives) -->
 <!-- See references/introduction.md and references/related-work.md -->
 
-[Paragraph 1 — burden and clinical importance.]
+[Paragraph 1: burden and clinical importance.]
 
-[Paragraph 2 — what is known and the gap; existing reviews and their limitations (out-of-date, narrow scope, methodological flaws).]
+[Paragraph 2: what is known and the gap; existing reviews and their limitations (out-of-date, narrow scope, methodological flaws).]
 
-[Paragraph 3 — present synthesis aim.] We conducted a systematic review and meta-analysis to estimate the effect of [intervention/exposure] on [outcome] in [population], synthesising evidence from [study designs] published through [date]. <!-- PRISMA 4 -->
+[Paragraph 3: present synthesis aim.] We conducted a systematic review and meta-analysis to estimate the effect of [intervention/exposure] on [outcome] in [population], synthesising evidence from [study designs] published through [date]. <!-- PRISMA 4 -->
 
 ---
 
@@ -288,22 +288,22 @@ Certainty of evidence was rated [high / moderate / low / very low] for the prima
 
 ## See Also
 
-- `references/systematic-review.md` — End-to-end workflow (protocol, searching, screening, extraction, RoB, synthesis, GRADE)
-- `references/reporting-standards.md` — Full PRISMA 2020 27-item checklist with subitem detail
-- `references/diagrams.md` — PRISMA 2020 flow diagram tool at https://enciclopedia.med.br/prisma2020 (preferred) plus PRISMA2020 R package fallback
-- `references/pubmed-essentials.md` — MEDLINE search strategies, MeSH vs. free-text, Boolean operators, hedges
-- `references/research-apis.md` — Crossref, OpenAlex, Europe PMC, NCBI E-utilities, OpenCitations for citation searches and grey literature
-- `references/statistical-reporting.md` — Random- vs. fixed-effect meta-analysis, heterogeneity (I², τ², prediction interval), subgroup and sensitivity analyses
-- `references/abstract.md` — Structured abstract for systematic reviews (Template C: Multiple Contributions)
-- `references/introduction.md` — Three-paragraph Introduction that motivates the synthesis
-- `references/related-work.md` — Positioning the review against prior syntheses
-- `references/method.md` — Methods structure for systematic reviews (PRISMA-aligned subsections)
-- `references/results.md` — Reporting selection, characteristics, RoB, syntheses, certainty
-- `references/discussion.md` — Summary of evidence, evidence limitations vs. process limitations, implications
-- `references/figures-and-tables.md` — Forest plot, funnel plot, RoB summary, GRADE summary of findings
-- `references/ethics-and-integrity.md` — PROSPERO registration, AI disclosure, data and code availability
+- `references/systematic-review.md`: End-to-end workflow (protocol, searching, screening, extraction, RoB, synthesis, GRADE)
+- `references/reporting-standards.md`: Full PRISMA 2020 27-item checklist with subitem detail
+- `references/diagrams.md`: PRISMA 2020 flow diagram tool at https://enciclopedia.med.br/prisma2020 (preferred) plus PRISMA2020 R package fallback
+- `references/pubmed-essentials.md`: MEDLINE search strategies, MeSH vs. free-text, Boolean operators, hedges
+- `references/research-apis.md`: Crossref, OpenAlex, Europe PMC, NCBI E-utilities, OpenCitations for citation searches and grey literature
+- `references/statistical-reporting.md`: Random- vs. fixed-effect meta-analysis, heterogeneity (I², τ², prediction interval), subgroup and sensitivity analyses
+- `references/abstract.md`: Structured abstract for systematic reviews (Template C: Multiple Contributions)
+- `references/introduction.md`: Three-paragraph Introduction that motivates the synthesis
+- `references/related-work.md`: Positioning the review against prior syntheses
+- `references/method.md`: Methods structure for systematic reviews (PRISMA-aligned subsections)
+- `references/results.md`: Reporting selection, characteristics, RoB, syntheses, certainty
+- `references/discussion.md`: Summary of evidence, evidence limitations vs. process limitations, implications
+- `references/figures-and-tables.md`: Forest plot, funnel plot, RoB summary, GRADE summary of findings
+- `references/ethics-and-integrity.md`: PROSPERO registration, AI disclosure, data and code availability
 - `references/manuscript-conventions.md`, `references/citation-styles.md`
-- `references/narrative-review.md` — When a narrative review or scoping review is more appropriate
-- `references/study-types.md` — Choosing between SR, meta-analysis, scoping review, umbrella review
+- `references/narrative-review.md`: When a narrative review or scoping review is more appropriate
+- `references/study-types.md`: Choosing between SR, meta-analysis, scoping review, umbrella review
 - `references/scientific-writing-principles.md`, `references/paragraph-flow.md`, `references/read-as-reader.md`
 - `references/common-mistakes.md`, `references/paper-review.md`, `references/responding-to-reviewers.md`

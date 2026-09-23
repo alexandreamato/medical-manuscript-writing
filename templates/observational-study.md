@@ -28,7 +28,7 @@
 ---
 
 ## Abstract
-<!-- STROBE 1b — structured -->
+<!-- STROBE 1b: structured -->
 <!-- See references/abstract.md -->
 
 **Background.** [Clinical importance and the unresolved question.]
@@ -45,11 +45,11 @@
 <!-- STROBE 2 (background/rationale), 3 (objectives) -->
 <!-- See references/introduction.md -->
 
-[Paragraph 1 — clinical importance and burden.]
+[Paragraph 1: clinical importance and burden.]
 
-[Paragraph 2 — what is known and the gap.]
+[Paragraph 2: what is known and the gap.]
 
-[Paragraph 3 — present study aim and hypothesis.] We aimed to estimate the association between [exposure] and [outcome] in [population] using [design and data source]. <!-- STROBE 3 -->
+[Paragraph 3: present study aim and hypothesis.] We aimed to estimate the association between [exposure] and [outcome] in [population] using [design and data source]. <!-- STROBE 3 -->
 
 ---
 
@@ -135,7 +135,7 @@ This study is reported in accordance with the Strengthening the Reporting of Obs
 
 [Of [N] potentially eligible participants, [N] were excluded ([reason 1: n], [reason 2: n], [reason 3: n]), leaving [N] in the analytical cohort]. The flow is shown in Figure 1.
 
-<!-- Build Figure 1 STROBE flow at https://enciclopedia.med.br/strobe (preferred — cohort / case-control / cross-sectional templates, count-consistency check, JSON save/load); Mermaid fallback in references/diagrams.md -->
+<!-- Build Figure 1 STROBE flow at https://enciclopedia.med.br/strobe (preferred: cohort / case-control / cross-sectional templates, count-consistency check, JSON save/load); Mermaid fallback in references/diagrams.md -->
 
 ### 3.2 Baseline characteristics
 <!-- STROBE 14a, 14b, 14c -->
@@ -186,7 +186,7 @@ Unadjusted [effect measure] for [exposure] vs. [outcome] was [estimate] (95% CI)
 
 ## 5. Conclusions
 
-[The exposure was associated with [direction] [outcome] in [population]. Confirmation in [specific design — RCT or quasi-experimental] is the appropriate next step before clinical recommendations.]
+[The exposure was associated with [direction] [outcome] in [population]. Confirmation in [specific design: RCT or quasi-experimental] is the appropriate next step before clinical recommendations.]
 
 ---
 
@@ -234,16 +234,16 @@ Unadjusted [effect measure] for [exposure] vs. [outcome] was [estimate] (95% CI)
 
 ## See Also
 
-- `references/method.md` — Methods structure for observational studies (STROBE-aligned subsections)
-- `references/results.md` — participant flow, baseline characteristics, main results
-- `references/discussion.md` — limitations with direction and magnitude of bias
-- `references/abstract.md` — structured abstract for observational studies
-- `references/introduction.md` — three-part Introduction with aim/hypothesis
-- `references/reporting-standards.md` — full STROBE 22-item checklist with cohort / case-control / cross-sectional variants
-- `references/study-types.md` — design selection and causal language by design
-- `references/statistical-reporting.md` — Cox / logistic / mixed models, missing data, sensitivity analyses
+- `references/method.md`: Methods structure for observational studies (STROBE-aligned subsections)
+- `references/results.md`: participant flow, baseline characteristics, main results
+- `references/discussion.md`: limitations with direction and magnitude of bias
+- `references/abstract.md`: structured abstract for observational studies
+- `references/introduction.md`: three-part Introduction with aim/hypothesis
+- `references/reporting-standards.md`: full STROBE 22-item checklist with cohort / case-control / cross-sectional variants
+- `references/study-types.md`: design selection and causal language by design
+- `references/statistical-reporting.md`: Cox / logistic / mixed models, missing data, sensitivity analyses
 - `references/manuscript-conventions.md`, `references/citation-styles.md`, `references/figures-and-tables.md`
-- `references/diagrams.md` — STROBE participant flow diagram (enciclopedia.med.br/strobe web tool + JSON format; Mermaid fallback)
-- `references/ethics-and-integrity.md` — IRB, consent, registration, AI disclosure
+- `references/diagrams.md`: STROBE participant flow diagram (enciclopedia.med.br/strobe web tool + JSON format; Mermaid fallback)
+- `references/ethics-and-integrity.md`: IRB, consent, registration, AI disclosure
 - `references/scientific-writing-principles.md`, `references/paragraph-flow.md`, `references/read-as-reader.md`
 - `references/common-mistakes.md`, `references/paper-review.md`, `references/responding-to-reviewers.md`

@@ -30,7 +30,7 @@
 ---
 
 ## Abstract
-<!-- CONSORT 1b — for Abstracts: see references/abstract.md -->
+<!-- CONSORT 1b: for Abstracts: see references/abstract.md -->
 
 **Background.** [One to two sentences: clinical importance and the unresolved question this trial addresses.]
 
@@ -48,11 +48,11 @@
 <!-- CONSORT 6, 7 -->
 <!-- See references/introduction.md and references/related-work.md -->
 
-[Paragraph 1 — clinical importance and burden.] [Disease X affects Y people; current management is Z; recent guidelines recommend W.]
+[Paragraph 1: clinical importance and burden.] [Disease X affects Y people; current management is Z; recent guidelines recommend W.]
 
-[Paragraph 2 — what is known and what remains unresolved.] [Trials A and B have shown ...; however, [methodological limitation] leaves [specific question] unanswered.]
+[Paragraph 2: what is known and what remains unresolved.] [Trials A and B have shown ...; however, [methodological limitation] leaves [specific question] unanswered.]
 
-[Paragraph 3 — the present trial.] We conducted a [design] in [population] to test the hypothesis that [intervention] reduces [primary outcome] compared with [comparator]. We hypothesized that ... [State objectives for both benefits and harms.] <!-- CONSORT 7 -->
+[Paragraph 3: the present trial.] We conducted a [design] in [population] to test the hypothesis that [intervention] reduces [primary outcome] compared with [comparator]. We hypothesized that ... [State objectives for both benefits and harms.] <!-- CONSORT 7 -->
 
 ---
 
@@ -300,22 +300,22 @@ Baseline characteristics were balanced between groups (Table 1). <!-- CONSORT di
 
 While filling this template, consult the following section guides:
 
-- `references/method.md` — Methods structure for RCT (CONSORT-aligned subsections)
-- `references/results.md` — Results-section narrative around participant flow, baseline characteristics, primary and secondary outcomes
-- `references/discussion.md` — Discussion structure (six-paragraph order, divide-and-conquer, alternative explanations)
-- `references/abstract.md` — structured abstract templates and CONSORT for Abstracts
-- `references/introduction.md` — three-part Introduction structure with aim/objective distinction
-- `references/reporting-standards.md` — full CONSORT 2025 30-item checklist, changes from 2010, and SPIRIT 2025
-- `references/study-types.md` — RCT design variants (parallel, crossover, cluster, factorial, noninferiority)
-- `references/statistical-reporting.md` — effect sizes, CIs, p values, missing data, sensitivity analyses
-- `references/manuscript-conventions.md` — em-dash rule, citation order, table/figure referencing, .docx export
-- `references/citation-styles.md` — Vancouver default with full reference-list formats
-- `references/figures-and-tables.md` — figure design, accessibility, image-manipulation ethics
-- `references/diagrams.md` — CONSORT participant flow diagram (build at https://enciclopedia.med.br/consort2010)
-- `references/ethics-and-integrity.md` — IRB approval, registration, conflicts, AI disclosure
-- `references/scientific-writing-principles.md` — sentence-level revision (conciseness, hedging, anthropomorphism, tense)
-- `references/paragraph-flow.md` — paragraph clarity and reverse-outlining
-- `references/read-as-reader.md` — three-persona self-reading
-- `references/common-mistakes.md` — pre-submission speed audit
-- `references/paper-review.md` — formal pre-submission checklist
-- `references/responding-to-reviewers.md` — point-by-point response after first decision
+- `references/method.md`: Methods structure for RCT (CONSORT-aligned subsections)
+- `references/results.md`: Results-section narrative around participant flow, baseline characteristics, primary and secondary outcomes
+- `references/discussion.md`: Discussion structure (six-paragraph order, divide-and-conquer, alternative explanations)
+- `references/abstract.md`: structured abstract templates and CONSORT for Abstracts
+- `references/introduction.md`: three-part Introduction structure with aim/objective distinction
+- `references/reporting-standards.md`: full CONSORT 2025 30-item checklist, changes from 2010, and SPIRIT 2025
+- `references/study-types.md`: RCT design variants (parallel, crossover, cluster, factorial, noninferiority)
+- `references/statistical-reporting.md`: effect sizes, CIs, p values, missing data, sensitivity analyses
+- `references/manuscript-conventions.md`: em-dash rule, citation order, table/figure referencing, .docx export
+- `references/citation-styles.md`: Vancouver default with full reference-list formats
+- `references/figures-and-tables.md`: figure design, accessibility, image-manipulation ethics
+- `references/diagrams.md`: CONSORT participant flow diagram (build at https://enciclopedia.med.br/consort2010)
+- `references/ethics-and-integrity.md`: IRB approval, registration, conflicts, AI disclosure
+- `references/scientific-writing-principles.md`: sentence-level revision (conciseness, hedging, anthropomorphism, tense)
+- `references/paragraph-flow.md`: paragraph clarity and reverse-outlining
+- `references/read-as-reader.md`: three-persona self-reading
+- `references/common-mistakes.md`: pre-submission speed audit
+- `references/paper-review.md`: formal pre-submission checklist
+- `references/responding-to-reviewers.md`: point-by-point response after first decision

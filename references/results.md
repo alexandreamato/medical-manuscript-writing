@@ -53,7 +53,7 @@ flowchart TB
 
 ## Participant Flow
 
-`Always include a flow diagram. Cite it before the first table.`
+`Include a flow diagram whenever participants, records or studies were selected (trials, observational studies, diagnostic accuracy studies, systematic reviews). Cite it before the first table.`
 
 For each step, state:
 
@@ -162,3 +162,7 @@ For full design principles (table-vs-figure decision rule, captions, file format
 6. Are adverse events reported by group with absolute counts?
 7. Is every table and figure cited in the text in order of appearance?
 8. Are units, time horizons, and analysis populations stated clearly in each table caption?
+
+## Example Bank
+
+Worked Results paragraphs (participant flow, primary and secondary outcomes, subgroups, harms, sensitivity analyses, anti-patterns): `references/examples/results-examples.md`.

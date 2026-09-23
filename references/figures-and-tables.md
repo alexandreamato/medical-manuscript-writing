@@ -1,25 +1,25 @@
-# Figures and Tables — Best Practices for Medical Manuscripts
+# Figures and Tables: Best Practices for Medical Manuscripts
 
 This file covers general design and submission principles for figures and tables in medical manuscripts. For the specific reporting-standard flow diagrams (CONSORT, STROBE, PRISMA, STARD), CARE timelines, trial schemas, and statistical figures (forest, Kaplan-Meier, funnel, ROC), see `references/diagrams.md`. For Results-section narrative around tables and figures, see `references/results.md`.
 
 ## Contents
 
-1. [Tables vs. Figures — When to Use Each](#tables-vs-figures--when-to-use-each)
+1. [Tables vs. Figures: When to Use Each](#tables-vs-figures-when-to-use-each)
 2. [Optimal Quantity](#optimal-quantity)
 3. [Six Core Design Principles](#six-core-design-principles)
-4. [Figure-Type Reference](#figure-type-reference) — bar, line, scatter, box, heatmap, images
-5. [Table Design](#table-design) — anatomy, formatting, common mistakes
+4. [Figure-Type Reference](#figure-type-reference): bar, line, scatter, box, heatmap, images
+5. [Table Design](#table-design): anatomy, formatting, common mistakes
 6. [Statistical Presentation Inside Display Items](#statistical-presentation-inside-display-items)
 7. [Numbering and In-Text References](#numbering-and-in-text-references)
-8. [Captions](#captions) — figure and table caption structure
-9. [Technical Requirements](#technical-requirements) — file formats, resolution, dimensions
+8. [Captions](#captions): figure and table caption structure
+9. [Technical Requirements](#technical-requirements): file formats, resolution, dimensions
 10. [Image Manipulation Ethics](#image-manipulation-ethics)
-11. [Accessibility — Practical Tools](#accessibility--practical-tools)
+11. [Accessibility: Practical Tools](#accessibility-practical-tools)
 12. [Software for Creating Figures](#software-for-creating-figures)
 13. [Pre-Submission Checklist](#pre-submission-checklist)
 14. [Cross-References](#cross-references)
 
-## Tables vs. Figures — When to Use Each
+## Tables vs. Figures: When to Use Each
 
 ### Use a **table** when
 
@@ -57,7 +57,7 @@ Common medical-manuscript figures:
 
 ### General decision rule
 
-Can the information be conveyed in 1–2 sentences of text?
+Can the information be conveyed in 1 to 2 sentences of text?
 
 - **Yes** → text only.
 - **No, and precise values are needed** → table.
@@ -69,11 +69,11 @@ A widely cited rule of thumb is **one display item per ~1,000 words of body text
 
 | Manuscript type | Body words | Display items |
 | --- | --- | --- |
-| Original article | 2,500–4,000 | 4–7 (commonly Tables 1–3 and Figures 1–3) |
-| Brief report / research letter | 800–1,500 | 1–3 |
-| Case report | 1,000–1,500 | 1–3 (timeline + 1–2 images) |
-| Systematic review | 4,000–6,000 | 3–6 plus PRISMA flow diagram |
-| Clinical update | 3,000–5,000 | 2–4 plus a key-take-home-points table |
+| Original article | 2,500 to 4,000 | 4 to 7 (commonly Tables 1 to 3 and Figures 1 to 3) |
+| Brief report / research letter | 800 to 1,500 | 1 to 3 |
+| Case report | 1,000 to 1,500 | 1 to 3 (timeline + 1 to 2 images) |
+| Systematic review | 4,000 to 6,000 | 3 to 6 plus PRISMA flow diagram |
+| Clinical update | 3,000 to 5,000 | 2 to 4 plus a key-take-home-points table |
 
 Quality over quantity. A few well-designed displays beat many redundant ones.
 
@@ -145,7 +145,7 @@ Example of inconsistency to avoid:
 - **Group A is green in Figure 1 but red in Figure 2** (most common version of this error).
 - Intervention arm appears as a solid line in Figure 1 but as a dashed line in Figure 2.
 
-### Variable-to-encoding mapping — practical workflow
+### Variable-to-encoding mapping: practical workflow
 
 Before drafting any figure, write down a small mapping table and apply it everywhere:
 
@@ -156,7 +156,7 @@ Before drafting any figure, write down a small mapping table and apply it everyw
 | Subgroup: ApoE4 carrier | `#2ca02c` green | triangle | solid |
 | Subgroup: non-carrier | `#ff7f0e` orange | square | solid |
 
-Then: forest plot, KM curve, line graph, box plot, bar graph — **all** use the same color, symbol, and line style for each entity. The reader learns the encoding once and re-uses it across the manuscript.
+Then every figure (forest plot, KM curve, line graph, box plot, bar graph) uses the same color, symbol, and line style for each entity. The reader learns the encoding once and re-uses it across the manuscript.
 
 This applies equally to:
 
@@ -192,7 +192,7 @@ This makes consistency mechanical rather than manual.
 Avoid cluttered displays:
 
 1. Do not include too many variables in one figure.
-2. Use readable fonts (≥ 8 pt at final print size, often 10–12 pt).
+2. Use readable fonts (≥ 8 pt at final print size, often 10 to 12 pt).
 3. Provide adequate spacing between elements.
 4. Use high contrast.
 5. Remove unnecessary grid lines, borders, and decoration.
@@ -207,7 +207,7 @@ Avoid cluttered displays:
 
 ### 6. Truthful Visualization
 
-1. **Bar chart y-axes start at zero**, unless showing tiny absolute differences in a small range — and even then, mark the broken axis explicitly.
+1. **Bar chart y-axes start at zero**, unless showing tiny absolute differences in a small range, and even then, mark the broken axis explicitly.
 2. **No 3-D bar or pie charts.** They distort perception.
 3. **No truncated y-axes** that exaggerate effect size.
 4. **No cherry-picked images.** Show representative examples and quantify across the cohort separately.
@@ -215,7 +215,7 @@ Avoid cluttered displays:
 
 ## Figure-Type Reference
 
-For statistical-figure types specific to medical manuscripts (forest plot, Kaplan-Meier, funnel plot, ROC, calibration plot), see `references/diagrams.md`. The general types below cover most other situations.
+For statistical-figure types specific to medical manuscripts (forest plot, Kaplan-Meier, funnel plot, ROC, calibration plot), see `references/statistical-figures.md`. The general types below cover most other situations.
 
 ### Bar graphs
 
@@ -225,7 +225,7 @@ Rules:
 
 1. Y-axis starts at zero.
 2. Order bars logically (by size, alphabetically, by time).
-3. Error bars: SD, SEM, or 95% CI — pick one and stick to it; **state which** in every caption.
+3. Error bars: SD, SEM, or 95% CI; pick one and stick to it; **state which** in every caption.
 4. Include n per bar.
 5. No 3-D effects.
 
@@ -373,7 +373,7 @@ The default in medical manuscripts is the **95% confidence interval**: non-overl
 1. Number figures and tables separately, in Arabic numerals: Figure 1, Figure 2, ... and Table 1, Table 2, ...
 2. Supplementary: Figure S1, Table S1.
 3. Number by **order of first mention in the text**. Renumber after every revision pass.
-4. In-text reference: `(Figure 1)` or `Figure 1 shows ...`. Avoid "the figure below" or "above" — pagination changes.
+4. In-text reference: `(Figure 1)` or `Figure 1 shows ...`. Avoid "the figure below" or "above"; pagination changes.
 5. Cite each table and each figure at least once in the body text.
 
 ## Captions
@@ -418,16 +418,16 @@ Data are [mean ± SD / median (IQR) / n (%)]. [Statistical method.] [Abbreviatio
 
 Vector (preferred for line art and graphs):
 
-1. **PDF** — universal; preserves quality.
-2. **EPS** — Encapsulated PostScript; publishing standard at many journals.
-3. **SVG** — Scalable Vector Graphics; web-friendly; default Mermaid output.
-4. **AI** — Adobe Illustrator native; some journals accept.
+1. **PDF**: universal; preserves quality.
+2. **EPS**: Encapsulated PostScript; publishing standard at many journals.
+3. **SVG**: Scalable Vector Graphics; web-friendly; default Mermaid output.
+4. **AI**: Adobe Illustrator native; some journals accept.
 
 Raster (for photographs and halftone images):
 
-1. **TIFF** — uncompressed, high quality, large files.
-2. **PNG** — lossless compression; good for screen.
-3. **JPEG** — lossy; acceptable for photographs but not for figures with sharp lines.
+1. **TIFF**: uncompressed, high quality, large files.
+2. **PNG**: lossless compression; good for screen.
+3. **JPEG**: lossy; acceptable for photographs but not for figures with sharp lines.
 
 Avoid:
 
@@ -439,7 +439,7 @@ Avoid:
 
 Minimum standards:
 
-1. **Line art (graphs, diagrams):** 300–600 dpi (vector preferred).
+1. **Line art (graphs, diagrams):** 300 to 600 dpi (vector preferred).
 2. **Halftones (photos, grayscale images):** 300 dpi.
 3. **Combination (image with text/labels):** 600 dpi.
 
@@ -449,8 +449,8 @@ Create figures at the **final size and resolution**; do not enlarge low-resoluti
 
 Verify the journal's Instructions to Authors. Common targets:
 
-1. **Single column:** 8–9 cm (3–3.5 inches) wide.
-2. **Double column:** 17–18 cm (6.5–7 inches) wide.
+1. **Single column:** 8 to 9 cm (3 to 3.5 inches) wide.
+2. **Double column:** 17 to 18 cm (6.5 to 7 inches) wide.
 3. **Full page:** journal-specific.
 
 Designing for single-column is the safest default and avoids forced down-scaling.
@@ -485,16 +485,16 @@ Allowed:
 
 Disclose all image processing in the Methods section. Editorial offices increasingly screen images with forensic tools (e.g., the "ImageTwin" or "Proofig" services); manipulation is detected and grounds for rejection or retraction.
 
-## Accessibility — Practical Tools
+## Accessibility: Practical Tools
 
-1. **ColorBrewer 2** (`colorbrewer2.org`) — pre-tested categorical and sequential palettes.
-2. **Viridis family** (`viridis`, `magma`, `plasma`, `cividis`) — perceptually uniform; works in grayscale.
-3. **Okabe-Ito 8-color palette** — recommended for qualitative encoding with up to 8 groups; color-blind safe.
-4. **Coblis** (`color-blindness.com/coblis-color-blindness-simulator`) — simulate how figures appear to readers with different color-vision deficiencies.
+1. **ColorBrewer 2** (`colorbrewer2.org`): pre-tested categorical and sequential palettes.
+2. **Viridis family** (`viridis`, `magma`, `plasma`, `cividis`): perceptually uniform; works in grayscale.
+3. **Okabe-Ito 8-color palette**: recommended for qualitative encoding with up to 8 groups; color-blind safe.
+4. **Coblis** (`color-blindness.com/coblis-color-blindness-simulator`): simulate how figures appear to readers with different color-vision deficiencies.
 
 ## Software for Creating Figures
 
-For statistical figures specific to medical manuscripts (forest plots, Kaplan-Meier, funnel plots, ROC, calibration), see `references/diagrams.md`.
+For statistical figures specific to medical manuscripts (forest plots, Kaplan-Meier, funnel plots, ROC, calibration), see `references/statistical-figures.md`.
 
 General-purpose graphing:
 
@@ -509,15 +509,15 @@ General-purpose graphing:
 
 For figure assembly and label addition:
 
-1. **Adobe Illustrator** — professional standard.
-2. **Inkscape** — free vector editor.
-3. **Affinity Designer** — paid alternative to Illustrator.
+1. **Adobe Illustrator**: professional standard.
+2. **Inkscape**: free vector editor.
+3. **Affinity Designer**: paid alternative to Illustrator.
 
 For image processing (microscopy, gels):
 
-1. **ImageJ / Fiji** — free, powerful, widely used.
-2. **Adobe Photoshop** — professional standard.
-3. **GIMP** — free alternative.
+1. **ImageJ / Fiji**: free, powerful, widely used.
+2. **Adobe Photoshop**: professional standard.
+3. **GIMP**: free alternative.
 
 Best practice: script your figure generation (R, Python) for reproducibility; save the script alongside the manuscript.
 
@@ -566,7 +566,7 @@ Overall manuscript:
 
 ## Cross-References
 
-1. **Reporting-standard flow diagrams (CONSORT, STROBE, PRISMA, STARD), CARE timelines, trial schemas, statistical figures (forest, KM, funnel, ROC, calibration):** `references/diagrams.md`.
+1. **Reporting-standard flow diagrams (CONSORT, STROBE, PRISMA, STARD), CARE timelines, trial schemas, DAGs:** `references/diagrams.md`. **Statistical figures (forest, KM, funnel, ROC, calibration):** `references/statistical-figures.md`.
 2. **Results-section narrative around figures and tables (participant flow, Table 1, primary outcome figure, etc.):** `references/results.md`.
 3. **Manuscript-level conventions (citation order of figures and tables, file format defaults):** `references/manuscript-conventions.md`.
 4. **Statistical reporting standards (effect sizes, CIs, p values):** `references/statistical-reporting.md`.

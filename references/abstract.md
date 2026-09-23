@@ -18,7 +18,7 @@ Most biomedical journals require a **structured abstract** with explicit heading
 - Systematic review / meta-analysis: Background, Methods, Results, Conclusions, Registration / PROSPERO ID (PRISMA for Abstracts).
 - Case report: Background, Case presentation, Conclusions (CARE).
 
-Word count is usually 250–350 words. The abstract is what most readers — and many reviewers on the first pass — will actually read; treat it as the highest-stakes paragraph in the paper.
+Word count is usually 250 to 350 words. The abstract is what most readers, and many reviewers on the first pass, will actually read; treat it as the highest-stakes paragraph in the paper.
 
 ## Pre-Writing Questions
 
@@ -26,7 +26,7 @@ Answer these before writing:
 
 1. What is the clinical question (PICO/PECO/PIRD/PIRT) and why is it currently unresolved? (important)
 2. What is the study design and the prespecified primary outcome?
-3. What is the headline numerical result for the primary outcome (point estimate, 95% CI, and — for hypothesis tests — the p value)?
+3. What is the headline numerical result for the primary outcome (point estimate, 95% CI, and, for hypothesis tests, the p value)?
 4. What is the single most important conclusion the reader should walk away with, and what is its scope of generalizability? (important)
 
 ## Five-Element Checklist (Adapted from Koopman 1997)
@@ -36,16 +36,16 @@ A good abstract is a self-contained capsule of the paper. Before submission, ver
 1. **Motivation.** Why does the question matter? Disease burden, current management gap, or stakes for patients or policy.
 2. **Problem statement.** What unresolved question does this study answer? State the scope precisely (population, setting, intervention or exposure, outcome).
 3. **Approach.** How was the study done? Design, sample size, analytic strategy in plain clinical terms.
-4. **Results.** What was found? Concrete numbers — point estimate, 95% CI, and where appropriate the p value. Avoid vague terms ("very", "small", "significant" without numbers, "promising", "novel").
+4. **Results.** What was found? Concrete numbers: point estimate, 95% CI, and where appropriate the p value. Avoid vague terms ("very", "small", "significant" without numbers, "promising", "novel").
 5. **Conclusions.** What are the implications? State the take-home message and its scope of generalizability. Match causal language to the design.
 
 ## Self-Containment Rules
 
-The abstract is the only part of the paper that most readers — and many editors and reviewers on the first pass — will read. It must stand alone:
+The abstract is the only part of the paper that most readers, and many editors and reviewers on the first pass, will read. It must stand alone:
 
 1. Every clinical, epidemiological, and statistical term is readable on first occurrence.
-2. Spell out every abbreviation at first use (limit to 6–8 abbreviations across the abstract).
-3. Numbers in the abstract appear identically in the Results, tables, and figures. Re-check after every revision.
+2. Spell out every abbreviation at first use (limit to 6 to 8 abbreviations across the abstract).
+3. Numbers in the abstract appear identically in the Results, tables, and figures (`references/paper-review.md` (Cross-Section Consistency Checks)). Re-check after every revision.
 4. No reference to "see below", "in this paper", or "(data not shown)".
 5. No citations inside the abstract unless explicitly required by the journal.
 
@@ -56,7 +56,7 @@ The abstract is the entry point for PubMed, Embase, Scopus, and Google Scholar s
 1. Identify 6 to 8 search terms a reader would use to find your work; include them verbatim in the abstract.
 2. Use MeSH-aligned terminology where possible (`myocardial infarction`, not `heart attack`; `randomized controlled trial`, not `randomised study`).
 3. State the design in the abstract title or in the first sentence (e.g., "A multicenter randomized trial of ...").
-4. State the population precisely — age range, condition, setting.
+4. State the population precisely: age range, condition, setting.
 
 ## Word-Count Discipline
 

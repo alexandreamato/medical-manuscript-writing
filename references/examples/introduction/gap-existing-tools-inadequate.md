@@ -37,5 +37,5 @@ surgeons and families often weigh operative risk without a reliable estimate.
 ## Notes and pitfalls
 
 1. State the failure in measurable terms (calibration, discrimination, sensitivity, missing inputs). "Existing scores are inadequate" is not a gap.
-2. The closing paragraph should say whether the study develops, updates, or externally validates a model, and name TRIPOD (or STARD for diagnostic accuracy) as the reporting guideline.
+2. The closing paragraph should say whether the study develops, updates, or externally validates a model, and name TRIPOD+AI (or STARD for diagnostic accuracy) as the reporting guideline.
 3. Keep this to 4 to 6 sentences; reviewers do not reward length here.

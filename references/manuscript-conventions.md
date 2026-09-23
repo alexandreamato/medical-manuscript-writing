@@ -20,7 +20,7 @@ For Vancouver-style numeric citations (the dominant style for medical journals: 
 1. References are numbered in order of first appearance in the text.
 2. After every revision, scan the manuscript top to bottom and verify ascending order.
 3. When you move a sentence, the citations move with it; renumber the reference list accordingly.
-4. Tables and figures count for citation order — a citation that first appears in a table caption is numbered at the position of that table's first text mention.
+4. Tables and figures count for citation order: a citation that first appears in a table caption is numbered at the position of that table's first text mention.
 
 For author-date styles (APA, Harvard, Chicago Author-Date, Cell, some specialty journals): list references alphabetically by first author surname, with multiple works by the same author chronologically.
 
@@ -43,7 +43,7 @@ For author-date styles (APA, Harvard, Chicago Author-Date, Cell, some specialty 
 ### 2.2 Self-contained captions
 
 1. Every table and figure stands alone. Caption explains the design, the variables, the units, the time horizon, and any abbreviations.
-2. Place table captions above the table and figure captions below the figure (most journals — verify in the journal's instructions for authors).
+2. Place table captions above the table and figure captions below the figure (most journals: verify in the journal's instructions for authors).
 3. Spell out abbreviations in the caption even if defined in the body text.
 
 ### 2.3 Forest plots and flow diagrams
@@ -99,7 +99,7 @@ In the build kit, this is a per-journal switch: `"style": {"allow_en_dash_ranges
 Most medical journals require Word `.docx` submission. When revising an author's existing Word file, keep working in it. For a new manuscript, or when the author asks, generate the .docx from source files instead of formatting it by hand: `references/docx-build.md` explains the workflow, and `templates/build-kit/` is a ready-to-copy scaffold that applies every setting below automatically. The settings, for when a journal gives no template:
 
 1. **Page setup:** A4 or US Letter, 2.5 cm margins.
-2. **Font:** Times New Roman 12 pt for body text, 10 pt for tables and captions. (Some journals accept Arial 11 pt — check.)
+2. **Font:** Times New Roman 12 pt for body text, 10 pt for tables and captions. (Some journals accept Arial 11 pt: check.)
 3. **Line spacing:** double-spaced throughout, including references and table captions.
 4. **Line numbering:** continuous, starting at 1 on the first page of the body text.
 5. **Page numbers:** bottom right.
@@ -110,17 +110,17 @@ Most medical journals require Word `.docx` submission. When revising an author's
 
 ### 4.2 Suggested file structure for a journal submission
 
-1. `Manuscript.docx` — title page, abstract, body text, references, figure legends.
+1. `Manuscript.docx`: title page, abstract, body text, references, figure legends.
 2. `Tables.docx` (if separate per journal style) or appended at end of `Manuscript.docx`.
 3. `Figure1.tif`, `Figure2.tif`, ... (one figure per file).
-4. `Supplementary.docx` or `Supplementary.pdf` — full search strategy, statistical analysis plan, additional tables and figures.
+4. `Supplementary.docx` or `Supplementary.pdf`: full search strategy, statistical analysis plan, additional tables and figures.
 5. `CONSORT_Checklist.pdf` (or STROBE / PRISMA / STARD as applicable).
 6. `Title_page.docx` (if the journal requires a separate title page with author information removed from the main file for blinded review).
 
 ### 4.3 Title page content
 
 1. Full title (descriptive, not a question, no abbreviations).
-2. Short running title (40–50 characters).
+2. Short running title (40 to 50 characters).
 3. Author list with affiliations and ORCID IDs.
 4. Corresponding author with full address, email, and phone.
 5. Word counts: abstract, body text, references, tables, figures.
@@ -131,14 +131,9 @@ Most medical journals require Word `.docx` submission. When revising an author's
 
 ## 5. Final Pre-Submission Pass
 
-Run this pass after the writing is final.
+The full pre-submission checklist is `references/paper-review.md`. The conventions in this file add only the mechanical pass:
 
-1. Citations: every claim cited; every citation a real source; numbering in order of first appearance.
-2. References: every entry matches PubMed/DOI; format matches journal style.
-3. Tables and figures: each cited in order; captions self-contained; numbers match the body text.
-4. Numbers in the Abstract match the Results.
-5. No em-dashes in body sentences. Replace any remaining `—` and `–`.
-6. Reporting checklist (CONSORT/STROBE/PRISMA/STARD) completed and ready to upload.
-7. Ethics, registration, conflicts of interest, data sharing, and AI disclosure all stated.
-8. File format: `.docx` body, separate figure files at journal-required resolution.
-9. Spell-check and grammar pass; consistency of terminology end-to-end.
+1. Reference format matches the journal's style (or Vancouver); journal abbreviations consistent.
+2. Dash and range style consistent (§3.1).
+3. File format and file names as the journal requires: `.docx` body, separate figure files at the required resolution.
+4. Spell-check and grammar pass.

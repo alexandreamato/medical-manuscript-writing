@@ -7,19 +7,21 @@ Use this folder for concrete medical writing patterns and locally organized cite
 1. Abstract examples index: `references/examples/abstract-examples.md`
 2. Introduction examples index: `references/examples/introduction-examples.md`
 3. Method examples index: `references/examples/method-examples.md`
+3a. Results examples index: `references/examples/results-examples.md`
+3b. Discussion examples index: `references/examples/discussion-examples.md`
 
 4. Abstract templates:
    - Template A (RCT): `references/examples/abstract/template-a.md`
    - Template B (Observational / target trial emulation): `references/examples/abstract/template-b.md`
    - Template C (Systematic review / meta-analysis): `references/examples/abstract/template-c.md`
 
-5. Introduction — opening (clinical importance and burden):
+5. Introduction: opening (clinical importance and burden):
    - `references/examples/introduction/opening-define-entity-then-burden.md`
    - `references/examples/introduction/opening-lead-with-burden.md`
    - `references/examples/introduction/opening-general-to-specific-setting.md`
    - `references/examples/introduction/opening-burden-with-immediate-gap.md`
 
-6. Introduction — knowledge gap, by type:
+6. Introduction: knowledge gap, by type:
    - `references/examples/introduction/gap-evidence-absent.md`
    - `references/examples/introduction/gap-conflicting-evidence.md`
    - `references/examples/introduction/gap-evidence-from-other-population.md`
@@ -28,7 +30,7 @@ Use this folder for concrete medical writing patterns and locally organized cite
    - `references/examples/introduction/gap-existing-tools-inadequate.md`
    - `references/examples/introduction/gap-practice-variation.md`
 
-7. Introduction — closing (aim, hypothesis, design) and anti-patterns:
+7. Introduction: closing (aim, hypothesis, design) and anti-patterns:
    - `references/examples/introduction/closing-aim-hypothesis-design.md`
    - `references/examples/introduction/closing-primary-and-key-safety-question.md`
    - `references/examples/introduction/closing-design-addresses-known-bias.md`
@@ -36,15 +38,29 @@ Use this folder for concrete medical writing patterns and locally organized cite
    - `references/examples/introduction/not-recommended-patterns.md`
 
 8. Method examples:
-   - `references/examples/method/pre-writing-questions.md`
-   - `references/examples/method/section-skeleton.md`
-   - `references/examples/method/overview-template.md`
-   - `references/examples/method/example-of-the-three-elements.md`
-   - `references/examples/method/three-element-pattern.md` — three-element pattern
-   - `references/examples/method/methods-section-walkthrough.md` — annotated walk-through
-   - `references/examples/method/detailed-procedure-description.md` — detailed procedure description
-   - `references/examples/method/rationale-patterns.md` — rationale-writing patterns
-   - `references/examples/method/method-writing-common-issues-note.md`
+   - `references/examples/method/overview-template.md`: opening paragraph
+   - `references/examples/method/example-of-the-three-elements.md`: three elements on one subsection
+   - `references/examples/method/methods-section-walkthrough.md`: annotated walk-through
+   - `references/examples/method/detailed-procedure-description.md`: detailed procedure description
+   - `references/examples/method/rationale-patterns.md`: rationale-writing patterns
+
+9. Results examples (one fictional trial throughout):
+   - `references/examples/results/participant-flow-paragraph.md`
+   - `references/examples/results/primary-outcome-paragraph.md`
+   - `references/examples/results/secondary-outcomes.md`
+   - `references/examples/results/subgroup-analyses.md`
+   - `references/examples/results/harms.md`
+   - `references/examples/results/sensitivity-analyses.md`
+   - `references/examples/results/not-recommended-patterns.md`
+
+10. Discussion examples:
+   - `references/examples/discussion/principal-findings-opening.md`
+   - `references/examples/discussion/comparison-with-prior-studies.md`
+   - `references/examples/discussion/mechanisms-hedged.md`
+   - `references/examples/discussion/strengths-and-limitations.md`
+   - `references/examples/discussion/implications.md`
+   - `references/examples/discussion/conclusion-proportional-to-design.md`
+   - `references/examples/discussion/not-recommended-patterns.md`
 
 ## Usage
 

@@ -5,21 +5,21 @@ This file covers sentence-level writing quality: word choice, conciseness, hedgi
 ## Contents
 
 1. [The Six Pillars](#the-six-pillars)
-2. [Conciseness — Wordy → Concise](#conciseness--wordy--concise) — replacement table
-3. [Hedging — Calibration of Certainty](#hedging--calibration-of-certainty)
-4. [Anthropomorphism](#anthropomorphism--dont-let-the-paper-speak)
-5. [Voice — Active vs. Passive](#voice--active-vs-passive)
-6. [Tense — A Section-by-Section Reference](#tense--a-section-by-section-reference)
+2. [Conciseness: Wordy → Concise](#conciseness-wordy--concise), replacement table
+3. [Hedging: Calibration of Certainty](#hedging-calibration-of-certainty)
+4. [Anthropomorphism](#anthropomorphism-dont-let-the-paper-speak)
+5. [Voice: Active vs. Passive](#voice-active-vs-passive)
+6. [Tense: A Section-by-Section Reference](#tense-a-section-by-section-reference)
 7. [Abbreviation Discipline](#abbreviation-discipline)
 8. [Numbers and Units](#numbers-and-units)
-9. [Common Clarity Problems](#common-clarity-problems) — pronouns, dangling modifiers, "this + verb"
-10. [Commonly Confused Words](#commonly-confused-words) — affect/effect, that/which, etc.
-11. [Tone — Avoid Subjectivity](#tone--avoid-subjectivity)
-12. [Accuracy — Calibrate Numbers](#accuracy--calibrate-numbers)
-13. [Logical Organization — The "Red Thread"](#logical-organization--the-red-thread)
-14. [Punctuation — Quick Reference](#punctuation--quick-reference)
+9. [Common Clarity Problems](#common-clarity-problems): pronouns, dangling modifiers, "this + verb"
+10. [Commonly Confused Words](#commonly-confused-words): affect/effect, that/which, etc.
+11. [Tone: Avoid Subjectivity](#tone-avoid-subjectivity)
+12. [Accuracy: Calibrate Numbers](#accuracy-calibrate-numbers)
+13. [Logical Organization: The "Red Thread"](#logical-organization-the-red-thread)
+14. [Punctuation: Quick Reference](#punctuation-quick-reference)
 15. [Paragraph Length and Coherence](#paragraph-length-and-coherence)
-16. [Tools — Use, but Don't Trust](#tools--use-but-dont-trust)
+16. [Tools: Use, but Don't Trust](#tools-use-but-dont-trust)
 17. [Sentence-Level Revision Checklist](#sentence-level-revision-checklist)
 18. [Cross-References](#cross-references)
 
@@ -34,7 +34,7 @@ Effective scientific writing rests on six pillars. Apply them in revision passes
 5. **Consistency.** One term per concept; one notation throughout.
 6. **Logical organization.** Each paragraph and section flows from the previous.
 
-## Conciseness — Wordy → Concise
+## Conciseness: Wordy → Concise
 
 The single most impactful revision move is cutting fillers. Every removed word increases the density of meaning.
 
@@ -108,7 +108,7 @@ Length itself is not the problem; redundancy is. A long sentence packed with nec
 
 The diagnostic question on every revision pass: **can any word be removed without losing meaning?** If yes, remove it.
 
-## Hedging — Calibration of Certainty
+## Hedging: Calibration of Certainty
 
 Scientific writing requires calibrated confidence. Both extremes harm credibility.
 
@@ -128,6 +128,8 @@ The intervention cures depression.
 ```
 
 Reads as overclaim; reviewers reject for overreach.
+
+The mirror image matters as much in trials: do not overstate causality in an observational study, and do not understate the uncertainty of a trial result (report the interval, not only the point estimate).
 
 ### Calibrated hedging
 
@@ -149,7 +151,7 @@ that it may be effective for mild to moderate depression.
 
 Match the strength of the verb to the design (see also `references/study-types.md`).
 
-## Anthropomorphism — Don't Let the Paper Speak
+## Anthropomorphism: Don't Let the Paper Speak
 
 Scientific objects (studies, data, tables, papers) cannot want, hope, or claim. Only people can.
 
@@ -164,7 +166,7 @@ Scientific objects (studies, data, tables, papers) cannot want, hope, or claim. 
 
 A useful rule: never let evidence, results, or papers be the subject of a verb that requires intent.
 
-## Voice — Active vs. Passive
+## Voice: Active vs. Passive
 
 Active voice is generally clearer and shorter. Use it where it clarifies who did what.
 
@@ -173,7 +175,7 @@ Passive:  The samples were analyzed by the researchers.
 Active:   We analyzed the samples.
 ```
 
-Passive voice is acceptable — and sometimes preferred — when the **action matters more than the actor**:
+Passive voice is acceptable, and sometimes preferred, when the **action matters more than the actor**:
 
 ```
 Acceptable passive: Blood samples were collected at baseline and after 6 weeks.
@@ -182,7 +184,7 @@ Acceptable passive: Outcomes were adjudicated by a committee blinded to assignme
 
 Many medical journals now actively prefer active voice with `we`. Do not refrain from `we`.
 
-## Tense — A Section-by-Section Reference
+## Tense: A Section-by-Section Reference
 
 Tense varies by section and even by paragraph type. Default rules:
 
@@ -193,24 +195,24 @@ Tense varies by section and even by paragraph type. Default rules:
 | Abstract Methods | Study procedures | Past | `We randomly assigned 4,250 adults ...` |
 | Abstract Results | Findings | Past | `The primary outcome occurred in 21.7% ...` |
 | Abstract Conclusions | Take-home | Present | `Dapagliflozin reduces hospitalization ...` |
-| Introduction — burden | Established | Present | `Sepsis affects 49 million people annually.` |
-| Introduction — prior studies | Citations | Past | `In 2019, Smith et al. found ...` |
-| Introduction — gap | Knowledge state | Present | `Whether early treatment improves survival is unclear.` |
-| Introduction — present study | Aim | Past or present | `We investigated ...` / `This study examines ...` |
+| Introduction: burden | Established | Present | `Sepsis affects 49 million people annually.` |
+| Introduction: prior studies | Citations | Past | `In 2019, Smith et al. found ...` |
+| Introduction: gap | Knowledge state | Present | `Whether early treatment improves survival is unclear.` |
+| Introduction: present study | Aim | Past or present | `We investigated ...` / `This study examines ...` |
 | Methods | Study actions | Past | `We enrolled adults aged 18 or older.` |
 | Methods | Standard procedures | Present | `qRT-PCR amplifies cDNA ...` |
 | Results | Findings | Past | `Mean age was 72 years.` |
-| Discussion — own findings | Recap | Past | `In this trial, dapagliflozin reduced ...` |
-| Discussion — interpretation | Inference | Present | `This finding suggests ...` |
-| Discussion — established knowledge | Background | Present | `SGLT2 inhibition lowers glucose ...` |
-| Discussion — future research | Recommendation | Future or modal | `Future trials should compare ...` / `Larger studies will be required ...` |
+| Discussion: own findings | Recap | Past | `In this trial, dapagliflozin reduced ...` |
+| Discussion: interpretation | Inference | Present | `This finding suggests ...` |
+| Discussion: established knowledge | Background | Present | `SGLT2 inhibition lowers glucose ...` |
+| Discussion: future research | Recommendation | Future or modal | `Future trials should compare ...` / `Larger studies will be required ...` |
 | Conclusion | Take-home | Present | `Dapagliflozin reduces hospitalization in HFpEF.` |
 
 If a paragraph mixes tenses, check whether each sentence really belongs to its section's purpose.
 
 ## Abbreviation Discipline
 
-Excessive abbreviation slows reading. Apply two rules:
+Excessive abbreviation slows reading. Define the terms the target reader may not know, avoid several new abbreviations in one sentence, and apply two rules:
 
 1. **Define each abbreviation at first use** in the abstract and again at first use in the body text. The abstract's definitions do not carry over.
 2. **Only abbreviate terms used three or more times** in the same section. If you need it twice, write it out.
@@ -250,7 +252,7 @@ Sentence rule: never start a sentence with a numeral. Either spell it out or res
 2. No period after units (`mg` not `mg.`).
 3. SI units by default; convert non-SI conventions only when the field expects them (e.g., `mm Hg` for blood pressure, `mmol/L` for glucose in some regions).
 4. Consistent decimal precision per metric across the manuscript.
-5. Use commas for thousands in body text (`12,500`); some journals use spaces (`12 500`) — check the Instructions.
+5. Use commas for thousands in body text (`12,500`); some journals use spaces (`12 500`): check the Instructions.
 
 ### Ranges
 
@@ -312,16 +314,16 @@ A simple discipline: never start a sentence with `This` followed by a verb. Alwa
 | **fewer / less** | `fewer`: countable; `less`: continuous quantities |
 | **i.e. / e.g.** | `i.e.` = that is (restatement); `e.g.` = for example (examples). Both followed by a comma in US style. |
 | **imply / infer** | `imply`: suggest (the speaker); `infer`: deduce (the listener) |
-| **parameter / variable** | `parameter`: population value; `variable`: measured characteristic. Often misused — `parameter` is rarely the right word for "variable" or "metric". |
+| **parameter / variable** | `parameter`: population value; `variable`: measured characteristic. Often misused: `parameter` is rarely the right word for "variable" or "metric". |
 | **principal / principle** | `principal`: main; `principle`: rule or concept |
 | **significant** | Reserve for **statistical significance**; do not use as a synonym for "important" |
 | **that / which** | `that` introduces a restrictive clause (no comma); `which` introduces a non-restrictive clause (with comma) |
 | **comprise / compose** | The whole **comprises** the parts; the parts **compose** the whole. Avoid `is comprised of`. |
 | **regimen / regime** | `regimen`: a treatment schedule; `regime`: a system of government |
 | **dose / dosage** | `dose`: the specific amount given at one time; `dosage`: the schedule of doses |
-| **aetiology / etiology** | British vs. American spelling — be consistent |
+| **aetiology / etiology** | British vs. American spelling: be consistent |
 
-## Tone — Avoid Subjectivity
+## Tone: Avoid Subjectivity
 
 ```
 Subjective:  As expected, our superior method performed better.
@@ -348,7 +350,7 @@ Observation:    Mean blood pressure decreased from 145 to 132 mm Hg (p = 0.003).
 Interpretation: This suggests that the intervention effectively lowers blood pressure.
 ```
 
-## Accuracy — Calibrate Numbers
+## Accuracy: Calibrate Numbers
 
 Match numerical precision to measurement precision:
 
@@ -373,13 +375,13 @@ Verify on every revision pass:
 3. Percentages match the numerator/denominator they claim.
 4. Effect estimates match their CIs.
 
-## Logical Organization — The "Red Thread"
+## Logical Organization: The "Red Thread"
 
 Every section, paragraph, and sentence chain should advance one main argument. Within a paragraph:
 
-1. **Topic sentence** — one main idea.
-2. **Supporting sentences** — evidence, explanation, exception.
-3. **Concluding or transition sentence** — closes the idea or bridges to the next paragraph.
+1. **Topic sentence**: one main idea.
+2. **Supporting sentences**: evidence, explanation, exception.
+3. **Concluding or transition sentence**: closes the idea or bridges to the next paragraph.
 
 Across sections:
 
@@ -404,7 +406,7 @@ Parallel:     Aims were to (1) measure blood pressure, (2) assess cognitive func
               and (3) evaluate mood.
 ```
 
-## Punctuation — Quick Reference
+## Punctuation: Quick Reference
 
 The em-dash rule (no em-dashes in body sentences) is in `references/manuscript-conventions.md`. Other quick rules:
 
@@ -442,7 +444,7 @@ Better:     Participants completed their questionnaires.
 
 ## Paragraph Length and Coherence
 
-Target 100–200 words per paragraph (3 to 7 sentences). Too short suggests an underdeveloped idea or one that should be merged with a neighbour; too long suggests two ideas that should be split.
+Target 100 to 200 words per paragraph (3 to 7 sentences). Too short suggests an underdeveloped idea or one that should be merged with a neighbour; too long suggests two ideas that should be split.
 
 Coherence devices within a paragraph:
 
@@ -450,7 +452,7 @@ Coherence devices within a paragraph:
 2. **Repetition of key terms** (do not switch to synonyms for "variety").
 3. **Transitional phrases**: `first / second / finally`, `furthermore / moreover`, `however / nevertheless`, `therefore / thus / consequently`, `for example / specifically`.
 
-## Tools — Use, but Don't Trust
+## Tools: Use, but Don't Trust
 
 Grammar and style checkers (Grammarly, ProWritingAid, Hemingway Editor, LanguageTool) are useful as a first pass but do not understand scientific conventions: they flag passive voice in Methods (which is often fine), suggest hedging where calibration is needed, and miss subject-matter inconsistencies. Apply them as a starting point, then review with the rules in this file.
 
@@ -459,7 +461,7 @@ Grammar and style checkers (Grammarly, ProWritingAid, Hemingway Editor, Language
 For each paragraph during the second revision pass:
 
 1. One main idea, stated in the topic sentence?
-2. Each sentence ≤ 25–30 words?
+2. Each sentence ≤ 25 to 30 words?
 3. Active voice where it clarifies; passive only when the action matters more than the actor?
 4. Tense matches the section?
 5. Every abbreviation defined at first use; only used three or more times?

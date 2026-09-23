@@ -10,6 +10,12 @@ Three levels, never mixed:
     WARN   likely problem, or something the code cannot decide alone.
     HUMAN  judgement the code cannot make; listed so nobody forgets it.
 
+Two modes. `draft` (default) is for writing: problems that are normal in a
+draft are WARN. `submission` (--submission) is the gate before upload:
+example content, unverified or doubtful references, unverified journal
+profiles and every HUMAN item not signed off in signoff/<journal>.md become
+ERROR. Passing in draft mode means "valid draft", never "ready to submit".
+
 The validator never edits the manuscript. Shortening a section or
 restructuring an abstract is editorial work for the authors (or an agent,
 as a reviewable change), never a silent cut by the exporter.
@@ -37,6 +43,27 @@ PLACEHOLDER_RE = re.compile(
     r"|\[(?:[a-z][a-z0-9 ,:/]{1,40})\]")
 
 
+NUM = r"-?\d+(?:[.,]\d+)?"
+CI_RE = re.compile(
+    rf"({NUM})\s*[,;(]?\s*(?:\(?\s*(?:95\s*%\s*)?(?:CI|confidence interval|IC|intervalo de confian[cç]a"
+    rf"(?:\s+de\s+95\s*%)?|intervalo de confianza(?:\s+del?\s+95\s*%)?)\s*[,:]?\s*)?\(?\s*({NUM})\s*"
+    rf"(?:to|a|–|-|,)\s*({NUM})\s*\)?", re.I)
+
+
+def ci_triples(text: str) -> set[tuple[str, str, str]]:
+    """(estimate, lower, upper) with decimal commas normalised: '0,72 ... 0,55 a 0,94'
+    and 'HR 0.72, 95% CI 0.55 to 0.94' and a table cell '0.72 (0.55 to 0.94)' match."""
+    out = set()
+    for m in CI_RE.finditer(text):
+        est, lo, hi = (x.replace(",", ".") for x in m.groups())
+        try:
+            if float(lo) <= float(est) <= float(hi) and "." in est:
+                out.add((est, lo, hi))
+        except ValueError:
+            pass
+    return out
+
+
 class Report:
     def __init__(self, profile_id: str):
         self.profile_id = profile_id
@@ -58,7 +85,7 @@ class Report:
         return sum(1 for lv, _, _ in self.items if lv == level)
 
     def text(self) -> str:
-        order = {"ERROR": 0, "WARN": 1, "HUMAN": 2}
+        order = {"ERROR": 0, "WARN": 1, "INFO": 2, "HUMAN": 3}
         lines = [f"Validation against profile: {self.profile_id}"]
         for lv, where, msg in sorted(self.items, key=lambda x: order[x[0]]):
             lines.append(f"{lv:<6} {where}: {msg}")
@@ -87,7 +114,65 @@ def check_limit(rep, where, text, limit):
     return n
 
 
-def validate(prof: dict, doc: dict) -> tuple[Report, dict]:
+def validate(prof: dict, doc: dict, mode: str = "draft") -> tuple[Report, dict]:
+    rep, stats = _validate(prof, doc)
+    if mode == "submission":
+        gate(rep, prof, C.metadata(doc))
+    return rep, stats
+
+
+# Warnings that must be resolved (not merely known) before upload.
+GATED = ("references", "profile", "short-name", "authors", "language", "title", "keywords")
+
+
+def signoff_path(journal: str):
+    return C.KIT / "signoff" / f"{journal}.md"
+
+
+def write_signoff(rep: Report, journal: str) -> str:
+    """Skeleton of signoff/<journal>.md with one checkbox per HUMAN item."""
+    p = signoff_path(journal)
+    p.parent.mkdir(exist_ok=True)
+    old = p.read_text(encoding="utf-8") if p.exists() else ""
+    checked = {l[6:].strip() for l in old.splitlines() if l.lower().startswith("- [x] ")}
+    lines = [f"# Sign-off before submission: {journal}", "",
+             "Tick an item only after doing it. `validate.py --submission` refuses any unticked item.", "",
+             "Signed off by: [name], [YYYY-MM-DD]", ""]
+    for lv, where, msg in rep.items:
+        if lv == "HUMAN":
+            item = f"{where}: {msg}"
+            lines.append(f"- [{'x' if item in checked else ' '}] {item}")
+    p.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    return str(p.relative_to(C.KIT))
+
+
+def gate(rep: Report, prof: dict, meta: dict):
+    """Submission mode: turn what may stay open in a draft into blocking errors."""
+    if meta.get("example"):
+        rep.error("example", "metadata.yaml has `example: true`: this is demonstration content "
+                             "(fictional authors, ethics approval, declarations). Replace it and remove the flag.")
+    if prof.get("generic") or prof.get("illustrative"):
+        rep.error("profile", "cannot submit against a generic or illustrative profile")
+    promoted = []
+    for i, (lv, where, msg) in enumerate(rep.items):
+        if lv == "WARN" and where in GATED:
+            promoted.append(i)
+    for i in promoted:
+        _, where, msg = rep.items[i]
+        rep.items[i] = ("ERROR", where, msg + " [blocks submission]")
+    p = signoff_path(prof["id"])
+    text = p.read_text(encoding="utf-8") if p.exists() else ""
+    checked = {l[6:].strip() for l in text.splitlines() if l.lower().startswith("- [x] ")}
+    signer = re.search(r"Signed off by:\s*(?!\[name\])(\S.*\d{4}-\d{2}-\d{2})", text)
+    pending = [f"{w}: {m}" for lv, w, m in rep.items if lv == "HUMAN" and f"{w}: {m}" not in checked]
+    if pending:
+        rel = write_signoff(rep, prof["id"])
+        rep.error("sign-off", f"{len(pending)} human-review item(s) not ticked in {rel}")
+    elif not signer:
+        rep.error("sign-off", f"{signoff_path(prof['id']).relative_to(C.KIT)}: fill 'Signed off by: name, YYYY-MM-DD'")
+
+
+def _validate(prof: dict, doc: dict) -> tuple[Report, dict]:
     rep = Report(prof["id"] + (f" / {prof['article_type']}" if prof.get("article_type") else ""))
     meta = C.metadata(doc)
     secs = {s["id"]: s for s in C.sections(doc)}
@@ -368,14 +453,31 @@ def validate(prof: dict, doc: dict) -> tuple[Report, dict]:
             if not re.match(r"\s*[)\]]", txt[m.end():m.end() + 2]) or txt[m.start() - 1:m.start()] not in "([":
                 rep.warn(scope, f"'{ab_}' first used without definition, e.g. 'hazard ratio (HR)'")
 
-    # numbers in the abstract must appear in the rest of the manuscript
+    # Estimates with confidence intervals: the same (estimate, lower, upper)
+    # triple must appear in the Results or tables, and in both abstracts.
+    # Structured, but still a screen: it cannot tell which outcome, group or
+    # time point a triple belongs to (that is the claim-evidence map's job).
     if "abstract" in full:
         rest = " ".join(v for k_, v in full.items() if k_ not in ("abstract", "abstract-alt"))
-        norm = lambda s: s.replace(",", "")
+        body_triples = ci_triples(rest)
+        main_triples = ci_triples(full["abstract"])
+        for tr in sorted(main_triples):
+            if tr not in body_triples:
+                rep.warn("abstract", f"estimate {tr[0]} (95% CI {tr[1]} to {tr[2]}) not found with the same "
+                                     "interval in the Results or tables")
+        if "abstract-alt" in full:
+            alt = ci_triples(full["abstract-alt"])
+            for tr in sorted(main_triples ^ alt):
+                side = "abstract-alt" if tr in alt else "abstract"
+                rep.warn("abstract-alt", f"estimate {tr[0]} ({tr[1]} to {tr[2]}) is only in `{side}`: "
+                                         "the two abstracts must report the same results")
+        # Screening for other numbers (counts, percentages): present somewhere else at all?
+        norm = lambda x: x.replace(",", "")
         rest_nums = set(re.findall(r"\d+(?:\.\d+)?", norm(rest)))
+        in_triples = {v for tr in main_triples for v in tr}
         for num in dict.fromkeys(re.findall(r"\d+(?:\.\d+)?", norm(full["abstract"]))):
-            if num not in rest_nums and len(num.replace(".", "")) > 1:
-                rep.warn("abstract", f"number {num} does not appear in the main text or tables")
+            if num not in rest_nums and num not in in_triples and len(num.replace(".", "")) > 1:
+                rep.warn("abstract", f"number {num} does not appear in the main text or tables (screening)")
 
     # ---- human review
     design = meta.get("study-design")
@@ -402,6 +504,9 @@ def main():
     ap.add_argument("--article-type", help="override `article-type` from metadata.yaml")
     ap.add_argument("--compare", action="store_true", help="validate against every profile")
     ap.add_argument("--json", action="store_true", help="print JSON")
+    ap.add_argument("--submission", action="store_true",
+                    help="submission gate: example content, doubtful references and unsigned human checks are errors")
+    ap.add_argument("--write-signoff", action="store_true", help="write signoff/<journal>.md with the human-review items")
     a = ap.parse_args()
 
     doc = C.ast()
@@ -410,7 +515,9 @@ def main():
 
     results = []
     for name in names:
-        rep, stats = validate(C.load_profile(name, atype), doc)
+        rep, stats = validate(C.load_profile(name, atype), doc, "submission" if a.submission else "draft")
+        if a.write_signoff:
+            print("wrote", write_signoff(rep, name))
         results.append((name, rep, stats))
 
     if a.json:

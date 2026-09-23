@@ -128,7 +128,8 @@ def run_pandoc(out_file, runtime_meta, csl, refdoc, number_sections, lang, ast_i
         print("  pandoc:", line)
 
 
-def build(name: str, atype: str | None, force: bool, revision: int | None = None) -> bool:
+def build(name: str, atype: str | None, force: bool, revision: int | None = None,
+          submission: bool = False) -> bool:
     doc = C.ast()
     meta = C.metadata(doc)
     atype = atype or meta.get("article-type")
@@ -136,7 +137,7 @@ def build(name: str, atype: str | None, force: bool, revision: int | None = None
     out = C.OUTPUTS / name / (f"revision-{revision}" if revision else "")
     print(f"== {name}" + (f" / {atype}" if atype else "") + (f" / revision {revision}" if revision else ""))
 
-    rep, stats = V.validate(prof, doc)
+    rep, stats = V.validate(prof, doc, "submission" if submission else "draft")
     print(f"  validation: {rep.count('ERROR')} error(s), {rep.count('WARN')} warning(s)")
     if rep.count("ERROR") and not force:
         print(rep.text())
@@ -252,11 +253,15 @@ def main():
     ap.add_argument("--article-type")
     ap.add_argument("--all", action="store_true")
     ap.add_argument("--force", action="store_true", help="build even with validation errors (draft)")
+    ap.add_argument("--submission", action="store_true",
+                    help="final build: the submission gate of validate.py must pass (no --force)")
     ap.add_argument("--revision", type=int, help="revision round: clean + marked files and response letter")
     a = ap.parse_args()
     meta = C.metadata(C.ast())
     names = C.list_profiles() if a.all else [a.journal or meta.get("journal") or "generic-icmje"]
-    ok = [build(n, a.article_type, a.force, a.revision) for n in names]
+    if a.submission and a.force:
+        C.die("--submission cannot be forced: the gate exists to stop an unready upload")
+    ok = [build(n, a.article_type, a.force, a.revision, a.submission) for n in names]
     sys.exit(0 if all(ok) else 1)
 
 

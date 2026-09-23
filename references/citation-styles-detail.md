@@ -1,4 +1,4 @@
-# Citation Styles — Detail (Non-Vancouver)
+# Citation Styles: Detail (Non-Vancouver)
 
 This file collects the full per-style detail for styles other than Vancouver. **Vancouver is the default of this skill**; see `references/citation-styles.md` for Vancouver and for the decision rule, comparison table, reference-manager workflow, hard rules, and pre-submission sanity check.
 
@@ -18,7 +18,7 @@ Open this file when the target journal requires AMA, APA, Harvard, Chicago / Tur
 AMA is similar to Vancouver but with notable differences:
 
 1. In-text: superscript numerals (`¹`).
-2. Author list: up to 6 authors before "et al." (some AMA journals allow all authors regardless of number — check).
+2. Author list: up to 6 authors before "et al." (some AMA journals allow all authors regardless of number; check).
 3. Title case for article titles in older AMA editions; sentence case in 11th edition (modernized).
 4. Journal abbreviation per NLM.
 5. DOI included as `doi:10.xxxx/xxxxx`.
@@ -96,7 +96,7 @@ Two flavors:
 
 The Chicago 18th edition (2024) is the current version of *The Chicago Manual of Style*.
 
-### Chicago 18th Author-Date — In-Text Format
+### Chicago 18th Author-Date: In-Text Format
 
 Two presentation modes:
 
@@ -129,7 +129,7 @@ Quotations:
 1. Short quotations (under ~5 lines) appear inline with quotation marks; the page number follows the year: `(Smith 2020, 14)`.
 2. Long quotations (block quotations) are indented without quotation marks; the citation goes after the closing punctuation.
 
-### Chicago 18th Author-Date — Reference List Format
+### Chicago 18th Author-Date: Reference List Format
 
 General rules:
 
@@ -170,7 +170,7 @@ Notes:
 5. **No issue number**: list the page numbers after the volume separated by a colon with no space: `25:56-59`.
 6. **Supplement**: indicate as `Suppl.1` or `(2, Suppl. 5)`.
 7. **Advanced online publication**: use `ahead of print` plus the posted date: `2023. "Title." Biological Bulletin, ahead of print, April 5. https://doi.org/...`.
-8. **Forthcoming** (accepted but not yet published): use `Forthcoming` in place of the year — `Smith, Margaret. Forthcoming. ...`. In-text: `(Smith, forthcoming)`.
+8. **Forthcoming** (accepted but not yet published): use `Forthcoming` in place of the year: `Smith, Margaret. Forthcoming. ...`. In-text: `(Smith, forthcoming)`.
 
 #### Book
 
@@ -254,7 +254,7 @@ OpenAI. 2024. ChatGPT (May 13 version) [Large language model]. https://chat.open
 
 Many medical journals **prohibit** AI as an author and require disclosure of AI use in the Methods or Acknowledgments. See `references/ethics-and-integrity.md`.
 
-### Chicago 18th — Notes-Bibliography Variant
+### Chicago 18th: Notes-Bibliography Variant
 
 For the footnote-based variant:
 
@@ -291,7 +291,7 @@ Three patterns recur across all styles. Reviewers commonly flag them.
 
 See also:
 
-- `references/citation-styles.md` — Vancouver (default) and overall workflow
-- `references/manuscript-conventions.md` — Journal-specific formatting (margins, line numbers, anonymisation)
-- `references/ethics-and-integrity.md` — AI disclosure across all styles
-- `references/pubmed-essentials.md` — Looking up journal abbreviations against the NLM list
+- `references/citation-styles.md`: Vancouver (default) and overall workflow
+- `references/manuscript-conventions.md`: Journal-specific formatting (margins, line numbers, anonymisation)
+- `references/ethics-and-integrity.md`: AI disclosure across all styles
+- `references/pubmed-essentials.md`: Looking up journal abbreviations against the NLM list

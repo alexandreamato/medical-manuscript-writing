@@ -1,6 +1,6 @@
 # Statistical Reporting Checklist (Medical Research)
 
-This is a focused checklist to keep statistical reporting calibrated. Apply it to every Methods and Results section.
+This is a focused checklist to keep statistical reporting calibrated. Apply it to the Methods and Results of any quantitative study. It follows the SAMPL guidelines for basic statistical reporting (`references/reporting-standards.md`, Guidelines That Complement the Design Checklist), which apply alongside the design checklist (CONSORT, STROBE, and so on).
 
 ## 1. Effect Estimates and Uncertainty
 
@@ -34,7 +34,7 @@ Examples:
 2. Observational: define the analysis cohort and exclusions.
 3. State the consequences of choice on the interpretation.
 
-## 5. Models — Specification
+## 5. Models: Specification
 
 State for each model:
 
@@ -128,16 +128,37 @@ A sensitivity analysis that materially changes the conclusion must be discussed 
 
 ## See Also
 
-1. **Statistical figures** (forest plot, Kaplan-Meier, funnel plot, ROC, calibration plot — generated from data, not text): `references/diagrams.md`.
+1. **Statistical figures** (forest plot, Kaplan-Meier, funnel plot, ROC, calibration plot, generated from data, not text): `references/statistical-figures.md`.
 2. **Tables of effect estimates and adverse events** (formatting, precision, footnotes): `references/figures-and-tables.md`.
 3. **Causal language calibrated to the design**: `references/study-types.md`.
 4. **Discussion treatment of statistical vs. clinical significance**: `references/discussion.md`.
 
 ## 16. Numbers Match Across the Manuscript
 
-Run this final check:
+The general check is in `references/paper-review.md` (Cross-Section Consistency Checks). Statistical specifics:
 
-1. Numbers in the Abstract match the Results.
-2. Numbers in tables match numbers in the body text.
+1. Estimates and intervals in the text are the same as in the tables, with the same decimals.
+2. The model that produced each estimate is the one described in the Methods.
 3. Forest plots match tabulated effect estimates.
 4. Sample sizes in the participant flow diagram match the Methods and the Results.
+
+## 17. Noninferiority and Equivalence Trials
+
+A noninferiority trial asks whether a new intervention is not worse than an active comparator by more than a prespecified margin; an equivalence trial asks whether the difference lies within a margin in both directions. Report with the CONSORT extension for noninferiority and equivalence trials together with the CONSORT 2025 core checklist.
+
+1. **Margin.** State the margin, the scale it is on (risk difference, risk ratio, hazard ratio), and how it was chosen, before the trial started. Justify it both ways:
+   - *statistically*, from the effect of the active comparator against placebo in earlier trials (conservatively estimated, for example from the bound of its CI nearer to no effect), so that "not worse by the margin" still means better than placebo;
+   - *clinically*, as the largest loss of efficacy that the advantages of the new intervention (safety, cost, convenience) would justify.
+
+   A margin chosen after seeing the data, or without justification, makes the conclusion uninterpretable.
+2. **Sample size** is calculated from the margin, the expected true difference, the one-sided alpha, and the power.
+3. **Interpretation against the margin.** Conclude noninferiority when the whole CI for the difference lies on the acceptable side of the margin. Say which interval was used: a two-sided 95% CI corresponds to a one-sided alpha of 0.025 (the usual standard); a one-sided 95% interval (alpha 0.05) is a weaker test and must be named as such. For equivalence, both ends of the interval must lie within the margins (two one-sided tests); state the confidence level used.
+4. **Assay sensitivity and constancy.** A noninferiority result is meaningful only if the trial could have detected a difference: the comparator must be used at its proven dose, in a population, setting and outcome definition similar to the trials that established its effect (the constancy assumption). Discuss both.
+5. **Analysis populations.** Report both the intention-to-treat and the per-protocol analyses, and say which is primary. In a superiority trial the intention-to-treat analysis is conservative; in a noninferiority trial it is not, because nonadherence and crossover make the groups look alike and favour a noninferiority conclusion. Noninferiority is convincing when both analyses agree.
+6. **Wording of conclusions.**
+   - CI entirely within the margin: "X was noninferior to Y (margin M)".
+   - CI crosses the margin: "noninferiority was not shown", not "X was inferior", and not "X was as effective as Y".
+   - CI excludes the margin on the harmful side: inferiority.
+   - Testing superiority after noninferiority is shown is acceptable when prespecified; claiming noninferiority after a failed superiority trial is not, unless the margin was prespecified.
+7. **Figure.** A plot of the point estimate and CI against the margin (and against zero) lets readers see the conclusion at once.
+

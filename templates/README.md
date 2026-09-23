@@ -4,10 +4,10 @@ Ready-to-fill scaffolds for the four most common medical-manuscript types. Each 
 
 | Template | Article type | Reporting standard | Typical body words |
 | --- | --- | --- | --- |
-| [`rct-manuscript.md`](rct-manuscript.md) | Randomized controlled trial (parallel) | CONSORT 2025 | 2,500–4,000 |
-| [`observational-study.md`](observational-study.md) | Cohort / case-control / cross-sectional | STROBE | 2,500–4,000 |
-| [`case-report.md`](case-report.md) | Case report or small case series | CARE 2013 | 1,000–1,500 |
-| [`systematic-review.md`](systematic-review.md) | Systematic review with or without meta-analysis | PRISMA 2020 | 4,000–6,000 |
+| [`rct-manuscript.md`](rct-manuscript.md) | Randomized controlled trial (parallel) | CONSORT 2025 | 2,500 to 4,000 |
+| [`observational-study.md`](observational-study.md) | Cohort / case-control / cross-sectional | STROBE | 2,500 to 4,000 |
+| [`case-report.md`](case-report.md) | Case report or small case series | CARE 2013 | 1,000 to 1,500 |
+| [`systematic-review.md`](systematic-review.md) | Systematic review with or without meta-analysis | PRISMA 2020 | 4,000 to 6,000 |
 
 For writing the manuscript as source files and generating the `.docx` per journal, use [`build-kit/`](build-kit/) (Markdown + CSL-JSON + journal profiles + pandoc). The four templates above are content scaffolds: their sections can be pasted into the kit's `manuscript/` files.
 
@@ -24,7 +24,7 @@ For writing the manuscript as source files and generating the `.docx` per journa
 - Title page block (title, authors, affiliations, corresponding author, word counts, registration ID, conflicts, funding).
 - Structured abstract aligned to the reporting standard.
 - Section headings in the recommended order, with placeholder paragraphs.
-- Reporting-checklist anchors as inline comments — locate them later when filling the supplementary checklist with page/line numbers.
+- Reporting-checklist anchors as inline comments: locate them later when filling the supplementary checklist with page/line numbers.
 - Adherence statement template.
 - Cross-references to the relevant section guides in `references/`.
 

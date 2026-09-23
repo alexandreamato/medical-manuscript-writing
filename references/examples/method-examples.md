@@ -1,24 +1,14 @@
 # Methods Examples Index (Medical Research)
 
-All Methods example cites point to the local files below.
+Worked examples only. The rules they illustrate (pre-writing questions, the three elements of a subsection, section order by design, common issues) are in `references/method.md`.
 
-## A. Planning and Writing Workflow
+## A. Three Elements of a Subsection (Rationale, Procedure, Safeguard)
 
-1. Pre-writing questions: `references/examples/method/pre-writing-questions.md`
+1. Worked three-element example for one subsection: `references/examples/method/example-of-the-three-elements.md`
+2. Annotated walk-through of a Methods section: `references/examples/method/methods-section-walkthrough.md`
+3. Detailed procedure description (diagnostic accuracy): `references/examples/method/detailed-procedure-description.md`
+4. Rationale-writing patterns: `references/examples/method/rationale-patterns.md`
 
-## B. Three-Element Subsection Pattern (Rationale / Procedure / Safeguard)
+## B. Section Opening
 
-1. Worked three-element example for a Methods subsection: `references/examples/method/example-of-the-three-elements.md`
-2. Three-element pattern (overview): `references/examples/method/three-element-pattern.md`
-3. Annotated walk-through of a Methods section: `references/examples/method/methods-section-walkthrough.md`
-4. Detailed procedure description (worked diagnostic accuracy example): `references/examples/method/detailed-procedure-description.md`
-5. Rationale-writing patterns: `references/examples/method/rationale-patterns.md`
-
-## C. Section-Level Templates
-
-1. Methods section skeleton: `references/examples/method/section-skeleton.md`
-2. Methods overview / opening template: `references/examples/method/overview-template.md`
-
-## D. Clarity and Troubleshooting
-
-1. Common Methods-writing issues: `references/examples/method/method-writing-common-issues-note.md`
+1. Methods overview / opening template: `references/examples/method/overview-template.md`

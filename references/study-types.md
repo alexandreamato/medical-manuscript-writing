@@ -4,7 +4,7 @@ Match the question to the design, then the design to the reporting standard. The
 
 ## Question Frameworks
 
-### PICO — Therapy / prevention questions
+### PICO: Therapy / prevention questions
 
 | Letter | Meaning |
 | --- | --- |
@@ -15,13 +15,13 @@ Match the question to the design, then the design to the reporting standard. The
 
 Example: In adults with type 2 diabetes (P), does once-weekly semaglutide (I) compared with placebo (C) reduce major adverse cardiovascular events at 2 years (O)?
 
-### PECO — Etiology / harm questions
+### PECO: Etiology / harm questions
 
 P-E-C-O replaces Intervention with Exposure. Used for cohort and case-control studies.
 
 Example: In pregnant women (P), does exposure to fine particulate matter above 25 µg/m³ (E) compared with below 10 µg/m³ (C) increase the risk of preterm birth (O)?
 
-### PIRD — Diagnostic accuracy questions
+### PIRD: Diagnostic accuracy questions
 
 | Letter | Meaning |
 | --- | --- |
@@ -32,7 +32,7 @@ Example: In pregnant women (P), does exposure to fine particulate matter above 2
 
 Example: In adults presenting to the emergency department with chest pain (P), what is the diagnostic accuracy of high-sensitivity troponin T at presentation (I) compared with serial 6-hour troponin (R) for acute myocardial infarction (D)?
 
-### PIRT — Prognostic questions (validation of a prognostic model)
+### PIRT: Prognostic questions (validation of a prognostic model)
 
 | Letter | Meaning |
 | --- | --- |
@@ -59,7 +59,7 @@ From highest to lowest internal validity for causal inference:
 
 For etiology or rare-outcome questions, large prospective cohorts and case-control studies often outrank single trials. For diagnostic questions, prospective cross-sectional or cohort studies in representative populations are the gold standard.
 
-## Design Choice — Common Types
+## Design Choice: Common Types
 
 ### 1. Randomized controlled trial (parallel)
 
@@ -83,8 +83,9 @@ For etiology or rare-outcome questions, large prospective cohorts and case-contr
 ### 4. Noninferiority / equivalence trial
 
 - Specific aim is to show a new intervention is not unacceptably worse than (or is similar to) an active comparator.
-- Requires a prespecified noninferiority margin justified clinically.
-- Both ITT and per-protocol analyses are typically reported.
+- Requires a prespecified noninferiority margin, justified clinically and statistically.
+- Both ITT and per-protocol analyses are reported; neither alone is conservative.
+- Reporting: CONSORT extension for noninferiority and equivalence trials, with the CONSORT 2025 core checklist. Analysis and interpretation: `references/statistical-reporting.md` (Noninferiority and Equivalence Trials).
 
 ### 5. Pragmatic trial
 
@@ -127,10 +128,16 @@ For etiology or rare-outcome questions, large prospective cohorts and case-contr
 - Reports sensitivity, specificity, predictive values, likelihood ratios, AUC.
 - Reporting: STARD 2015.
 
+### 11a. Prediction model (diagnostic or prognostic)
+
+- Develops, validates or updates a model that estimates an individual's risk of having (diagnostic) or developing (prognostic) an outcome, by regression or machine learning.
+- Reports discrimination and calibration with CIs, internal validation, and, for external validation, how the new data differ.
+- Reporting: TRIPOD+AI 2024 (supersedes TRIPOD 2015); TRIPOD-LLM for studies of large language models.
+
 ### 12. Systematic review and meta-analysis
 
 - Comprehensive synthesis of all studies meeting prespecified eligibility.
-- Reporting: PRISMA 2020.
+- Reporting: PRISMA 2020, with PRISMA-S for the search; PRISMA-DTA for reviews of diagnostic accuracy; SWiM when results are synthesised without meta-analysis.
 
 ### 13. Individual participant data (IPD) meta-analysis
 
@@ -173,12 +180,12 @@ For etiology or rare-outcome questions, large prospective cohorts and case-contr
 | Pragmatic / quasi-experimental | "reduced", "increased" with stated assumptions |
 | Cohort / case-control / cross-sectional | "was associated with", "was not associated with" |
 | Mendelian randomization (under assumptions) | "supports a causal effect of" / "does not support a causal effect of" |
-| Diagnostic accuracy | "had a sensitivity of X% and a specificity of Y%" — do not say "diagnosed" |
+| Diagnostic accuracy | "had a sensitivity of X% and a specificity of Y%": do not say "diagnosed" |
 | Prognostic model | "predicted", "discriminated"; not "caused" |
 
 ## See Also
 
-1. **Reporting checklists matched to each design** (CONSORT, STROBE, PRISMA, STARD, CARE, TRIPOD): `references/reporting-standards.md`.
+1. **Reporting checklists matched to each design** (CONSORT, STROBE, PRISMA, STARD, CARE, TRIPOD+AI): `references/reporting-standards.md`.
 2. **Methods-section structure per design**: `references/method.md`.
 3. **Statistical reporting per design** (e.g., proportional-hazards check for Cox; calibration plot for prediction models): `references/statistical-reporting.md`.
 
@@ -188,5 +195,5 @@ For etiology or rare-outcome questions, large prospective cohorts and case-contr
 2. RCT with subgroup conclusion not prespecified; mark as exploratory.
 3. Cross-sectional study claiming temporality; remove or rephrase.
 4. Diagnostic accuracy study reporting only sensitivity and specificity for a clinical-decision context that needs predictive values.
-5. Single-center trial with a generalizability claim to "all patients" — rephrase to scope.
-6. Systematic review with one missing reporting item (search dates, registration, risk-of-bias) — fix before submission.
+5. Single-center trial with a generalizability claim to "all patients": rephrase to scope.
+6. Systematic review with one missing reporting item (search dates, registration, risk-of-bias): fix before submission.

@@ -12,7 +12,7 @@ A case is suitable for a case report only when it is genuinely unique. Variation
 4. It demonstrates an adverse drug reaction or presumed cause-and-effect not previously detected or reported.
 5. It shows an unusual combination of conditions, cascading events, or presenting complaints that confused decision-making or created treatment dilemmas.
 6. It documents the impact of one disease or treatment on another, with an unexpected outcome.
-7. It describes the personal influence the case had on the patient, the physician, or both — provided the lesson generalizes.
+7. It describes the personal influence the case had on the patient, the physician, or both: provided the lesson generalizes.
 
 A new or unusual location for a previously recognized disease does not by itself justify a case report unless it comes with previously undocumented symptoms or required a particularly long, costly diagnostic process.
 
@@ -53,7 +53,7 @@ Authors and affiliations
 References
 ```
 
-## CARE 2013 Checklist — Full Item List
+## CARE 2013 Checklist: Full Item List
 
 The official CARE 2013 checklist (https://www.care-statement.org/) has 13 numbered items grouped into 11 topics. Use the table below as the master checklist for the manuscript and submit it as a supplementary file with page or line numbers indicating where each item is addressed (see `references/reporting-standards.md` for the checklist-completion template).
 
@@ -61,32 +61,32 @@ The official CARE 2013 checklist (https://www.care-statement.org/) has 13 number
 | --- | --- | --- |
 | 1 | Title | The diagnosis or intervention of primary focus, followed by the words "case report". |
 | 2 | Key words | 2 to 5 key words identifying diagnoses or interventions, including "case report". |
-| 3a | Abstract — Introduction | What is unique about this case and what does it add to the scientific literature? |
-| 3b | Abstract — Symptoms | Main symptoms and important clinical findings. |
-| 3c | Abstract — Diagnosis / intervention / outcomes | Main diagnoses, therapeutic interventions, and outcomes. |
-| 3d | Abstract — Conclusion | Main "take-away" lesson(s). |
+| 3a | Abstract: Introduction | What is unique about this case and what does it add to the scientific literature? |
+| 3b | Abstract: Symptoms | Main symptoms and important clinical findings. |
+| 3c | Abstract: Diagnosis / intervention / outcomes | Main diagnoses, therapeutic interventions, and outcomes. |
+| 3d | Abstract: Conclusion | Main "take-away" lesson(s). |
 | 4 | Introduction | One or two paragraphs summarizing why this case is unique. May include references. |
-| 5a | Patient information — demographics | De-identified patient-specific information. |
-| 5b | Patient information — primary concerns | Primary concerns and symptoms of the patient. |
-| 5c | Patient information — history | Medical, family, and psycho-social history including relevant genetic information. |
-| 5d | Patient information — past interventions | Relevant past interventions **with outcomes**. |
+| 5a | Patient information: demographics | De-identified patient-specific information. |
+| 5b | Patient information: primary concerns | Primary concerns and symptoms of the patient. |
+| 5c | Patient information: history | Medical, family, and psycho-social history including relevant genetic information. |
+| 5d | Patient information: past interventions | Relevant past interventions **with outcomes**. |
 | 6 | Clinical findings | Physical examination and significant clinical findings. |
 | 7 | Timeline | Historical and current information from this episode of care organized as a **timeline**. Build at https://enciclopedia.med.br/care-timeline (preferred; supports section / hybrid / date modes) or use the Mermaid templates in `references/diagrams.md`. |
-| 8a | Diagnostic assessment — testing | Diagnostic methods (PE, laboratory testing, imaging, surveys). |
-| 8b | Diagnostic assessment — challenges | Diagnostic challenges (access to testing, financial, cultural). |
-| 8c | Diagnostic assessment — diagnosis | Diagnosis, including other diagnoses considered. |
-| 8d | Diagnostic assessment — prognosis | Prognosis (e.g., staging in oncology) where applicable. |
-| 9a | Therapeutic intervention — type | Types (pharmacologic, surgical, preventive, self-care). |
-| 9b | Therapeutic intervention — administration | Administration details (dosage, strength, duration). |
-| 9c | Therapeutic intervention — changes | Changes in the therapeutic intervention with rationale. |
-| 10a | Follow-up and outcomes — assessment | Clinician-assessed and patient-assessed outcomes (if available). |
-| 10b | Follow-up and outcomes — testing | Important follow-up diagnostic and other test results. |
-| 10c | Follow-up and outcomes — adherence | Intervention adherence and tolerability — and how this was assessed. |
-| 10d | Follow-up and outcomes — adverse events | Adverse and unanticipated events. |
-| 11a | Discussion — strengths and limitations | Scientific discussion of **both** strengths AND limitations of this case report. |
-| 11b | Discussion — literature | Discussion of the relevant medical literature with references. |
-| 11c | Discussion — scientific rationale | Scientific rationale for any conclusions, including assessment of possible causes. |
-| 11d | Discussion — take-away | Primary "take-away" lessons in a **one-paragraph conclusion without references**. |
+| 8a | Diagnostic assessment: testing | Diagnostic methods (PE, laboratory testing, imaging, surveys). |
+| 8b | Diagnostic assessment: challenges | Diagnostic challenges (access to testing, financial, cultural). |
+| 8c | Diagnostic assessment: diagnosis | Diagnosis, including other diagnoses considered. |
+| 8d | Diagnostic assessment: prognosis | Prognosis (e.g., staging in oncology) where applicable. |
+| 9a | Therapeutic intervention: type | Types (pharmacologic, surgical, preventive, self-care). |
+| 9b | Therapeutic intervention: administration | Administration details (dosage, strength, duration). |
+| 9c | Therapeutic intervention: changes | Changes in the therapeutic intervention with rationale. |
+| 10a | Follow-up and outcomes: assessment | Clinician-assessed and patient-assessed outcomes (if available). |
+| 10b | Follow-up and outcomes: testing | Important follow-up diagnostic and other test results. |
+| 10c | Follow-up and outcomes, adherence | Intervention adherence and tolerability, and how this was assessed. |
+| 10d | Follow-up and outcomes: adverse events | Adverse and unanticipated events. |
+| 11a | Discussion: strengths and limitations | Scientific discussion of **both** strengths AND limitations of this case report. |
+| 11b | Discussion: literature | Discussion of the relevant medical literature with references. |
+| 11c | Discussion: scientific rationale | Scientific rationale for any conclusions, including assessment of possible causes. |
+| 11d | Discussion: take-away | Primary "take-away" lessons in a **one-paragraph conclusion without references**. |
 | 12 | Patient perspective | The patient shares their perspective in **one to two paragraphs** on the treatment(s) received. |
 | 13 | Informed consent | Did the patient give informed consent? **Yes / No.** Provide the form on request. |
 
@@ -175,11 +175,11 @@ Avoid framing the article as "Case report and review of the literature." Reviewe
 
 Do not transfer an unread reference cited in another article. Read every cited paper yourself; misrepresented citations are an avoidable embarrassment.
 
-### Medication-Specific Case Reports — Additional Detail
+### Medication-Specific Case Reports: Additional Detail
 
 For case reports involving drugs, drug interactions, adverse drug reactions, medication errors, or pharmacokinetic events, capture the medication history with care. Required items:
 
-1. **Medication list at presentation and during the case.** Each entry: generic name (and brand when relevant — different formulations can have different bioavailability, fillers, preservatives, dyes), strength, dosage form, route, schedule, start date, stop date.
+1. **Medication list at presentation and during the case.** Each entry: generic name (and brand when relevant, because different formulations can have different bioavailability, fillers, preservatives, dyes), strength, dosage form, route, schedule, start date, stop date.
 2. **Include herbals, vaccines, depot injections, and over-the-counter medications.** State explicitly that the patient was asked about these classes.
 3. **Discontinuation dates matter.** Some drugs (e.g., amiodarone, fluoxetine, biologics) have lasting effects for weeks or months after discontinuation.
 4. **Adherence.** Verify and report the patient's medication adherence (self-report, pill count, electronic monitoring, pharmacy refill records).
@@ -242,8 +242,8 @@ Informed consent for publication is mandatory. The patient (or legal guardian, o
 4. Bloat: every test result, every paragraph of the chart, and a long historical literature review.
 5. Conclusions overreach (a single case cannot establish causality).
 6. Missing CARE items: timeline, patient perspective, consent statement.
-7. Em-dashes and inconsistent terminology in the body text (see `references/manuscript-conventions.md`).
-8. Citations not in order of first appearance, or fabricated references.
+7. Inconsistent terminology, numbers or dates between the text, the timeline and the tables.
+8. Unverified or fabricated references (`references/paper-review.md`, four categories).
 
 ## Quick Quality Checklist
 
@@ -253,10 +253,7 @@ Informed consent for publication is mandatory. The patient (or legal guardian, o
 4. Is the discussion focused on novelty and lesson, not on a parallel literature review?
 5. Is the patient identifiable in any sentence, image, or supplementary file?
 6. Is the conclusion specific and not overreaching?
-7. Are tables and figures cited in order of first appearance?
-8. Are all references real, verifiable, and in citation order?
-9. Is the body text free of em-dashes (see `references/manuscript-conventions.md`)?
-10. Is the manuscript prepared as a Word `.docx` file per journal style?
+7. Do the cross-section consistency checks pass? `references/paper-review.md` (Cross-Section Consistency Checks).
 
 ## Source
 

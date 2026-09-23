@@ -1,4 +1,4 @@
-# Medical Manuscript Writing — Skill
+# Medical Manuscript Writing: Skill
 
 A Claude skill for writing and revising medical and biomedical manuscripts of any type (original research, systematic review, meta-analysis, narrative or evidence-based clinical review, case report, brief report).
 
@@ -12,7 +12,7 @@ Three install formats are available. Pick the one that matches your environment.
 | Format | Where it runs |
 | --- | --- |
 | **Claude.ai upload** | Claude.ai web or desktop app (Pro, Max, Team, Enterprise) |
-| **Local skill** | Claude Code or Cowork — personal Mac/Linux/Windows |
+| **Local skill** | Claude Code or Cowork: personal Mac/Linux/Windows |
 | **Plugin** | Claude Code plugin for team or marketplace distribution |
 
 All three contain the same skill content; only the packaging differs. The zips are not stored in git (`.gitignore` excludes `dist/*.zip`): build them with `bash dist/build-zips.sh`, which writes them to [`dist/`](dist/) and takes the version from `CHANGELOG.md`, or download them from the repository's GitHub Releases when published there.
@@ -27,9 +27,9 @@ All three contain the same skill content; only the packaging differs. The zips a
 
 To invoke it, ask Claude: *"Use the medical manuscript writing skill to draft the Methods section of my RCT."*
 
-To update, upload the same zip again — Claude.ai replaces the existing entry.
+To update, upload the same zip again: Claude.ai replaces the existing entry.
 
-### 2. Claude Code — local skills folder
+### 2. Claude Code: local skills folder
 
 ```bash
 curl -L https://github.com/alexandreamato/medical-manuscript-writing/archive/refs/heads/main.zip -o mmw.zip
@@ -38,7 +38,7 @@ mkdir -p ~/.claude/skills
 mv medical-manuscript-writing-main ~/.claude/skills/medical-manuscript-writing
 ```
 
-Restart Claude Code (or open a new session), then run `/skills` — the skill should appear in the list.
+Restart Claude Code (or open a new session), then run `/skills`: the skill should appear in the list.
 
 To update later:
 
@@ -70,7 +70,7 @@ A correctly loaded skill returns the five Section Guide groups from `SKILL.md` (
 
 ## What this skill does
 
-The skill guides authors through every stage of manuscript writing — from drafting through critical self-reading, formal pre-submission review, and responding to reviewers — aligned with the relevant reporting standard for the study type (CONSORT, STROBE, PRISMA, STARD, CARE, TRIPOD, ARRIVE, SPIRIT).
+The skill guides authors through every stage of manuscript writing (from drafting through critical self-reading, formal pre-submission review, and responding to reviewers) aligned with the relevant reporting standard for the study type (CONSORT, STROBE, PRISMA, STARD, CARE, TRIPOD, ARRIVE, SPIRIT).
 
 Entry point: [`SKILL.md`](SKILL.md). All section guides are in [`references/`](references/).
 
@@ -78,15 +78,15 @@ Entry point: [`SKILL.md`](SKILL.md). All section guides are in [`references/`](r
 
 Browser-based diagram generators are integrated as the preferred options for the participant flow diagrams:
 
-- **CONSORT Flow Diagram Generator** — https://enciclopedia.med.br/consort2010 (parallel-2/3, crossover, cluster, factorial; same box structure as the CONSORT 2025 diagram, relabel follow-up/analysis boxes "for primary outcome")
-- **PRISMA 2020 Flow Diagram Generator** — https://enciclopedia.med.br/prisma2020 (new and updated reviews; English and Portuguese)
-- **STROBE Flow Diagram Generator** — https://enciclopedia.med.br/strobe (cohort, case-control, cross-sectional; count-consistency check; JSON save/load)
+- **CONSORT Flow Diagram Generator**: https://enciclopedia.med.br/consort2010 (parallel-2/3, crossover, cluster, factorial; same box structure as the CONSORT 2025 diagram, relabel follow-up/analysis boxes "for primary outcome")
+- **PRISMA 2020 Flow Diagram Generator**: https://enciclopedia.med.br/prisma2020 (new and updated reviews; English and Portuguese)
+- **STROBE Flow Diagram Generator**: https://enciclopedia.med.br/strobe (cohort, case-control, cross-sectional; count-consistency check; JSON save/load)
 
 All released under CC BY 4.0.
 
 ## Reference files
 
-The skill comprises 29 reference files organized in five thematic groups (Section guides; Article types; Cross-cutting standards; Form, format, and presentation; Writing quality and process). See `SKILL.md` for the full map and the Quick Start by Scenario.
+The skill comprises 34 reference files organized in five thematic groups (Section guides; Article types; Cross-cutting standards; Form, format, and presentation; Writing quality and process). See `SKILL.md` for the full map and the Quick Start by Scenario.
 
 ## Manuscript starter templates
 
@@ -107,16 +107,16 @@ Each template contains the standard section structure, placeholder text, and inl
 
 ## Quick reference files
 
-- [`references/glossary.md`](references/glossary.md) — ~90 statistical, methodological, and reporting terms with short definitions.
-- [`references/common-mistakes.md`](references/common-mistakes.md) — single-page cheatsheet of desk-rejection patterns, why they fail, and how to fix them. Use as a 5-minute pre-submission audit.
-- [`references/research-apis.md`](references/research-apis.md) — ten open APIs for programmatic literature work (Crossref, OpenAlex, Semantic Scholar, DataCite, NCBI E-utilities, Europe PMC, CORE, arXiv, ORCID, OpenCitations) with authentication, rate-limit guidance, and "best API by goal" mapping.
-- [`references/citation-styles.md`](references/citation-styles.md) — Vancouver (default), comparison table, reference-manager workflow, hard rules. Paired with [`references/citation-styles-detail.md`](references/citation-styles-detail.md) for AMA, APA 7, Harvard, Chicago 18, and CSE detail.
-- [`references/paragraph-flow.md`](references/paragraph-flow.md) — paragraph-, section-, and manuscript-level flow rules; reverse-outlining workflow; transitions by function; symptom → fix table.
+- [`references/glossary.md`](references/glossary.md): ~90 statistical, methodological, and reporting terms with short definitions.
+- [`references/common-mistakes.md`](references/common-mistakes.md): single-page cheatsheet of desk-rejection patterns, why they fail, and how to fix them. Use as a 5-minute pre-submission audit.
+- [`references/research-apis.md`](references/research-apis.md): ten open APIs for programmatic literature work (Crossref, OpenAlex, Semantic Scholar, DataCite, NCBI E-utilities, Europe PMC, CORE, arXiv, ORCID, OpenCitations) with authentication, rate-limit guidance, and "best API by goal" mapping.
+- [`references/citation-styles.md`](references/citation-styles.md): Vancouver (default), comparison table, reference-manager workflow, hard rules. Paired with [`references/citation-styles-detail.md`](references/citation-styles-detail.md) for AMA, APA 7, Harvard, Chicago 18, and CSE detail.
+- [`references/paragraph-flow.md`](references/paragraph-flow.md): paragraph-, section-, and manuscript-level flow rules; reverse-outlining workflow; transitions by function; symptom → fix table.
 
 ## Versioning and license
 
-- [`CHANGELOG.md`](CHANGELOG.md) — chronological list of changes by version.
-- [`LICENSE`](LICENSE) — Creative Commons Attribution 4.0 International (CC BY 4.0).
+- [`CHANGELOG.md`](CHANGELOG.md): chronological list of changes by version.
+- [`LICENSE`](LICENSE): Creative Commons Attribution 4.0 International (CC BY 4.0).
 
 ---
 
@@ -151,7 +151,7 @@ The skill synthesizes guidance from peer-reviewed methodological papers, officia
 
 - Falci SGM, Marques LS. CONSORT: when and how to use it. *Dental Press J Orthod* 2015;20(3):13-15. doi:10.1590/2176-9451.20.3.013-015.ebo
 
-## How-to-write guides — overall manuscript
+## How-to-write guides: overall manuscript
 
 - Mateu Arrom L, Huguet J, Errando C, Breda A, Palou J. How to write an original article. *Actas Urol Esp* 2018;42(9):545-550. doi:10.1016/j.acuroe.2018.02.012
 - Alexandrov AV. How to write a research paper. *Cerebrovasc Dis* 2004;18(2):135-138. doi:10.1159/000079266
@@ -184,7 +184,7 @@ The skill synthesizes guidance from peer-reviewed methodological papers, officia
 - Cohen H. How to write a patient case report. *Am J Health Syst Pharm* 2006;63(19):1888-1892.
 - CARE Statement. CARE Checklist of information to include when writing a case report (English, 2013). https://www.care-statement.org
 
-## Reviews — narrative and clinical update
+## Reviews: narrative and clinical update
 
 - Van Wee B, Banister D. How to write a literature review paper? *Transp Rev* 2016;36(2):278-288. doi:10.1080/01441647.2015.1065456
 - Siwek J, Gourlay ML, Slawson DC, Shaughnessy AF. How to write an evidence-based clinical review article. *Am Fam Physician* 2002;65(2):251-258.
@@ -228,7 +228,7 @@ The skill synthesizes guidance from peer-reviewed methodological papers, officia
 - *Publication Manual of the American Psychological Association*. 7th ed. Washington, DC: American Psychological Association; 2020.
 - *The Chicago Manual of Style*. 18th ed. Chicago: University of Chicago Press; 2024.
 - IEEE Editorial Style Manual. https://ieeeauthorcenter.ieee.org
-- Curtin University Library — UniSkills referencing printable guides (Vancouver, AMA, APA 7th, IEEE, Chicago 18 Author-Date). https://uniskills.library.curtin.edu.au
+- Curtin University Library: UniSkills referencing printable guides (Vancouver, AMA, APA 7th, IEEE, Chicago 18 Author-Date). https://uniskills.library.curtin.edu.au
 
 ## Figures, tables, and diagrams
 
@@ -253,7 +253,7 @@ The skill synthesizes guidance from peer-reviewed methodological papers, officia
 - International Committee of Medical Journal Editors (ICMJE). Defining the Role of Authors and Contributors. https://www.icmje.org/recommendations/browse/roles-and-responsibilities/defining-the-role-of-authors-and-contributors.html
 - Committee on Publication Ethics (COPE). Core Practices. https://publicationethics.org/core-practices
 - Naranjo CA, Busto U, Sellers EM, Sandor P, Ruiz I, Roberts EA, et al. A method for estimating the probability of adverse drug reactions. *Clin Pharmacol Ther* 1981;30(2):239-245.
-- Declaration of Helsinki — World Medical Association Declaration of Helsinki: Ethical Principles for Medical Research Involving Human Subjects. https://www.wma.net/policies-post/wma-declaration-of-helsinki-ethical-principles-for-medical-research-involving-human-subjects/
+- Declaration of Helsinki: World Medical Association Declaration of Helsinki: Ethical Principles for Medical Research Involving Human Subjects. https://www.wma.net/policies-post/wma-declaration-of-helsinki-ethical-principles-for-medical-research-involving-human-subjects/
 
 ## PubMed and literature searching
 
@@ -268,14 +268,14 @@ The skill synthesizes guidance from peer-reviewed methodological papers, officia
 - ClinicalTrials.gov (US). https://clinicaltrials.gov
 - ISRCTN registry. https://www.isrctn.com
 - WHO International Clinical Trials Registry Platform (ICTRP). https://www.who.int/clinical-trials-registry-platform
-- PROSPERO — International Prospective Register of Systematic Reviews. https://www.crd.york.ac.uk/prospero/
+- PROSPERO: International Prospective Register of Systematic Reviews. https://www.crd.york.ac.uk/prospero/
 
 ## Tools and workflow
 
 - Greenhalgh T (cited above) for the read-as-reader framework.
-- BibTeX/BibLaTeX, Zotero, EndNote, Mendeley, Paperpile — reference managers referenced in `references/citation-styles.md`.
+- BibTeX/BibLaTeX, Zotero, EndNote, Mendeley, Paperpile: reference managers referenced in `references/citation-styles.md`.
 - Crossref Citation Style Language (CSL) Style Repository. https://www.zotero.org/styles
-- DOI International Foundation — DOI Handbook. https://www.doi.org/the-identifier/resources/handbook/
+- DOI International Foundation: DOI Handbook. https://www.doi.org/the-identifier/resources/handbook/
 
 ---
 
@@ -283,7 +283,7 @@ The skill synthesizes guidance from peer-reviewed methodological papers, officia
 
 If you use this skill in producing a manuscript, please consider citing it:
 
-> Amato ACM. Medical Manuscript Writing — Claude Skill [Internet]. 2026. Available from: [repository URL]
+> Amato ACM. Medical Manuscript Writing: Claude Skill [Internet]. 2026. Available from: [repository URL]
 
 ## Updates and contributions
 

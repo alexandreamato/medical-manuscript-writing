@@ -6,7 +6,7 @@ Close the paper with calibrated take-home messages, an honest account of strengt
 
 ## Write the Discussion for the Reader, Not for Yourself
 
-The purpose of the Discussion is to **explain the meaning of the results to the reader**. It is not a forum to demonstrate the depth of your knowledge of the field. The reader should finish the Discussion thinking, "That makes perfect sense — why hadn't I thought of that?". If the reader has to work through the Discussion twice to understand the message, the result will be overlooked, disregarded, and forgotten.
+The purpose of the Discussion is to **explain the meaning of the results to the reader**. It is not a forum to demonstrate the depth of your knowledge of the field. The reader should finish the Discussion thinking, "That makes perfect sense: why hadn't I thought of that?". If the reader has to work through the Discussion twice to understand the message, the result will be overlooked, disregarded, and forgotten.
 
 You should be thinking about the Discussion from the moment the study is conceived, not after the results table is finalized. Three questions to keep in mind throughout the project: Why is the study important? How does it relate to previous studies? What are the limitations?
 
@@ -27,7 +27,7 @@ The middle of the Discussion is where readers lose interest. The strongest organ
 
 For each intermediate paragraph:
 
-1. **Open with an indisputable topic sentence** — answer "What did we find?" plainly.
+1. **Open with an indisputable topic sentence**: answer "What did we find?" plainly.
 2. **State the result** in the context of one specific question or hypothesis.
 3. **Compare with the literature**: present similar findings, then divergent findings, with the methodological reason for divergence.
 4. **Address three diagnostic questions** in the same paragraph (Welch's prompts):
@@ -38,10 +38,10 @@ For each intermediate paragraph:
 
 Avoid:
 
-1. The need to mention every reference — you are not writing a review.
+1. The need to mention every reference: you are not writing a review.
 2. Repeating numerical values from the Results section unless essential.
 3. Over-praising or over-criticizing other studies; both undermine credibility.
-4. "Word salads" — long sentences with weak logical connection. Reviewers reject papers whose Discussion seems too difficult to repair.
+4. "Word salads": long sentences with weak logical connection. Reviewers reject papers whose Discussion seems too difficult to repair.
 
 ## Persuasive-Argument Tactics (Makar et al. 2018)
 
@@ -49,7 +49,7 @@ Every interpretation in the Discussion should anticipate and absorb counterargum
 
 1. **Present alternative explanations** for each result, then justify why each alternative is unlikely. This builds the reader's confidence in your interpretation.
 2. **Discuss non-significant (p > 0.05) and unanticipated results explicitly**, including their possible ramifications for the field. Hiding null findings is a common rejection trigger.
-3. **Show how your findings resolve discrepancies among prior studies** — this is the single most effective way to convince readers that the study advances the field.
+3. **Show how your findings resolve discrepancies among prior studies**: this is the single most effective way to convince readers that the study advances the field.
 4. **Real-world relevance:** explicitly link the findings to clinical decisions, methodological progress, or economic concerns (cost, efficiency, quality of care).
 5. **Use subheaders** when discussing multiple hypotheses or divergent concepts.
 6. **Discuss results in the same order as in the Results section** so the reader can navigate.
@@ -99,7 +99,7 @@ These are the most common Discussion-section failures. Reviewers spot them on th
 9. **The bully pulpit.** Do not criticize other studies disrespectfully, do not insult other investigators, and never preach to the reader.
 10. **Conclusions not supported by the data.** Hypothesis, methods, data, and conclusions must form a tight package. If the data do not support the conclusion, change the conclusion, not the data.
 
-## Statement of Principal Findings — Template
+## Statement of Principal Findings: Template
 
 1. `In this [design] of [N] participants with [condition], [intervention/exposure] [verb] [outcome] compared with [comparator]: [effect estimate, 95% CI; p value if appropriate].`
 2. `Secondary outcomes [were consistent / showed mixed effects], [briefly summarize].`
@@ -107,23 +107,23 @@ These are the most common Discussion-section failures. Reviewers spot them on th
 
 Use causal language calibrated to the design. RCT: "reduced", "increased", "did not reduce". Observational: "was associated with", "was not associated with".
 
-## Comparison with Prior Evidence — Template
+## Comparison with Prior Evidence: Template
 
 1. `Our findings [are consistent with / extend / contradict] those of [study or systematic review].`
 2. `[If consistent]: by [N times the size / in a different population / with longer follow-up], we strengthen the evidence base for ...`
 3. `[If discordant]: the difference may be explained by [methodological reason: outcome definition, follow-up, population, era of treatment, statistical model].`
 
-## Limitations — Guidance
+## Limitations: Guidance
 
 Prefer limitations tied to the study scope, design, and inference:
 
-1. **Design limitations** — observational design unable to establish causality; single-center recruitment; nonrandomized comparator; unblinded outcome assessor.
-2. **Population / generalizability** — narrow eligibility, single ethnic background, single healthcare system, single era of treatment.
-3. **Measurement limitations** — surrogate outcome, self-reported exposure, misclassification potential.
-4. **Statistical limitations** — sample size, multiple testing, residual confounding (consider an E-value), missing data assumption.
-5. **External validity** — translation to community practice, low-resource settings, or paediatric/elderly populations.
+1. **Design limitations**: observational design unable to establish causality; single-center recruitment; nonrandomized comparator; unblinded outcome assessor.
+2. **Population / generalizability**: narrow eligibility, single ethnic background, single healthcare system, single era of treatment.
+3. **Measurement limitations**: surrogate outcome, self-reported exposure, misclassification potential.
+4. **Statistical limitations**: sample size, multiple testing, residual confounding (consider an E-value), missing data assumption.
+5. **External validity**: translation to community practice, low-resource settings, or paediatric/elderly populations.
 
-Avoid framing limitations only as "more research is needed" — be specific about what kind of study would strengthen which inference.
+Avoid framing limitations only as "more research is needed"; be specific about what kind of study would strengthen which inference.
 
 ### Distinguish Limitation Types
 
@@ -133,14 +133,14 @@ Avoid framing limitations only as "more research is needed" — be specific abou
 
 Do not bury fixable defects in the limitations paragraph; if a flaw is fixable, fix it before submission.
 
-## Implications — Guidance
+## Implications: Guidance
 
 State two kinds of implications, separately:
 
 1. **For practice or policy.** Only if the design supports it. RCT with definitive primary outcome → "These results support [practice change] in [population]." Observational study → "These results suggest that [hypothesis] warrants confirmation in a randomized trial."
 2. **For future research.** Concrete: which question, which population, which design, which outcome.
 
-## Conclusion — Template
+## Conclusion: Template
 
 1. `Among [population], [intervention/exposure] [verb] [outcome] compared with [comparator] over [duration].`
 2. `[Optional: scope of generalizability].`
@@ -154,6 +154,7 @@ Match the Abstract conclusion sentence-for-sentence. Numbers must agree.
 2. **Adversarial pre-submission review** (the Discussion is the most common site of overinterpretation flagged by reviewers): `references/paper-review.md`.
 3. **Causal language by design** (when to write `was associated with` vs. `reduced`): `references/study-types.md`.
 4. **Statistical language** (statistical vs. clinical significance, effect sizes): `references/statistical-reporting.md`.
+5. **Example bank** (worked Discussion paragraphs, from principal findings to conclusion, and anti-patterns): `references/examples/discussion-examples.md`.
 
 ## Quality Checklist
 

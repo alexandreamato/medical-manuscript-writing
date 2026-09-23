@@ -2,7 +2,7 @@
 
 This file complements the section guides. It covers the parts of the workflow that are not section-specific: when to write what, in what order, and what to verify before submission. The tips are drawn from Mateu Arrom et al. (Actas Urol Esp 2018) "How to write an original article", McCarthy & Reilly (Fam Med 2000) for case reports, and the current ICMJE Recommendations (Recommendations for the Conduct, Reporting, Editing, and Publication of Scholarly Work in Medical Journals).
 
-## 1. Before Writing — Four Self-Criticism Questions
+## 1. Before Writing: Four Self-Criticism Questions
 
 Before drafting any paper, answer these four honestly:
 
@@ -30,7 +30,7 @@ Choose the journal before drafting:
 
 1. List candidate journals from the references most relevant to your topic.
 2. Check scope, indexing (PubMed, Scopus, Web of Science), peer-review system, time to first decision, and citation rate.
-3. Do not chase impact factor alone — mismatched scope is a common rejection cause.
+3. Do not chase impact factor alone: mismatched scope is a common rejection cause.
 4. Read the journal's Instructions to Authors carefully. Format the manuscript to those rules from the start; reviewers do not want to be reformatted.
 
 ## 3. Recommended Drafting Order
@@ -49,7 +49,7 @@ Most researchers write in submission order (Introduction → Methods → Results
 
 Most original-research articles follow the standard IMRaD structure (Introduction, Methods, Results, Discussion). Two common variations:
 
-1. **Combined Results and Discussion.** Some journals interweave the two — each result is presented and immediately interpreted. Useful for complex multi-experiment studies where carrying findings from a separate Results section to a separate Discussion section becomes hard to follow. Verify whether the target journal allows this format before drafting.
+1. **Combined Results and Discussion.** Some journals interweave the two: each result is presented and immediately interpreted. Useful for complex multi-experiment studies where carrying findings from a separate Results section to a separate Discussion section becomes hard to follow. Verify whether the target journal allows this format before drafting.
 2. **IaMRDC (Mondal et al. 2019).** Adds explicit `aim` after Introduction and a separate `Conclusion` after Discussion. Encourages authors to state the aim distinctly from the Introduction and the conclusion distinctly from the Discussion. Useful as an authoring discipline even when the journal expects standard IMRaD headings.
 3. **ILMRaD.** Adds a separate **L**iterature Review section between Introduction and Methods. More common in theses and dissertations than in journal articles.
 
@@ -83,27 +83,25 @@ If a paragraph answers a question that does not match its section, move it.
 
 Decision rule: if a sentence is needed before the data are seen, it belongs to Introduction or Methods. If a sentence depends on the data, it belongs to Results or Discussion.
 
-## 6. Writing Quality — Practical Tips
+## 6. Writing Quality: Practical Tips
 
 1. **Read the manuscript aloud** at least once before submission. Non-fluent prose becomes audible.
 2. **Have a non-specialist read it.** A colleague outside the topic should understand the paper after one read; if they cannot, the writing is too dense.
-3. **Internal consistency check.** Every number in the abstract appears in Results; every analysis in Results is described in Methods; every claim in Discussion is supported by Results.
+3. **Internal consistency check.** Run `references/paper-review.md` (Cross-Section Consistency Checks). Every number in the abstract appears in Results; every analysis in Results is described in Methods; every claim in Discussion is supported by Results.
 4. **Do not diminish prior authors' work.** Discuss limitations of prior studies methodologically, not rhetorically.
 5. **Do not overstate.** A small effect with a wide CI is a small effect with a wide CI; do not call it "promising" without justification.
 6. **English-language polish.** If submitting in English to a journal that expects native-quality prose, consult a fluent colleague or a professional editing service. Reviewers conflate poor English with poor science.
 7. **Do not draw conclusions that the design cannot support.** If the study did not measure cost, do not discuss cost-effectiveness. If the design is observational, do not say "caused".
 8. **Limit references to those that contribute.** Prefer original articles over reviews. Prefer recent references (often within 5 years) where appropriate; classics are fine when classic.
 9. **No grammatical errors.** Run a spell-check and a grammar check; have a second reader specifically for grammar.
-10. **No em-dashes in body sentences.** See `references/manuscript-conventions.md`.
-11. **Cite each table and figure in the text in order of appearance.** Renumber after every revision.
-12. **Take reviewer comments seriously.** Reviewers exist to improve the paper. Respond point-by-point with evidence; do not dismiss.
+10. **Take reviewer comments seriously.** Reviewers exist to improve the paper. Respond point-by-point with evidence; do not dismiss.
 
 ## 7. Two Mottos to Keep in Mind
 
 1. **"The title sells the paper."** Spend disproportionate time on the title. Reviewers, search engines, and clinicians all triage by title. A descriptive, accurate, succinct title (often a `title: subtitle` form) outperforms a clever or vague one.
 2. **"Make your point with data, not arguments."** Do not write "the intervention had a strong effect"; write "mortality was 12% vs. 18% (RR 0.67; 95% CI, 0.53 to 0.84)". Numbers are persuasive; adjectives are not.
 
-## 8. Do Not Sit on Drafts — the "Ten Other Groups" Pressure
+## 8. Do Not Sit on Drafts: the "Ten Other Groups" Pressure
 
 By the time you conceived the project, ten other groups were already working on it; five may have already published it. Iterate quickly:
 
@@ -114,7 +112,7 @@ By the time you conceived the project, ten other groups were already working on 
 
 ## 9. Pure Replications Are Harder to Publish
 
-Confirmatory studies — replication of a known finding without methodological strengthening, a new population, or a new analytic contribution — face a higher publication bar. If your study is largely confirmatory, identify what is genuinely additive (larger sample, longer follow-up, different population, prespecified subgroup, new analytic method) and frame the contribution around that addition.
+Confirmatory studies (replication of a known finding without methodological strengthening, a new population, or a new analytic contribution) face a higher publication bar. If your study is largely confirmatory, identify what is genuinely additive (larger sample, longer follow-up, different population, prespecified subgroup, new analytic method) and frame the contribution around that addition.
 
 ## 9b. Pre-Peer Review (Şanlı et al. 2013)
 
@@ -137,9 +135,9 @@ Use the "incubation" period (waiting for feedback) to recheck the literature for
 
 After completing the manuscript, review the whole thing **three times**, separated by time.
 
-1. **First pass — logic and organization.** Does each section answer its assigned question? Does the argument hold from Introduction through Conclusion?
-2. **Second pass — syntax, grammar, terminology consistency.**
-3. **Third pass — after 1 to 2 weeks of "cooling".** Reading the manuscript with fresh eyes catches errors and unclear passages that were invisible the day after writing.
+1. **First pass: logic and organization.** Does each section answer its assigned question? Does the argument hold from Introduction through Conclusion?
+2. **Second pass: syntax, grammar, terminology consistency.**
+3. **Third pass: after 1 to 2 weeks of "cooling".** Reading the manuscript with fresh eyes catches errors and unclear passages that were invisible the day after writing.
 
 For a deeper structured self-reading from three reader perspectives (skeptical methodologist, busy clinician, non-specialist), see `references/read-as-reader.md`. That technique sits between the three-pass review here and the formal pre-submission checklist in `references/paper-review.md`.
 
@@ -154,7 +152,7 @@ Two viable approaches:
 
 The daily strategy is generally preferred unless a deadline forces a burst. **Begin writing before the study is finalized**: drafting Introduction and Methods during data collection helps catch missing analyses while they are still fixable.
 
-## 9e. The Most Common Manuscript-Level Mistake — Loss of Focus
+## 9e. The Most Common Manuscript-Level Mistake: Loss of Focus
 
 Şanlı et al. identify "loss of the focus of the study" as the dominant manuscript-level problem. Symptoms:
 
@@ -181,27 +179,25 @@ Aim for the lower end. Reviewers reward concision.
 
 Run all three before clicking submit.
 
-### Layer 1 — Content
+### Layer 1: Content
 
 1. Are all four self-criticism questions answered "yes"?
 2. Does each IMRaD section answer the right question?
 3. Are limitations stated honestly?
 4. Are conclusions calibrated to the design?
 
-### Layer 2 — Structure and reporting
+### Layer 2: Structure and reporting
 
-1. Is the relevant reporting checklist (CONSORT/STROBE/PRISMA/STARD/CARE/TRIPOD) complete?
+1. Is the relevant reporting checklist (CONSORT/STROBE/PRISMA/STARD/CARE/TRIPOD+AI) complete?
 2. Is the participant flow diagram present?
-3. Is each table and figure cited in the text in order of appearance?
-4. Are the numbers in the abstract identical to the numbers in the Results?
+3. Do the cross-section consistency checks pass (numbers, terminology, citation and figure order)? `references/paper-review.md` (Cross-Section Consistency Checks).
 
-### Layer 3 — Mechanics
+### Layer 3: Mechanics
 
-1. Are all references real, verifiable, and in citation order?
+1. Are all references verified (`references/paper-review.md`, four categories)?
 2. Are author affiliations, ORCIDs, and corresponding-author details correct?
-3. Is the body free of em-dashes?
-4. Is the file in `.docx` per most medical journals' requirements?
-5. Is the cover letter prepared (one page: brief summary, why the paper fits the journal, statement of original work and no concurrent submission)?
+3. Are dashes, ranges and file format as the journal requires (`references/manuscript-conventions.md`)?
+4. Is the cover letter prepared (`references/cover-letter.md`)?
 
 ## 12. After Acceptance
 
@@ -210,7 +206,7 @@ Run all three before clicking submit.
 3. Verify that figures retain resolution and that table alignment did not break in typesetting.
 4. Sign off only after the proof matches the accepted manuscript.
 
-## 13. After Publication — Track and Respond
+## 13. After Publication: Track and Respond
 
 1. Track citations and post-publication discussion (PubPeer, Letters to the Editor).
 2. Respond to substantive Letters to the Editor with a calibrated reply.

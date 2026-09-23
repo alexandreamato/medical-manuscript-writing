@@ -4,6 +4,8 @@
 
 Use a reviewer-style checklist to detect rejection risks early and revise the manuscript before submission. Read the paper twice as a methodologist and once as a busy clinician.
 
+This file is the skill's **single full pre-submission checklist**. Section guides keep only the checks specific to their section and point here for everything that cuts across sections; `references/common-mistakes.md` is the five-minute version of the same ground.
+
 ## Core Principle
 
 Pursue calibrated honesty: assume reviewers will probe every claim, every number, every citation, and every choice. Reviewers reward visible self-criticism; they punish overstated claims and missing reporting items.
@@ -17,11 +19,21 @@ Pursue calibrated honesty: assume reviewers will probe every claim, every number
 
    If a claim lacks its kind of evidence, source it, weaken it, or remove it.
 2. **Every reference is a real publication.** Verify each citation against PubMed / DOI / journal record before submission. Fabricated references are grounds for rejection and retraction.
-3. **Every table and figure is cited in the text in order of appearance.** Renumber after every revision pass.
+3. **The manuscript agrees with itself.** See Cross-Section Consistency Checks below.
 4. **Causal language matches the design.** RCTs may use causal verbs; observational studies use associative verbs.
-5. **The numbers in the Abstract match the Results exactly.** Point estimates, 95% CIs, p values, percentages.
-6. **Reporting checklist is satisfied.** CONSORT for RCTs, STROBE for observational, PRISMA for systematic reviews, STARD for diagnostic accuracy. Submit the completed checklist with the manuscript.
-7. **Ethics, registration, and conflicts of interest are disclosed.**
+5. **Reporting checklist is satisfied** for the design (`references/reporting-standards.md`) and submitted with the manuscript.
+6. **Ethics, registration, and conflicts of interest are disclosed** as the design and the journal require (`references/ethics-and-integrity.md`).
+
+## Cross-Section Consistency Checks
+
+The canonical list; other files link here instead of repeating it.
+
+1. **Numbers are identical everywhere they appear**: Abstract (both abstracts, when the journal wants two languages), Results, tables, figures, and the participant flow diagram. Point estimates, 95% CIs, P values, percentages, denominators.
+2. **Every analysis in the Results is described in the Methods**, and every claim in the Discussion has the evidence its type requires (`SKILL.md`, Integrity Rule 2).
+3. **Terminology and variable names do not change** between sections (intervention name, exposure and outcome definitions, analysis population).
+4. **Citation and figure order**: references numbered by first appearance in numeric styles; tables and figures cited in numerical order. The rules: `references/manuscript-conventions.md` §1.2 and §2.1.
+5. **Punctuation and number style are consistent**: dash and range style (`references/manuscript-conventions.md` §3.1), P-value and decimal format (`references/statistical-reporting.md`).
+6. **Every reference is verified** and classified if it is not (Reference problems: four categories, below).
 
 ## What Usually Gets a Medical Paper Accepted
 
@@ -36,10 +48,10 @@ Pursue calibrated honesty: assume reviewers will probe every claim, every number
 Survey research on the criteria reviewers use to **accept** manuscripts converges on five top factors:
 
 1. The **importance, timeliness, relevance, and prevalence** of the problem addressed.
-2. The **quality of writing** — well-written, clear, straightforward, easy to follow, logical.
-3. The **study design** — appropriate, rigorous, comprehensive.
-4. The **literature review** — thoughtful, focused, up-to-date.
-5. The **sample size** — sufficiently large for the question.
+2. The **quality of writing**: well-written, clear, straightforward, easy to follow, logical.
+3. The **study design**: appropriate, rigorous, comprehensive.
+4. The **literature review**: thoughtful, focused, up-to-date.
+5. The **sample size**: sufficiently large for the question.
 
 Build each of these into the manuscript explicitly: a clear problem statement in the Introduction, clean prose, a rigorous Methods, a focused literature framing, and an honest sample-size justification.
 
@@ -51,11 +63,11 @@ Build each of these into the manuscript explicitly: a clear problem statement in
 | 2. Unclear writing / not reproducible | 2.1 Methods cannot be replicated from the manuscript. 2.2 Statistical model is described in vague terms. 2.3 Outcome definition or ascertainment is missing. 2.4 Inconsistent terminology between sections. |
 | 3. Methodological weakness | 3.1 Inappropriate design for the question. 3.2 Confounding not addressed in observational study. 3.3 Inadequate blinding or allocation concealment in trial. 3.4 Surrogate outcome without justification. 3.5 Underpowered study. 3.6 Multiplicity not handled. 3.7 Missing-data assumption unjustified. |
 | 4. Incomplete reporting | 4.1 Missing flow diagram. 4.2 Missing baseline characteristics. 4.3 Sensitivity analyses missing. 4.4 Adverse events incompletely reported. 4.5 Reporting checklist not satisfied. |
-| 5. Safety / ethics / integrity issue | 5.1 No IRB approval reported. 5.2 No registration of trial. 5.3 Conflicts of interest not declared. 5.4 Data sharing statement missing. 5.5 Authorship does not meet ICMJE criteria. 5.6 Fabricated, duplicated, or unverifiable references. 5.7 Image or data manipulation suspected. |
+| 5. Safety / ethics / integrity issue | 5.1 No IRB approval reported. 5.2 No registration of trial. 5.3 Conflicts of interest not declared. 5.4 Data sharing statement missing. 5.5 Authorship does not meet ICMJE criteria. 5.6 Fabricated or duplicated references, or unverified ones left unresolved (four categories, below). 5.7 Image or data manipulation suspected. |
 
 ## End-of-Paper Self-Review Question List
 
-Append this checklist to the working draft and answer each item before submission.
+Answer each item before submission in a separate audit document (never appended to the text meant for the journal; `SKILL.md`, Stopping Rule).
 
 ### 1. Clinical relevance and contribution
 
@@ -86,12 +98,11 @@ Append this checklist to the working draft and answer each item before submissio
 
 ### 4. Reporting completeness
 
-1. Is the relevant reporting checklist (CONSORT/STROBE/PRISMA/STARD/CARE/TRIPOD/ARRIVE) satisfied?
+1. Is the relevant reporting checklist (CONSORT/STROBE/PRISMA/STARD/CARE/TRIPOD+AI/ARRIVE) satisfied?
 2. Is there a participant flow diagram?
 3. Are baseline characteristics presented with appropriate balance metric (no p values for randomized trials)?
 4. Are primary, secondary, subgroup, sensitivity, and adverse-event analyses all reported?
-5. Are all tables and figures cited in the text in order of appearance?
-6. Are references in the order of first appearance (or alphabetical, per journal style), and is each a real, verifiable source?
+5. Do the Cross-Section Consistency Checks pass?
 7. Is there a data and code availability statement?
 
 ### 5. Safety, ethics, and integrity
@@ -140,6 +151,17 @@ Top biomedical journals accept fewer than 25% of submitted manuscripts. Rejectio
 11. **Inappropriate journal choice.** Manuscript scope mismatched to the journal's audience or remit.
 12. **Confirmatory findings without added value.** Pure replications without new population, design strength, or analytic contribution face a higher bar.
 13. **Ethics or registration gaps.** No IRB, no trial registration, no data-sharing statement.
-14. **Fabricated or unverifiable references.** Treated as misconduct.
+14. **Reference problems.** Treat them in proportion to the evidence (see "Reference problems: four categories" below). Only apparent fabrication is a potential misconduct issue.
 
-When the manuscript is rejected, read the reviewers' comments carefully — they are advice, not enemies. Most papers reach the same fate at some point. Reviewers' criticism makes you a better scientific writer and a more critical scientist over the long run.
+### Reference problems: four categories
+
+A reference that could not be checked is not a fabricated reference. Classify before acting; the categories match the statuses of the build kit's `refs.py verify`.
+
+| Category | What it means | Action |
+| --- | --- | --- |
+| **Not verified** | The record could not be checked: source unreachable, no DOI or PMID, a book or report not indexed (`incomplete`, `unverifiable`, `stale`) | Check it against the source itself (publisher page, library catalogue, the document) and record how. Resolve before submission. Not a sign of wrongdoing. |
+| **Inconsistent** | The work exists, but the reference differs from its record: year, author, title, volume, pages (`mismatch`, `check`) | Correct the reference from the source record. Usually a transcription or reference-manager error. |
+| **Retracted** (or corrected, or under an expression of concern) | The work exists and has an update notice (`retracted`, `corrected`) | Remove it, or keep it only if the retraction itself is relevant, cite the retraction notice, and say so in the text. For a correction, check that the cited result survived it. |
+| **Apparent fabrication** | No record anywhere after a thorough search (PubMed, Crossref, the journal's own archive, Google Scholar), or details that match no real publication (a real journal with a nonexistent volume, a DOI belonging to another paper, an author list that never published together) | Remove it and tell the authors which statement it supported. This is the only category that raises a possible misconduct concern; it typically comes from a reference generated by an AI tool or copied from an unreliable source, and the statement it supported needs a real source or must be weakened. |
+
+When the manuscript is rejected, read the reviewers' comments carefully: they are advice, not enemies. Most papers reach the same fate at some point. Reviewers' criticism makes you a better scientific writer and a more critical scientist over the long run.

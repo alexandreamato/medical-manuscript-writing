@@ -1,4 +1,4 @@
-# Background and Prior Evidence — Writing Guide (Medical Research)
+# Background and Prior Evidence: Writing Guide (Medical Research)
 
 Place the present study against the most relevant prior evidence so that the novelty and the rationale for the present design are easy to verify.
 
@@ -19,7 +19,7 @@ This guide covers all three. The structural principles draw on Denney & Tewksbur
 5. End each theme with one sentence stating your study's distinction.
 6. End the section as a "closing argument": explicitly state the gap that the present study fills.
 
-## The Funnel — Broad to Narrow
+## The Funnel: Broad to Narrow
 
 A good literature framing is shaped like a funnel: it opens wide on the disease or clinical question, narrows through the most relevant prior evidence, and ends at the precise gap your study addresses.
 
@@ -54,14 +54,14 @@ Use 2 to 4 focused themes. Typical patterns:
 3. Mechanistic / biomarker evidence supporting the hypothesis.
 4. Auxiliary methodology your study builds on (target trial emulation, IPD meta-analysis, Mendelian randomization).
 
-## Paragraph Template — Theme by Theme
+## Paragraph Template: Theme by Theme
 
 1. **Topic sentence.** Define the scope of this theme and its relevance to the present question.
 2. **Representative evidence.** Summarize the key trial(s), cohort(s), or review in one to two sentences each. State design, population, primary outcome, and effect estimate. Include classic studies and the most recent advance.
 3. **Limitation tied to the present gap.** What does this evidence not address that the present study does?
-4. **Transition.** Connect smoothly to the next theme — these connecting sentences are the "welds" between themes; if they are weak, the section feels like an annotated bibliography.
+4. **Transition.** Connect smoothly to the next theme: these connecting sentences are the "welds" between themes; if they are weak, the section feels like an annotated bibliography.
 
-## Anti-Pattern — The Annotated Bibliography
+## Anti-Pattern: The Annotated Bibliography
 
 The most common literature-review failure is a string of paragraphs of the form:
 
@@ -88,26 +88,26 @@ However, all three lines share the limitation that ...
 4. `Whether [SPECIFIC QUESTION] in [POPULATION / SETTING] holds when tested with [DESIGN] therefore remains unanswered.`
 5. `In this study, we address this gap by [design choice].`
 
-## Outlining — A Living Document
+## Outlining: A Living Document
 
 Outline the section before drafting prose, but expect the outline to change. Many authors describe two writing phases:
 
 1. **Writing to Understand.** Early drafts in which you, the writer, work out what the literature actually says. The structure can be ugly; the goal is clarity for yourself.
 2. **Writing to Be Understood.** Revised drafts in which you reorganize for the reader. Each theme is now a clean paragraph; transitions are smooth; the funnel narrows from broad to specific.
 
-If the outline does not change at all during writing, the section is probably weak — you missed something during drafting.
+If the outline does not change at all during writing, the section is probably weak: you missed something during drafting.
 
-## Sources — What Counts
+## Sources: What Counts
 
 In order of evidentiary weight for medical research:
 
-1. **Peer-reviewed empirical articles** — RCTs, prospective cohorts, systematic reviews and meta-analyses with low risk of bias.
-2. **Authoritative guidelines** — WHO, NICE, USPSTF, specialty societies (e.g., ESC, ADA, ACC/AHA).
-3. **Pre-registered protocols and statistical analysis plans** — particularly for citing prespecified intent.
-4. **Authoritative books** — e.g., Hernán and Robins's *Causal Inference: What If* for methodological backing.
-5. **Government and intergovernmental publications** — CDC, FDA, EMA, WHO publications for surveillance and policy.
-6. **Conference abstracts and preprints** — cite with explicit caution, mark as preprint with DOI; reviewers expect peer-reviewed evidence wherever possible.
-7. **Newspapers and magazines** — almost never appropriate; only for narrowly defined contextual claims (e.g., timing of a public health emergency).
+1. **Peer-reviewed empirical articles**: RCTs, prospective cohorts, systematic reviews and meta-analyses with low risk of bias.
+2. **Authoritative guidelines**: WHO, NICE, USPSTF, specialty societies (e.g., ESC, ADA, ACC/AHA).
+3. **Pre-registered protocols and statistical analysis plans**: particularly for citing prespecified intent.
+4. **Authoritative books**, e.g., Hernán and Robins's *Causal Inference: What If* for methodological backing.
+5. **Government and intergovernmental publications**: CDC, FDA, EMA, WHO publications for surveillance and policy.
+6. **Conference abstracts and preprints**: cite with explicit caution, mark as preprint with DOI; reviewers expect peer-reviewed evidence wherever possible.
+7. **Newspapers and magazines**: almost never appropriate; only for narrowly defined contextual claims (e.g., timing of a public health emergency).
 
 Avoid:
 
@@ -126,15 +126,9 @@ The classic citations show that the authors are well versed in the field's found
 
 ## Citation Order Rules
 
-In Vancouver-style numeric citation systems (used by most medical journals), citations are numbered in the order they first appear in the text. After every revision pass:
+The rules for numbering and ordering citations are in `references/manuscript-conventions.md` §1.2 (and per style in `references/citation-styles.md`). What matters for a background section: after moving a paragraph between drafts, the citations move with it and are renumbered.
 
-1. Scan the manuscript top-to-bottom and verify that citation numbers appear in ascending order.
-2. After moving any sentence, re-check whether the affected citations need renumbering.
-3. The reference list must match the in-text numbering exactly.
-
-For author-date styles (Annals, some specialty journals), list references alphabetically by first author surname.
-
-## Closing the Section — The "Closing Argument"
+## Closing the Section: The "Closing Argument"
 
 The end of the background section is the bridge to the present study. It is the literature-review equivalent of a prosecutor's closing argument: a concise, calibrated summary of what the prior evidence collectively shows, what it leaves unresolved, and why the present study is needed.
 
@@ -171,7 +165,7 @@ When the paper is a systematic review or meta-analysis, the formal section to co
 
 ## Do and Don't
 
-1. **Do** compare design, population, follow-up, outcome ascertainment, and analysis — not just headline results.
+1. **Do** compare design, population, follow-up, outcome ascertainment, and analysis, not just headline results.
 2. **Do** acknowledge the strongest competing evidence; do not hide a recent trial that contradicts your hypothesis.
 3. **Do** explain why a contradicting study has a different result (population, dose, duration, era).
 4. **Do** mix classic and recent citations.
@@ -188,7 +182,5 @@ When the paper is a systematic review or meta-analysis, the formal section to co
 3. Is each theme clearly tied to the present clinical question?
 4. Is the gap stated in methodological / clinical terms (population, design, outcome) rather than rhetorical terms ("no study has done X")?
 5. Are citations real and traceable (PubMed ID, DOI, registry number)?
-6. Are citations in order of first appearance?
-7. Does the section close with an explicit "closing argument" stating the gap and bridging to the present study?
-8. Is the section free of em-dashes in body sentences? (Use commas, semicolons, or parentheses.)
-9. For systematic reviews: are PRISMA, registration, and risk-of-bias steps documented?
+6. Does the section close with an explicit "closing argument" stating the gap and bridging to the present study?
+7. For systematic reviews: are PRISMA, registration, and risk-of-bias steps documented?

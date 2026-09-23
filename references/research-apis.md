@@ -1,6 +1,6 @@
 # Open APIs for Scientific Research
 
-A curated list of free APIs (or APIs with a real free tier) useful for medical-manuscript work — discovering papers, verifying citations, building reference lists, finding open-access full text, and bibliometric analysis.
+A curated list of free APIs (or APIs with a real free tier) useful for medical-manuscript work: discovering papers, verifying citations, building reference lists, finding open-access full text, and bibliometric analysis.
 
 For PubMed-specific basics (Boolean operators, MeSH, field tags, Clinical Queries) see `references/pubmed-essentials.md`. This file is the *programmatic* counterpart: when you want to script literature work or build tools rather than search interactively.
 
@@ -35,7 +35,7 @@ A skill can call these from a Node.js script, an R session, or directly from Cla
 
 **URL:** https://api.crossref.org/swagger-ui/index.html
 **Documentation:** https://www.crossref.org/documentation/retrieve-metadata/rest-api/
-**Authentication:** None required. "Polite pool" available by including your email in the `User-Agent` header — gives you better service-level guarantees.
+**Authentication:** None required. "Polite pool" available by including your email in the `User-Agent` header: gives you better service-level guarantees.
 **Coverage:** ~140 million DOIs across publishers (articles, books, datasets, preprints).
 **Best for:**
 
@@ -43,7 +43,7 @@ A skill can call these from a Node.js script, an R session, or directly from Cla
 - Finding all references *cited by* a paper that registered them.
 - Looking up the journal title, ISSN, and publisher for a given DOI.
 
-**Example — resolve a DOI:**
+**Example: resolve a DOI:**
 
 ```bash
 curl "https://api.crossref.org/works/10.1056/NEJMoa1908655" \
@@ -65,7 +65,7 @@ Returns JSON with title, author list, journal, year, volume, issue, pages, refer
 - Mapping institutional output (useful for impact analysis sections).
 - Concept-level search with rich topic taxonomy.
 
-**Example — search for a topic:**
+**Example: search for a topic:**
 
 ```bash
 curl "https://api.openalex.org/works?search=heart+failure+preserved+ejection+fraction&per-page=10"
@@ -79,11 +79,11 @@ curl "https://api.openalex.org/works?search=heart+failure+preserved+ejection+fra
 **Coverage:** ~200 million papers with extracted abstracts, citations, and references.
 **Best for:**
 
-- **Paper-level recommendations** — given a paper, find papers most similar to it.
+- **Paper-level recommendations**: given a paper, find papers most similar to it.
 - Finding which papers cite a specific paper (forward citation tracing).
 - Building exploratory literature maps for a narrative review.
 
-**Example — get paper details:**
+**Example: get paper details:**
 
 ```bash
 curl "https://api.semanticscholar.org/graph/v1/paper/DOI:10.1056/NEJMoa1908655?fields=title,authors,year,references"
@@ -108,7 +108,7 @@ curl "https://api.semanticscholar.org/graph/v1/paper/DOI:10.1056/NEJMoa1908655?f
 **URL:** https://eutils.ncbi.nlm.nih.gov
 **Documentation:** https://www.ncbi.nlm.nih.gov/books/NBK25500/
 **Authentication:** Public; an optional API key raises rate limits from 3 to 10 requests/second.
-**Coverage:** PubMed, PMC, Gene, Protein, Nuccore, ClinVar, dbSNP, GenBank, MeSH, BioSample, GEO, and more — the full Entrez ecosystem.
+**Coverage:** PubMed, PMC, Gene, Protein, Nuccore, ClinVar, dbSNP, GenBank, MeSH, BioSample, GEO, and more: the full Entrez ecosystem.
 **Best for:**
 
 - **Bulk-fetching PubMed records** by PMID (the most common use case for a reference list).
@@ -118,13 +118,13 @@ curl "https://api.semanticscholar.org/graph/v1/paper/DOI:10.1056/NEJMoa1908655?f
 **Three core operations:**
 
 ```bash
-# esearch — get PMIDs matching a query
+# esearch: get PMIDs matching a query
 curl "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=dapagliflozin+heart+failure&retmode=json"
 
-# esummary — short metadata for a list of PMIDs
+# esummary: short metadata for a list of PMIDs
 curl "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id=31475799,33301246&retmode=json"
 
-# efetch — full record (XML/MEDLINE format with abstracts, MeSH terms)
+# efetch: full record (XML/MEDLINE format with abstracts, MeSH terms)
 curl "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=31475799&rettype=abstract&retmode=text"
 ```
 
@@ -139,10 +139,10 @@ For PubMed search basics (Boolean, MeSH, field tags) see `references/pubmed-esse
 **Best for:**
 
 - **Open-access full text** when the paper is OA but Crossref / NCBI only return metadata.
-- Text-mined entities (genes, diseases, chemicals) extracted from the full text — useful for automated literature analysis.
+- Text-mined entities (genes, diseases, chemicals) extracted from the full text: useful for automated literature analysis.
 - An alternative to PubMed when you want a single API across PubMed and PMC.
 
-**Example — search and request JSON:**
+**Example: search and request JSON:**
 
 ```bash
 curl "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=dapagliflozin+heart+failure&format=json"
@@ -166,7 +166,7 @@ curl "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=dapagliflozi
 **URL:** http://export.arxiv.org/api/query
 **Documentation:** https://info.arxiv.org/help/api/
 **Authentication:** None required.
-**Coverage:** physics, mathematics, computer science, statistics, quantitative biology, electrical engineering, economics. Pre-prints — not peer-reviewed.
+**Coverage:** physics, mathematics, computer science, statistics, quantitative biology, electrical engineering, economics. Pre-prints, not peer-reviewed.
 **Best for:**
 
 - Monitoring preprints in computational and methodological domains (statistics, ML applied to medicine, biostatistics).
@@ -188,7 +188,7 @@ For clinical preprints, use **Europe PMC** (which indexes medRxiv and bioRxiv) i
 - Validating an ORCID iD provided by a co-author.
 - Reading public works lists for collaboration mapping or hiring decisions.
 
-**Example — resolve an ORCID iD:**
+**Example: resolve an ORCID iD:**
 
 ```bash
 curl -H "Accept: application/json" "https://pub.orcid.org/v3.0/0000-0002-1825-0097/record"
@@ -201,13 +201,13 @@ curl -H "Accept: application/json" "https://pub.orcid.org/v3.0/0000-0002-1825-00
 **URL:** https://opencitations.net
 **Documentation:** https://api.opencitations.net/index
 **Authentication:** Public; tokens recommended for sustained integrations.
-**Coverage:** Open citation indexes (COCI, CROCI) — citation links between scholarly works as Linked Open Data.
+**Coverage:** Open citation indexes (COCI, CROCI): citation links between scholarly works as Linked Open Data.
 **Best for:**
 
 - **Open bibliometric analysis** when you cannot or should not pay for proprietary databases (Web of Science, Scopus).
 - Self-citation rates, time-from-publication-to-first-citation, OCI (Open Citation Identifier) lookups.
 
-**Example — citations of a paper:**
+**Example: citations of a paper:**
 
 ```bash
 curl "https://opencitations.net/index/coci/api/v1/citations/10.1056/NEJMoa1908655"
@@ -254,7 +254,7 @@ Operational checklist for any tool that touches these APIs:
 | NCBI E-utilities | 3 req/sec | 10 req/sec | Free key |
 | Europe PMC | Yes | n/a | |
 | CORE | No (key required) | Quotas per endpoint | Free key |
-| arXiv | Yes | n/a | Be polite — 1 req every 3 seconds is the recommended pace |
+| arXiv | Yes | n/a | Be polite: 1 req every 3 seconds is the recommended pace |
 | ORCID Public API | Yes (non-commercial) | OAuth 2.0 read-public | |
 | OpenCitations | Yes | Token recommended | |
 

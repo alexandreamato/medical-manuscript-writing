@@ -1,8 +1,21 @@
 # Ethics and Research Integrity (Medical Research)
 
-These items must be addressed in every medical manuscript. Reviewers and editors check them early.
+Reviewers and editors check these items early. Some apply to every manuscript; others depend on the design or on the journal. Address the ones that apply, and say "not applicable" with a reason when a journal's form asks about one that does not.
 
-## 1. Ethics Approval
+| Item | Applies to |
+| --- | --- |
+| Funding and role of the funder (§5) | Every manuscript |
+| Conflicts of interest (§5) | Every manuscript, every author |
+| Authorship and contributions (§4) | Every manuscript |
+| Reporting integrity (§8) | Every manuscript |
+| AI disclosure (§7) | Every manuscript where AI was used, as the journal's policy defines it (some journals exempt language editing) |
+| Ethics approval (§1) | Research with human participants, their identifiable data or samples, or animals. Some narrative reviews, editorials and analyses of published data need none; say so if asked. |
+| Informed consent (§2) | Research with human participants (or a justified waiver); consent for publication for case reports and identifiable images |
+| Registration (§3) | Clinical trials (ICMJE requirement); systematic reviews (strongly expected); other prospective studies where the journal or national rules require it |
+| Data and code sharing (§6) | Per journal policy; a data sharing statement is required for clinical trials (ICMJE) and by many journals for all research articles |
+| Patient privacy (§9) | Any manuscript with patient-level information, images or case details |
+
+## 1. Ethics Approval (research with human participants, their data or samples, or animals)
 
 1. State the name of the IRB / ethics committee that approved the study and the protocol number.
 2. State the date of approval, or the date range if multiple approvals (e.g., across centers).
@@ -13,13 +26,13 @@ Sentence skeleton:
 
 1. `The study was approved by the [IRB / ethics committee name] (protocol [number]) on [date] and was conducted in accordance with the Declaration of Helsinki (2024 revision).` In Brazil, name the CEP and, where applicable, the CAAE number from Plataforma Brasil.
 
-## 2. Informed Consent
+## 2. Informed Consent (human participants; consent for publication in case reports)
 
 1. State that written informed consent was obtained from all participants (or legal guardians for minors / surrogates for adults unable to consent).
 2. If consent was waived, state the specific basis (registry-based study, deceased participants, deidentified data, etc.).
 3. For case reports and case series, written informed consent for publication (and, for images, consent for publication of images) is typically required.
 
-## 3. Trial / Review Registration
+## 3. Trial / Review Registration (trials; systematic reviews; other studies where required)
 
 1. **Trials** must be registered prospectively in a public registry: ClinicalTrials.gov (NCT), a WHO ICTRP primary registry, or an equivalent accepted by ICMJE. Common ones: ISRCTN, ANZCTR, ChiCTR, JPRN, and ReBEC (Registro Brasileiro de Ensaios Clínicos, the Brazilian registry). **EU:** since the Clinical Trials Regulation (EU) No 536/2014, trials are authorised and registered through the Clinical Trials Information System (CTIS; public portal euclinicaltrials.eu). CTIS became the only route on 31 January 2025; EudraCT numbers still identify legacy trials run under the old Directive 2001/20/EC.
 2. State the registry name and identifier in the abstract and Methods.
@@ -74,7 +87,7 @@ Sentence skeleton:
 ## 8. Reporting Integrity
 
 1. **No fabricated data, no fabricated references, no image manipulation.** These are research misconduct and grounds for retraction.
-2. Report all prespecified outcomes — including null and adverse findings.
+2. Report all prespecified outcomes: including null and adverse findings.
 3. Distinguish prespecified analyses from post-hoc / exploratory analyses.
 4. Plagiarism, including self-plagiarism, must be avoided. Run a similarity check before submission.
 5. Disclose prior versions: preprints, conference abstracts, theses. State the relationship between this manuscript and any prior version.
@@ -96,15 +109,17 @@ Sentence skeleton:
 
 ## 10. Pre-Submission Integrity Checklist
 
-1. Ethics approval reported with committee name and protocol number.
-2. Consent reported, or waiver justified.
-3. Registration number reported (trials and systematic reviews).
+Items marked *(if applicable)* depend on the design or the journal (table at the top).
+
+1. Ethics approval reported with committee name and protocol number *(if applicable)*.
+2. Consent reported, or waiver justified *(if applicable)*.
+3. Registration number reported *(trials, systematic reviews, and others where required)*.
 4. Authorship list meets ICMJE criteria; contributions stated.
 5. Conflicts of interest fully disclosed.
 6. Funder role stated.
-7. Data and code sharing statement present.
-8. AI disclosure statement present.
-9. Every reference is real and verifiable; citations in order of first appearance.
+7. Data and code sharing statement present *(per journal policy; required for trials)*.
+8. AI disclosure statement present *(when AI was used, per journal policy)*.
+9. Every reference verified, or classified and resolved (`references/paper-review.md`, four categories).
 10. No fabricated images; raw data archived.
 11. Reporting checklist (CONSORT/STROBE/PRISMA/STARD) submitted.
 12. Patient privacy preserved across the manuscript and supplementary files.

@@ -30,6 +30,17 @@ Read just the first sentence of every paragraph in your Discussion. If those sen
 
 Medical-manuscript paragraphs typically run 80 to 180 words (roughly 4 to 8 sentences). Paragraphs under 40 words are usually under-developed or are headings in disguise; paragraphs over 250 words usually contain two jobs that should be split. The Abstract is the exception: structured-abstract paragraphs are intentionally short.
 
+### Paragraph clarity check (when asked whether a paragraph flows)
+
+Read it as a busy clinician-reviewer and answer four questions:
+
+1. Does the paragraph have one explicit message, and does the first sentence state it?
+2. Can the target reader follow every clinical, epidemiological and statistical term without hidden context? Define the ones they may not know.
+3. Does each sentence connect to the previous one by a clear relation: cause, contrast, consequence, refinement or example?
+4. Does the evidence under the topic sentence (citation, statistic, table or figure pointer) actually support it?
+
+If the section around it still reads badly, reverse-outline it (below). While revising a long section, temporary subheadings and explicit transitions help; remove the subheadings the journal does not use before submission.
+
 ## Section-level rules
 
 ### Order within a section
@@ -67,13 +78,13 @@ The reverse outline is a one-page artefact. Edit it before editing the full manu
 
 ### Cross-section consistency
 
-Numbers in the Abstract must match the Results exactly. Variable names introduced in Methods must be used unchanged in Results and Discussion. Group labels and colour assignments on figures must stay constant across all figures (see `references/figures-and-tables.md` for the variable-to-colour mapping rule). Inconsistencies break flow because the reader pauses to verify whether two terms mean the same thing.
+Numbers must be identical wherever they appear, and variable names introduced in Methods are used unchanged in Results and Discussion (the full list of checks: `references/paper-review.md`, Cross-Section Consistency Checks). Group labels and colour assignments on figures must stay constant across all figures (see `references/figures-and-tables.md` for the variable-to-colour mapping rule). Inconsistencies break flow because the reader pauses to verify whether two terms mean the same thing.
 
 ### Forward and backward references
 
 Use forward references sparingly and only where useful: "as we show in Section 3.4" is acceptable in Methods if it prevents repeating a long analytic specification. Use backward references generously: "as shown in Table 1" is a flow aid because it tells the reader which evidence the current sentence is built on.
 
-Every table and figure must be cited in the text in order of first appearance. Out-of-order citation forces the reader to flip back and forth and is a frequent reviewer complaint. See `references/figures-and-tables.md`.
+Out-of-order citation of tables and figures forces the reader to flip back and forth; the numbering rule is in `references/manuscript-conventions.md` §2.1.
 
 ## Transitions
 
@@ -116,10 +127,10 @@ Authorial blindness is real: the manuscript makes sense to you because you wrote
 
 ## See also
 
-- `references/read-as-reader.md` — Structured manuscript-level self-reading from three reader personas
-- `references/scientific-writing-principles.md` — Sentence-level clarity, voice, tense, hedging
-- `references/figures-and-tables.md` — Citation-in-order rule, variable-to-colour mapping rule, table and figure construction
-- `references/abstract.md`, `references/introduction.md`, `references/method.md`, `references/results.md`, `references/discussion.md` — Section-by-section structure
-- `references/common-mistakes.md` — Speed audit including flow-related defects
-- `references/paper-review.md` — Formal pre-submission checklist
-- `references/writing-process.md` — When in the writing process to run a reverse outline (after draft, before submission)
+- `references/read-as-reader.md`: Structured manuscript-level self-reading from three reader personas
+- `references/scientific-writing-principles.md`: Sentence-level clarity, voice, tense, hedging
+- `references/figures-and-tables.md`: Citation-in-order rule, variable-to-colour mapping rule, table and figure construction
+- `references/abstract.md`, `references/introduction.md`, `references/method.md`, `references/results.md`, `references/discussion.md`: Section-by-section structure
+- `references/common-mistakes.md`: Speed audit including flow-related defects
+- `references/paper-review.md`: Formal pre-submission checklist
+- `references/writing-process.md`: When in the writing process to run a reverse outline (after draft, before submission)

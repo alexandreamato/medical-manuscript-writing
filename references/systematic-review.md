@@ -22,9 +22,11 @@ It is **never** wrong to do a systematic review when individual studies are hete
 | Systematic review | Prespecified search and synthesis; minimizes bias; can be qualitative or quantitative | Comprehensive answer to a focused clinical question |
 | Meta-analysis | Statistical pooling of effect estimates within a systematic review | When studies are sufficiently similar in population, intervention, comparator, and outcome |
 
-A systematic review without a meta-analysis is sometimes called a "narrative synthesis" or a "structured qualitative synthesis". It is a legitimate output, especially when heterogeneity is high.
+A systematic review without a meta-analysis is sometimes called a "narrative synthesis" or a "structured qualitative synthesis". It is a legitimate output, especially when heterogeneity is high, but "narrative" does not mean informal: report how studies were grouped, the standardised metric, the synthesis method (for example vote counting based on the direction of effect, or summarising the range of effect estimates), and its limitations, following the SWiM reporting guideline (Campbell M, et al. BMJ. 2020;368:l6890. doi:10.1136/bmj.l6890; see `references/reporting-standards.md`).
 
-## The Tradeoff — Heterogeneity, Internal Validity, External Validity
+Two companions to PRISMA 2020 are often needed: **PRISMA-S** for reporting the search itself, and **PRISMA-DTA** instead of PRISMA 2020 when the review question is diagnostic accuracy (`references/reporting-standards.md`).
+
+## The Tradeoff: Heterogeneity, Internal Validity, External Validity
 
 Heterogeneity is a double-edged sword:
 
@@ -35,7 +37,7 @@ Decide where on this spectrum your review sits, and make the decision explicit i
 
 ## Step-by-Step Workflow
 
-### Step 1 — Frame the Research Question (PICO)
+### Step 1: Frame the Research Question (PICO)
 
 A good systematic review question has four components:
 
@@ -55,7 +57,7 @@ A good research-question test:
 3. Is the primary outcome operationally defined?
 4. Are the eligible study designs prespecified?
 
-### Step 2 — Write the Protocol Before Searching
+### Step 2: Write the Protocol Before Searching
 
 The protocol is the most important bias-control step. Write and register it (PROSPERO; OSF for non-clinical) before starting the literature search. The protocol must specify:
 
@@ -71,7 +73,7 @@ The protocol is the most important bias-control step. Write and register it (PRO
 
 A well-formulated protocol increases efficiency and reduces wasted screening time.
 
-### Step 3 — Construct the Search
+### Step 3: Construct the Search
 
 A comprehensive search is the foundation of a credible systematic review. For PubMed-specific basics (Boolean operators, MeSH, field tags, Clinical Queries) see `references/pubmed-essentials.md`. The principles below apply across all databases:
 
@@ -80,13 +82,13 @@ A comprehensive search is the foundation of a credible systematic review. For Pu
 3. **Search trial registries.** ClinicalTrials.gov, WHO ICTRP (which aggregates primary registries such as ReBEC and ISRCTN), and for the EU the CTIS public portal (euclinicaltrials.eu) plus the legacy EU Clinical Trials Register.
 4. **Hand-search pertinent journals**, especially the most recent 6 months that may not yet be indexed.
 5. **Search bibliographies** of included studies and of recent reviews on the topic.
-6. **Search grey literature** — theses (ProQuest Dissertations), conference proceedings, regulatory documents (FDA, EMA), industry reports. In one methodological study, published trials yielded intervention effects on average 15% larger than grey literature (ratio of odds ratios 1.15, 95% CI 1.04 to 1.28; McAuley L, Pham B, Tugwell P, Moher D. Lancet 2000;356(9237):1228-31, doi:10.1016/S0140-6736(00)02786-0).
+6. **Search grey literature**: theses (ProQuest Dissertations), conference proceedings, regulatory documents (FDA, EMA), industry reports. In one methodological study, published trials yielded intervention effects on average 15% larger than grey literature (ratio of odds ratios 1.15, 95% CI 1.04 to 1.28; McAuley L, Pham B, Tugwell P, Moher D. Lancet 2000;356(9237):1228-31, doi:10.1016/S0140-6736(00)02786-0).
 7. **Avoid English-only restrictions** when feasible; positive results are more likely published in English (English-language bias). If translation cost is prohibitive, state the limitation.
 8. **Document the strategy.** Record exact search strings, field tags, dates of last search, and number of records retrieved per source. Provide the full strategy as a supplementary file.
 
 Engage an information specialist or medical librarian if available; they substantially improve sensitivity.
 
-### Step 4 — Screen and Select
+### Step 4: Screen and Select
 
 1. Import all records into reference-management software (Zotero, EndNote, Mendeley) or a screening platform (Rayyan, Covidence, DistillerSR).
 2. Deduplicate.
@@ -94,7 +96,7 @@ Engage an information specialist or medical librarian if available; they substan
 4. Document exclusions at full-text stage with reasons; this becomes the PRISMA flow diagram.
 5. Inter-rater agreement (kappa) at the title/abstract stage is informative; aim for kappa ≥ 0.6 after pilot screening of 50 to 100 records.
 
-### Step 5 — Extract Data
+### Step 5: Extract Data
 
 1. Use a **standardized form**, paper or electronic. Pilot it on 3 to 5 studies before full extraction.
 2. **Two reviewers minimum, independent extraction.** Reconcile discrepancies by discussion.
@@ -102,7 +104,7 @@ Engage an information specialist or medical librarian if available; they substan
 4. Capture risk-of-bias judgments alongside data.
 5. Contact authors for missing data when appropriate.
 
-### Step 6 — Assess Risk of Bias
+### Step 6: Assess Risk of Bias
 
 Choose the tool by study design:
 
@@ -115,7 +117,7 @@ Choose the tool by study design:
 | Prediction model studies | PROBAST |
 | Animal studies | SYRCLE |
 
-Prefer **checklists** over numerical quality scores — a single fatal flaw can be missed if you sum item scores. Two reviewers; reconcile differences.
+Prefer **checklists** over numerical quality scores: a single fatal flaw can be missed if you sum item scores. Two reviewers; reconcile differences.
 
 The four high-yield biases to assess:
 
@@ -134,7 +136,7 @@ Adequate vs. inadequate concealment examples:
 | Tables of random numbers | Case record number |
 | Drawing lots from an opaque container | Coin tossing or shuffling cards (random but not concealed) |
 
-### Step 7 — Synthesize
+### Step 7: Synthesize
 
 #### 7a. Qualitative synthesis
 
@@ -148,7 +150,7 @@ Do **not** pool if any of the following hold:
 2. Methodological heterogeneity is high (different designs, different comparators, different analysis populations).
 3. Statistical heterogeneity exceeds I² of ~75% without explanation.
 4. The included studies are too few for a stable estimate (typically fewer than 3 to 5 studies).
-5. Risk of bias is high in most included studies — pooling will not rescue them.
+5. Risk of bias is high in most included studies: pooling will not rescue them.
 
 #### 7c. Meta-analysis when appropriate
 
@@ -156,7 +158,7 @@ Do **not** pool if any of the following hold:
 2. Choose the effect measure: RR, OR, HR for binary; MD, SMD for continuous.
 3. Report the pooled estimate with 95% CI, heterogeneity (I², τ², 95% prediction interval), and the test for overall effect.
 4. Forest plot is mandatory.
-5. **Engage a statistician early** — at the protocol stage, not after extraction.
+5. **Engage a statistician early**: at the protocol stage, not after extraction.
 
 #### 7d. Heterogeneity exploration
 
@@ -174,7 +176,7 @@ Assess publication bias only when ≥ 10 studies are included:
 2. Egger or Peters test (statistical).
 3. Trim-and-fill or other corrections only as sensitivity analyses.
 
-### Step 8 — Rate Certainty of Evidence (GRADE)
+### Step 8: Rate Certainty of Evidence (GRADE)
 
 Rate certainty per outcome, not per study. Start at "high" for randomized trials and "low" for observational; downgrade or upgrade per:
 
@@ -194,7 +196,7 @@ Upgrade reasons (rare for observational):
 
 Final certainty: high, moderate, low, or very low.
 
-### Step 9 — Interpret and Conclude
+### Step 9: Interpret and Conclude
 
 The Discussion of a systematic review answers:
 
@@ -249,7 +251,7 @@ Supplementary materials
 
 1. Protocol registered (PROSPERO); registration ID in the abstract.
 2. PRISMA 2020 checklist completed and submitted as a supplement.
-3. Full search strategies for each database in the supplement, with last-search dates.
+3. Full search strategies for each database in the supplement, with last-search dates (PRISMA-S).
 4. PRISMA flow diagram present.
 5. Two-reviewer screening, extraction, and risk-of-bias judgments documented.
 6. Risk-of-bias tool appropriate to design.
@@ -259,4 +261,4 @@ Supplementary materials
 10. Excluded full-text studies listed with reasons (in supplement).
 11. Forest plots include study weights, effect estimates with 95% CIs, heterogeneity statistics, and overall effect.
 12. Causal language matched to evidence base; certainty stated.
-13. References real, in citation order; tables and figures cited in text in order of appearance; body text free of em-dashes.
+13. Cross-section consistency checks pass: `references/paper-review.md` (Cross-Section Consistency Checks).

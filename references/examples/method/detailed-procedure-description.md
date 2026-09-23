@@ -1,4 +1,4 @@
-# Detailed Procedure Description — Worked Diagnostic Accuracy Example
+# Detailed Procedure Description: Worked Diagnostic Accuracy Example
 
 This example shows how to describe a diagnostic accuracy procedure in execution order with appropriate detail.
 

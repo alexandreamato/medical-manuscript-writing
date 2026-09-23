@@ -45,6 +45,19 @@ Consequences:
 3. Rebuild tables as pipe tables inside `::: {#tbl:id}` divs and figures as `::: {#fig:id}` divs; replace "Table 2" in the text with `@tbl:id`.
 4. Run `refs.py verify` and `validate.py`; fix every ERROR before the first build.
 
+### Before upload: draft is not ready
+
+A validator run without errors certifies a valid draft. Readiness is a separate, explicit step:
+
+1. `validate.py --journal <j> --submission`. It refuses:
+   - example content;
+   - references that are unverified, incomplete, expired or flagged;
+   - generic or unverified profiles;
+   - any human-review item not ticked and signed in `signoff/<j>.md`.
+
+   Tick an item only after it is done. An agent may prepare the evidence for each item, but the ticking belongs to the authors.
+2. `build.py --journal <j> --submission`, then `preview.py --journal <j>`. Open the contact sheet of every file: tables, images, page breaks, marked text. The preview also catches author names left in a blinded file.
+
 ### Every revision
 
 1. Edit the Markdown. Commit with a message saying what changed and why; separate editorial changes from scientific ones (analysis, exclusions, interpretation).

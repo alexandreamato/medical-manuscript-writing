@@ -1,6 +1,6 @@
 # Responding to Reviewers (Medical Manuscripts)
 
-This file covers the post-submission stage: how to read a decision letter, write a point-by-point response, prepare a tracked-changes manuscript, and resubmit. The response letter is among the highest-leverage documents in the publication process — a strong response can convert a "major revision" into an acceptance, and a weak one can turn a fixable manuscript into a rejection.
+This file covers the post-submission stage: how to read a decision letter, write a point-by-point response, prepare a tracked-changes manuscript, and resubmit. The response letter is among the highest-leverage documents in the publication process: a strong response can convert a "major revision" into an acceptance, and a weak one can turn a fixable manuscript into a rejection.
 
 For pre-submission work, see `references/writing-process.md` and `references/paper-review.md`.
 
@@ -11,12 +11,12 @@ Most decision letters fall into one of five categories:
 | Decision | Typical interpretation | Response strategy |
 | --- | --- | --- |
 | Accept (rare on first round) | The paper is publishable as is. | Address minor formatting / typesetting; thank the editor. |
-| Minor revision | Generally favourable; reviewers want clarifications, not new analyses. | Make every requested change; concise responses; turnaround in 2–4 weeks. |
-| Major revision | Editor sees promise but reviewers raised substantive issues. | Most common path to publication. Treat seriously; turnaround 4–8 weeks. |
+| Minor revision | Generally favourable; reviewers want clarifications, not new analyses. | Make every requested change; concise responses; turnaround in 2 to 4 weeks. |
+| Major revision | Editor sees promise but reviewers raised substantive issues. | Most common path to publication. Treat seriously; turnaround 4 to 8 weeks. |
 | Reject and resubmit | Editor offers a path back if the issues are addressed. | Same approach as major revision; resubmission is a new submission. |
 | Reject | Paper is not a fit, or the issues are unfixable for this journal. | Read carefully; revise based on the feedback; submit elsewhere. |
 
-A "major revision" decision is not a rejection. The historical acceptance rate after major revision is high in most journals (often 60–80%) **if the response is thorough and respectful**.
+A "major revision" decision is not a rejection. The historical acceptance rate after major revision is high in most journals (often 60 to 80%) **if the response is thorough and respectful**.
 
 ## Read the Decision Letter Twice, Calmly
 
@@ -24,13 +24,13 @@ The first read is emotional. The second is analytical. Wait at least 24 hours be
 
 On the second read, classify each reviewer comment as one of:
 
-1. **Factual error or typo to fix** — quick, no debate.
-2. **Reasonable request for clarification** — add or rephrase text.
-3. **Reasonable request for new analysis** — do it if feasible; explain if not.
-4. **Question whose answer is already in the manuscript** — the reviewer missed it; respond by pointing to the existing text **and improve the visibility** (clearer wording, better signposting).
-5. **Reviewer factual error** — disagree, but respectfully and with evidence.
-6. **Reviewer scope creep** — the request goes beyond the paper's aim. Respond by reaffirming scope; offer the request as a future direction.
-7. **Conflict between reviewers** — the editor decides; flag the conflict explicitly in your response.
+1. **Factual error or typo to fix**: quick, no debate.
+2. **Reasonable request for clarification**: add or rephrase text.
+3. **Reasonable request for new analysis**: do it if feasible; explain if not.
+4. **Question whose answer is already in the manuscript**: the reviewer missed it; respond by pointing to the existing text **and improve the visibility** (clearer wording, better signposting).
+5. **Reviewer factual error**: disagree, but respectfully and with evidence.
+6. **Reviewer scope creep**: the request goes beyond the paper's aim. Respond by reaffirming scope; offer the request as a future direction.
+7. **Conflict between reviewers**: the editor decides; flag the conflict explicitly in your response.
 
 Do not classify any comment as "the reviewer is wrong, ignore". Even unreasonable requests need an answer.
 
@@ -39,8 +39,8 @@ Do not classify any comment as "the reviewer is wrong, ignore". Even unreasonabl
 Before opening a Word document or starting to edit the manuscript, **read every comment from every reviewer end-to-end** at least once. Reviewers often disagree, and editing in response to one comment that another reviewer wants deleted is wasted work. Common patterns to detect on the first read:
 
 1. Reviewer 1 asks you to expand a paragraph; Reviewer 2 says the same paragraph should be deleted.
-2. Reviewer 1 asks for a new analysis that, if done, would change Table 2 — and Reviewer 2 has comments on Table 2 that assume the current version.
-3. Two reviewers ask the same question with different wording — answer once and link.
+2. Reviewer 1 asks for a new analysis that, if done, would change Table 2, and Reviewer 2 has comments on Table 2 that assume the current version.
+3. Two reviewers ask the same question with different wording: answer once and link.
 
 Map the conflicts before starting. See "Handling Conflicting Reviewer Comments" below.
 
@@ -48,8 +48,8 @@ Map the conflicts before starting. See "Handling Conflicting Reviewer Comments" 
 
 Most journals expect three documents at resubmission:
 
-1. **Cover letter to the editor** — short; thank the editor and reviewers; summarize the main changes; flag any sensitive issues.
-2. **Point-by-point response letter** — your detailed reply to every reviewer comment.
+1. **Cover letter to the editor**: short; thank the editor and reviewers; summarize the main changes; flag any sensitive issues.
+2. **Point-by-point response letter**: your detailed reply to every reviewer comment.
 3. **Revised manuscript** in two versions:
    - **Tracked-changes / highlighted version** showing every edit.
    - **Clean version** with all changes accepted and ready for production.
@@ -69,7 +69,7 @@ When the manuscript is kept as source files, the build kit does all of this proc
 
 Three layouts are common; pick one before starting and stick with it.
 
-### Format 1 — Discursive (recommended)
+### Format 1: Discursive (recommended)
 
 A linear document with reviewer comments in **bold**, your response in plain text below each, and a blank line between blocks. Most editors and reviewers find this the easiest to read.
 
@@ -98,22 +98,22 @@ Reviewer #2
 R2.1   ...
 
 Other changes
-[List any edits not driven by reviewer comments — e.g., updated reference,
+[List any edits not driven by reviewer comments, e.g., updated reference,
 fixed typo on page 4 line 88, regenerated Figure 2 with corrected colour
 palette.]
 ```
 
-### Format 2 — Three-column table
+### Format 2: Three-column table
 
 Some journals prefer or require a tabular response: column 1 reviewer comment, column 2 author response, column 3 manuscript location of the change. Cleaner for very long lists; harder to read for nuanced disagreement.
 
-### Format 3 — Inline in the journal portal
+### Format 3: Inline in the journal portal
 
 Some online submission systems offer a free-text "Response to Authors" field. Generally less convenient than uploading a separate document; use only when the journal explicitly requests it. If you go inline, still keep a complete response document on file for your records.
 
 ## Always Repeat Reviewer Comments Verbatim
 
-Copy and paste each comment exactly from the decision letter — no editing, no rephrasing, no spelling or grammar fixes. Reviewers often skim only the comments they wrote; if you paraphrase or summarize, they cannot find their own words and conclude you did not address their point.
+Copy and paste each comment exactly from the decision letter: no editing, no rephrasing, no spelling or grammar fixes. Reviewers often skim only the comments they wrote; if you paraphrase or summarize, they cannot find their own words and conclude you did not address their point.
 
 If a reviewer's comment is convoluted (multiple sub-points jumbled together), you have two options:
 
@@ -154,7 +154,7 @@ Sincerely,
 [Corresponding author]
 ```
 
-## Point-by-Point Response — Format
+## Point-by-Point Response: Format
 
 The response document is the heart of the resubmission. Most journals expect a specific format. Build it as a single document with reviewer comments in one style and your responses in another, so the editor can scan it.
 
@@ -212,7 +212,7 @@ This means picking your fights carefully. Most comments deserve a substantive ch
 
 ## Three Adages for the Right Stance (Efron 2025)
 
-When framing how you respond — especially to critical or borderline-aggressive comments — keep three classical sayings in mind:
+When framing how you respond, especially to critical or borderline-aggressive comments, keep three classical sayings in mind:
 
 1. **"Rise above the fray."** Do not get into acrimonious back-and-forth with the reviewer. Lift the response to the level of common practice or established convention.
 2. **"Take the high ground."** Frame your approach as gold-standard practice, aligned with a leading authority. Cite the reference: "We followed the approach of [Author Year], which has become standard for ..."
@@ -235,7 +235,7 @@ We interpret it as asking [our interpretation], and we have responded by
 to address it again.
 ```
 
-## Tone — Constructive, Specific, Never Defensive
+## Tone: Constructive, Specific, Never Defensive
 
 Reviewers are giving free time to improve a paper. Even when a comment seems unfair, the response sets the editor's impression of the authors. Five rules:
 
@@ -265,7 +265,7 @@ because [specific reason], we have added a paragraph to the Discussion explainin
 "This is outside the scope of the paper." (better: "This is an important question that
 we agree warrants future study, but it falls outside the prespecified aims of the
 present analysis.")
-"We have added a sentence." (vague — quote it)
+"We have added a sentence." (vague: quote it)
 ```
 
 ## Disagreeing Respectfully
@@ -309,9 +309,9 @@ Cox proportional-hazards approach."
 
 ## The "Sham Response" for Vague Reviewer Suggestions (Efron 2025)
 
-Sometimes a reviewer makes a vague suggestion such as "the first paragraph is unclear and should be redrafted" — without explaining *why* it is unclear — even when you are confident the paragraph is fine. Defending the existing paragraph with "We are confident that the paragraph is clear as written" usually fails because the reviewer feels ignored.
+Sometimes a reviewer makes a vague suggestion such as "the first paragraph is unclear and should be redrafted", without explaining *why* it is unclear, even when you are confident the paragraph is fine. Defending the existing paragraph with "We are confident that the paragraph is clear as written" usually fails because the reviewer feels ignored.
 
-The pragmatic move: **rewrite the paragraph using different words and tell the reviewer it has been redrafted for clarity**. The new version may not be objectively clearer, but the reviewer sees evidence of effort. Efron calls this the "sham response" — not a real fix, but a tactical accommodation that keeps the relationship constructive.
+The pragmatic move: **rewrite the paragraph using different words and tell the reviewer it has been redrafted for clarity**. The new version may not be objectively clearer, but the reviewer sees evidence of effort. Efron calls this the "sham response", not a real fix, but a tactical accommodation that keeps the relationship constructive.
 
 ```
 Response: We thank the reviewer for this suggestion. The opening paragraph has been
@@ -321,13 +321,13 @@ Manuscript change (Introduction, page 2, lines 28–35):
 "[The rewritten paragraph, using different wording from the original.]"
 ```
 
-Use sparingly — only when the original was already clear and the reviewer's complaint was unspecific. Do not use this technique to dodge substantive criticism.
+Use sparingly: only when the original was already clear and the reviewer's complaint was unspecific. Do not use this technique to dodge substantive criticism.
 
-## Common Reviewer Criticisms — Defensible Countermoves
+## Common Reviewer Criticisms: Defensible Countermoves
 
 Two complaints recur in almost every set of reviewer comments. Have prepared responses ready.
 
-### Criticism 1 — "The sample size is too small"
+### Criticism 1: "The sample size is too small"
 
 Take it seriously whatever the p value. A statistically significant result does **not** show that the sample was large enough: small studies that reach significance tend to overestimate the effect (Button KS, Ioannidis JPA, Mokrysz C, et al. Nat Rev Neurosci 2013;14(5):365-76, doi:10.1038/nrn3475). And do **not** answer with a post hoc ("observed") power calculation: observed power is a direct function of the p value, so it adds nothing to it and cannot show that a non-significant result was adequately powered (Hoenig JM, Heisey DM. The abuse of power: the pervasive fallacy of power calculations for data analysis. Am Stat 2001;55(1):19-24, doi:10.1198/000313001300339897).
 
@@ -351,7 +351,7 @@ this in the Limitations (page 15, lines 310 to 314).
 
 For a non-significant result, report the interval and what it cannot exclude ("the data are compatible with a relative reduction of up to 30% and an increase of up to 12%"), avoid "no effect" wording, and present the study as inconclusive rather than negative when the interval is wide.
 
-### Criticism 2 — "The Discussion strays beyond the reported work"
+### Criticism 2: "The Discussion strays beyond the reported work"
 
 This is often a misunderstanding of what a Discussion should do. The Discussion section's role *is* to extend thinking and demonstrate how the work advances the field. Argue back firmly:
 
@@ -366,7 +366,7 @@ ensure each speculative comment is explicitly flagged with phrases such as "We
 speculate that ..." and "Future work will be needed to determine whether ...".
 ```
 
-### Criticism 3 — "Add P values to Table 1" (Cushman 2023)
+### Criticism 3: "Add P values to Table 1" (Cushman 2023)
 
 A reviewer asks for hypothesis-test P values comparing baseline characteristics across groups. This is methodologically incorrect for randomized trials (CONSORT discourages it) and unhelpful for observational studies (multiple comparisons, distracting from confounder identification). Defensible response:
 
@@ -409,10 +409,10 @@ We have offset the addition by tightening the description of the recruitment pro
 
 Some requests cannot be met:
 
-1. **Resource constraints** — additional data collection, additional clinical samples.
-2. **Design constraints** — the trial is finished; randomization cannot be re-done.
-3. **Ethics constraints** — IRB approval did not cover the proposed additional analysis.
-4. **Statistical constraints** — sample size insufficient for a stratified analysis the reviewer wants.
+1. **Resource constraints**: additional data collection, additional clinical samples.
+2. **Design constraints**: the trial is finished; randomization cannot be re-done.
+3. **Ethics constraints**: IRB approval did not cover the proposed additional analysis.
+4. **Statistical constraints**: sample size insufficient for a stratified analysis the reviewer wants.
 
 Pattern: acknowledge, explain why, offer the best feasible substitute.
 
@@ -427,7 +427,7 @@ example dataset (Supplementary File 4) so that other groups can perform external
 validation independently.
 ```
 
-## Repeated Comments — Duplicate, Don't Cross-Reference
+## Repeated Comments: Duplicate, Don't Cross-Reference
 
 A reviewer sometimes raises the same concern twice in different parts of their review (perhaps with different wording). Two reviewers may also raise the same concern independently.
 
@@ -444,7 +444,7 @@ Same rule for comments raised by two different reviewers. Repeat the response in
 
 ## Respond to Author Instructions, Not Just Reviewer Comments (Cushman 2023)
 
-Decision letters often contain editorial requests that are not reviewer comments — formatting requirements, search-engine-optimization steps, race/ethnicity reporting, data-sharing statements, ORCID IDs, conflict-of-interest forms. **Address every one** under a separate heading in the response document:
+Decision letters often contain editorial requests that are not reviewer comments: formatting requirements, search-engine-optimization steps, race/ethnicity reporting, data-sharing statements, ORCID IDs, conflict-of-interest forms. **Address every one** under a separate heading in the response document:
 
 ```
 Editorial requests
@@ -463,11 +463,11 @@ E.2   The journal asks for race and ethnicity data on participants.
 
 Skipping editorial instructions is a common cause of desk rejection at resubmission. Editors notice.
 
-## Word Limits — Strategies When You Need More Space
+## Word Limits: Strategies When You Need More Space
 
 The revised manuscript must usually still fit the journal's word limit, even after substantive additions. Strategies in order of preference:
 
-1. **Tighten existing prose first.** Most manuscripts can absorb a 10–15% reduction without losing content; see `references/scientific-writing-principles.md` for the wordy → concise table.
+1. **Tighten existing prose first.** Most manuscripts can absorb a 10 to 15% reduction without losing content; see `references/scientific-writing-principles.md` for the wordy → concise table.
 2. **Move added material to Supplementary.** Sensitivity analyses, full search strategies, additional figures, expanded Methods detail can all live in the supplement, which is not counted.
 3. **Drop content the reviewer indirectly authorized you to drop.** If a reviewer asked you to expand X, the editor will usually tolerate a small contraction of Y.
 4. **Ask the editor for leeway** with a brief note in the cover letter: `The reviewers' substantive requests have required adding approximately 280 words to the Methods. We hope the editor will allow a small extension above the 3,500-word limit.` Editors usually grant reasonable extensions.
@@ -480,19 +480,19 @@ Submission of a marked-up version is mandatory at most journals. Practical rules
 2. **Highlight new text** in a colour (yellow is conventional) when Track Changes will not show large block additions clearly.
 3. **Preserve the manuscript line numbering** so the reviewer can match your response to the location.
 4. **Submit the clean version** with all changes accepted, line numbers preserved, ready for production.
-5. **Do not delete reviewer-quoted text** in the response — it is the anchor of the conversation.
+5. **Do not delete reviewer-quoted text** in the response: it is the anchor of the conversation.
 
 ## Timing
 
 | Decision | Typical turnaround |
 | --- | --- |
-| Minor revision | 2–4 weeks |
-| Major revision | 4–8 weeks |
-| Reject and resubmit | 6–12 weeks (treat as a fresh submission) |
+| Minor revision | 2 to 4 weeks |
+| Major revision | 4 to 8 weeks |
+| Reject and resubmit | 6 to 12 weeks (treat as a fresh submission) |
 
-Do not rush. A response that arrives in 5 days but is incomplete looks worse than one that arrives in 5 weeks and is thorough. If you need more time, write to the editor — most journals grant extensions.
+Do not rush. A response that arrives in 5 days but is incomplete looks worse than one that arrives in 5 weeks and is thorough. If you need more time, write to the editor: most journals grant extensions.
 
-## After Resubmission — Possible Outcomes
+## After Resubmission: Possible Outcomes
 
 1. **Accept (with or without further minor changes).** Address final formatting; respond to any final editor queries; check the proofs carefully (see `references/writing-process.md`, "After Acceptance").
 2. **Second round of revision.** Treat the same way: point-by-point response, tracked changes. Some journals limit the number of revision rounds; verify.

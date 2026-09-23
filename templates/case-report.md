@@ -6,7 +6,7 @@
 <!-- CARE 1 -->
 
 **Keywords:** [diagnosis], [intervention], [unique feature], case report
-<!-- CARE 2 — 2 to 5 keywords including "case report" -->
+<!-- CARE 2: 2 to 5 keywords including "case report" -->
 
 ## Authors
 
@@ -39,7 +39,7 @@
 ---
 
 ## 2. Patient information
-<!-- CARE 5a — de-identified -->
+<!-- CARE 5a: de-identified -->
 
 [A [age]-year-old [sex] of [ethnicity, if relevant], working as [occupation, if relevant], presented to [setting].]
 
@@ -63,16 +63,16 @@
 ## 3. Clinical findings
 <!-- CARE 6 -->
 
-[Physical examination findings — pertinent positives and pertinent negatives only. Avoid red herrings unless they would mislead other clinicians.]
+[Physical examination findings: pertinent positives and pertinent negatives only. Avoid red herrings unless they would mislead other clinicians.]
 
 ---
 
 ## 4. Timeline
-<!-- CARE 7 — REQUIRED -->
+<!-- CARE 7: REQUIRED -->
 
 The clinical course is summarized in Figure 1.
 
-<!-- Build Figure 1 timeline at https://enciclopedia.med.br/care-timeline (preferred — supports section / hybrid / date modes with phase-coded color bands and anonymization warnings).
+<!-- Build Figure 1 timeline at https://enciclopedia.med.br/care-timeline (preferred: supports section / hybrid / date modes with phase-coded color bands and anonymization warnings).
      Or use the Mermaid templates in references/diagrams.md.
      Use relative dates (Day 0, Day 14, Month 3) to preserve anonymization. -->
 
@@ -169,14 +169,14 @@ The clinical course is summarized in Figure 1.
 ---
 
 ## 9. Conclusion
-<!-- CARE 11d — one paragraph WITHOUT references -->
+<!-- CARE 11d: one paragraph WITHOUT references -->
 
 [The take-away lesson of this case in one focused paragraph. Avoid citations here. Avoid overgeneralization beyond what a single case can support.]
 
 ---
 
 ## 10. Patient perspective
-<!-- CARE 12 — one to two paragraphs in the patient's voice -->
+<!-- CARE 12: one to two paragraphs in the patient's voice -->
 
 [The patient's account of the experience: how they perceived their illness, the interventions, the outcome. Quote or paraphrase with consent.]
 
@@ -187,7 +187,7 @@ The clinical course is summarized in Figure 1.
 
 The patient gave **written informed consent** for publication of this case report and any accompanying images. The signed consent form is available on request.
 
-[If consent could not be obtained because the patient is deceased and untraceable, state the basis for proceeding without consent — typically IRB approval to waive.]
+[If consent could not be obtained because the patient is deceased and untraceable, state the basis for proceeding without consent: typically IRB approval to waive.]
 
 ---
 
@@ -255,19 +255,19 @@ This case report is reported in accordance with the CARE 2013 reporting guidelin
 
 ## See Also
 
-- `references/case-report.md` — Full CARE 13-item / 30-row checklist with worked examples
-- `references/reporting-standards.md` — All major reporting guidelines (CARE, CONSORT, STROBE, PRISMA, STARD, ARRIVE)
-- `references/diagrams.md` — CARE Patient Timeline tool at https://enciclopedia.med.br/care-timeline (preferred) plus Mermaid fallback templates
-- `references/ethics-and-integrity.md` — Informed consent for case reports, identifiable image consent, IRB waiver scenarios
-- `references/abstract.md` — Structured abstract for case reports (Template A: Challenge → Contribution)
-- `references/introduction.md` — Two-paragraph Introduction explaining what is unique about the case
-- `references/discussion.md` — Strengths AND limitations, comparison with literature, causality reasoning
-- `references/method.md` — Patient information, clinical findings, diagnostic assessment, intervention sections
-- `references/results.md` — Follow-up and outcomes structuring for case reports
-- `references/study-types.md` — When a case report is appropriate vs. a case series; causality language
-- `references/citation-styles.md` — Vancouver-numbered references in order of first appearance
-- `references/figures-and-tables.md` — Timeline figure legend, differential diagnosis table, image de-identification
-- `references/manuscript-conventions.md` — Word counts, journal-specific case-report formatting
-- `references/pubmed-essentials.md` — Search strategy for the systematic literature search required by CARE
+- `references/case-report.md`: Full CARE 13-item / 30-row checklist with worked examples
+- `references/reporting-standards.md`: All major reporting guidelines (CARE, CONSORT, STROBE, PRISMA, STARD, ARRIVE)
+- `references/diagrams.md`: CARE Patient Timeline tool at https://enciclopedia.med.br/care-timeline (preferred) plus Mermaid fallback templates
+- `references/ethics-and-integrity.md`: Informed consent for case reports, identifiable image consent, IRB waiver scenarios
+- `references/abstract.md`: Structured abstract for case reports (Template A: Challenge → Contribution)
+- `references/introduction.md`: Two-paragraph Introduction explaining what is unique about the case
+- `references/discussion.md`: Strengths AND limitations, comparison with literature, causality reasoning
+- `references/method.md`: Patient information, clinical findings, diagnostic assessment, intervention sections
+- `references/results.md`: Follow-up and outcomes structuring for case reports
+- `references/study-types.md`: When a case report is appropriate vs. a case series; causality language
+- `references/citation-styles.md`: Vancouver-numbered references in order of first appearance
+- `references/figures-and-tables.md`: Timeline figure legend, differential diagnosis table, image de-identification
+- `references/manuscript-conventions.md`: Word counts, journal-specific case-report formatting
+- `references/pubmed-essentials.md`: Search strategy for the systematic literature search required by CARE
 - `references/scientific-writing-principles.md`, `references/paragraph-flow.md`, `references/read-as-reader.md`
 - `references/common-mistakes.md`, `references/paper-review.md`, `references/responding-to-reviewers.md`

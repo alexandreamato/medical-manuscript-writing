@@ -1,29 +1,24 @@
 # Diagrams and Figures for Medical Manuscripts
 
-This file contains ready-to-use templates for the diagrams that medical manuscripts require, plus pointers for the statistical figures that must be generated from data rather than from text.
+This file contains ready-to-use templates for the diagrams that medical manuscripts require: participant flows, timelines, trial schemas and causal DAGs. Statistical figures, which are generated from data rather than drawn, are in `references/statistical-figures.md`.
 
 The default text-to-diagram tool is **Mermaid**: free, version-controllable, renders inline in GitHub, GitLab, Notion, Obsidian, and most Markdown viewers, and exports to SVG. For reproducible PRISMA 2020 flow diagrams, the `PRISMA2020` R package is the gold standard. For DAGs, DAGitty.
 
 ## Contents
 
-1. [Quick Selector](#quick-selector) — diagram type × reporting standard × tool
+1. [Quick Selector](#quick-selector): diagram type × reporting standard × tool
 2. [Export Rules](#export-rules)
-3. [CONSORT Participant Flow](#consort-participant-flow) — enciclopedia.med.br/consort2010 web tool (parallel-2/3, crossover, cluster, factorial) + Mermaid fallback
-4. [STROBE Participant Flow](#strobe-participant-flow) — enciclopedia.med.br/strobe web tool (cohort, case-control, cross-sectional) + Mermaid fallback
-5. [PRISMA 2020 Flow](#prisma-2020-flow) — enciclopedia.med.br/prisma2020 web tool + `PRISMA2020` R package + Mermaid fallback
-6. [STARD Flow](#stard-flow) — diagnostic accuracy (Mermaid template)
-7. [Trial Design Schema](#trial-design-schema) — parallel and three-arm patterns
-8. [Trial Gantt Timeline](#trial-gantt-timeline) — SPIRIT participant timeline
-9. [CARE Patient Timeline](#care-patient-timeline) — enciclopedia.med.br/care-timeline web tool (section, hybrid, date modes) + Mermaid fallback
-10. [Causal DAG](#causal-dag) — DAGitty
-11. [Forest Plot (Meta-Analysis)](#forest-plot-meta-analysis) — R `metafor`, RevMan, Stata
-12. [Kaplan-Meier Survival Curve](#kaplan-meier-survival-curve)
-13. [Funnel Plot](#funnel-plot)
-14. [ROC Curve](#roc-curve)
-15. [Calibration Plot](#calibration-plot) — TRIPOD
-16. [Renderers and Workflow](#renderers-and-workflow) — Mermaid CLI, PRISMA2020 web app
-17. [Best Practices for All Diagrams](#best-practices-for-all-diagrams)
-18. [Cross-References](#cross-references-within-this-skill)
+3. [CONSORT Participant Flow](#consort-participant-flow): enciclopedia.med.br/consort2010 web tool (parallel-2/3, crossover, cluster, factorial) + Mermaid fallback
+4. [STROBE Participant Flow](#strobe-participant-flow): enciclopedia.med.br/strobe web tool (cohort, case-control, cross-sectional) + Mermaid fallback
+5. [PRISMA 2020 Flow](#prisma-2020-flow): enciclopedia.med.br/prisma2020 web tool + `PRISMA2020` R package + Mermaid fallback
+6. [STARD Flow](#stard-flow): diagnostic accuracy (Mermaid template)
+7. [Trial Design Schema](#trial-design-schema): parallel and three-arm patterns
+8. [Trial Gantt Timeline](#trial-gantt-timeline): SPIRIT participant timeline
+9. [CARE Patient Timeline](#care-patient-timeline): enciclopedia.med.br/care-timeline web tool (section, hybrid, date modes) + Mermaid fallback
+10. [Causal DAG](#causal-dag): DAGitty
+11. [Renderers and Workflow](#renderers-and-workflow): Mermaid CLI, PRISMA2020 web app
+12. [Best Practices for All Diagrams](#best-practices-for-all-diagrams)
+13. [Cross-References](#cross-references-within-this-skill)
 
 ## Quick Selector
 
@@ -37,11 +32,7 @@ The default text-to-diagram tool is **Mermaid**: free, version-controllable, ren
 | Trial timeline / Gantt | SPIRIT (optional) | Mermaid `gantt` | [Trial Gantt](#trial-gantt-timeline) |
 | Patient timeline (case report) | CARE (mandatory) | enciclopedia.med.br/care-timeline web tool; Mermaid fallback | [CARE timeline](#care-patient-timeline) |
 | Causal DAG | None (recommended for observational) | DAGitty | [DAG](#causal-dag) |
-| Forest plot (meta-analysis) | PRISMA (mandatory) | R: `metafor`, `meta`, `forestplot`; or RevMan | [Forest plot](#forest-plot-meta-analysis) |
-| Kaplan-Meier survival | None (standard for time-to-event) | R: `survival` + `survminer` | [Kaplan-Meier](#kaplan-meier-survival-curve) |
-| Funnel plot | PRISMA when ≥ 10 studies | R: `metafor`, `meta` | [Funnel plot](#funnel-plot) |
-| ROC curve | STARD (recommended) | R: `pROC`; Python: `scikit-learn` | [ROC curve](#roc-curve) |
-| Calibration plot | TRIPOD (recommended) | R: `rms`, `CalibrationCurves` | [Calibration plot](#calibration-plot) |
+| Forest, Kaplan-Meier, funnel, ROC, calibration | PRISMA, STARD, TRIPOD+AI, time-to-event analyses | R, Python, Stata (from data) | `references/statistical-figures.md` |
 
 ## Export Rules
 
@@ -78,7 +69,7 @@ The four canonical rows are: **Enrollment → Allocation → Follow-up → Analy
 
 Two options. Option 1 (the browser-based generator) is **preferred** because it supports all five CONSORT trial designs and produces a publication-ready SVG with proper attribution metadata.
 
-### Option 1 (preferred) — enciclopedia.med.br/consort2010
+### Option 1 (preferred): enciclopedia.med.br/consort2010
 
 A free single-file generator at **https://enciclopedia.med.br/consort2010**. Runs entirely in the browser, no server or installation required. The tool's name and on-diagram source line still refer to CONSORT 2010, and its default follow-up and analysis labels read "Lost to follow-up" and "Analysed". The box structure it draws is the same as the CONSORT 2025 diagram, so it remains usable for a CONSORT 2025 report. Before exporting, make the labels match the 2025 wording in the table above ("…for primary outcome"). Where the tool does not allow that, note in the figure legend that counts refer to the primary outcome, and cite the CONSORT 2025 statement rather than the 2010 one as the diagram's source. It supports five trial designs:
 
@@ -87,12 +78,12 @@ A free single-file generator at **https://enciclopedia.med.br/consort2010**. Run
 | `parallel-2` | Standard 2-arm RCT (intervention vs. control) |
 | `parallel-3` | Three parallel groups (e.g., two doses + control) |
 | `crossover` | Two-sequence, two-period crossover (AB / BA) |
-| `cluster` | Cluster RCT — clusters randomised, not individuals |
-| `factorial` | 2 × 2 factorial — four arms |
+| `cluster` | Cluster RCT: clusters randomised, not individuals |
+| `factorial` | 2 × 2 factorial: four arms |
 
 Output: SVG (vector, scales without loss) and PNG. Released under CC BY 4.0.
 
-#### Minimal example — standard parallel 2-arm RCT
+#### Minimal example: standard parallel 2-arm RCT
 
 ```js
 const data = {
@@ -181,7 +172,7 @@ Plus the canonical CONSORT 2025 reference (the statement was published simultane
 
 If the target journal still requires the 2010 checklist, cite instead: Schulz KF, Altman DG, Moher D; CONSORT Group. CONSORT 2010 statement: updated guidelines for reporting parallel group randomised trials. BMJ. 2010;340:c332. doi:10.1136/bmj.c332
 
-### Option 2 — Mermaid (when the web tool is unavailable)
+### Option 2: Mermaid (when the web tool is unavailable)
 
 For a quick draft or version-controllable source, Mermaid covers parallel 2-arm trials:
 
@@ -212,7 +203,7 @@ flowchart TD
 
 Customize the numbers and reasons in each box. Always show every reason for exclusion at the eligibility, allocation, follow-up, and analysis steps. Keep boxes short; long text goes in the figure caption.
 
-For crossover, cluster, factorial, or ≥3 arms, the web generator (Option 1) is strongly preferred — Mermaid does not handle those layouts cleanly.
+For crossover, cluster, factorial, or ≥3 arms, the web generator (Option 1) is strongly preferred: Mermaid does not handle those layouts cleanly.
 
 ## STROBE Participant Flow
 
@@ -220,7 +211,7 @@ Recommended for observational studies (STROBE item 13: numbers of individuals at
 
 Two options. Option 1 (the browser-based generator) is **preferred**: it has design-specific templates for all three STROBE designs, checks the counts arithmetically, and exports a publication-ready SVG with attribution.
 
-### Option 1 (preferred) — enciclopedia.med.br/strobe
+### Option 1 (preferred): enciclopedia.med.br/strobe
 
 A free single-file generator at **https://enciclopedia.med.br/strobe**. Runs entirely in the browser, no server or installation required. English and Portuguese. Exports SVG and PNG (2×). Released under CC BY 4.0.
 
@@ -232,12 +223,12 @@ A free single-file generator at **https://enciclopedia.med.br/strobe**. Runs ent
 
 Features that matter for STROBE item 13:
 
-1. **Count-consistency check.** Each box must equal the previous box minus its exclusions; the tool flags any mismatch, reasons that do not add up to the exclusion total, and groups that do not add up to the main flow. Resolve every warning before export — a reviewer will do the same arithmetic.
+1. **Count-consistency check.** Each box must equal the previous box minus its exclusions; the tool flags any mismatch, reasons that do not add up to the exclusion total, and groups that do not add up to the main flow. Resolve every warning before export: a reviewer will do the same arithmetic.
 2. **Phases** (`identification`, `eligibility`, `followup`, `analysis`) are drawn as labelled bands on the left.
-3. **Groups** (2–4 columns) split the flow by exposure or by case/control status. Tick `overlap` when groups are analysis subsets of the same participants rather than disjoint partitions.
+3. **Groups** (2 to 4 columns) split the flow by exposure or by case/control status. Tick `overlap` when groups are analysis subsets of the same participants rather than disjoint partitions.
 4. **Final box** (`merge`) joins the groups into one summary box (e.g., "Analysed: 1:2 matched"), optionally listing each group with its n.
-5. **Percentages** (`show_pct`) relative to the previous stage — useful for participation rates in cross-sectional studies.
-6. **Load / Save JSON** — the whole diagram is a JSON file, so it can be versioned, regenerated after data updates, and shared with co-authors.
+5. **Percentages** (`show_pct`) relative to the previous stage: useful for participation rates in cross-sectional studies.
+6. **Load / Save JSON**: the whole diagram is a JSON file, so it can be versioned, regenerated after data updates, and shared with co-authors.
 
 #### JSON format (for "Load JSON")
 
@@ -293,7 +284,7 @@ Structure rules:
 #### Workflow (recommended)
 
 1. Identify the design (`cohort`, `case-control`, `cross-sectional`) from the Methods.
-2. Extract the counts at every stage — source population, examined, eligible, included, followed up, analysed — and the reasons for non-participation at each step (STROBE 13a, 13b).
+2. Extract the counts at every stage (source population, examined, eligible, included, followed up, analysed) and the reasons for non-participation at each step (STROBE 13a, 13b).
 3. Check the arithmetic yourself: each n = previous n − excluded; reasons sum to the excluded total. Fix discrepancies in the manuscript text first, not only in the figure.
 4. Write the JSON above (or fill the form, or start from "Load Example"), open https://enciclopedia.med.br/strobe, and load it.
 5. Confirm the consistency check shows "Counts are internally consistent", then export SVG for submission.
@@ -310,7 +301,7 @@ Plus the canonical STROBE reference:
 
 > von Elm E, Altman DG, Egger M, Pocock SJ, Gøtzsche PC, Vandenbroucke JP; STROBE Initiative. The Strengthening the Reporting of Observational Studies in Epidemiology (STROBE) statement: guidelines for reporting observational studies. Lancet. 2007;370(9596):1453-7. doi:10.1016/S0140-6736(07)61602-X
 
-### Option 2 — Mermaid (when the web tool is unavailable)
+### Option 2: Mermaid (when the web tool is unavailable)
 
 For a quick draft or a version-controllable text source:
 
@@ -332,13 +323,13 @@ flowchart TD
     E --> G
 ```
 
-For case-control studies, replace the cohort flow with parallel "Cases" and "Controls" branches showing source, eligibility, and matching steps for each — or use the web generator, which handles the two-column layout and the joined final box.
+For case-control studies, replace the cohort flow with parallel "Cases" and "Controls" branches showing source, eligibility, and matching steps for each, or use the web generator, which handles the two-column layout and the joined final box.
 
 ## PRISMA 2020 Flow
 
 Mandatory for systematic reviews and meta-analyses (PRISMA 2020). Three options.
 
-### Option 1 (browser-based, recommended for most users) — enciclopedia.med.br/prisma2020
+### Option 1 (browser-based, recommended for most users): enciclopedia.med.br/prisma2020
 
 A free single-file generator at **https://enciclopedia.med.br/prisma2020**. Runs entirely in the browser, no server or installation required. Exports SVG and PNG. Available in English and Portuguese. Released under CC BY 4.0.
 
@@ -349,9 +340,9 @@ const { buildSVG } = require('./prisma2020_gen');
 
 const svg = buildSVG({
   lang: 'en',                    // 'en' or 'pt'
-  db: 1500, reg: 0,              // identification — databases and registers
-  web: 12, org: 5, cit: 8, oth: 3, // identification — other methods
-  dup: 320, auto: 0, orem: 15,   // before screening — removed
+  db: 1500, reg: 0,              // identification: databases and registers
+  web: 12, org: 5, cit: 8, oth: 3, // identification: other methods
+  dup: 320, auto: 0, orem: 15,   // before screening: removed
   scr: 1180, scr_ex: 900,        // screening
   sou: 280, nret: 18,            // retrieval
   ass: 262,                      // eligibility
@@ -385,7 +376,7 @@ Plus the canonical PRISMA 2020 reference:
 
 > Page MJ, McKenzie JE, Bossuyt PM, et al. The PRISMA 2020 statement: an updated guideline for reporting systematic reviews. BMJ. 2021;372:n71. doi:10.1136/bmj.n71
 
-### Option 2 — `PRISMA2020` R package
+### Option 2: `PRISMA2020` R package
 
 The **PRISMA2020 R package** (https://cran.r-project.org/web/packages/PRISMA2020/) and its companion app (https://github.com/prisma-flowdiagram/PRISMA2020) generate the canonical PRISMA 2020 flow diagram from a structured CSV. It produces a publication-ready SVG/PDF identical in style to the PRISMA Statement examples.
 
@@ -420,7 +411,7 @@ PRISMA_save(plot, filename = "Figure1_PRISMA.svg", filetype = "SVG")
 
 A **web app version** (no R required) is also available at https://estech.shinyapps.io/prisma_flowdiagram/. It accepts the same CSV format and exports to PDF/SVG/PNG/HTML.
 
-### Option 3 — Mermaid (when neither the web tool nor R is available)
+### Option 3: Mermaid (when neither the web tool nor R is available)
 
 ```mermaid
 flowchart TD
@@ -537,7 +528,7 @@ A Gantt visualization of the participant journey makes the timing of visits and 
 2. **Timeline of interventions**, including any run-in and washout periods.
 3. **Procedures and assessments performed at each visit**, referencing specific data collection forms when relevant.
 
-Two complementary formats are typically used: a **schedule of enrolment, interventions, and assessments** (SPIRIT figure: rows = activities and assessments, columns = study timepoints — `−t1`, `0`, `t1`, `t2`, ..., `tx`) and a **Gantt/timeline visualization** of durations and milestones.
+Two complementary formats are typically used: a **schedule of enrolment, interventions, and assessments** (SPIRIT figure: rows = activities and assessments, columns = study timepoints: `−t1`, `0`, `t1`, `t2`, ..., `tx`) and a **Gantt/timeline visualization** of durations and milestones.
 
 ```mermaid
 gantt
@@ -584,7 +575,7 @@ For a SPIRIT-style schedule of enrolment, interventions, and assessments table, 
 
 Mandatory for case reports under CARE 2013 (Item 7). Three modes are supported. Option 1 (the browser-based generator) is **preferred** because it supports all three modes natively, includes anonymization warnings, and produces publication-ready SVG with attribution metadata.
 
-### Option 1 (preferred) — enciclopedia.med.br/care-timeline
+### Option 1 (preferred): enciclopedia.med.br/care-timeline
 
 A free single-file generator at **https://enciclopedia.med.br/care-timeline**. Runs entirely in the browser, no server or installation required. Supports three diagram modes covering the common CARE timeline layouts:
 
@@ -606,7 +597,7 @@ Phase IDs (use exactly these strings in the `phase` field):
 
 Output: SVG (vector) and PNG. Available in English and Portuguese. Released under CC BY 4.0.
 
-#### Minimal example — section-based (phases only, no dates)
+#### Minimal example: section-based (phases only, no dates)
 
 ```js
 const data = {
@@ -622,7 +613,7 @@ const data = {
 };
 ```
 
-#### Minimal example — hybrid (phases + relative dates)
+#### Minimal example: hybrid (phases + relative dates)
 
 ```js
 const data = {
@@ -638,7 +629,7 @@ const data = {
 };
 ```
 
-#### Minimal example — date-based (chronological)
+#### Minimal example: date-based (chronological)
 
 ```js
 const data = {
@@ -654,7 +645,7 @@ const data = {
 
 #### Anonymization rule
 
-Use **relative** time references (`Day 0`, `Week 2`, `Month 3`, `Year 1`) — they preserve patient anonymisation. Avoid calendar dates (`January 2023`, `2023-01-15`); the tool warns about re-identification risk. In date mode, events sort lexicographically by `time`, so use consistent prefixes (`Day 01`, `Day 10` rather than `Day 1`, `Day 10`) to ensure correct order.
+Use **relative** time references (`Day 0`, `Week 2`, `Month 3`, `Year 1`): they preserve patient anonymisation. Avoid calendar dates (`January 2023`, `2023-01-15`); the tool warns about re-identification risk. In date mode, events sort lexicographically by `time`, so use consistent prefixes (`Day 01`, `Day 10` rather than `Day 1`, `Day 10`) to ensure correct order.
 
 #### Workflow (recommended)
 
@@ -676,7 +667,7 @@ Plus the canonical CARE 2013 reference:
 
 > Gagnier JJ, Kienle G, Altman DG, et al. The CARE guidelines: consensus-based clinical case reporting guideline development. *J Med Case Rep*. 2013;7:223. doi:10.1186/1752-1947-7-223
 
-### Option 2 — Mermaid (when the web tool is unavailable)
+### Option 2: Mermaid (when the web tool is unavailable)
 
 Mermaid covers the section-based and date-based modes (no native hybrid mode); useful as a quick draft or version-controlled source.
 
@@ -724,7 +715,7 @@ timeline
 
 Avoid exact calendar dates that could re-identify the patient (specific admission days at a small hospital); use relative dates (`Day 0`, `Day 12`) or month/year only.
 
-For the **hybrid** mode (phases plus relative timestamps in a column), use Option 1 — Mermaid does not render that layout cleanly.
+For the **hybrid** mode (phases plus relative timestamps in a column), use Option 1: Mermaid does not render that layout cleanly.
 
 ## Causal DAG
 
@@ -761,56 +752,6 @@ flowchart LR
 
 For publication, prefer DAGitty; the SVG output is cleaner and the file can be reproduced by any reader who pastes the DAGitty source code into the tool.
 
-## Forest Plot (Meta-Analysis)
-
-Cannot be generated from text — requires data. Generated in:
-
-1. **R `metafor` package** (gold standard for academic meta-analysis). https://www.metafor-project.org. Functions: `forest()`, `forest.rma()`. Highly customizable.
-2. **R `meta` package**. Also widely used; produces clean forest plots.
-3. **R `forestplot` package**. Specialized; handles complex multi-row formats and subgroups.
-4. **RevMan** (Cochrane). Standard tool for Cochrane Reviews.
-5. **Stata** `meta forestplot` command (Stata 16+).
-
-A forest plot must show: study labels, sample sizes per arm, point estimate per study with 95% CI, the pooled estimate (diamond), the heterogeneity statistic (I², τ²), the test for overall effect, and the model used (fixed or random effects).
-
-## Kaplan-Meier Survival Curve
-
-Cannot be generated from text. Generated in:
-
-1. **R: `survival` + `survminer` packages**. `survfit()` to fit; `ggsurvplot()` to draw. Add the at-risk table beneath the plot (mandatory by most journals): `ggsurvplot(..., risk.table = TRUE)`.
-2. **Stata**: `sts graph` command.
-3. **Python**: `lifelines` package, `KaplanMeierFitter().plot()`.
-
-A KM curve must show: survival probability over time per group, the at-risk table at each timepoint, censoring marks, the hazard ratio with 95% CI, and the log-rank p value.
-
-## Funnel Plot
-
-For publication-bias assessment when ≥ 10 studies are pooled (PRISMA 2020).
-
-1. **R `metafor`**: `funnel(meta_analysis_object)`.
-2. **R `meta`**: `funnel(...)`.
-3. **Stata**: `meta funnelplot`.
-
-## ROC Curve
-
-Common in diagnostic accuracy studies (STARD).
-
-1. **R**: `pROC` package; `roc()` to fit, `plot()` or `ggroc()` to draw.
-2. **R alternative**: `ROCR`, `precrec`.
-3. **Python**: `sklearn.metrics.roc_curve` + `matplotlib`.
-4. **Stata**: `roctab`, `roccomp`.
-
-Report the AUC with 95% CI in the caption and on the plot.
-
-## Calibration Plot
-
-Standard for prediction-model studies (TRIPOD).
-
-1. **R**: `rms` package (`val.prob`); `CalibrationCurves` package (`val.prob.ci.2`); `riskRegression` package.
-2. **Python**: `sklearn.calibration.CalibrationDisplay`.
-
-Report the calibration intercept and slope, and ideally the integrated calibration index (ICI).
-
 ## Renderers and Workflow
 
 ### Mermaid
@@ -822,22 +763,22 @@ Report the calibration intercept and slope, and ideally the integrated calibrati
 
 ### CONSORT generator (enciclopedia.med.br/consort2010)
 
-1. **enciclopedia.med.br/consort2010** (preferred): single-file browser tool, no install. Same box structure as the CONSORT 2025 diagram; relabel follow-up/analysis boxes to the 2025 "for primary outcome" wording. Supports five trial designs (parallel 2-arm, parallel 3-arm, crossover, cluster, factorial). Exports SVG and PNG. CC BY 4.0 — citation required.
+1. **enciclopedia.med.br/consort2010** (preferred): single-file browser tool, no install. Same box structure as the CONSORT 2025 diagram; relabel follow-up/analysis boxes to the 2025 "for primary outcome" wording. Supports five trial designs (parallel 2-arm, parallel 3-arm, crossover, cluster, factorial). Exports SVG and PNG. CC BY 4.0; citation required.
 2. **Mermaid** (fallback): only fits parallel 2-arm cleanly; the web generator handles the other four designs better.
 
 ### STROBE generator
 
-1. **enciclopedia.med.br/strobe** (preferred): single-file browser tool. Cohort, case-control, and cross-sectional templates; exposure-group columns; joined final box; arithmetic consistency check for item 13a; JSON save/load. English + Portuguese. CC BY 4.0 — citation required.
+1. **enciclopedia.med.br/strobe** (preferred): single-file browser tool. Cohort, case-control, and cross-sectional templates; exposure-group columns; joined final box; arithmetic consistency check for item 13a; JSON save/load. English + Portuguese. CC BY 4.0; citation required.
 2. **Mermaid** (fallback): fine for a single-column cohort flow; the web generator handles group columns and case-control layouts better.
 
 ### CARE Timeline generator
 
-1. **enciclopedia.med.br/care-timeline** (preferred): single-file browser tool. Three modes (section, hybrid, date). Phase-coded color bands. Anonymization warnings. English + Portuguese. CC BY 4.0 — citation required.
+1. **enciclopedia.med.br/care-timeline** (preferred): single-file browser tool. Three modes (section, hybrid, date). Phase-coded color bands. Anonymization warnings. English + Portuguese. CC BY 4.0; citation required.
 2. **Mermaid** (fallback): covers section-based and date-based modes only; the web generator is needed for hybrid mode.
 
 ### PRISMA 2020 generators (multiple options)
 
-1. **enciclopedia.med.br/prisma2020** (recommended for most users): single-file browser tool, no install, supports English and Portuguese, exports SVG and PNG. Companion Node.js module for programmatic use. CC BY 4.0 — citation required.
+1. **enciclopedia.med.br/prisma2020** (recommended for most users): single-file browser tool, no install, supports English and Portuguese, exports SVG and PNG. Companion Node.js module for programmatic use. CC BY 4.0; citation required.
 2. **`PRISMA2020` R package**: `install.packages("PRISMA2020")` for fully reproducible R scripts.
 3. **Estech Shiny web app** (no install): https://estech.shinyapps.io/prisma_flowdiagram/.
 4. **R package source and templates**: https://github.com/prisma-flowdiagram/PRISMA2020.
@@ -862,8 +803,8 @@ Report the calibration intercept and slope, and ideally the integrated calibrati
 5. Number figures by order of first mention in the text; cite each figure in the body before the next is cited.
 6. Use color sparingly and ensure readability in grayscale (many readers print).
 7. Verify accessibility: minimum contrast for color-blind readers (avoid red-green-only encodings); use shapes or labels alongside color.
-8. For all figures, the **first mention in the body text** must precede the figure number — Figure 1 must be cited before Figure 2.
+8. For all figures, the **first mention in the body text** must precede the figure number: Figure 1 must be cited before Figure 2.
 
 ## Cross-References Within This Skill
 
-The reporting standards that mandate these diagrams are documented in `references/reporting-standards.md`. The Results-section requirements for participant flow are in `references/results.md`. The CARE timeline requirement is detailed in `references/case-report.md`. The Methods-section narrative around each diagram is in `references/method.md`.
+Statistical figures (forest, Kaplan-Meier, funnel, ROC, calibration): `references/statistical-figures.md`. The reporting standards that require these diagrams are documented in `references/reporting-standards.md`. The Results-section requirements for participant flow are in `references/results.md`. The CARE timeline requirement is detailed in `references/case-report.md`. The Methods-section narrative around each diagram is in `references/method.md`.

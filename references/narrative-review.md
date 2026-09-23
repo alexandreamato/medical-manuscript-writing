@@ -1,6 +1,6 @@
 # Narrative Literature Review and Evidence-Based Clinical Review (Medical Research)
 
-This guide is for narrative review papers and evidence-based clinical updates — review articles whose central contribution is the synthesis itself, not a primary study. For PRISMA-aligned systematic reviews and meta-analyses, see `references/systematic-review.md`. For background framing inside an original research article, see `references/related-work.md`.
+This guide is for narrative review papers and evidence-based clinical updates: review articles whose central contribution is the synthesis itself, not a primary study. For PRISMA-aligned systematic reviews and meta-analyses, see `references/systematic-review.md`. For background framing inside an original research article, see `references/related-work.md`.
 
 The guidance synthesizes Van Wee & Banister (Transp Rev 2016) "How to Write a Literature Review Paper", Siwek et al. (Am Fam Physician 2002) "How to Write an Evidence-Based Clinical Review Article", and Gülpınar & Güçlü (Turk J Urol 2013) "How to Write a Review Article".
 
@@ -14,7 +14,7 @@ The guidance synthesizes Van Wee & Banister (Transp Rev 2016) "How to Write a Li
 
 Narrative reviews and clinical updates are **not** systematic reviews. Each has a place; mixing the labels misleads the reader.
 
-## The Cardinal Rule — Add Value
+## The Cardinal Rule: Add Value
 
 The single biggest distinction between a publishable review article and a manuscript that gets desk-rejected is **added value**. An overview restates what is known; a review **adds** something. Decide upfront which kind of value the paper delivers:
 
@@ -36,7 +36,7 @@ Before drafting, check that none of these apply:
 1. A recent review of the same scope already exists.
 2. The literature is too thin to support a review (consider broadening the scope, or wait).
 3. The literature is so vast that the review will lose focus (narrow the scope).
-4. You have nothing distinctive to add — no new angle, no new methodological focus, no new population, no new framework.
+4. You have nothing distinctive to add: no new angle, no new methodological focus, no new population, no new framework.
 
 Writing a review takes substantial time. The reading is one part; the synthesis and writing are usually longer than for a primary research paper. Plan accordingly.
 
@@ -45,8 +45,8 @@ Writing a review takes substantial time. The reading is one part; the synthesis 
 For an evidence-based clinical update, the best topics meet **all** of:
 
 1. **Common in practice** for the target audience (avoid rarities and curiosities).
-2. **Recent new evidence** — diagnostics, therapeutics, prevention, deimplementation.
-3. **Practice-changing potential** — new evidence prompts a change, or new evidence that an established treatment is no longer beneficial (or is harmful).
+2. **Recent new evidence**: diagnostics, therapeutics, prevention, deimplementation.
+3. **Practice-changing potential**: new evidence prompts a change, or new evidence that an established treatment is no longer beneficial (or is harmful).
 
 State the continuing-medical-education or practice-relevance objectives in a separate table at the start.
 
@@ -61,7 +61,7 @@ A central distinction for clinical review writing:
 
 Where possible, base recommendations on POEM. When only DOE is available, say so explicitly: `Although [DOE finding], it has not yet been shown that [intervention] improves [POEM outcome].` Antiarrhythmic therapy after MI is the classic cautionary example: drug X reduces premature ventricular contractions on ECG (DOE) but increases mortality (POEM).
 
-## Search Strategy — Be Explicit
+## Search Strategy: Be Explicit
 
 The methodological section is the weakest part of most narrative review papers. For PubMed-specific basics (Boolean operators, MeSH, field tags, Clinical Queries), see `references/pubmed-essentials.md`. Even when the review is non-systematic, report:
 
@@ -102,7 +102,7 @@ The level of evidence depends on the type of clinical question:
 
 Always cite primary research, not secondary review articles, when rating evidence. Systematic reviews that pool RCTs are the best basis for ratings.
 
-### Modern alternative — GRADE
+### Modern alternative: GRADE
 
 For a more granular per-outcome rating, use GRADE (high / moderate / low / very low certainty). See `references/statistical-reporting.md` and `references/systematic-review.md`.
 
@@ -157,7 +157,7 @@ Authors and affiliations
 References
 ```
 
-## Structuring the Body — Tables Are Powerful
+## Structuring the Body: Tables Are Powerful
 
 Synthesize evidence in tables, not in prose lists. Common table designs:
 
@@ -191,8 +191,8 @@ A summary "key take-home points" table near the end is particularly valuable for
 7. Are recommendations supported by **primary** research, not by secondary reviews?
 8. Are conclusions and interpretations explicitly attributed (original authors vs. review authors)?
 9. Are tables used to synthesize, with a key-take-home-points summary table?
-10. Are references real, in citation order, and balanced between classic and recent?
-11. Is the body free of em-dashes (see `references/manuscript-conventions.md`)?
+10. Are references balanced between classic and recent, and all verified?
+11. Do the cross-section consistency checks pass? `references/paper-review.md` (Cross-Section Consistency Checks).
 12. Does the abstract include the main conclusions and added value, not just a description?
 
 ## Source

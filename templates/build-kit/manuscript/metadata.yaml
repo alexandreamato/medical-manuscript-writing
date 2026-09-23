@@ -1,5 +1,6 @@
 # Manuscript metadata. Content only: no journal rules live here.
 # Everything below is FICTIONAL example data; replace it.
+example: true                   # demonstration content: `validate.py --submission` refuses it. Delete this line when the content is real.
 title: "Statin use and incident venous leg ulcer in adults with chronic venous disease: a prospective cohort study"
 title-alt: "Uso de estatinas e incidência de úlcera venosa em adultos com doença venosa crônica: estudo de coorte prospectivo"
 running-title: "Statins and venous leg ulcer"

@@ -5,10 +5,10 @@ Different journals require different citation styles. The first step before form
 ## Contents
 
 1. [Decision Rule](#decision-rule)
-2. [Major Citation Styles in Medical Publishing](#major-citation-styles-in-medical-publishing) — comparison table
-3. [Vancouver (Default)](#vancouver--default-style-detailed) — full detail; in-text rules; reference-list format for journals, books, chapters, supplements, eLocators, newspapers, organisation reports; Generative AI handling; sample paragraph
-4. [Other styles](#other-styles) — AMA, APA, Harvard, Chicago / Turabian, CSE; pointer to `references/citation-styles-detail.md`
-5. [Reference-Manager Workflow](#reference-manager-workflow) — Zotero, Mendeley, EndNote, BibTeX; CSL style files
+2. [Major Citation Styles in Medical Publishing](#major-citation-styles-in-medical-publishing): comparison table
+3. [Vancouver (Default)](#vancouver-default-style-detailed): full detail; in-text rules; reference-list format for journals, books, chapters, supplements, eLocators, newspapers, organisation reports; Generative AI handling; sample paragraph
+4. [Other styles](#other-styles): AMA, APA, Harvard, Chicago / Turabian, CSE; pointer to `references/citation-styles-detail.md`
+5. [Reference-Manager Workflow](#reference-manager-workflow): Zotero, Mendeley, EndNote, BibTeX; CSL style files
 6. [Hard Rules That Apply Regardless of Style](#hard-rules-that-apply-regardless-of-style)
 7. [Common Mistakes Caught at Final Review](#common-mistakes-caught-at-final-review)
 8. [Quick Sanity Check Before Submission](#quick-sanity-check-before-submission)
@@ -40,7 +40,7 @@ Different journals require different citation styles. The first step before form
 | **Nature** | Numeric (superscript) | `¹` | Order of first appearance | Nature, Nature Medicine variations |
 | **Cell** | Author-date | `(Smith et al., 2020)` | Alphabetical | Cell, Cell Reports, Cell Reports Medicine |
 
-## Vancouver — Default Style (Detailed)
+## Vancouver: Default Style (Detailed)
 
 Vancouver is the **dominant** citation style for medical journals (NEJM, Lancet, BMJ, JAMA, Annals, Nature Medicine, Cochrane Reviews, and most specialty journals). It is recommended by ICMJE and aligns closely with the AMA Manual of Style 11th edition. Vancouver is the **default** style of this skill.
 
@@ -78,9 +78,9 @@ This finding has been confirmed (1).
 
 ### Multiple-Citation Rules
 
-1. **Two non-consecutive citations:** join with a comma, no space — `1,3`.
-2. **Three or more consecutive citations:** join the first and last with a hyphen — `4-7`. Do not write `4,5,6,7`.
-3. **Mixed consecutive and non-consecutive:** combine — `1,3-5,8`.
+1. **Two non-consecutive citations:** join with a comma, no space: `1,3`.
+2. **Three or more consecutive citations:** join the first and last with a hyphen: `4-7`. Do not write `4,5,6,7`.
+3. **Mixed consecutive and non-consecutive:** combine: `1,3-5,8`.
 
 ### Placement Around Punctuation
 
@@ -100,25 +100,25 @@ This avoids creating multiple reference-list entries for the same source.
 
 ### Author Names When Mentioned in Text
 
-1. **One author:** surname only — `Smith reported ...¹`
-2. **Two authors:** both surnames joined by `and` — `Avery and Williams highlighted ...¹`
-3. **Three or more authors:** first author surname plus `et al.` — `Azar et al. reported ...¹`
+1. **One author:** surname only: `Smith reported ...¹`
+2. **Two authors:** both surnames joined by `and`: `Avery and Williams highlighted ...¹`
+3. **Three or more authors:** first author surname plus `et al.`: `Azar et al. reported ...¹`
 
 Do not italicize `et al.` in Vancouver/AMA (some style guides italicize it; not Vancouver).
 
 ### Author Names in the Reference List
 
-1. **Format:** surname followed by initials with no periods between letters and no space — `Smith JA`, `Khan FM`. Multiple authors are separated by commas.
+1. **Format:** surname followed by initials with no periods between letters and no space: `Smith JA`, `Khan FM`. Multiple authors are separated by commas.
 2. **One to six authors:** list **all** authors in classical Vancouver. (AMA 11 and many modern journals now also accept "first three then et al."; verify with the journal.)
 3. **More than six authors (modern AMA-aligned Vancouver):** list the first **three** authors then `et al.` Example: `Smith BM, Kirby M, Hoffman EA, et al.`.
 4. **Older Vancouver / ICMJE classical:** list the first **six** authors then `et al.` Verify which the target journal uses.
-5. **Organization as author:** spell out in full — `Australian Institute of Health and Welfare.` `World Health Organization.`. Do not abbreviate the organization name in the reference list.
+5. **Organization as author:** spell out in full: `Australian Institute of Health and Welfare.` `World Health Organization.`. Do not abbreviate the organization name in the reference list.
 6. **No author available:** check whether an organization acted as author. If not, list the title first.
 
 ### Title Capitalization
 
-1. **Article and chapter titles:** **sentence case** — capitalize only the first word, proper nouns, abbreviations, and named clinical trials or study groups. Example: `Community health worker home visits for adults with uncontrolled asthma: the HomeBASE Trial randomized clinical trial.` (Note `HomeBASE Trial` is capitalized as a named trial.)
-2. **Journal and book titles:** **headline (title) case** — capitalize all significant words. Italicize.
+1. **Article and chapter titles:** **sentence case**: capitalize only the first word, proper nouns, abbreviations, and named clinical trials or study groups. Example: `Community health worker home visits for adults with uncontrolled asthma: the HomeBASE Trial randomized clinical trial.` (Note `HomeBASE Trial` is capitalized as a named trial.)
+2. **Journal and book titles:** **headline (title) case**: capitalize all significant words. Italicize.
 
 ### Digital Object Identifiers (DOIs)
 
@@ -126,7 +126,7 @@ Do not italicize `et al.` in Vancouver/AMA (some style guides italicize it; not 
 2. **Format as metadata, not as a hyperlink:** `doi:10.1001/jamainternmed.2014.6353` (no `https://doi.org/` prefix in classical Vancouver/AMA; AMA 11 keeps the `doi:` form).
 3. **For online sources without a DOI:** include the URL with an access date (`Accessed Month Day, Year. URL`).
 
-### Reference List Format — Journal Article
+### Reference List Format: Journal Article
 
 ```
 Author Surname Author Initials. Title of article: subtitle. Abbreviated Journal Title in Italics. Year;Volume(Issue):Page range. doi:DOI
@@ -153,12 +153,12 @@ Worked examples:
 Detailed rules:
 
 1. **Article title:** sentence case; ends with a period.
-2. **Journal abbreviation:** italicized; per the NLM list. Look up at https://pubmed.ncbi.nlm.nih.gov/ — click *Journals* under *Explore* and enter the full title, or check the Citing Medicine appendix B at https://www.ncbi.nlm.nih.gov/books/NBK7253/. See `references/pubmed-essentials.md` for the full lookup workflow.
-3. **Year, volume, issue, pages:** `Year;Volume(Issue):Pages.` — no space before the issue parenthesis; no space between volume and issue.
-4. **Page range:** abbreviate the second number when redundant — `1151-1210` or `1151-210`, per journal preference. Most modern journals keep the full second number for clarity.
+2. **Journal abbreviation:** italicized; per the NLM list. Look up at https://pubmed.ncbi.nlm.nih.gov/: click *Journals* under *Explore* and enter the full title, or check the Citing Medicine appendix B at https://www.ncbi.nlm.nih.gov/books/NBK7253/. See `references/pubmed-essentials.md` for the full lookup workflow.
+3. **Year, volume, issue, pages:** `Year;Volume(Issue):Pages.`: no space before the issue parenthesis; no space between volume and issue.
+4. **Page range:** abbreviate the second number when redundant: `1151-1210` or `1151-210`, per journal preference. Most modern journals keep the full second number for clarity.
 5. **DOI:** end with `doi:` prefix; no trailing period in classical Vancouver (some journals add one).
 
-### Reference List Format — Journal Article: Special Cases
+### Reference List Format: Journal Article: Special Cases
 
 **Advanced online publication (ahead of print):**
 
@@ -206,7 +206,7 @@ Use the article number in place of the page range.
 
 For print newspapers, omit the access date and URL. For unsigned articles (no author), list the article title first.
 
-### Reference List Format — Book
+### Reference List Format: Book
 
 ```
 Author Surname Author Initials. Title of Book in Italics. # ed. Publisher; Publication Year. Accessed Month Day, Year. doi:DOI or URL
@@ -225,12 +225,12 @@ Examples:
 
 Rules:
 
-1. **Edition** (other than first) immediately after the title — `8th ed.`
-2. **Publisher; Year** — semicolon between publisher and year.
+1. **Edition** (other than first) immediately after the title: `8th ed.`
+2. **Publisher; Year**: semicolon between publisher and year.
 3. **Print book:** omit access date and URL/DOI.
 4. **Online or e-book:** add `Accessed Month Day, Year. doi:` or URL.
 
-### Reference List Format — Chapter in an Edited Book
+### Reference List Format: Chapter in an Edited Book
 
 ```
 Chapter Author Surname Initials. Title of chapter. In: Editor Surname Editor Initials, ed. Title of Book in Italics. # ed. Publisher; Year:Chapter page range. Accessed Month Day, Year. doi:DOI or URL
@@ -245,7 +245,7 @@ Example:
     http://ebookcentral.proquest.com/lib/curtin/detail.action?docID=6183701
 ```
 
-### Reference List Format — Organization Report
+### Reference List Format: Organization Report
 
 ```
 12. Australian Institute of Health and Welfare. Australian Bushfires
@@ -256,9 +256,9 @@ Example:
 
 Include any report number or catalogue number after the year.
 
-### Reference List Format — Generative AI
+### Reference List Format: Generative AI
 
-Generative-AI tools (ChatGPT, Claude, Gemini, etc.) are **non-recoverable sources** — the content they produce is not accessible to anyone other than the person who generated it. Vancouver/AMA practice (aligned with the Curtin / AMA-derived guidance):
+Generative-AI tools (ChatGPT, Claude, Gemini, etc.) are **non-recoverable sources**: the content they produce is not accessible to anyone other than the person who generated it. Vancouver/AMA practice (aligned with the Curtin / AMA-derived guidance):
 
 1. **No entry in the reference list.**
 2. **In-text only**, in parentheses, with the format: `(Communicator, type of communication, Month Day, Year)`.
@@ -271,7 +271,7 @@ is adopted, one which addresses both personal and environmental risk factors
 (ChatGPT, response to question from author, February 22, 2023).
 ```
 
-A **declaration must be included** in the manuscript (typically in Methods or after the reference list — verify the journal's policy). The declaration states:
+A **declaration must be included** in the manuscript (typically in Methods or after the reference list; verify the journal's policy). The declaration states:
 
 1. The AI tool used (with URL/version).
 2. How it was used (research, idea generation, clarification, structure, writing assistance, other).
@@ -319,7 +319,7 @@ References:
    interventions. Nurs Stand. 2011;25(52):50-55.
 ```
 
-### Reference List Format — Online-Only Article / Website
+### Reference List Format: Online-Only Article / Website
 
 ```
 4. Author AA. Title. Site name. Year [accessed YYYY MMM DD]. URL.
@@ -333,7 +333,7 @@ Example:
    https://covid19.who.int.
 ```
 
-### Reference List Format — Preprint
+### Reference List Format: Preprint
 
 ```
 5. Author AA, Author BB. Title. Server [Preprint]. Year. DOI.
@@ -348,20 +348,20 @@ Example:
 
 Mark preprints clearly as `[Preprint]` so reviewers know the source has not been peer-reviewed.
 
-### Reference List Format — Trial Registry Entry
+### Reference List Format: Trial Registry Entry
 
 ```
 6. Author or Sponsor. Trial title. ClinicalTrials.gov identifier: NCTxxxxxxxx.
    Year [updated YYYY MMM DD; accessed YYYY MMM DD]. URL.
 ```
 
-### Reference List Format — Conference Abstract
+### Reference List Format: Conference Abstract
 
 ```
 7. Author AA, Author BB. Title [abstract]. Conference Name; Year MMM DD-DD; City, State or Country. Abstract number.
 ```
 
-### Reference List Format — Software / Code
+### Reference List Format: Software / Code
 
 ```
 8. Author AA. Software name. Version. Publisher; Year. URL or DOI.
@@ -383,11 +383,11 @@ For full detail on AMA (JAMA Network), APA (7th ed.), Harvard, Chicago / Turabia
 
 Brief orientation:
 
-- **AMA** — numeric superscript, similar to Vancouver; default for the JAMA Network.
-- **APA 7** — author-date; common in health-sciences, behavioural, public-health, nursing, and medical-education journals.
-- **Harvard** — generic author-date; varies by publisher, always follow the journal's worked example exactly.
-- **Chicago / Turabian 18** — Author-Date variant is the one usually used in medical contexts; Notes-Bibliography variant uses footnotes.
-- **CSE** — three variants (Citation-Sequence, Citation-Name, Name-Year); confirm which the journal requires.
+- **AMA**: numeric superscript, similar to Vancouver; default for the JAMA Network.
+- **APA 7**: author-date; common in health-sciences, behavioural, public-health, nursing, and medical-education journals.
+- **Harvard**: generic author-date; varies by publisher, always follow the journal's worked example exactly.
+- **Chicago / Turabian 18**: Author-Date variant is the one usually used in medical contexts; Notes-Bibliography variant uses footnotes.
+- **CSE**: three variants (Citation-Sequence, Citation-Name, Name-Year); confirm which the journal requires.
 
 The remainder of this file focuses on the Vancouver default plus rules that apply across all styles.
 
@@ -467,16 +467,16 @@ Most reference managers support CSL (Citation Style Language) files. Find styles
 3. Author-date styles: alphabetical order verified.
 4. Every reference has a DOI when one exists.
 5. Every reference has been spot-checked against PubMed or the journal record.
-6. No fabricated, duplicated, or unverifiable references.
+6. No duplicated references; every reference verified against its source record, and none left unverified, inconsistent, or retracted without a stated reason (categories in `references/paper-review.md`, Reference problems).
 7. Tables and figures cited in order of first appearance.
 8. Reference manager re-runs cleanly without "broken citation" errors.
 
 ## See also
 
-- `references/citation-styles-detail.md` — Full detail on AMA, APA 7, Harvard, Chicago / Turabian 18 (Author-Date and Notes-Bibliography), and CSE
-- `references/manuscript-conventions.md` — Journal-specific formatting requirements (margins, line numbers, anonymisation)
-- `references/pubmed-essentials.md` — Looking up journal abbreviations against the NLM list; verifying a reference against the PubMed record
-- `references/research-apis.md` — Crossref, OpenAlex, NCBI E-utilities, OpenCitations for programmatic reference verification
-- `references/ethics-and-integrity.md` — AI disclosure, ICMJE position on AI authorship
-- `references/common-mistakes.md` — Speed audit including citation order and reference list defects
-- `references/paper-review.md` — Formal pre-submission checklist including reference verification
+- `references/citation-styles-detail.md`: Full detail on AMA, APA 7, Harvard, Chicago / Turabian 18 (Author-Date and Notes-Bibliography), and CSE
+- `references/manuscript-conventions.md`: Journal-specific formatting requirements (margins, line numbers, anonymisation)
+- `references/pubmed-essentials.md`: Looking up journal abbreviations against the NLM list; verifying a reference against the PubMed record
+- `references/research-apis.md`: Crossref, OpenAlex, NCBI E-utilities, OpenCitations for programmatic reference verification
+- `references/ethics-and-integrity.md`: AI disclosure, ICMJE position on AI authorship
+- `references/common-mistakes.md`: Speed audit including citation order and reference list defects
+- `references/paper-review.md`: Formal pre-submission checklist including reference verification
