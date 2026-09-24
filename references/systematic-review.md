@@ -187,10 +187,10 @@ With any number of studies:
 2. Compare each study's protocol, registry entry or statistical analysis plan with its publication, to detect results that were measured but not reported, or reported selectively (selective outcome reporting).
 3. Judge the risk of bias due to missing evidence for each meta-analysis with ROB-ME (Page MJ, et al. BMJ. 2023;383:e076754. doi:10.1136/bmj-2023-076754; https://www.riskofbias.info/welcome/rob-me-tool), and carry the judgment into the GRADE publication-bias domain.
 
-Only when the meta-analysis has at least 10 studies (Cochrane Handbook version 6.5, section 13.3.4.4: with fewer studies, tests for funnel plot asymmetry have too little power to distinguish chance from real asymmetry; Sterne JAC, et al. BMJ. 2011;343:d4002. doi:10.1136/bmj.d4002):
+Funnel-plot methods. As a rule of thumb, asymmetry tests only when the meta-analysis has at least 10 studies (Cochrane Handbook version 6.5, section 13.3.4.4: with fewer studies, the tests have too little power to distinguish chance from real asymmetry; Sterne JAC, et al. BMJ. 2011;343:d4002. doi:10.1136/bmj.d4002). The plot itself may be shown with fewer studies, but it cannot support a conclusion:
 
-1. Funnel plot (visual), read as a display of small-study effects, of which publication bias is only one possible cause.
-2. Egger test (continuous outcomes), or Peters or Harbord tests (binary outcomes) for funnel-plot asymmetry.
+1. Funnel plot (visual), read as a display of small-study effects, of which publication bias is only one possible cause; with fewer than 10 studies, descriptive only.
+2. Egger test (continuous outcomes), or Peters or Harbord tests (binary outcomes) for funnel-plot asymmetry, with at least 10 studies.
 3. Trim-and-fill or other corrections only as sensitivity analyses.
 
 ### Step 8: Rate Certainty of Evidence (GRADE)

@@ -66,11 +66,11 @@
       "id": 6,
       "name": "translation-keeps-numbers",
       "prompt": "Traduza este resumo para o inglês:\n\nResultados: Dos 1500 participantes, 620 usavam estatina. Úlcera venosa ocorreu em 41 usuários e 88 não usuários (razão de risco ajustada 0,72, intervalo de confiança de 95% 0,55 a 0,94).",
-      "expected_output": "An English translation with identical numbers (decimal point instead of comma), standard terms (hazard ratio, 95% confidence interval), no added content; the explanation, if any, in Portuguese.",
+      "expected_output": "An English translation with identical numbers (decimal point instead of comma), no added content, and the ambiguity of 'razão de risco' flagged: the prompt does not say whether it is a hazard ratio (Cox) or a risk ratio, so the agent asks or states the assumption instead of choosing silently. Comments to the user in Portuguese.",
       "expectations": [
         "The translation contains 1500, 620, 41, 88, 0.72, 0.55 and 0.94 with no other numbers added",
         "It converts the decimal comma to a decimal point",
-        "It uses 'hazard ratio' (not 'risk ratio' or 'odds ratio') for 'razão de risco ajustada' in a Cox context, or asks which measure it is",
+        "It does not silently choose between 'hazard ratio' and 'risk ratio' for 'razão de risco ajustada': it asks which measure it is, or translates with the assumption stated explicitly",
         "It adds no interpretation or result that is not in the original",
         "Any comments to the user are in Portuguese"
       ]

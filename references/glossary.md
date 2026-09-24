@@ -72,7 +72,7 @@ Short definitions of statistical, methodological, and reporting terms used throu
 
 **Forest plot.** Standard meta-analysis figure showing each study's effect estimate with 95% CI, the pooled estimate, and heterogeneity statistics (I², τ²).
 
-**Funnel plot.** Plot of effect size versus precision (or standard error). Asymmetry indicates small-study effects, of which publication bias is one possible cause. Funnel plots and asymmetry tests are meaningful only when a meta-analysis has at least 10 studies (Cochrane Handbook version 6.5, section 13.3.4.4); other checks for missing evidence (registry searches, protocol-publication comparison, ROB-ME) apply with any number of studies.
+**Funnel plot.** Plot of effect size versus precision (or standard error). Asymmetry indicates small-study effects, of which publication bias is one possible cause. Asymmetry tests need at least 10 studies (Cochrane Handbook version 6.5, section 13.3.4.4), and with fewer the plot is descriptive only; other checks for missing evidence (registry searches, protocol-publication comparison, ROB-ME) apply with any number of studies.
 
 ## G
 

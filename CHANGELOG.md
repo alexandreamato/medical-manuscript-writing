@@ -2,6 +2,21 @@
 
 All notable changes to the **Medical Manuscript Writing** skill are documented here. Format follows Keep a Changelog (https://keepachangelog.com/) using semantic-style versioning by content scope rather than strict semver.
 
+## [1.12.1] — 2026-09-23
+
+Responds to an external review of 1.12.0.
+
+### Fixed
+
+- **Translation eval.** The case gave "razão de risco ajustada" with no survival context, yet expected "hazard ratio". It now requires the agent to flag the ambiguity (hazard ratio or risk ratio) or state its assumption, not choose silently.
+- **Statistical guide sections 8, 10 and 11 conditioned on the analysis actually performed.**
+  - Prediction interval: recommended for random-effects models with enough studies.
+  - Diagnostic accuracy: STARD items 23 and 24 are required; sensitivity and specificity recommended; predictive values only with a representative prevalence; AUC only for a continuous test analysed by ROC, not for every diagnostic study.
+  - Survival: hazard ratios for the planned comparisons; how proportional hazards was assessed and what was done if it failed; competing events.
+- **Funnel plots.** The 10-study rule is a rule of thumb for asymmetry tests; a plot may be drawn with fewer studies but only descriptively (`statistical-reporting.md`, `systematic-review.md`, `statistical-figures.md`, `glossary.md`).
+- **Evals described honestly.** `evals/README.md` says the cases are prepared, not yet run, and gives a reproducible procedure (setup record, paired runs, blind grading, summary).
+- **Starting a new manuscript.** The kit README now says to set `journal:` (or `generic-icmje`), delete `example: true` and remove the second-language files unless required, since the copied example targets J Vasc Bras.
+
 ## [1.12.0] — 2026-09-23
 
 Responds to an external review of 1.11.1: methodological guidance made precise and conditional.

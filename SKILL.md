@@ -4,7 +4,7 @@ description: Write, revise and translate medical manuscripts (RCTs, observationa
 license: CC-BY-4.0
 metadata:
   author: Alexandre Campos Moraes Amato
-  version: 1.12.0
+  version: 1.12.1
 ---
 # Medical Manuscript Writing
 

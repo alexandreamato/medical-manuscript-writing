@@ -25,6 +25,12 @@ cp -R ~/.claude/skills/medical-manuscript-writing/templates/build-kit ~/path/my-
 cd ~/path/my-article && git init
 ```
 
+Then, in `manuscript/metadata.yaml`, before writing anything:
+
+1. `journal:` the target profile, or `generic-icmje` while no journal is chosen. The copied example says `journal: jvb`, and `build.py` uses that field whenever `--journal` is not given.
+2. Delete `example: true` once the content is yours.
+3. Set `short-name`, `study-design`, `involves` and `lang`, and remove `lang-alt`, `title-alt`, `keywords-alt` and `manuscript/00b-abstract-alt.md` unless the journal requires two languages.
+
 The kit ships with a **fictional** cohort example, written for `jvb` (set in `metadata.yaml` as `journal: jvb`), where it validates without errors. For a new manuscript, set `journal:` to the real target, or to `generic-icmje` while no journal is chosen (also what `build.py` uses when `journal:` is missing). Against the other profiles, `build.py` refuses it until those gaps are fixed (or builds a draft with `--force`), and `validate.py --compare` lists what each journal would still need (JVS asks for a 250-word abstract and Article Highlights, Cureus for five keywords, JCM for an informed-consent statement, and so on): that list is the point of the comparison. Replace the example text, metadata and figure; keep the structure.
 
 Profiles included:

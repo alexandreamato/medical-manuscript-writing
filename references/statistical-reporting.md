@@ -83,34 +83,37 @@ Items 1 and 3 are REQUIRED in trials (CONSORT 2025 item 21c, how missing data we
 
 ## 8. Heterogeneity (Meta-Analysis)
 
-1. Report `I²`, `τ²`, and the prediction interval, not only the pooled estimate.
-2. Describe prespecified subgroup analyses to explore heterogeneity.
+For the meta-analysis actually performed:
+
+1. RECOMMENDED: report heterogeneity (`I²`, `τ²` for random-effects models), not only the pooled estimate. With a random-effects model and enough studies for it to be informative, a prediction interval shows the range of effects to expect in a new setting (Cochrane Handbook v6.5, 10.10.4.3); with very few studies it is imprecise, say so rather than omit the heterogeneity discussion.
+2. Describe the subgroup or meta-regression analyses that were prespecified to explore heterogeneity; label any others as exploratory.
 3. Distinguish clinical heterogeneity (population, intervention, outcome differences) from statistical heterogeneity.
 
 ## 9. Reporting Bias
 
 1. REQUIRED (PRISMA 2020 item 14): describe the methods used to assess risk of bias due to missing results. With any number of studies this includes registry searches, comparison of protocols and registry entries with publications, and a structured judgment such as ROB-ME (Page MJ, et al. BMJ. 2023;383:e076754. doi:10.1136/bmj-2023-076754).
-2. Funnel plot (visual) and asymmetry tests (Egger, Peters, Harbord): only when a meta-analysis has at least 10 studies (Cochrane Handbook version 6.5, section 13.3.4.4). With fewer studies, say why they were not done.
+2. Funnel-plot asymmetry tests (Egger, Peters, Harbord): as a rule of thumb, only when a meta-analysis has at least 10 studies; with fewer, the tests have too little power to tell chance from real asymmetry (Cochrane Handbook v6.5, 13.3.4.4). Drawing a funnel plot with fewer studies is not forbidden, but it cannot support a conclusion about small-study effects: if shown, say so; if not done, say why.
 3. Discuss small-study effects and selective outcome reporting in the discussion.
 
 ## 10. Diagnostic Accuracy
 
-For STARD-compliant reporting:
+STARD 2015 requires the cross-tabulation of index test against reference standard (item 23) and "estimates of diagnostic accuracy and their precision" (item 24). Which estimates depends on the test and the question; report those that fit the analysis actually performed:
 
-1. Sensitivity, specificity, with 95% CIs.
-2. Positive and negative predictive values, conditional on prevalence in the studied population.
-3. Positive and negative likelihood ratios.
-4. AUC with 95% CI.
-5. Cross-tabulation of index test against reference standard.
-6. Threshold rationale; if optimized post-hoc, clearly mark exploratory.
+1. REQUIRED (items 23, 24): the 2 × 2 table (or the distribution of results by reference standard) and the accuracy estimates chosen, each with its 95% CI.
+2. RECOMMENDED for a dichotomous test: sensitivity and specificity.
+3. CONDITIONAL: predictive values only when the study prevalence represents the intended setting (they depend on prevalence); otherwise explain why they are not given, or give them for a stated prevalence.
+4. OPTIONAL: likelihood ratios, diagnostic odds ratio.
+5. CONDITIONAL: AUC (with 95% CI) only for a continuous or ordinal test analysed with an ROC curve; it is not a requirement for every diagnostic study.
+6. REQUIRED (item 12a): the positivity threshold and its rationale, prespecified or exploratory; a threshold optimized on the same data is exploratory.
 
 ## 11. Survival Analysis
 
-1. Median follow-up via reverse Kaplan-Meier.
-2. Number at risk at each timepoint shown under the survival plot.
-3. Hazard ratio with 95% CI for each comparison.
-4. Test of proportional hazards.
-5. Censoring assumption stated.
+For the time-to-event analysis actually performed:
+
+1. RECOMMENDED: median follow-up, preferably by the reverse Kaplan-Meier method, and how censoring was handled.
+2. RECOMMENDED: numbers at risk at regular time points under each Kaplan-Meier plot.
+3. For Cox models: the hazard ratio with 95% CI for the comparisons the analysis plan specifies (not for every possible comparison), and how the proportional-hazards assumption was assessed; if it does not hold, report what was done (time-varying effect, restricted mean survival time), not a bare test result.
+4. When competing events exist (e.g. death before the outcome), say how they were handled (cumulative incidence, Fine-Gray) or why they were not.
 
 ## 12. Subgroup Analyses
 
